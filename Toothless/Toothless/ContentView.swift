@@ -7,18 +7,47 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct HomeView: View {
+    @State private var isActivated = false
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.medium)
-                .foregroundStyle(.tint)
-            Text("Hello, Giulio!")
+        ZStack{
+            if isActivated{
+                CustomColor.backgroundhome
+                    .ignoresSafeArea()
+            }
+            else{
+                CustomColor.background
+                    .ignoresSafeArea()
+            }
+        
+            Circle()
+                .foregroundColor(CustomColor.brightred)
+                .opacity(0.3)
+                .frame(width: isActivated ? 300 : 100)
+            Circle()
+                .foregroundColor(CustomColor.brightred)
+                .opacity(0.3)
+                .frame(width: isActivated ? 250: 100)
+            
+            Button{
+                withAnimation(.easeInOut(duration: 1)){
+                        isActivated.toggle()
+                    }
+                }
+        label:{
+                Image(systemName: "exclamationmark.triangle.fill")
+                    .resizable()
+                    .frame(width: 100, height: 100)
+                    .foregroundColor(.black)
+                    .padding(.all, 40)
+                    .background(isActivated ? CustomColor.brightred : .white)
+                    .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
+            }
         }
-        .padding()
+        
     }
 }
 
 #Preview {
-    ContentView()
+    HomeView()
 }

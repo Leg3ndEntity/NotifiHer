@@ -11,7 +11,7 @@ import SwiftUI
 struct ToothlessApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            OnBoardingView()
         }
     }
 }
