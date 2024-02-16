@@ -36,7 +36,7 @@ struct OnBoardingView: View {
                             .foregroundStyle(CustomColor.red)
                             .bold()
                     }
-                    VStack(spacing:20){
+                    VStack(spacing: 25){
                         InfoBoardingView(iconName: "map.fill", titleText: "Avoid dangerous situations", descriptionText: "A map will show all the safe sposts that you can reach.")
                         
                         InfoBoardingView(iconName: "bell.badge.fill", titleText: "Push-Notification system", descriptionText: "Automatic notifications will be sent in order to see whether you are in danger or not. ")
@@ -61,7 +61,6 @@ struct OnBoardingView: View {
                     .padding(.horizontal, 30)
                     
                 }
-                
             }
         }
     }

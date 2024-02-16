@@ -24,10 +24,6 @@ struct HomeView: View {
                 .foregroundColor(CustomColor.brightred)
                 .opacity(0.3)
                 .frame(width: isActivated ? 300 : 100)
-            Circle()
-                .foregroundColor(CustomColor.brightred)
-                .opacity(0.3)
-                .frame(width: isActivated ? 250: 100)
             
             Button{
                 withAnimation(.easeInOut(duration: 1)){
@@ -38,10 +34,10 @@ struct HomeView: View {
                 Image(systemName: "exclamationmark.triangle.fill")
                     .resizable()
                     .frame(width: 100, height: 100)
-                    .foregroundColor(.black)
+                    .foregroundColor(.red)
                     .padding(.all, 40)
-                    .background(isActivated ? CustomColor.brightred : .white)
-                    .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
+                    .background(isActivated ? .white : .white)
+                    .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/).shadow(radius: 5)
             }
         }
         
