@@ -47,7 +47,7 @@ struct OnBoardingView: View {
                     }
                     
                     VStack(alignment: .center, spacing: 20.0){
-                        NavigationLink(destination: HomeView()) {
+                        NavigationLink(destination: ContentView()) {
                             Text("Continue")
                                 .font(.title3)
                                 .bold()

@@ -1,49 +1,52 @@
-//
-//  ContentView.swift
-//  Toothless
-//
-//  Created by Simone Sarnataro on 16/02/24.
-//
-
 import SwiftUI
 
-struct HomeView: View {
+struct ContentView: View {
     @State private var isActivated = false
+    @State private var isChanged = false
+    
     var body: some View {
-        ZStack{
-            if isActivated{
-                CustomColor.backgroundhome
-                    .ignoresSafeArea()
-            }
-            else{
-                CustomColor.background
-                    .ignoresSafeArea()
-            }
-        
-            Circle()
-                .foregroundColor(CustomColor.brightred)
-                .opacity(0.3)
-                .frame(width: isActivated ? 300 : 100)
-            
-            Button{
-                withAnimation(.easeInOut(duration: 1)){
+        ZStack {
+            ZStack{
+                if isActivated{
+                    CustomColor.backgroundhome
+                        .ignoresSafeArea()
+                }
+                else{
+                    CustomColor.background
+                        .ignoresSafeArea()
+                }
+                
+                Circle()
+                    .foregroundColor(CustomColor.brightred)
+                    .opacity(0.3)
+                    .frame(width: isActivated ? 300 : 100)
+                Circle()
+                    .foregroundColor(Color.white)
+                    .opacity(0.3)
+                    .frame(width: isChanged ? 300: 0)
+                
+                Button{
+                    withAnimation(.easeInOut(duration: 0.9).repeatForever()){
+                        isChanged.toggle()
+                    }
+                    withAnimation(.easeInOut(duration: 1)){
                         isActivated.toggle()
                     }
                 }
-        label:{
+            label:{
                 Image(systemName: "exclamationmark.triangle.fill")
                     .resizable()
                     .frame(width: 100, height: 100)
                     .foregroundColor(.red)
                     .padding(.all, 40)
-                    .background(isActivated ? .white : .white)
-                    .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/).shadow(radius: 5)
+                    .background(.white)
+                    .clipShape(Circle())
+                    .shadow(radius: 5)
+            }
             }
         }
-        
     }
 }
-
 #Preview {
-    HomeView()
+    ContentView()
 }
