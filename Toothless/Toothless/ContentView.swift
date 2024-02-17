@@ -19,14 +19,14 @@ struct ContentView: View {
                 Circle()
                     .foregroundColor(CustomColor.brightred)
                     .opacity(0.3)
-                    .frame(width: isActivated ? 300 : 100)
+                    .frame(width: isActivated ? 300 : 0)
                 Circle()
                     .foregroundColor(Color.white)
                     .opacity(0.3)
                     .frame(width: isChanged ? 300: 0)
                 
                 Button{
-                    withAnimation(.easeInOut(duration: 0.9).repeatForever()){
+                    withAnimation(.easeInOut(duration: 1).repeatCount(isChanged ? 0: 10000000)){
                         isChanged.toggle()
                     }
                     withAnimation(.easeInOut(duration: 1)){
@@ -38,10 +38,10 @@ struct ContentView: View {
                     .resizable()
                     .frame(width: 100, height: 100)
                     .foregroundColor(.red)
-                    .padding(.all, 40)
+                    .padding(40)
                     .background(.white)
                     .clipShape(Circle())
-                    .shadow(radius: 5)
+                    .shadow(radius: 7)
             }
             }
         }
