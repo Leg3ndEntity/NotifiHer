@@ -1,4 +1,5 @@
 import SwiftUI
+import MapKit
 
 struct ContentView: View {
     @State private var isActivated = false
@@ -16,6 +17,7 @@ struct ContentView: View {
                         .ignoresSafeArea()
                 }
                 
+                
                 Circle()
                     .foregroundColor(CustomColor.brightred)
                     .opacity(0.3)
@@ -32,7 +34,9 @@ struct ContentView: View {
                     withAnimation(.easeInOut(duration: 1)){
                         isActivated.toggle()
                     }
+                    
                 }
+                
             label:{
                 Image(systemName: "exclamationmark.triangle.fill")
                     .resizable()
@@ -44,6 +48,11 @@ struct ContentView: View {
                     .shadow(radius: 7)
             }
             }
+            .bottomSheet(presentationDetents: [.medium, .large, .height(70)], isPresented: .constant(true), sheetCornerRadius: 20) {
+                ScrollView(.vertical, showsIndicators: false) {
+                    Text("Yuri & Simone my fathers").padding(.top, 40)
+                }
+            } onDismiss: {}
         }
     }
 }
