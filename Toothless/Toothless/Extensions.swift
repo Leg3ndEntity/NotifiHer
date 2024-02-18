@@ -26,6 +26,7 @@ extension View {
             } content: {
                 content()
                     .presentationDetents(presentationDetents)
+                    .presentationBackgroundInteraction(.enabled)
                     .presentationDragIndicator(dragIndicator)
                     .interactiveDismissDisabled(interactiveDisabled)
                     .onAppear {
