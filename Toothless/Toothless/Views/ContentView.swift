@@ -48,11 +48,11 @@ struct ContentView: View {
                     .shadow(radius: 7)
             }
             }
-            .bottomSheet(presentationDetents: [.medium, .large, .height(70)], isPresented: .constant(true), sheetCornerRadius: 20) {
-                ScrollView(.vertical, showsIndicators: false) {
-                    ModalView()
-                }
-            } onDismiss: {}
+//            .bottomSheet(presentationDetents: [.medium, .large, .height(70)], isPresented: .constant(true), sheetCornerRadius: 20) {
+//                ScrollView(.vertical, showsIndicators: false) {
+//                    ModalView()
+//                }
+//            } onDismiss: {}
         }
     }
 }

@@ -159,20 +159,12 @@ struct CompleteTimer: View {
                 }
             }//fine zstack
             .ignoresSafeArea()
-            .alert(isPresented: $showAlert) {
-                Alert(
-                    title: Text("Are you ok?"),
-                    message: Text("If you don’t dismiss this notification, a default message will be sent to your emergency contact"),
-                    dismissButton: .default(
-                        Text("DISMISS"),
-                        action: {
-                            timerRestart()
-                            self.dismissTimer?.invalidate()
-                        }
-                    )
-                )
-            }//fine alert
         }//fine zstack
+        .bottomSheet(presentationDetents: [.medium, .large, .height(70)], isPresented: .constant(true), sheetCornerRadius: 20) {
+            ScrollView(.vertical, showsIndicators: false) {
+                ModalView(showAlert: $showAlert, start: $start, count: $count, to: $to)
+            }
+        } onDismiss: {}
         .onAppear(perform: {
             UNUserNotificationCenter.current().requestAuthorization(options: [.badge,.sound,.alert]) { (_, _) in
             }
@@ -188,11 +180,13 @@ struct CompleteTimer: View {
                     self.showAlert = true
                     self.Notify()
                     self.dismissTimer = Timer.scheduledTimer(withTimeInterval: 5, repeats: false) { _ in
-                        print("Popup alert ignored for 10 seconds")
-                        self.showAlert = false
-                        restart()
-                        isActivated.toggle()
-                        showMark = true
+                        if showAlert{
+                            print("Popup alert ignored for 10 seconds")
+                            self.showAlert = false
+                            restart()
+                            isActivated.toggle()
+                            showMark = true
+                        }
                     }
                 }
             }
