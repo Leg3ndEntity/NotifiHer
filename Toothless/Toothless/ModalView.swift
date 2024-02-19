@@ -36,11 +36,7 @@ struct ModalView: View {
                 }
                 .padding(.vertical, 20)
                 
-                Map(/*coordinateRegion: $viewModel.region, showsUserLocation: true*/){
-                    Marker("Avoid Yuri", coordinate: Yuri)
-                    
-                    
-                }
+                Map(coordinateRegion: $viewModel.region, showsUserLocation: true)
                     .onAppear{viewModel.checkIfLocationEnabled()}
                     .frame(width: 363, height: 510)
                     .cornerRadius(5)
