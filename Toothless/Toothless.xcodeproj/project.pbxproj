@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		176B44232B7F97CD0029879D /* InfoBoardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176B44222B7F97CD0029879D /* InfoBoardingView.swift */; };
 		176B44252B7F97F30029879D /* OnBoardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176B44242B7F97F30029879D /* OnBoardingView.swift */; };
+		176B44332B834C5C0029879D /* ModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176B44322B834C5C0029879D /* ModalView.swift */; };
+		176B44352B834C920029879D /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176B44342B834C920029879D /* MapViewModel.swift */; };
+		176B44372B834CBF0029879D /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176B44362B834CBF0029879D /* UserProfileView.swift */; };
+		176B44392B834CE40029879D /* ButtonHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176B44382B834CE40029879D /* ButtonHomeView.swift */; };
 		99D05C812B81640F00E96315 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D05C802B81640F00E96315 /* Extensions.swift */; };
 		E09286152B7F591F00BD1788 /* ToothlessApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09286142B7F591F00BD1788 /* ToothlessApp.swift */; };
 		E09286172B7F591F00BD1788 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09286162B7F591F00BD1788 /* ContentView.swift */; };
@@ -19,6 +23,10 @@
 /* Begin PBXFileReference section */
 		176B44222B7F97CD0029879D /* InfoBoardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoBoardingView.swift; sourceTree = "<group>"; };
 		176B44242B7F97F30029879D /* OnBoardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingView.swift; sourceTree = "<group>"; };
+		176B44322B834C5C0029879D /* ModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalView.swift; sourceTree = "<group>"; };
+		176B44342B834C920029879D /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
+		176B44362B834CBF0029879D /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
+		176B44382B834CE40029879D /* ButtonHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonHomeView.swift; sourceTree = "<group>"; };
 		99D05C802B81640F00E96315 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		E09286112B7F591F00BD1788 /* Toothless.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Toothless.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E09286142B7F591F00BD1788 /* ToothlessApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToothlessApp.swift; sourceTree = "<group>"; };
@@ -50,6 +58,7 @@
 		E09286082B7F591F00BD1788 = {
 			isa = PBXGroup;
 			children = (
+				176B44362B834CBF0029879D /* UserProfileView.swift */,
 				E09286132B7F591F00BD1788 /* Toothless */,
 				E09286122B7F591F00BD1788 /* Products */,
 			);
@@ -72,6 +81,9 @@
 				99D05C802B81640F00E96315 /* Extensions.swift */,
 				E09286182B7F592000BD1788 /* Assets.xcassets */,
 				E092861A2B7F592000BD1788 /* Preview Content */,
+				176B44322B834C5C0029879D /* ModalView.swift */,
+				176B44342B834C920029879D /* MapViewModel.swift */,
+				176B44382B834CE40029879D /* ButtonHomeView.swift */,
 			);
 			path = Toothless;
 			sourceTree = "<group>";
@@ -154,11 +166,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				176B44332B834C5C0029879D /* ModalView.swift in Sources */,
 				99D05C812B81640F00E96315 /* Extensions.swift in Sources */,
 				E09286172B7F591F00BD1788 /* ContentView.swift in Sources */,
+				176B44372B834CBF0029879D /* UserProfileView.swift in Sources */,
 				176B44252B7F97F30029879D /* OnBoardingView.swift in Sources */,
+				176B44352B834C920029879D /* MapViewModel.swift in Sources */,
 				E09286152B7F591F00BD1788 /* ToothlessApp.swift in Sources */,
 				176B44232B7F97CD0029879D /* InfoBoardingView.swift in Sources */,
+				176B44392B834CE40029879D /* ButtonHomeView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -292,7 +308,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Toothless/Preview Content\"";
-				DEVELOPMENT_TEAM = 3X88455T75;
+				DEVELOPMENT_TEAM = 25V24PM769;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -321,7 +337,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Toothless/Preview Content\"";
-				DEVELOPMENT_TEAM = 3X88455T75;
+				DEVELOPMENT_TEAM = 25V24PM769;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

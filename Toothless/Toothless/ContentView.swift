@@ -50,7 +50,7 @@ struct ContentView: View {
             }
             .bottomSheet(presentationDetents: [.medium, .large, .height(70)], isPresented: .constant(true), sheetCornerRadius: 20) {
                 ScrollView(.vertical, showsIndicators: false) {
-                    Text("Yuri & Simone my fathers").padding(.top, 40)
+                    ModalView()
                 }
             } onDismiss: {}
         }
