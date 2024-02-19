@@ -33,6 +33,7 @@
 		176B44382B834CE40029879D /* ButtonHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonHomeView.swift; sourceTree = "<group>"; };
 		176B443A2B83531B0029879D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		99D05C802B81640F00E96315 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		BEAECC6B2B8371AD003C3A6A /* Toothless.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Toothless.entitlements; sourceTree = "<group>"; };
 		E04D1F1C2B835C8000C8EFDD /* Toothless.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toothless.swift; sourceTree = "<group>"; };
 		E04D1F1E2B835D1B00C8EFDD /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
 		E04D1F202B835D5600C8EFDD /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -115,6 +116,7 @@
 		E09286132B7F591F00BD1788 /* Toothless */ = {
 			isa = PBXGroup;
 			children = (
+				BEAECC6B2B8371AD003C3A6A /* Toothless.entitlements */,
 				E09286142B7F591F00BD1788 /* ToothlessApp.swift */,
 				E04D1F1C2B835C8000C8EFDD /* Toothless.swift */,
 				E04D1F1B2B835C4A00C8EFDD /* Views */,
@@ -347,10 +349,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Toothless/Toothless.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Toothless/Preview Content\"";
-				DEVELOPMENT_TEAM = 3X88455T75;
+				DEVELOPMENT_TEAM = AWX4HJ7JT5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Toothless/Info.plist;
@@ -365,7 +368,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.simonesarnataro.Toothless;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yurigianoli.Toothless;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -378,10 +381,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Toothless/Toothless.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Toothless/Preview Content\"";
-				DEVELOPMENT_TEAM = 3X88455T75;
+				DEVELOPMENT_TEAM = AWX4HJ7JT5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Toothless/Info.plist;
@@ -396,7 +400,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.simonesarnataro.Toothless;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yurigianoli.Toothless;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
