@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		176B44232B7F97CD0029879D /* InfoBoardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176B44222B7F97CD0029879D /* InfoBoardingView.swift */; };
+		176B44252B7F97F30029879D /* OnBoardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176B44242B7F97F30029879D /* OnBoardingView.swift */; };
+		99D05C812B81640F00E96315 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D05C802B81640F00E96315 /* Extensions.swift */; };
 		E09286152B7F591F00BD1788 /* ToothlessApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09286142B7F591F00BD1788 /* ToothlessApp.swift */; };
 		E09286172B7F591F00BD1788 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09286162B7F591F00BD1788 /* ContentView.swift */; };
 		E09286192B7F592000BD1788 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E09286182B7F592000BD1788 /* Assets.xcassets */; };
@@ -14,6 +17,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		176B44222B7F97CD0029879D /* InfoBoardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoBoardingView.swift; sourceTree = "<group>"; };
+		176B44242B7F97F30029879D /* OnBoardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingView.swift; sourceTree = "<group>"; };
+		99D05C802B81640F00E96315 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		E09286112B7F591F00BD1788 /* Toothless.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Toothless.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E09286142B7F591F00BD1788 /* ToothlessApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToothlessApp.swift; sourceTree = "<group>"; };
 		E09286162B7F591F00BD1788 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -32,6 +38,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		176B44262B7F981F0029879D /* OnBoarding */ = {
+			isa = PBXGroup;
+			children = (
+				176B44242B7F97F30029879D /* OnBoardingView.swift */,
+				176B44222B7F97CD0029879D /* InfoBoardingView.swift */,
+			);
+			path = OnBoarding;
+			sourceTree = "<group>";
+		};
 		E09286082B7F591F00BD1788 = {
 			isa = PBXGroup;
 			children = (
@@ -51,8 +66,10 @@
 		E09286132B7F591F00BD1788 /* Toothless */ = {
 			isa = PBXGroup;
 			children = (
+				176B44262B7F981F0029879D /* OnBoarding */,
 				E09286142B7F591F00BD1788 /* ToothlessApp.swift */,
 				E09286162B7F591F00BD1788 /* ContentView.swift */,
+				99D05C802B81640F00E96315 /* Extensions.swift */,
 				E09286182B7F592000BD1788 /* Assets.xcassets */,
 				E092861A2B7F592000BD1788 /* Preview Content */,
 			);
@@ -137,8 +154,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				99D05C812B81640F00E96315 /* Extensions.swift in Sources */,
 				E09286172B7F591F00BD1788 /* ContentView.swift in Sources */,
+				176B44252B7F97F30029879D /* OnBoardingView.swift in Sources */,
 				E09286152B7F591F00BD1788 /* ToothlessApp.swift in Sources */,
+				176B44232B7F97CD0029879D /* InfoBoardingView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
