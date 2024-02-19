@@ -6,7 +6,6 @@
 //
 
 
-import Foundation
 import SwiftUI
 
 struct CustomColor {
@@ -22,17 +21,98 @@ struct OnBoardingView: View {
     @State var isShowingMain: Bool = false
     var body: some View {
         
-        VStack(alignment: .center, spacing: 110){
+        VStack(alignment: .center, spacing: 60){
             VStack(spacing: 75.0) {
                 Text("Welcome to \n nome app!")
                     .font(.title)
                     .fontWeight(.bold)
                 
-                VStack(spacing: 15.0) {
-                    InfoElement(iconName: "map.fill", titleText: "Avoid dangerous situation", descriptionText: "A map will show all the safe spots that you can reach")
-                    InfoElement(iconName: "bell.badge.fill", titleText: "Push-Notification system", descriptionText: "Automatic notifications will be sent in order to see whether you are in danger or not. ")
-                    InfoElement(iconName: "phone.arrow.down.left.fill", titleText: "Fake calls", descriptionText: "Simulate calls with a friend or a relative to avoid unsafe situations.")
-                    InfoElement(iconName: "exclamationmark.bubble.fill", titleText: "Real time reports", descriptionText: "See on the map all the dangerous zone to avoid reported by other users.")
+                VStack(alignment: .leading) {
+                    HStack(spacing: 17.0) {
+                        Image(systemName: "map.fill").accessibilityHidden(true)
+                            .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+                            .bold()
+                            .foregroundStyle(.red)
+                            .frame(width: 30)
+                        
+                        VStack(alignment: .leading) {
+                            Text("Avoid dangerous situations")
+                                .fontWeight(.bold)
+                            
+                            Text("A map will show all the safe spots that you can reach.")
+                                .fontWeight(.light)
+                        }
+                    }.padding(.horizontal)
+                        .padding(.bottom, 25)
+                    
+                    VStack(alignment: .leading) {
+                        HStack(spacing: 17.0) {
+                            Image(systemName: "bell.badge.fill").accessibilityHidden(true)
+                                .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+                                .bold()
+                                .foregroundStyle(.red)
+                                .frame(width: 30)
+                            
+                            
+                            VStack(alignment: .leading) {
+                                Text("Push-Notification System")
+                                    .fontWeight(.bold)
+                                
+                                Text("Automatic notifications will be sent in order to see whether you are in danger or not.")
+                                    .fontWeight(.light)
+                            }
+                        }.padding(.horizontal)
+                            .padding(.bottom, 25)
+                    }
+                    
+                    HStack(spacing: 15.0) {
+                        VStack {
+                            Image(systemName: "phone.arrow.down.left.fill").accessibilityHidden(true)
+                                .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+                                .bold()
+                                .foregroundStyle(.red)
+                                .frame(width: 29)
+                            
+                            
+                        }
+                        
+                        VStack(alignment: .leading) {
+                            Text("Fake calls")
+                                .fontWeight(.bold)
+                            
+                            
+                            Text("Simulate calls with a friend or a relative to avoid unsafe situations.")
+                                .fontWeight(.light)
+                            
+                        }
+                        
+                    }
+                    .padding(.horizontal, 18.0)
+                    .padding(.bottom, 25)
+                    
+                    HStack(spacing: 15.0) {
+                        VStack {
+                            Image(systemName: "exclamationmark.bubble.fill").accessibilityHidden(true)
+                                .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+                                .bold()
+                                .foregroundStyle(.red)
+                                .frame(width: 29)
+                            
+                            
+                        }
+                        
+                        VStack(alignment: .leading) {
+                            Text("Real Time Reports")
+                                .fontWeight(.bold)
+                            
+                            
+                            Text("Only a summary of each topic is shared, not the details. The information is encrypted and you can stop sharing at any time.")
+                                .fontWeight(.light)
+                            
+                        }
+                        
+                    }.padding(.horizontal, 18.0)
+                        .padding(.bottom)
                 }
             }
             
