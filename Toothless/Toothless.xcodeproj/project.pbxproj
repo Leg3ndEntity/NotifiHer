@@ -59,7 +59,6 @@
 			isa = PBXGroup;
 			children = (
 				176B44242B7F97F30029879D /* OnBoardingView.swift */,
-				176B44222B7F97CD0029879D /* InfoBoardingView.swift */,
 			);
 			path = OnBoarding;
 			sourceTree = "<group>";
@@ -78,6 +77,8 @@
 		E04D1F1A2B835C4200C8EFDD /* Componentes */ = {
 			isa = PBXGroup;
 			children = (
+				176B44222B7F97CD0029879D /* InfoBoardingView.swift */,
+				176B44382B834CE40029879D /* ButtonHomeView.swift */,
 			);
 			path = Componentes;
 			sourceTree = "<group>";
@@ -90,7 +91,6 @@
 				176B44362B834CBF0029879D /* UserProfileView.swift */,
 				E09286162B7F591F00BD1788 /* ContentView.swift */,
 				176B44322B834C5C0029879D /* ModalView.swift */,
-				176B44382B834CE40029879D /* ButtonHomeView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
