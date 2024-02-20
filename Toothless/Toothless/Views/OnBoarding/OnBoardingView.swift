@@ -24,7 +24,7 @@ struct OnBoardingView: View {
         VStack(alignment: .center, spacing: 60){
             VStack(spacing: 75.0) {
                 Text("Welcome to \n nome app!")
-                    .font(.title)
+                    .font(.largeTitle)
                     .fontWeight(.bold)
                 
                 VStack(alignment: .leading) {
@@ -106,7 +106,7 @@ struct OnBoardingView: View {
                                 .fontWeight(.bold)
                             
                             
-                            Text("Only a summary of each topic is shared, not the details. The information is encrypted and you can stop sharing at any time.")
+                            Text("See on the map all the dangerous zone to avoid reported by other users.")
                                 .fontWeight(.light)
                             
                         }
@@ -129,7 +129,7 @@ struct OnBoardingView: View {
                 isShowingMain.toggle()
                 print("ciao")
             }
-        } //fine Vstack
+        }.frame(width: 350)
         .fullScreenCover(isPresented: $isShowingMain, content: {
             CompleteTimer()
         })
