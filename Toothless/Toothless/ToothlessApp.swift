@@ -9,14 +9,12 @@ import SwiftUI
 
 @main
 struct Toothless_provaApp: App {
-    @StateObject var healthKitManager = HealthKitManager()
     @StateObject var viewModel = MapViewModel()
     
     var body: some Scene {
         
         WindowGroup {
             Toothless()
-                .environmentObject(healthKitManager)
                 .onAppear{viewModel.checkIfLocationEnabled()
                 }
                 .onAppear {

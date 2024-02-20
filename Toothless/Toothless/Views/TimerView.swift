@@ -7,17 +7,20 @@
 
 import SwiftUI
 import UserNotifications
+import MessageUI
 
 struct CompleteTimer: View {
     @State var isActivated: Bool = false
+    @State var isPressed: Bool = false
     @State var showCircle: Bool = false
     @State var showMark: Bool = true
     @State var prova: Bool = false
     
+    @State var pollo = false
     @State var start = false
     @State var to : CGFloat = 0
     @State var showAlert = false
-    @State var count = 10
+    @State var count = 300
     @State var time = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     @State private var dismissTimer: Timer?
     
@@ -34,11 +37,17 @@ struct CompleteTimer: View {
         return .degrees(Double(progress) * 360 - 90)
     }
     
-    func changestate() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-            withAnimation {
-                showCircle = false
-            }
+    func sendMessage() {
+        if MFMessageComposeViewController.canSendText() {
+            let composeVC = MFMessageComposeViewController()
+            composeVC.recipients = ["3458472293"]
+            composeVC.body = "Questo è un messaggio di emergenza."
+            
+            composeVC.messageComposeDelegate = nil
+            
+            UIApplication.shared.windows.first?.rootViewController?.present(composeVC, animated: false, completion: nil)
+        } else {
+            print("Il dispositivo non può inviare messaggi.")
         }
     }
     
@@ -54,15 +63,17 @@ struct CompleteTimer: View {
     
     func restart(){
         start = false
-        self.count = 10
+        self.count = 300
         self.to = 0
         print("restart")
+        pollo=false
     }
     
     func timerStart(){
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.2) {
+            isPressed = false
             if self.count == 0 {
-                self.count = 10 // Riporta il timer a 5 minuti
+                self.count = 300 // Riporta il timer a 5 minuti
                 withAnimation(.default){
                     self.to = 0
                 }
@@ -74,7 +85,7 @@ struct CompleteTimer: View {
     
     func timerRestart(){
         if self.count == 0 {
-            self.count = 10 // Riporta il timer a 5 minuti
+            self.count = 300 // Riporta il timer a 5 minuti
             withAnimation(.default){
                 self.to = 0
             }
@@ -98,14 +109,12 @@ struct CompleteTimer: View {
                     }
                     
                     ZStack {
-                        Circle()
-                            .foregroundColor(.white)
-                            .opacity(0.3)
-                            .frame(width: showCircle ? 290 : 100)
-                        Circle()
-                            .foregroundColor(.white)
-                            .opacity(0.3)
-                            .frame(width: showCircle ? 240: 100)
+                        
+                        if isPressed {
+                            RingView(percentage: 1, backgroundColor: Color.background.opacity(0), startColor: .white, endColor: .white, thickness: 36.6)
+                                .scaleEffect(0.67)
+                        }
+                        
                         Circle()
                             .foregroundColor(.white)
                             .frame(width: 170, height: 170)
@@ -117,45 +126,53 @@ struct CompleteTimer: View {
                             .opacity(showMark ? 1 : 0)
                     }//fine zstack
                     .onTapGesture {
+                        sendMessage()
                         if isActivated{
                             withAnimation{
                                 showCircle = false
                                 showMark = true
+                                isActivated.toggle()
                             }
                             restart()
                         }
+                    }
+                    .onLongPressGesture(minimumDuration: 0.5){
+                        if isActivated{
+                            print("yuri")
+                        }
                         else{
                             withAnimation {
+                                isPressed = true
                                 showCircle = true
                                 showMark = false
                                 timerStart()
+                                isActivated.toggle()
                             }
                         }
-                        withAnimation {
-                            isActivated.toggle()
-                            changestate()
-                        }
-                        
-                    }//fine gesture
-                    
+                    }
                 }
                 Circle()
                     .trim(from: 0, to: self.to)
-                    .stroke(Color.white.opacity(start ? 0.3 : 0), style: StrokeStyle(lineWidth: 25, lineCap: .round))
+                    .stroke(Color.white.opacity(start ? 1 : 0), style: StrokeStyle(lineWidth: 25, lineCap: .round))
                     .frame(width: 214.5, height: 214.5)
                     .rotationEffect(rotationAngle)
                     .onReceive(self.time) { _ in
                         self.to = CGFloat(self.count) / 300
                     }
-                VStack{
-                    Text("\(formattedTime)")
-                        .foregroundStyle(Color("Timer"))
-                        .font(.system(size: 65))
-                        .fontWeight(.bold)
-                        .opacity(withAnimation{
-                            start ? 1 : 0
-                        })
-                }
+                Text("\(formattedTime)")
+                    .foregroundStyle(Color("Timer"))
+                    .font(.system(size: 65))
+                    .fontWeight(.bold)
+                    .opacity(withAnimation{
+                        start ? 1 : 0
+                    })
+//                Text("\(formattedTime)")
+//                    .foregroundStyle(Color("Timer"))
+//                    .font(.system(size: 65))
+//                    .fontWeight(.bold)
+//                    .opacity(withAnimation{
+//                        isPressed ? 1 : 0
+//                    })
             }//fine zstack
             .ignoresSafeArea()
         }//fine zstack
@@ -164,32 +181,32 @@ struct CompleteTimer: View {
                 ModalView(showAlert: $showAlert, start: $start, count: $count, to: $to)
             }
         } onDismiss: {}
-        .onAppear(perform: {
-            UNUserNotificationCenter.current().requestAuthorization(options: [.badge,.sound,.alert]) { (_, _) in
-            }
-        })
-        .onReceive(self.time) { (_) in
-            if self.start{
-                if self.count > 0 {
-                    self.count -= 1
-                    print("\(count)")
+            .onAppear(perform: {
+                UNUserNotificationCenter.current().requestAuthorization(options: [.badge,.sound,.alert]) { (_, _) in
                 }
-                else{
-                    self.start.toggle()
-                    self.showAlert = true
-                    self.Notify()
-                    self.dismissTimer = Timer.scheduledTimer(withTimeInterval: 5, repeats: false) { _ in
-                        if showAlert{
-                            print("Popup alert ignored for 10 seconds")
-                            self.showAlert = false
-                            restart()
-                            isActivated.toggle()
-                            showMark = true
+            })
+            .onReceive(self.time) { (_) in
+                if self.start{
+                    if self.count > 0 {
+                        self.count -= 1
+                        print("\(count)")
+                    }
+                    else{
+                        self.start.toggle()
+                        self.showAlert = true
+                        self.Notify()
+                        self.dismissTimer = Timer.scheduledTimer(withTimeInterval: 5, repeats: false) { _ in
+                            if showAlert{
+                                print("Popup alert ignored for 10 seconds")
+                                self.showAlert = false
+                                restart()
+                                isActivated.toggle()
+                                showMark = true
+                            }
                         }
                     }
                 }
-            }
-        }//fine onReceive
+            }//fine onReceive
         
     }
 }

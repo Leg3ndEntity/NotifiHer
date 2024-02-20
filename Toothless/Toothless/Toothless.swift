@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct Toothless: View {
-    @StateObject var healthKitManager = HealthKitManager()
     @AppStorage("isWelcomeScreenOver") var isWelcomeScreenOver = false
     @State var checkWelcomeScreen: Bool = false
     
