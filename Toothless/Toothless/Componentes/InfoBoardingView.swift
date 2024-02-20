@@ -26,7 +26,7 @@ struct InfoElement: View {
                 Text(descriptionText)
                     .fontWeight(.light)
             }
-        }.frame(width: 315)
+        }.frame(width: 305)
         
     }
 }

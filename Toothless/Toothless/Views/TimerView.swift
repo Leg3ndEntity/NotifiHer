@@ -60,7 +60,7 @@ struct CompleteTimer: View {
     }
     
     func timerStart(){
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
             if self.count == 0 {
                 self.count = 10 // Riporta il timer a 5 minuti
                 withAnimation(.default){
@@ -89,9 +89,7 @@ struct CompleteTimer: View {
                 //bottone
                 ZStack {
                     if !isActivated{
-                        withAnimation {
-                            Color(hue: 1.0, saturation: 0.0, brightness: 0.884)
-                        }
+                        CustomColor.background
                     }
                     if isActivated{
                         withAnimation {
@@ -110,12 +108,12 @@ struct CompleteTimer: View {
                             .frame(width: showCircle ? 240: 100)
                         Circle()
                             .foregroundColor(.white)
-                            .frame(width: 190, height: 190)
-                            //.shadow(radius: 5)
+                            .frame(width: 170, height: 170)
+                            .shadow(radius: 7)
                         Image(systemName: "exclamationmark.triangle.fill")
                             .resizable()
                             .frame(width: 75, height: 70)
-                            .foregroundColor(.red)
+                            .foregroundColor(Color("Triangle"))
                             .opacity(showMark ? 1 : 0)
                     }//fine zstack
                     .onTapGesture {
@@ -151,6 +149,7 @@ struct CompleteTimer: View {
                     }
                 VStack{
                     Text("\(formattedTime)")
+                        .foregroundStyle(Color("Timer"))
                         .font(.system(size: 65))
                         .fontWeight(.bold)
                         .opacity(withAnimation{
