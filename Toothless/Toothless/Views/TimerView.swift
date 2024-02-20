@@ -111,8 +111,8 @@ struct CompleteTimer: View {
                     ZStack {
                         
                         if isPressed {
-                            RingView(percentage: 1, backgroundColor: Color.background.opacity(0), startColor: .white, endColor: .white, thickness: 36.6)
-                                .scaleEffect(0.67)
+                            RingView(percentage: 1, backgroundColor: Color.background.opacity(0), startColor: .white, endColor: .white, thickness: 37)
+                                .scaleEffect(0.671)
                         }
                         
                         Circle()
@@ -151,28 +151,21 @@ struct CompleteTimer: View {
                         }
                     }
                 }
-                Circle()
-                    .trim(from: 0, to: self.to)
-                    .stroke(Color.white.opacity(start ? 1 : 0), style: StrokeStyle(lineWidth: 25, lineCap: .round))
-                    .frame(width: 214.5, height: 214.5)
-                    .rotationEffect(rotationAngle)
-                    .onReceive(self.time) { _ in
-                        self.to = CGFloat(self.count) / 300
-                    }
-                Text("\(formattedTime)")
-                    .foregroundStyle(Color("Timer"))
-                    .font(.system(size: 65))
-                    .fontWeight(.bold)
-                    .opacity(withAnimation{
-                        start ? 1 : 0
-                    })
-//                Text("\(formattedTime)")
-//                    .foregroundStyle(Color("Timer"))
-//                    .font(.system(size: 65))
-//                    .fontWeight(.bold)
-//                    .opacity(withAnimation{
-//                        isPressed ? 1 : 0
-//                    })
+                    Circle()
+                        .trim(from: 0, to: self.to)
+                        .stroke(Color.white.opacity(start ? 1 : 0), style: StrokeStyle(lineWidth: 25, lineCap: .round))
+                        .frame(width: 214.5, height: 214.5)
+                        .rotationEffect(rotationAngle)
+                        .onReceive(self.time) { _ in
+                            self.to = CGFloat(self.count) / 300
+                        }
+                    Text("\(formattedTime)")
+                        .foregroundStyle(Color("Timer"))
+                        .font(.system(size: 65))
+                        .fontWeight(.bold)
+                        .opacity(withAnimation{
+                            start ? 1 : 0
+                        })
             }//fine zstack
             .ignoresSafeArea()
         }//fine zstack
