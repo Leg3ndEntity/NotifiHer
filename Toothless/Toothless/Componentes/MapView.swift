@@ -38,15 +38,17 @@ struct MapView: View {
         .overlay(
                 ZStack{
                     Rectangle()
-                        .frame(width:400, height: 125)
+                        .frame(width:380, height: 180)
                         .opacity(0.7)
                         .cornerRadius(20)
                         .foregroundColor(CustomColor.background)
-                    VStack(alignment: .leading){
+                    VStack(alignment: .center){
                         Text("\(selectedResults?.name ?? "")")
-                            .font(.title)
+                            .font(selectedResults?.name?.count ?? 0 > 55 ? .title3 : (selectedResults?.name?.count ?? 0 > 20 ? .title2 : .title))
                             .bold()
                             .foregroundStyle(CustomColor.text)
+                            .multilineTextAlignment(.center)
+                            .lineLimit(3)
                         HStack{
                             Text(StringInterestPoint(category: selectedResults?.pointOfInterestCategory ?? .park))
                         }
@@ -54,7 +56,7 @@ struct MapView: View {
                             .bold()
                     }
                     .padding(.bottom, 30)
-                    .padding(.leading,-20)
+                    .padding(.leading,4)
                 }.padding(.bottom, -35)
                 , alignment: .bottom)
     }
