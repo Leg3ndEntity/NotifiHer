@@ -70,7 +70,7 @@ struct CompleteTimer: View {
     }
     
     func timerStart(){
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2.2) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             isPressed = false
             if self.count == 0 {
                 self.count = 300 // Riporta il timer a 5 minuti
@@ -129,28 +129,27 @@ struct CompleteTimer: View {
                         sendMessage()
                         if isActivated{
                             withAnimation{
-                                showCircle = false
                                 showMark = true
                                 isActivated.toggle()
                             }
                             restart()
                         }
                     }
-                    .onLongPressGesture(minimumDuration: 0.5){
+                    .onLongPressGesture(minimumDuration: 0.1){
                         if isActivated{
                             print("yuri")
                         }
                         else{
                             withAnimation {
                                 isPressed = true
-                                showCircle = true
                                 showMark = false
-                                timerStart()
                                 isActivated.toggle()
+                                timerStart()
                             }
                         }
                     }
                 }
+                
                     Circle()
                         .trim(from: 0, to: self.to)
                         .stroke(Color.white.opacity(start ? 1 : 0), style: StrokeStyle(lineWidth: 25, lineCap: .round))
