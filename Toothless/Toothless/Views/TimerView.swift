@@ -15,6 +15,7 @@ struct CompleteTimer: View {
     @State var showMark: Bool = true
     @State var prova: Bool = false
     
+    @State var textSwap = true
     @State var start = false
     @State var to : CGFloat = 0
     @State var showAlert = false
@@ -50,6 +51,26 @@ struct CompleteTimer: View {
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
         let req = UNNotificationRequest(identifier: "MSG", content: content, trigger: trigger)
         UNUserNotificationCenter.current().add(req, withCompletionHandler: nil)
+    }
+    
+    func showText() {
+        
+        if textSwap{
+            DispatchQueue.main.asyncAfter(deadline: .now() + 6) {
+                withAnimation(.easeInOut(duration: 0.8)) {
+                    textSwap.toggle()
+                    showText()
+                }
+                
+            }
+        } else {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                withAnimation(.easeInOut(duration: 0.8)) {
+                    textSwap.toggle()
+                    showText()
+                }
+            }
+        }
     }
     
     func timerStart(){
@@ -93,48 +114,65 @@ struct CompleteTimer: View {
                         }
                     }
                     
-                    ZStack {
-                        
-                        if isPressed {
-                            RingView(percentage: 1, backgroundColor: Color.background.opacity(0), startColor: .white, endColor: .white, thickness: 37)
-                                .scaleEffect(0.671)
-                        }
-                        
-                        Circle()
-                            .foregroundColor(.white)
-                            .frame(width: 170, height: 170)
-                            .shadow(radius: 7)
-                        Image(systemName: "exclamationmark.triangle.fill")
-                            .resizable()
-                            .frame(width: 75, height: 70)
-                            .foregroundColor(Color("Triangle"))
-                            .opacity(showMark ? 1 : 0)
-                    }//fine zstack
-                    .onTapGesture {
-                        print("notifica")
-                        if isActivated{
-                            withAnimation{
-                                showMark = true
-                                isPressed = false
-                                start = false
-                                isActivated.toggle()
-                            }
-                            restart()
-                        }
-                    }
-                    .onLongPressGesture(minimumDuration: 0.1){
-                        if isActivated{
-                            print("yuri")
-                        }
-                        else{
-                            withAnimation {
-                                isPressed = true
-                                showMark = false
-                                timerStart()
-                                isActivated.toggle()
+                    VStack {
+                        withAnimation(.smooth){
+                            if textSwap{
+                                Text("Tap to send nudes to yuri")
+                                    .font(.title2)
+                                    .fontWeight(.bold)
+                                    .transition(.opacity)
+                            }else{
+                                Text("Long press to start the timer")
+                                    .font(.title2)
+                                    .fontWeight(.bold)
+                                    .transition(.opacity)
                             }
                         }
+                        Spacer()
+                        ZStack {
+                            if isPressed {
+                                RingView(percentage: 1, backgroundColor: Color.background.opacity(0), startColor: .white, endColor: .white, thickness: 37)
+                                    .scaleEffect(0.671)
+                            }
+                            
+                            Circle()
+                                .foregroundColor(.white)
+                                .frame(width: 170, height: 170)
+                                .shadow(radius: 7)
+                            Image(systemName: "exclamationmark.triangle.fill")
+                                .resizable()
+                                .frame(width: 75, height: 70)
+                                .foregroundColor(Color("Triangle"))
+                                .opacity(showMark ? 1 : 0)
+                        }//fine zstack
+                        .onTapGesture {
+                            print("notifica")
+                            if isActivated{
+                                withAnimation{
+                                    showMark = true
+                                    isPressed = false
+                                    start = false
+                                    isActivated.toggle()
+                                }
+                                restart()
+                            }
+                        }
+                        .onLongPressGesture(minimumDuration: 0.1){
+                            if isActivated{
+                                print("yuri")
+                            }
+                            else{
+                                withAnimation {
+                                    isPressed = true
+                                    showMark = false
+                                    timerStart()
+                                    isActivated.toggle()
+                                }
+                            }
+                        }
                     }
+                    .frame(width: 300, height: 250, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                    .padding(.bottom, 80)
                 }
                 Circle()
                     .trim(from: 0, to: self.to)
@@ -160,6 +198,7 @@ struct CompleteTimer: View {
             }
         } onDismiss: {}
             .onAppear(perform: {
+                showText()
                 UNUserNotificationCenter.current().requestAuthorization(options: [.badge,.sound,.alert]) { (_, _) in
                 }
             })
@@ -185,7 +224,6 @@ struct CompleteTimer: View {
                     }
                 }
             }//fine onReceive
-        
     }
 }
 
