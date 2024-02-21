@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1763FA862B860400005BC39C /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1763FA852B860400005BC39C /* MapView.swift */; };
 		176B44232B7F97CD0029879D /* InfoBoardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176B44222B7F97CD0029879D /* InfoBoardingView.swift */; };
 		176B44252B7F97F30029879D /* OnBoardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176B44242B7F97F30029879D /* OnBoardingView.swift */; };
 		176B44332B834C5C0029879D /* ModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176B44322B834C5C0029879D /* ModalView.swift */; };
@@ -25,6 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1763FA852B860400005BC39C /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		176B44222B7F97CD0029879D /* InfoBoardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoBoardingView.swift; sourceTree = "<group>"; };
 		176B44242B7F97F30029879D /* OnBoardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingView.swift; sourceTree = "<group>"; };
 		176B44322B834C5C0029879D /* ModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalView.swift; sourceTree = "<group>"; };
@@ -80,6 +82,7 @@
 				176B44222B7F97CD0029879D /* InfoBoardingView.swift */,
 				176B44382B834CE40029879D /* ButtonHomeView.swift */,
 				E04D1F442B84B2A900C8EFDD /* RingView.swift */,
+				1763FA852B860400005BC39C /* MapView.swift */,
 			);
 			path = Componentes;
 			sourceTree = "<group>";
@@ -215,6 +218,7 @@
 				E04D1F452B84B2A900C8EFDD /* RingView.swift in Sources */,
 				176B44252B7F97F30029879D /* OnBoardingView.swift in Sources */,
 				E04D1F1D2B835C8000C8EFDD /* Toothless.swift in Sources */,
+				1763FA862B860400005BC39C /* MapView.swift in Sources */,
 				E04D1F1F2B835D1B00C8EFDD /* TimerView.swift in Sources */,
 				176B44352B834C920029879D /* MapViewModel.swift in Sources */,
 				E04D1F212B835D5600C8EFDD /* User.swift in Sources */,
