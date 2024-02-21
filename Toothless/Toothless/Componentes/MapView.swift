@@ -44,7 +44,7 @@ struct MapView: View {
                         .foregroundColor(CustomColor.background)
                     VStack(alignment: .center){
                         Text("\(selectedResults?.name ?? "")")
-                            .font(selectedResults?.name?.count ?? 0 > 31 ? .title3 : (selectedResults?.name?.count ?? 0 > 21 ? .title2 : .title))
+                            .font(selectedResults?.name?.count ?? 0 > 37 ? .title3 : (selectedResults?.name?.count ?? 0 > 21 ? .title2 : .title))
                             .bold()
                             .foregroundStyle(CustomColor.text)
                             .multilineTextAlignment(.center)
