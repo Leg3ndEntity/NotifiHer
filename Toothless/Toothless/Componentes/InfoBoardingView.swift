@@ -18,7 +18,7 @@ struct InfoElement: View {
         HStack(spacing: 15.0){
             Image(systemName: iconName)
                 .resizable()
-                .foregroundColor(Color.red)
+                .foregroundColor(CustomColor.customred)
                 .frame(width: 25.0, height: 25.0)
             VStack(alignment: .leading){
                 Text(titleText)

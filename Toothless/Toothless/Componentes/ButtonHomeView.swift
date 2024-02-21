@@ -24,7 +24,7 @@ struct ButtonHomeView: View {
                      .foregroundColor(CustomColor.background)
                 Image(systemName: iconName)
                     .resizable()
-                    .foregroundStyle(CustomColor.red)
+                    .foregroundStyle(CustomColor.customred)
                     .frame(width:25, height:25)
             }
             Text(nameFeature)

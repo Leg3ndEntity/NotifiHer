@@ -10,7 +10,7 @@ import SwiftUI
 
 struct CustomColor {
     static let background = Color("Background")
-    static let red = Color("Red")
+    static let customred = Color("CustomRed")
     static let text = Color("Text")
     static let brightred = Color("BrightRed")
     static let backgroundhome = Color("BackgroundHome")

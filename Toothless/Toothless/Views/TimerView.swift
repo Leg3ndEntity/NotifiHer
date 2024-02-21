@@ -110,7 +110,7 @@ struct CompleteTimer: View {
                     }
                     if isActivated{
                         withAnimation {
-                            Color(.red)
+                            Color(CustomColor.customred)
                         }
                     }
                     
