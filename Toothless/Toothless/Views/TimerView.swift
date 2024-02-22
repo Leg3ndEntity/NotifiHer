@@ -9,12 +9,14 @@ import SwiftUI
 import UserNotifications
 
 struct CompleteTimer: View {
+    @State var pollo: Bool = false
     @State var isActivated: Bool = false
     @State var isPressed: Bool = false
     @State var showCircle: Bool = false
     @State var showMark: Bool = true
     @State var prova: Bool = false
     
+    @State var ShowText = false
     @State var textSwap = true
     @State var start = false
     @State var to : CGFloat = 0
@@ -53,22 +55,10 @@ struct CompleteTimer: View {
         UNUserNotificationCenter.current().add(req, withCompletionHandler: nil)
     }
     
-    func showText() {
-        
-        if textSwap{
-            DispatchQueue.main.asyncAfter(deadline: .now() + 6) {
-                withAnimation(.easeInOut(duration: 0.8)) {
-                    textSwap.toggle()
-                    showText()
-                }
-                
-            }
-        } else {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-                withAnimation(.easeInOut(duration: 0.8)) {
-                    textSwap.toggle()
-                    showText()
-                }
+    func startPollo(){
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            withAnimation{
+                self.pollo = false
             }
         }
     }
@@ -114,65 +104,51 @@ struct CompleteTimer: View {
                         }
                     }
                     
-                    VStack {
-                        withAnimation(.smooth){
-                            if textSwap{
-                                Text("Tap to send nudes to yuri")
-                                    .font(.title2)
-                                    .fontWeight(.bold)
-                                    .transition(.opacity)
-                            }else{
-                                Text("Long press to start the timer")
-                                    .font(.title2)
-                                    .fontWeight(.bold)
-                                    .transition(.opacity)
-                            }
+                    ZStack {
+                        if isPressed {
+                            RingView(percentage: 1, backgroundColor: Color.white.opacity(0), startColor: .white, endColor: .white, thickness: 37)
+                                .scaleEffect(0.671)
                         }
-                        Spacer()
-                        ZStack {
-                            if isPressed {
-                                RingView(percentage: 1, backgroundColor: Color.background.opacity(0), startColor: .white, endColor: .white, thickness: 37)
-                                    .scaleEffect(0.671)
+                        
+                        Circle()
+                            .foregroundColor(.white)
+                            .frame(width: 170, height: 170)
+                            .shadow(radius: 7)
+                            .opacity(withAnimation{pollo ? 0.2 : 1})
+                        Image(systemName: "exclamationmark.triangle.fill")
+                            .resizable()
+                            .frame(width: 75, height: 70)
+                            .foregroundColor(Color("Triangle"))
+                            .opacity(showMark ? 1 : 0)
+                            .opacity(withAnimation{pollo ? 0.2 : 1})
+                    }//fine zstack
+                    .onTapGesture {
+                        pollo = true
+                        startPollo()
+                        print("notifica")
+                        if isActivated{
+                            withAnimation{
+                                showMark = true
+                                isPressed = false
+                                start = false
+                                isActivated.toggle()
                             }
-                            
-                            Circle()
-                                .foregroundColor(.white)
-                                .frame(width: 170, height: 170)
-                                .shadow(radius: 7)
-                            Image(systemName: "exclamationmark.triangle.fill")
-                                .resizable()
-                                .frame(width: 75, height: 70)
-                                .foregroundColor(Color("Triangle"))
-                                .opacity(showMark ? 1 : 0)
-                        }//fine zstack
-                        .onTapGesture {
-                            print("notifica")
-                            if isActivated{
-                                withAnimation{
-                                    showMark = true
-                                    isPressed = false
-                                    start = false
-                                    isActivated.toggle()
-                                }
-                                restart()
-                            }
+                            restart()
                         }
-                        .onLongPressGesture(minimumDuration: 0.1){
-                            if isActivated{
-                                print("yuri")
-                            }
-                            else{
-                                withAnimation {
-                                    isPressed = true
-                                    showMark = false
-                                    timerStart()
-                                    isActivated.toggle()
-                                }
+                    }
+                    .onLongPressGesture(minimumDuration: 0.1){
+                        if isActivated{
+                            print("yuri")
+                        }
+                        else{
+                            withAnimation {
+                                isPressed = true
+                                showMark = false
+                                timerStart()
+                                isActivated.toggle()
                             }
                         }
                     }
-                    .frame(width: 300, height: 250, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                    .padding(.bottom, 80)
                 }
                 Circle()
                     .trim(from: 0, to: self.to)
@@ -192,13 +168,13 @@ struct CompleteTimer: View {
             }//fine zstack
             .ignoresSafeArea()
         }//fine zstack
-        .bottomSheet(presentationDetents: [.medium, .large, .height(70)], isPresented: .constant(true), sheetCornerRadius: 20) {
+        .bottomSheet(presentationDetents: [.height(190), .height(80)], isPresented: .constant(true), sheetCornerRadius: 20) {
             ScrollView(.vertical, showsIndicators: false) {
                 ModalView(showAlert: $showAlert, start: $start, count: $count, to: $to)
             }
         } onDismiss: {}
             .onAppear(perform: {
-                showText()
+                
                 UNUserNotificationCenter.current().requestAuthorization(options: [.badge,.sound,.alert]) { (_, _) in
                 }
             })

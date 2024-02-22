@@ -14,6 +14,7 @@
 		176B44352B834C920029879D /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176B44342B834C920029879D /* MapViewModel.swift */; };
 		176B44372B834CBF0029879D /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176B44362B834CBF0029879D /* UserProfileView.swift */; };
 		176B44392B834CE40029879D /* ButtonHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176B44382B834CE40029879D /* ButtonHomeView.swift */; };
+		991F74DF2B875BF80092EA9D /* Extensions2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991F74DE2B875BF80092EA9D /* Extensions2.swift */; };
 		99D05C812B81640F00E96315 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D05C802B81640F00E96315 /* Extensions.swift */; };
 		BE0E089B2B873EE3005C848F /* PushToTalkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0E089A2B873D7C005C848F /* PushToTalkManager.swift */; };
 		E04D1F1D2B835C8000C8EFDD /* Toothless.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04D1F1C2B835C8000C8EFDD /* Toothless.swift */; };
@@ -35,6 +36,7 @@
 		176B44362B834CBF0029879D /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
 		176B44382B834CE40029879D /* ButtonHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonHomeView.swift; sourceTree = "<group>"; };
 		176B443A2B83531B0029879D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		991F74DE2B875BF80092EA9D /* Extensions2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions2.swift; sourceTree = "<group>"; };
 		99D05C802B81640F00E96315 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		BE0E089A2B873D7C005C848F /* PushToTalkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushToTalkManager.swift; sourceTree = "<group>"; };
 		BEAECC6B2B8371AD003C3A6A /* Toothless.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Toothless.entitlements; sourceTree = "<group>"; };
@@ -73,6 +75,7 @@
 			children = (
 				176B44342B834C920029879D /* MapViewModel.swift */,
 				99D05C802B81640F00E96315 /* Extensions.swift */,
+				991F74DE2B875BF80092EA9D /* Extensions2.swift */,
 				E04D1F202B835D5600C8EFDD /* User.swift */,
 			);
 			path = Store;
@@ -226,6 +229,7 @@
 				BE0E089B2B873EE3005C848F /* PushToTalkManager.swift in Sources */,
 				176B44352B834C920029879D /* MapViewModel.swift in Sources */,
 				E04D1F212B835D5600C8EFDD /* User.swift in Sources */,
+				991F74DF2B875BF80092EA9D /* Extensions2.swift in Sources */,
 				E09286152B7F591F00BD1788 /* ToothlessApp.swift in Sources */,
 				176B44232B7F97CD0029879D /* InfoBoardingView.swift in Sources */,
 				176B44392B834CE40029879D /* ButtonHomeView.swift in Sources */,
