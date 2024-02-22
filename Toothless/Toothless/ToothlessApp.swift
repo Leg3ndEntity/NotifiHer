@@ -6,10 +6,14 @@
 //
 
 import SwiftUI
+import PushToTalk
+
 
 @main
 struct Toothless_provaApp: App {
     @StateObject var viewModel = MapViewModel()
+    
+    
     
     var body: some Scene {
         
@@ -25,6 +29,10 @@ struct Toothless_provaApp: App {
                             print("Autorizzazione alle notifiche negata")
                         }
                     }
+                }
+            
+                .task {
+                    // Initialize the PushToTalk Manager
                 }
         }
         
