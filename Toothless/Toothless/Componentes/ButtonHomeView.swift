@@ -8,33 +8,34 @@
 import SwiftUI
 
 struct ButtonHomeView: View {
-    private var iconName: String = ""
-    private var nameFeature: String = ""
+     var iconName: String = ""
+     var nameFeature: String = ""
     
-    init(iconName: String, nameFeature: String) {
-        self.iconName = iconName
-        self.nameFeature = nameFeature
-    }
+    
+    @Binding var showModal: Bool
     
     var body: some View {
         VStack{
             ZStack{
-                Circle()
+                Circle().shadow(radius: 2)
                      .frame(width:60,height: 60)
                      .foregroundColor(CustomColor.background)
                 Image(systemName: iconName)
                     .resizable()
                     .foregroundStyle(CustomColor.customred)
                     .frame(width:25, height:25)
+                    
             }
             Text(nameFeature)
                 .font(.footnote)
                 .bold()
                 .foregroundStyle(CustomColor.text)
+        }.onTapGesture {
+            showModal.toggle()
         }
     }
 }
 
-#Preview {
-    ButtonHomeView(iconName: "phone.fill.arrow.down.left", nameFeature:"Fake Calls")
-}
+//#Preview {
+//    ButtonHomeView(iconName: "phone.fill.arrow.down.left", nameFeature:"Fake Calls")
+//}
