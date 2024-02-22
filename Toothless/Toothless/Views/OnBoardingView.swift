@@ -130,9 +130,9 @@ struct OnBoardingView: View {
                 print("ciao")
             }
         }.frame(width: 350)
-        .fullScreenCover(isPresented: $isShowingMain, content: {
-            CompleteTimer()
-        })
+            .fullScreenCover(isPresented: $isShowingMain, content: {
+                CompleteTimer()
+            })
         
     }
 }

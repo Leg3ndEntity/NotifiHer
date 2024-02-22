@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct ButtonHomeView: View {
-     var iconName: String = ""
-     var nameFeature: String = ""
+    var iconName: String = ""
+    var nameFeature: String = ""
     
     
     @Binding var showModal: Bool
@@ -18,13 +18,13 @@ struct ButtonHomeView: View {
         VStack{
             ZStack{
                 Circle().shadow(radius: 2)
-                     .frame(width:60,height: 60)
-                     .foregroundColor(.white)
+                    .frame(width:60,height: 60)
+                    .foregroundColor(.white)
                 Image(systemName: iconName)
                     .resizable()
                     .foregroundStyle(CustomColor.customred)
                     .frame(width:25, height:25)
-                    
+                
             }
             Text(nameFeature)
                 .font(.footnote)

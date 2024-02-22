@@ -21,6 +21,7 @@
 		E04D1F1F2B835D1B00C8EFDD /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04D1F1E2B835D1B00C8EFDD /* TimerView.swift */; };
 		E04D1F212B835D5600C8EFDD /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04D1F202B835D5600C8EFDD /* User.swift */; };
 		E04D1F452B84B2A900C8EFDD /* RingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04D1F442B84B2A900C8EFDD /* RingView.swift */; };
+		E08421AF2B87E4DA00EB795D /* TimerViewWatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08421AE2B87E4DA00EB795D /* TimerViewWatch.swift */; };
 		E09286152B7F591F00BD1788 /* ToothlessApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09286142B7F591F00BD1788 /* ToothlessApp.swift */; };
 		E09286172B7F591F00BD1788 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09286162B7F591F00BD1788 /* ContentView.swift */; };
 		E09286192B7F592000BD1788 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E09286182B7F592000BD1788 /* Assets.xcassets */; };
@@ -44,6 +45,7 @@
 		E04D1F1E2B835D1B00C8EFDD /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
 		E04D1F202B835D5600C8EFDD /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E04D1F442B84B2A900C8EFDD /* RingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RingView.swift; sourceTree = "<group>"; };
+		E08421AE2B87E4DA00EB795D /* TimerViewWatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewWatch.swift; sourceTree = "<group>"; };
 		E09286112B7F591F00BD1788 /* Toothless.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Toothless.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E09286142B7F591F00BD1788 /* ToothlessApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToothlessApp.swift; sourceTree = "<group>"; };
 		E09286162B7F591F00BD1788 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -62,17 +64,10 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		176B44262B7F981F0029879D /* OnBoarding */ = {
-			isa = PBXGroup;
-			children = (
-				176B44242B7F97F30029879D /* OnBoardingView.swift */,
-			);
-			path = OnBoarding;
-			sourceTree = "<group>";
-		};
 		E04D1F192B835C3900C8EFDD /* Store */ = {
 			isa = PBXGroup;
 			children = (
+				BE0E089A2B873D7C005C848F /* PushToTalkManager.swift */,
 				176B44342B834C920029879D /* MapViewModel.swift */,
 				99D05C802B81640F00E96315 /* Extensions.swift */,
 				991F74DE2B875BF80092EA9D /* Extensions2.swift */,
@@ -95,11 +90,12 @@
 		E04D1F1B2B835C4A00C8EFDD /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				176B44262B7F981F0029879D /* OnBoarding */,
+				176B44242B7F97F30029879D /* OnBoardingView.swift */,
 				E04D1F1E2B835D1B00C8EFDD /* TimerView.swift */,
 				176B44362B834CBF0029879D /* UserProfileView.swift */,
 				E09286162B7F591F00BD1788 /* ContentView.swift */,
 				176B44322B834C5C0029879D /* ModalView.swift */,
+				E08421AE2B87E4DA00EB795D /* TimerViewWatch.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -126,7 +122,6 @@
 			children = (
 				BEAECC6B2B8371AD003C3A6A /* Toothless.entitlements */,
 				E09286142B7F591F00BD1788 /* ToothlessApp.swift */,
-				BE0E089A2B873D7C005C848F /* PushToTalkManager.swift */,
 				E04D1F1C2B835C8000C8EFDD /* Toothless.swift */,
 				E04D1F1B2B835C4A00C8EFDD /* Views */,
 				E04D1F1A2B835C4200C8EFDD /* Componentes */,
@@ -229,6 +224,7 @@
 				BE0E089B2B873EE3005C848F /* PushToTalkManager.swift in Sources */,
 				176B44352B834C920029879D /* MapViewModel.swift in Sources */,
 				E04D1F212B835D5600C8EFDD /* User.swift in Sources */,
+				E08421AF2B87E4DA00EB795D /* TimerViewWatch.swift in Sources */,
 				991F74DF2B875BF80092EA9D /* Extensions2.swift in Sources */,
 				E09286152B7F591F00BD1788 /* ToothlessApp.swift in Sources */,
 				176B44232B7F97CD0029879D /* InfoBoardingView.swift in Sources */,
@@ -368,7 +364,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Toothless/Preview Content\"";
-				DEVELOPMENT_TEAM = C79DK4MQTK;
+				DEVELOPMENT_TEAM = 3X88455T75;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Toothless/Info.plist;
@@ -384,7 +380,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.andrearomano.Toothless;
+				PRODUCT_BUNDLE_IDENTIFIER = com.simonesarnataro.Toothless;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -403,7 +399,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Toothless/Preview Content\"";
-				DEVELOPMENT_TEAM = C79DK4MQTK;
+				DEVELOPMENT_TEAM = 3X88455T75;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Toothless/Info.plist;
@@ -419,7 +415,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.andrearomano.Toothless;
+				PRODUCT_BUNDLE_IDENTIFIER = com.simonesarnataro.Toothless;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;

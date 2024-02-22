@@ -39,7 +39,7 @@ class PushToTalkManager: NSObject, ObservableObject {
     func joinChannel(channelUUID: UUID) {
         let channelImage = UIImage(named: "ChannelIcon")
         channelDescriptor = PTChannelDescriptor(name: "Awesome Crew", image: channelImage)
-      
+        
         // Ensure that your channel descriptor and UUID are persisted to disk for later use.
         channelManager.requestJoinChannel(channelUUID: channelUUID,
                                           descriptor: channelDescriptor)
@@ -58,12 +58,12 @@ extension PushToTalkManager: PTChannelManagerDelegate {
     }
     
     func incomingPushResult(channelManager: PTChannelManager, channelUUID: UUID, pushPayload: [String : Any]) -> PTPushResult {
-            
+        
         guard let activeSpeaker = pushPayload["activeSpeaker"] as? String else {
             // Report that there's no active speaker, so leave the channel.
             return .leaveChannel
         }
-
+        
         // Assuming you have a function to retrieve the cached image
         // Replace "getCachedImage" with the actual function name that retrieves cached images
         let activeSpeakerImage = getCachedImage(for: activeSpeaker)
@@ -73,7 +73,7 @@ extension PushToTalkManager: PTChannelManagerDelegate {
         // Report the active participant information to the system.
         return .activeRemoteParticipant(participant)
     }
-
+    
     // Function to retrieve the cached image for a given speaker name
     func getCachedImage(for speakerName: String) -> UIImage? {
         // Implement your logic to retrieve the cached image here

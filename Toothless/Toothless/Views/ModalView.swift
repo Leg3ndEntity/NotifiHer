@@ -21,11 +21,11 @@ struct ModalView: View {
     @State var modal4: Bool = false
     
     let Yuri = CLLocationCoordinate2D(latitude: 40.826823770004644, longitude: 14.196899024494087)
-//    @State var camera: MapCameraPosition = .region(self.viewModel.region)
+    //    @State var camera: MapCameraPosition = .region(self.viewModel.region)
     
     func timerRestart(){
         if self.count == 0 {
-            self.count = 10 // Riporta il timer a 5 minuti
+            self.count = 300 // Riporta il timer a 5 minuti
             withAnimation(.default){
                 self.to = 0
             }
@@ -35,55 +35,40 @@ struct ModalView: View {
     }
     
     var body: some View {
-         //NavigationView{
-            VStack{
-                HStack(alignment: .center, spacing: 200.0){
-                    Text("Safe Places")
-                        .font(.title3)
-                        .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
-                    
-                    NavigationLink(destination: UserProfileView()){
-                        ZStack{
-                            Circle()
-                                .frame(width:40)
-                                .foregroundColor(.gray)
-                            Image(systemName: "person.fill")
-                                .resizable()
-                                .frame(width: 20, height: 20)
-                                .foregroundColor(.black)
-                        }
+        VStack{
+            HStack(alignment: .center, spacing: 200.0){
+                Text("Safe Places")
+                    .font(.title3)
+                    .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                
+                NavigationLink(destination: UserProfileView()){
+                    ZStack{
+                        Circle()
+                            .frame(width:40)
+                            .foregroundColor(.gray)
+                        Image(systemName: "person.fill")
+                            .resizable()
+                            .frame(width: 20, height: 20)
+                            .foregroundColor(.black)
                     }
                 }
-                .padding(.vertical, 20)
-                
-//                MapView()
-//                    .onAppear{viewModel.checkIfLocationEnabled()}
-//                    .frame(width: 363, height: 510)
-//                    .cornerRadius(5)
-//                
-                
-                VStack(alignment: .leading){
-//                    Text("Services")
-//                        .font(.title3)
-//                        .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
-//
-                        HStack(spacing: 20){
-                            ButtonHomeView(iconName: "map.fill", nameFeature:"Map", showModal: $modal1)
-                            ButtonHomeView(iconName: "phone.fill.arrow.down.left", nameFeature:"Fake Calls", showModal: $modal2)
-                            ButtonHomeView(iconName: "exclamationmark.bubble.fill", nameFeature:"Reports", showModal: $modal3)
-                            ButtonHomeView(iconName: "waveform.and.mic", nameFeature:"Walkie-Talkie", showModal: $modal4)
-                        }
-                }
-                .padding(.top, 10.0)
-               
-                
             }
-            .bottomSheet2(presentationDetents: [.large], isPresented: $modal1, sheetCornerRadius: 20) {
-                   MapView()
-            } onDismiss: {}
-//            .sheet(isPresented: $modal1, content: {
-//            MapView()
-//        })
+            .padding(.vertical, 20)
+            VStack(alignment: .leading){
+                HStack(spacing: 20){
+                    ButtonHomeView(iconName: "map.fill", nameFeature:"Map", showModal: $modal1)
+                    ButtonHomeView(iconName: "phone.fill.arrow.down.left", nameFeature:"Fake Calls", showModal: $modal2)
+                    ButtonHomeView(iconName: "exclamationmark.bubble.fill", nameFeature:"Reports", showModal: $modal3)
+                    ButtonHomeView(iconName: "waveform.and.mic", nameFeature:"Walkie-Talkie", showModal: $modal4)
+                }
+            }
+            .padding(.top, 10.0)
+            
+            
+        }
+        .bottomSheet2(presentationDetents: [.large], isPresented: $modal1, sheetCornerRadius: 20) {
+            MapView()
+        } onDismiss: {}
             .sheet(isPresented: $modal2, content: {
                 UserProfileView()
             })
@@ -106,8 +91,8 @@ struct ModalView: View {
                         }
                     )
                 )
-            }//fine alert
-        //}
+            }
+        
     }
 }
 

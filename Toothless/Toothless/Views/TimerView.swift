@@ -9,30 +9,27 @@ import SwiftUI
 import UserNotifications
 
 struct CompleteTimer: View {
-    @State var pollo: Bool = false
+    @State var buttonTapped: Bool = false
     @State var isActivated: Bool = false
     @State var isPressed: Bool = false
-    @State var showCircle: Bool = false
-    @State var showMark: Bool = true
-    @State var prova: Bool = false
     
-    @State var ShowText = false
+    @State var showMark: Bool = true
+    @State var showAlert = false
+    //@State var ShowText = false
     @State var textSwap = true
+    
     @State var start = false
     @State var to : CGFloat = 0
-    @State var showAlert = false
     @State var count = 300
     @State var time = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     @State private var dismissTimer: Timer?
     
     var changeFunction: (() -> Void)?
-    
     var formattedTime: String {
         let minutes = count / 60
         let seconds = count % 60
         return String(format: "%d:%02d", minutes, seconds)
     }
-    
     var rotationAngle: Angle {
         let progress = 1 - to
         return .degrees(Double(progress) * 360 - 90)
@@ -44,25 +41,6 @@ struct CompleteTimer: View {
         self.to = 0
         print("restart")
     }
-    
-    func Notify(){
-        let content = UNMutableNotificationContent()
-        content.title = "Are you ok?"
-        content.body = "If you don’t dismiss this notification, a default message will be sent to your emergency contact"
-        
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
-        let req = UNNotificationRequest(identifier: "MSG", content: content, trigger: trigger)
-        UNUserNotificationCenter.current().add(req, withCompletionHandler: nil)
-    }
-    
-    func startPollo(){
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-            withAnimation{
-                self.pollo = false
-            }
-        }
-    }
-    
     func timerStart(){
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.2) {
             isPressed = false
@@ -78,7 +56,6 @@ struct CompleteTimer: View {
             }
         }
     }
-    
     func timerRestart(){
         if self.count == 0 {
             self.count = 300 // Riporta il timer a 5 minuti
@@ -90,41 +67,90 @@ struct CompleteTimer: View {
         print("start")
     }
     
+    
+    func Notify(){
+        let content = UNMutableNotificationContent()
+        content.title = "Are you ok?"
+        content.body = "If you don’t dismiss this notification, a default message will be sent to your emergency contact"
+        
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
+        let req = UNNotificationRequest(identifier: "MSG", content: content, trigger: trigger)
+        UNUserNotificationCenter.current().add(req, withCompletionHandler: nil)
+    }
+    
+    
+    func TapAnimation(){
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            withAnimation{
+                self.buttonTapped = false
+            }
+        }
+    }
+    
+    
+    func SwapText(){
+        if textSwap{
+            DispatchQueue.main.asyncAfter(deadline: .now() + 6) {
+                withAnimation(.easeInOut(duration: 1.0)) {
+                    textSwap.toggle()
+                    SwapText()
+                }
+            }
+        }else{
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                withAnimation(.easeInOut(duration: 1.0)) {
+                    textSwap.toggle()
+                    SwapText()
+                }
+            }
+        }
+    }
+    
     var body: some View {
         ZStack {
             ZStack {
-                //bottone
                 ZStack {
                     if !isActivated{
                         CustomColor.background
-                    }
-                    if isActivated{
+                    }else{
                         withAnimation {
                             Color(CustomColor.customred)
                         }
                     }
                     
+                    if textSwap{
+                        Text("Tap to send a notification")
+                            .font(.title3)
+                            .fontWeight(.bold)
+                            .offset(x: 0, y: -150)
+                    }else{
+                        Text("Hold to start the timer")
+                            .font(.title3)
+                            .fontWeight(.bold)
+                            .offset(x: 0, y: -150)
+                    }
+                    
+                    if isPressed {
+                        RingView(percentage: 1, backgroundColor: Color.white.opacity(0), startColor: .white, endColor: .white, thickness: 37)
+                            .scaleEffect(0.671)
+                    }
+                    //bottone
                     ZStack {
-                        if isPressed {
-                            RingView(percentage: 1, backgroundColor: Color.white.opacity(0), startColor: .white, endColor: .white, thickness: 37)
-                                .scaleEffect(0.671)
-                        }
-                        
                         Circle()
                             .foregroundColor(.white)
                             .frame(width: 170, height: 170)
                             .shadow(radius: 7)
-                            .opacity(withAnimation{pollo ? 0.2 : 1})
+                            .opacity(withAnimation{buttonTapped ? 0.2 : 1})
                         Image(systemName: "exclamationmark.triangle.fill")
                             .resizable()
                             .frame(width: 75, height: 70)
                             .foregroundColor(Color("Triangle"))
                             .opacity(showMark ? 1 : 0)
-                            .opacity(withAnimation{pollo ? 0.2 : 1})
-                    }//fine zstack
+                            .opacity(withAnimation{buttonTapped ? 0.2 : 1})
+                    }//fine bottone
                     .onTapGesture {
-                        pollo = true
-                        startPollo()
+                        buttonTapped = true
+                        TapAnimation()
                         print("notifica")
                         if isActivated{
                             withAnimation{
@@ -135,7 +161,7 @@ struct CompleteTimer: View {
                             }
                             restart()
                         }
-                    }
+                    }//fine onTapGesture
                     .onLongPressGesture(minimumDuration: 0.1){
                         if isActivated{
                             print("yuri")
@@ -148,8 +174,8 @@ struct CompleteTimer: View {
                                 isActivated.toggle()
                             }
                         }
-                    }
-                }
+                    }//fine onLongPressGesture
+                }//fine 1° Zstack
                 Circle()
                     .trim(from: 0, to: self.to)
                     .stroke(Color.white.opacity(start ? 1 : 0), style: StrokeStyle(lineWidth: 25, lineCap: .round))
@@ -165,16 +191,16 @@ struct CompleteTimer: View {
                     .opacity(withAnimation{
                         start ? 1 : 0
                     })
-            }//fine zstack
+            }//fine 2° Zstack
             .ignoresSafeArea()
-        }//fine zstack
+        }//fine 3° Zstack
         .bottomSheet(presentationDetents: [.height(190), .height(80)], isPresented: .constant(true), sheetCornerRadius: 20) {
             ScrollView(.vertical, showsIndicators: false) {
                 ModalView(showAlert: $showAlert, start: $start, count: $count, to: $to)
             }
         } onDismiss: {}
             .onAppear(perform: {
-                
+                SwapText()
                 UNUserNotificationCenter.current().requestAuthorization(options: [.badge,.sound,.alert]) { (_, _) in
                 }
             })

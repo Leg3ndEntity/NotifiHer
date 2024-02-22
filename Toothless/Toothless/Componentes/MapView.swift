@@ -48,7 +48,7 @@ struct MapView: View {
                         .bold()
                         .foregroundStyle(CustomColor.text)
                         .multilineTextAlignment(.center)
-                        Text(StringInterestPoint(category: selectedResults?.pointOfInterestCategory ?? .park))
+                    Text(StringInterestPoint(category: selectedResults?.pointOfInterestCategory ?? .park))
                     Text("\(selectedResults?.phoneNumber ?? "")")
                         .bold()
                     if let thoroughfare = selectedResults?.placemark.thoroughfare,
@@ -64,8 +64,8 @@ struct MapView: View {
                             .padding(.top, 2)
                     }
                 }.frame(maxWidth: 360)
-                .padding(.bottom, 5)
-                .padding(.leading,1.5)
+                    .padding(.bottom, 5)
+                    .padding(.leading,1.5)
             }.padding(.bottom, -35)
             , alignment: .bottom)
     }
