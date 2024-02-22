@@ -36,28 +36,40 @@ struct MapView: View {
         }
         .mapStyle(.standard(elevation:.realistic))
         .overlay(
-                ZStack{
-                    Rectangle()
-                        .frame(width:380, height: 170)
-                        .opacity(0.7)
-                        .cornerRadius(20)
-                        .foregroundColor(CustomColor.background)
-                    VStack(alignment: .center){
-                        Text("\(selectedResults?.name ?? "")")
-                            .font(selectedResults?.name?.count ?? 0 > 37 ? .title3 : (selectedResults?.name?.count ?? 0 > 21 ? .title2 : .title))
-                            .bold()
-                            .foregroundStyle(CustomColor.text)
-                            .multilineTextAlignment(.center)
-                        HStack{
-                            Text(StringInterestPoint(category: selectedResults?.pointOfInterestCategory ?? .park))
-                        }
-                        Text("\(selectedResults?.phoneNumber ?? "")")
-                            .bold()
+            ZStack{
+                Rectangle()
+                    .frame(width: 400, height: 170)
+                    .opacity(0.7)
+                    .cornerRadius(20)
+                    .foregroundColor(CustomColor.background)
+                VStack(alignment: .center){
+                    Text("\(selectedResults?.name ?? "")")
+                        .font(selectedResults?.name?.count ?? 0 > 37 ? .title3 : (selectedResults?.name?.count ?? 0 > 21 ? .title2 : .title))
+                        .bold()
+                        .foregroundStyle(CustomColor.text)
+                        .multilineTextAlignment(.center)
+                    HStack{
+                        Text(StringInterestPoint(category: selectedResults?.pointOfInterestCategory ?? .park))
                     }
-                    .padding(.bottom, 30)
-                    .padding(.leading,3)
-                }.padding(.bottom, -35)
-                , alignment: .bottom)
+                    Text("\(selectedResults?.phoneNumber ?? "")")
+                        .bold()
+                    if let thoroughfare = selectedResults?.placemark.thoroughfare,
+                       let subThoroughfare = selectedResults?.placemark.subThoroughfare {
+                        Text("\(thoroughfare) \(subThoroughfare)")
+                            .bold()
+                            .font(.headline)
+                            .padding(.top, 2)
+                    } else {
+                        Text("\(selectedResults?.placemark.thoroughfare ?? "")")
+                            .bold()
+                            .font(.headline)
+                            .padding(.top, 2)
+                    }
+                }
+                .padding(.bottom, 5)
+                .padding(.leading,3)
+            }.padding(.bottom, -35)
+            , alignment: .bottom)
     }
     
     func search(for queries: [String]) {
@@ -79,23 +91,23 @@ struct MapView: View {
             }
         }
     }
-
+    
     func StringInterestPoint(category: MKPointOfInterestCategory) -> String {
-            switch category {
-            case .pharmacy:
-                return "Pharmacy"
-            case .hospital:
-                return "Hospital"
-            case .police:
-                return "Police Stations"
-            case .restaurant:
-                return "Restaurant"
-            case .foodMarket:
-                return "Supermarket"
-            default:
-                return ""
-            }
+        switch category {
+        case .pharmacy:
+            return "Pharmacy"
+        case .hospital:
+            return "Hospital"
+        case .police:
+            return "Police Stations"
+        case .restaurant:
+            return "Restaurant"
+        case .foodMarket:
+            return "Supermarket"
+        default:
+            return ""
         }
+    }
 }
 
 #Preview {

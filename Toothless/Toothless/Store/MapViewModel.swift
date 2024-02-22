@@ -9,23 +9,13 @@ import MapKit
 
 enum MapDetails{
     static let startingLocation = CLLocationCoordinate2D(latitude: 40.828210908059106 , longitude: 14.19339120503187)
-    static let defaultSpan = MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02)
+    static let defaultSpan = MKCoordinateSpan(latitudeDelta: 0.005, longitudeDelta: 0.005)
 }
 
 final class MapViewModel : NSObject, ObservableObject, CLLocationManagerDelegate {
     @Published var region = MKCoordinateRegion(center: MapDetails.startingLocation, span: MapDetails.defaultSpan)
     
     var locationManager: CLLocationManager?
-     
-    func checkIfLocationEnabled() {
-        if CLLocationManager.locationServicesEnabled(){
-            locationManager = CLLocationManager()
-            locationManager!.delegate = self
-        }
-        else {
-            print("alert: location is off, need to turn it on")
-        }
-    }
     
     private func checkLocationAuthorization(){
         guard let locationManager = locationManager else { return }
@@ -42,6 +32,16 @@ final class MapViewModel : NSObject, ObservableObject, CLLocationManagerDelegate
             region = MKCoordinateRegion(center: locationManager.location!.coordinate, span: MapDetails.defaultSpan)
         @unknown default:
             break
+        }
+    }
+    
+    func checkIfLocationEnabled() {
+        if CLLocationManager.locationServicesEnabled(){
+            locationManager = CLLocationManager()
+            locationManager!.delegate = self
+        }
+        else {
+            print("alert: location is off, need to turn it on")
         }
     }
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
