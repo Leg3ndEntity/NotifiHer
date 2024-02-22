@@ -38,19 +38,17 @@ struct MapView: View {
         .overlay(
             ZStack{
                 Rectangle()
-                    .frame(width: 400, height: 170)
+                    .frame(width: 400, height: 180)
                     .opacity(0.7)
                     .cornerRadius(20)
                     .foregroundColor(CustomColor.background)
                 VStack(alignment: .center){
                     Text("\(selectedResults?.name ?? "")")
-                        .font(selectedResults?.name?.count ?? 0 > 37 ? .title3 : (selectedResults?.name?.count ?? 0 > 21 ? .title2 : .title))
+                        .font((selectedResults?.name?.count ?? 0 > 21 ? .title2 : .title))
                         .bold()
                         .foregroundStyle(CustomColor.text)
                         .multilineTextAlignment(.center)
-                    HStack{
                         Text(StringInterestPoint(category: selectedResults?.pointOfInterestCategory ?? .park))
-                    }
                     Text("\(selectedResults?.phoneNumber ?? "")")
                         .bold()
                     if let thoroughfare = selectedResults?.placemark.thoroughfare,
@@ -65,9 +63,9 @@ struct MapView: View {
                             .font(.headline)
                             .padding(.top, 2)
                     }
-                }
+                }.frame(maxWidth: 360)
                 .padding(.bottom, 5)
-                .padding(.leading,3)
+                .padding(.leading,1.5)
             }.padding(.bottom, -35)
             , alignment: .bottom)
     }
