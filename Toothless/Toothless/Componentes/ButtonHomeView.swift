@@ -19,7 +19,7 @@ struct ButtonHomeView: View {
             ZStack{
                 Circle().shadow(radius: 2)
                      .frame(width:60,height: 60)
-                     .foregroundColor(CustomColor.background)
+                     .foregroundColor(.white)
                 Image(systemName: iconName)
                     .resizable()
                     .foregroundStyle(CustomColor.customred)
