@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import WatchKit
 
 struct TimerViewWatch: View {
     @State var buttonTapped: Bool = false
@@ -18,7 +19,7 @@ struct TimerViewWatch: View {
     
     @State var start = false
     @State var to : CGFloat = 0
-    @State var count = 5
+    @State var count = 300
     @State var time = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     @State private var dismissTimer: Timer?
     
