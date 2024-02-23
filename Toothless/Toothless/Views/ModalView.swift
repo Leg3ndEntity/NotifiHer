@@ -15,12 +15,23 @@ struct ModalView: View {
     @State var modal4: Bool = false
     @State var modal5: Bool = false
     
+    @Binding var isActivated: Bool
+    @Binding var showMark: Bool
+    
     @Binding var showAlert: Bool
+    @Binding var showAlert2: Bool
+    
     @Binding var start: Bool
     @Binding var count: Int
     @Binding var to: CGFloat
     @State private var dismissTimer: Timer?
     
+    func restart(){
+        start = false
+        self.count = 300
+        self.to = 0
+        print("restart")
+    }
     func timerRestart(){
         if self.count == 0 {
             self.count = 300 // Riporta il timer a 5 minuti
@@ -84,7 +95,7 @@ struct ModalView: View {
                     title: Text("Are you ok?"),
                     message: Text("If you don’t dismiss this notification, a default message will be sent to your emergency contact"),
                     dismissButton: .default(
-                        Text("DISMISS"),
+                        Text("Dismiss"),
                         action: {
                             timerRestart()
                             self.dismissTimer?.invalidate()
@@ -93,6 +104,31 @@ struct ModalView: View {
                     )
                 )
             }
+            .alert(isPresented: $showAlert2) {
+                Alert(
+                    title: Text("Are you sure?"),
+                    message: Text("If so, tap on dismiss"),
+                    primaryButton: .default(
+                        Text("Dismiss"),
+                        action: {
+                            withAnimation{
+                                restart()
+                                self.dismissTimer?.invalidate()
+                                showAlert = false
+                                isActivated = false
+                                showMark = true
+                            }
+                        }
+                    ),
+                    secondaryButton: .default(
+                        Text("Nevermind"),
+                        action: {
+                            showAlert = false
+                        }
+                    )
+                )
+            }
+
         
     }
 }

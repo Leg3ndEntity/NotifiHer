@@ -13,6 +13,7 @@ struct CompleteTimer: View {
     @State var isActivated: Bool = false
     @State var isPressed: Bool = false
     
+    @State var showAlert2: Bool = false
     @State var showSeiSicuro: Bool = false
     @State var startedAnimation: Bool = false
     @State var showCancel = false
@@ -154,11 +155,18 @@ struct CompleteTimer: View {
                                 .offset(x: 0, y: -150)
                         }
                     }
-                    if !showSeiSicuro{
-                        Text("Are you sure?")
-                            .font(.title3)
-                            .fontWeight(.bold)
+                    if showSeiSicuro{
+                        VStack {
+                            Text("Are you sure?")
+                                .font(.title3)
+                                .fontWeight(.bold)
                             .offset(x: 0, y: -150)
+                            
+                            Text("Press again")
+                                .font(.title3)
+                                .fontWeight(.bold)
+                                .offset(x: 0, y: -150)
+                        }
                     }
                     
                     
@@ -213,11 +221,7 @@ struct CompleteTimer: View {
                             }
                         }
                         if start{
-                            restart()
-                            isActivated = false
-                            showMark = true
-                            start = false
-                            isPressed = false
+                            showAlert2.toggle()
                         }
                     }//fine onTapGesture
                     .onLongPressGesture(minimumDuration: 0.1) {
@@ -290,7 +294,8 @@ struct CompleteTimer: View {
         }//fine 3° Zstack
         .bottomSheet(presentationDetents: [.height(190), .height(80)], isPresented: .constant(true), sheetCornerRadius: 20) {
             ScrollView(.vertical, showsIndicators: false) {
-                ModalView(showAlert: $showAlert, start: $start, count: $count, to: $to)
+                ModalView(isActivated: $isActivated, showMark: $showMark, showAlert: $showAlert, showAlert2: $showAlert2, start: $start, count: $count, to: $to)
+
             }
         } onDismiss: {}
             .onAppear(perform: {
