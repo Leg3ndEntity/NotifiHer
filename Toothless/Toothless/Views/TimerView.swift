@@ -13,6 +13,10 @@ struct CompleteTimer: View {
     @State var isActivated: Bool = false
     @State var isPressed: Bool = false
     
+    @State var startedAnimation: Bool = false
+    @State var showCancel = false
+    @State var showCircle = false
+    @State var circleOpacity = false
     @State var showMark: Bool = true
     @State var showAlert = false
     //@State var ShowText = false
@@ -88,7 +92,6 @@ struct CompleteTimer: View {
         }
     }
     
-    
     func SwapText(){
         if textSwap{
             DispatchQueue.main.asyncAfter(deadline: .now() + 6) {
@@ -107,6 +110,25 @@ struct CompleteTimer: View {
         }
     }
     
+    func CircleAnimation() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            withAnimation {
+                if isActivated{
+                    showCircle.toggle()
+                    CircleAnimation()
+                }else{
+                    print("fanculo")
+                }
+            }
+        }
+    }
+    
+    func ShowAlert(){
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
+            showAlert = true
+        }
+    }
+    
     var body: some View {
         ZStack {
             ZStack {
@@ -119,17 +141,20 @@ struct CompleteTimer: View {
                         }
                     }
                     
-                    if textSwap{
-                        Text("Tap to send an alert")
-                            .font(.title3)
-                            .fontWeight(.bold)
-                            .offset(x: 0, y: -150)
-                    }else{
-                        Text("Hold to start the timer")
-                            .font(.title3)
-                            .fontWeight(.bold)
-                            .offset(x: 0, y: -150)
+                    if !isActivated{
+                        if textSwap{
+                            Text("Tap to send an alert")
+                                .font(.title3)
+                                .fontWeight(.bold)
+                                .offset(x: 0, y: -150)
+                        }else{
+                            Text("Hold to start the timer")
+                                .font(.title3)
+                                .fontWeight(.bold)
+                                .offset(x: 0, y: -150)
+                        }
                     }
+                    
                     
                     if isPressed {
                         RingView(percentage: 1, backgroundColor: Color.white.opacity(0), startColor: .white, endColor: .white, thickness: 37)
@@ -137,12 +162,30 @@ struct CompleteTimer: View {
                     }
                     //bottone
                     ZStack {
-                        Circle()
-                            .foregroundColor(.white)
-                            .frame(width: 170, height: 170)
-                            .shadow(radius: 7)
-                            .opacity(withAnimation{buttonTapped ? 0.2 : 1})
-                            .shadow(color: colorScheme == .dark ? .white : .gray, radius: colorScheme == .dark ? 6 : 4)
+                        if startedAnimation{
+                            Circle()
+                                .foregroundColor(.white)
+                                .opacity(circleOpacity ? 0.3 : 0)
+                                .frame(width: showCircle ? 270 : 170)
+                            Circle()
+                                .foregroundColor(.white)
+                                .opacity(circleOpacity ? 0.3 : 0)
+                                .frame(width: showCircle ? 220: 170)
+                        }
+                        if !isActivated {
+                            Circle()
+                                .foregroundColor(.white)
+                                .frame(width: 170, height: 170)
+                                .shadow(color: colorScheme == .dark ? .white : .gray, radius: colorScheme == .dark ? 6 : 4)
+                        }else{
+                            Circle()
+                                .foregroundColor(.white)
+                                .frame(width: 170, height: 170)
+                                .shadow(radius: 7)
+                                .opacity(withAnimation{buttonTapped ? 0.2 : 1})
+                        }
+                        
+                        
                         Image(systemName: "exclamationmark.triangle.fill")
                             .resizable()
                             .frame(width: 75, height: 70)
@@ -151,18 +194,25 @@ struct CompleteTimer: View {
                             .opacity(withAnimation{buttonTapped ? 0.2 : 1})
                     }//fine bottone
                     .onTapGesture {
-                        buttonTapped = true
-                        TapAnimation()
-                        print("notifica")
-                        if isActivated && start {
-                                withAnimation {
-                                    showMark = true
-                                    isPressed = false
-                                    start = false
-                                    isActivated.toggle()
-                                }
-                                restart()
+                        if !isActivated{
+                            //ShowAlert()
+                            startedAnimation = true
+                            buttonTapped = true
+                            TapAnimation()
+                            withAnimation{
+                                CircleAnimation()
+                                isActivated = true
+                                circleOpacity = true
+                                showCancel = true
                             }
+                        }
+                        if start{
+                            restart()
+                            isActivated = false
+                            showMark = true
+                            start = false
+                            isPressed = false
+                        }
                     }//fine onTapGesture
                     .onLongPressGesture(minimumDuration: 0.1) {
                         // Check if the timer has started before starting a new timer
@@ -176,6 +226,32 @@ struct CompleteTimer: View {
                         }
                     }//fine onLongPressGesture
                 }//fine 1° Zstack
+                
+                ZStack {
+                    Rectangle()
+                        .frame(width: 110, height: 40)
+                        .cornerRadius(30)
+                        .foregroundColor(.white.opacity(0.2))
+                    HStack{
+                        Text("X")
+                            .font(.title3)
+                            .fontWeight(.bold)
+                        Text("CANCEL")
+                            .font(.subheadline)
+                            .fontWeight(.semibold)
+                    }.foregroundColor(.white)
+                }
+                .padding(.bottom, 630)
+                .padding(.leading, 240)
+                .opacity(showCancel ? 1 : 0)
+                .onTapGesture {
+                    if isActivated{
+                        startedAnimation = false
+                        isActivated = false
+                        circleOpacity = false
+                        showCancel = false
+                    }
+                }
                 Circle()
                     .trim(from: 0, to: self.to)
                     .stroke(Color.white.opacity(start ? 1 : 0), style: StrokeStyle(lineWidth: 25, lineCap: .round))
@@ -189,17 +265,17 @@ struct CompleteTimer: View {
                     .font(.system(size: 65))
                     .fontWeight(.bold)
                     .onTapGesture {
-                            // Check if the timer has started before deactivating
-                            if isActivated && start {
-                                withAnimation {
-                                    showMark = true
-                                    isPressed = false
-                                    start = false
-                                    isActivated.toggle()
-                                }
-                                restart()
+                        // Check if the timer has started before deactivating
+                        if isActivated && start {
+                            withAnimation {
+                                showMark = true
+                                isPressed = false
+                                start = false
+                                isActivated.toggle()
                             }
+                            restart()
                         }
+                    }
                     .opacity(withAnimation{
                         start ? 1 : 0
                     })

@@ -9,19 +9,17 @@ import SwiftUI
 import MapKit
 
 struct ModalView: View {
-    @StateObject private var viewModel = MapViewModel()
+    @State var modal1: Bool = false
+    @State var modal2: Bool = false
+    @State var modal3: Bool = false
+    @State var modal4: Bool = false
+    @State var modal5: Bool = false
+    
     @Binding var showAlert: Bool
     @Binding var start: Bool
     @Binding var count: Int
     @Binding var to: CGFloat
     @State private var dismissTimer: Timer?
-    @State var modal1: Bool = false
-    @State var modal2: Bool = false
-    @State var modal3: Bool = false
-    @State var modal4: Bool = false
-    
-    let Yuri = CLLocationCoordinate2D(latitude: 40.826823770004644, longitude: 14.196899024494087)
-    //    @State var camera: MapCameraPosition = .region(self.viewModel.region)
     
     func timerRestart(){
         if self.count == 0 {
@@ -41,16 +39,16 @@ struct ModalView: View {
                     .font(.title3)
                     .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
                 
-                NavigationLink(destination: UserProfileView()){
-                    ZStack{
-                        Circle()
-                            .frame(width:40)
-                            .foregroundColor(.gray)
-                        Image(systemName: "person.fill")
-                            .resizable()
-                            .frame(width: 20, height: 20)
-                            .foregroundColor(.black)
-                    }
+                ZStack{
+                    Circle()
+                        .frame(width:40)
+                        .foregroundColor(.gray)
+                    Image(systemName: "person.fill")
+                        .resizable()
+                        .frame(width: 20, height: 20)
+                        .foregroundColor(.black)
+                }.onTapGesture {
+                    modal5.toggle()
                 }
             }
             .padding(.vertical, 20)
@@ -69,13 +67,16 @@ struct ModalView: View {
         .bottomSheet2(presentationDetents: [.large], isPresented: $modal1, sheetCornerRadius: 20) {
             MapView()
         } onDismiss: {}
-            .sheet(isPresented: $modal2, content: {
-                UserProfileView()
-            })
-            .sheet(isPresented: $modal3, content: {
-                UserProfileView()
-            })
-            .sheet(isPresented: $modal4, content: {
+//            .sheet(isPresented: $modal2, content: {
+//                UserProfileView()
+//            })
+//            .sheet(isPresented: $modal3, content: {
+//                UserProfileView()
+//            })
+//            .sheet(isPresented: $modal4, content: {
+//                UserProfileView()
+//            })
+            .sheet(isPresented: $modal5, content: {
                 UserProfileView()
             })
             .alert(isPresented: $showAlert) {
