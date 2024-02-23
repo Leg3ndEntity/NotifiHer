@@ -133,6 +133,6 @@ func channelManager(_ channelManager: PTChannelManager, didLeaveChannel channelU
     print ("Left channel with UUID: \(channelUUID)")
 }
 
-func updateChannel(_ channelDescriptor: PTChannelDescriptor) async throws {
-    try await channelManager.setChannelDescriptor(channelDescriptor, channelUUID: channelUUID)
-}
+//func updateChannel(_ channelDescriptor: PTChannelDescriptor) async throws {
+//    try await channelManager.setChannelDescriptor(channelDescriptor, channelUUID: channelUUID)
+//}
