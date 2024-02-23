@@ -154,21 +154,19 @@ struct CompleteTimer: View {
                         buttonTapped = true
                         TapAnimation()
                         print("notifica")
-                        if isActivated{
-                            withAnimation{
-                                showMark = true
-                                isPressed = false
-                                start = false
-                                isActivated.toggle()
+                        if isActivated && start {
+                                withAnimation {
+                                    showMark = true
+                                    isPressed = false
+                                    start = false
+                                    isActivated.toggle()
+                                }
+                                restart()
                             }
-                            restart()
-                        }
                     }//fine onTapGesture
-                    .onLongPressGesture(minimumDuration: 0.1){
-                        if isActivated{
-                            print("yuri")
-                        }
-                        else{
+                    .onLongPressGesture(minimumDuration: 0.1) {
+                        // Check if the timer has started before starting a new timer
+                        if !isActivated && !start {
                             withAnimation {
                                 isPressed = true
                                 showMark = false
@@ -190,6 +188,18 @@ struct CompleteTimer: View {
                     .foregroundStyle(Color("Timer"))
                     .font(.system(size: 65))
                     .fontWeight(.bold)
+                    .onTapGesture {
+                            // Check if the timer has started before deactivating
+                            if isActivated && start {
+                                withAnimation {
+                                    showMark = true
+                                    isPressed = false
+                                    start = false
+                                    isActivated.toggle()
+                                }
+                                restart()
+                            }
+                        }
                     .opacity(withAnimation{
                         start ? 1 : 0
                     })
