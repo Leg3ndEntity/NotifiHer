@@ -121,7 +121,7 @@ struct ModalView: View {
                         }
                     ),
                     secondaryButton: .default(
-                        Text("Nevermind"),
+                        Text("Never mind"),
                         action: {
                             showAlert = false
                         }
