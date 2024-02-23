@@ -13,13 +13,13 @@ struct CompleteTimer: View {
     @State var isActivated: Bool = false
     @State var isPressed: Bool = false
     
+    @State var showSeiSicuro: Bool = false
     @State var startedAnimation: Bool = false
     @State var showCancel = false
     @State var showCircle = false
     @State var circleOpacity = false
     @State var showMark: Bool = true
     @State var showAlert = false
-    //@State var ShowText = false
     @State var textSwap = true
     
     @State var start = false
@@ -153,6 +153,12 @@ struct CompleteTimer: View {
                                 .fontWeight(.bold)
                                 .offset(x: 0, y: -150)
                         }
+                    }
+                    if !showSeiSicuro{
+                        Text("Are you sure?")
+                            .font(.title3)
+                            .fontWeight(.bold)
+                            .offset(x: 0, y: -150)
                     }
                     
                     
