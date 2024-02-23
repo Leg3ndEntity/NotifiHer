@@ -4,7 +4,6 @@
 //
 //  Created by Yuri Mario Gianoli on 22/02/24.
 //
-
 import Foundation
 import PushToTalk
 import AVFoundation
@@ -44,9 +43,6 @@ class PushToTalkManager: NSObject, ObservableObject {
         channelManager.requestJoinChannel(channelUUID: channelUUID,
                                           descriptor: channelDescriptor)
     }
-    
-    
-    
 }
 
 extension PushToTalkManager: PTChannelManagerDelegate {
@@ -93,8 +89,6 @@ extension PushToTalkManager: PTChannelManagerDelegate {
         
     }
     
-    
-    
     func channelManager( _ channelManager: PTChannelManager, receivedEphemeralPushToken pushToken: Data) {
         
     }
@@ -106,17 +100,39 @@ extension PushToTalkManager: PTChannelManagerDelegate {
     func channelManager( _ channelManager: PTChannelManager, didActivate audioSession: AVAudioSession) {
         
     }
-    
-    
-    //manager delgate functions (guarda sulla documentazione) / "required" needs to be implemented here
 }
 
 extension PushToTalkManager: PTChannelRestorationDelegate {
-    
     func channelDescriptor(restoredChannelUUID channelUUID: UUID) -> PTChannelDescriptor {
-        PTChannelDescriptor(name: "", image: nil)
+        // Implement your logic to restore channel descriptor
+        return PTChannelDescriptor(name: "", image: nil)
     }
-    
-    
-    
+}
+
+// These functions were declared twice and one of them was missing its implementation
+// I'm assuming you meant to put these outside the class
+func chanelManager(_ channelManager: PTChannelManager, didJoinChannel channelUUID: UUID, reason: PTChannelJoinReason) {
+    print ("Joined channel with UUID: \(channelUUID)")
+}
+
+func channelManager(_ channelManager: PTChannelManager, receivedEphemeralPushToke pushToken: Data) {
+    print ("Received push token")
+}
+
+func channelManager(_ channelManager: PTChannelManager, failedToJoinChannel channelUUID: UUID, error: Error) {
+    let error = error as NSError
+    switch error.code {
+    case PTChannelError.channelLimitReached.rawValue:
+        print ("The user has already joined a channel")
+    default:
+        break
+    }
+}
+
+func channelManager(_ channelManager: PTChannelManager, didLeaveChannel channelUUID: UUID, reason: PTChannelLeaveReason) {
+    print ("Left channel with UUID: \(channelUUID)")
+}
+
+func updateChannel(_ channelDescriptor: PTChannelDescriptor) async throws {
+    try await channelManager.setChannelDescriptor(channelDescriptor, channelUUID: channelUUID)
 }
