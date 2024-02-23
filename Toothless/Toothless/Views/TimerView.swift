@@ -24,6 +24,7 @@ struct CompleteTimer: View {
     @State var time = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     @State private var dismissTimer: Timer?
     
+    @Environment(\.colorScheme) var colorScheme
     var changeFunction: (() -> Void)?
     var formattedTime: String {
         let minutes = count / 60
@@ -139,12 +140,17 @@ struct CompleteTimer: View {
                         Circle()
                             .foregroundColor(.white)
                             .frame(width: 170, height: 170)
+<<<<<<< Updated upstream
                             .shadow(radius: 7)
                             .opacity(withAnimation{buttonTapped ? 0.2 : 1})
+=======
+                            .shadow(color: colorScheme == .dark ? .white : .gray, radius: colorScheme == .dark ? 6 : 4)
+                            .opacity(withAnimation{pollo ? 0.2 : 1})
+>>>>>>> Stashed changes
                         Image(systemName: "exclamationmark.triangle.fill")
                             .resizable()
                             .frame(width: 75, height: 70)
-                            .foregroundColor(Color("Triangle"))
+                            .foregroundColor(Color.red)
                             .opacity(showMark ? 1 : 0)
                             .opacity(withAnimation{buttonTapped ? 0.2 : 1})
                     }//fine bottone
