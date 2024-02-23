@@ -136,6 +136,7 @@ struct OnBoardingView: View {
         
     }
 }
+
 #Preview {
     OnBoardingView()
 }
