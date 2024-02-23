@@ -24,7 +24,7 @@
 		E04CD5332B87E79100AE3F23 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E04CD5322B87E79100AE3F23 /* Preview Assets.xcassets */; };
 		E04CD5362B87E79100AE3F23 /* WatchToothless Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = E04CD5292B87E79000AE3F23 /* WatchToothless Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		E04CD53B2B87E83200AE3F23 /* TimerViewWatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08421AE2B87E4DA00EB795D /* TimerViewWatch.swift */; };
-		E04CD53F2B87ECA500AE3F23 /* RingViewWatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04CD53E2B87ECA500AE3F23 /* RingViewWatch.swift */; };
+		E04CD5432B888D0400AE3F23 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04CD5422B888D0400AE3F23 /* WelcomeView.swift */; };
 		E04D1F1D2B835C8000C8EFDD /* Toothless.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04D1F1C2B835C8000C8EFDD /* Toothless.swift */; };
 		E04D1F1F2B835D1B00C8EFDD /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04D1F1E2B835D1B00C8EFDD /* TimerView.swift */; };
 		E04D1F212B835D5600C8EFDD /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04D1F202B835D5600C8EFDD /* User.swift */; };
@@ -78,7 +78,7 @@
 		E04CD52B2B87E79000AE3F23 /* WatchToothlessApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchToothlessApp.swift; sourceTree = "<group>"; };
 		E04CD52F2B87E79100AE3F23 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E04CD5322B87E79100AE3F23 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		E04CD53E2B87ECA500AE3F23 /* RingViewWatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RingViewWatch.swift; sourceTree = "<group>"; };
+		E04CD5422B888D0400AE3F23 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		E04D1F1C2B835C8000C8EFDD /* Toothless.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toothless.swift; sourceTree = "<group>"; };
 		E04D1F1E2B835D1B00C8EFDD /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
 		E04D1F202B835D5600C8EFDD /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -140,7 +140,6 @@
 		E04CD5412B87ECCA00AE3F23 /* Componentes */ = {
 			isa = PBXGroup;
 			children = (
-				E04CD53E2B87ECA500AE3F23 /* RingViewWatch.swift */,
 			);
 			path = Componentes;
 			sourceTree = "<group>";
@@ -160,6 +159,8 @@
 		E04D1F1A2B835C4200C8EFDD /* Componentes */ = {
 			isa = PBXGroup;
 			children = (
+				991F74E02B87E12F0092EA9D /* PageView.swift */,
+				991F74E22B87E1490092EA9D /* PageModel.swift */,
 				176B44222B7F97CD0029879D /* InfoBoardingView.swift */,
 				176B44382B834CE40029879D /* ButtonHomeView.swift */,
 				E04D1F442B84B2A900C8EFDD /* RingView.swift */,
@@ -176,6 +177,7 @@
 				176B44362B834CBF0029879D /* UserProfileView.swift */,
 				E09286162B7F591F00BD1788 /* ContentView.swift */,
 				176B44322B834C5C0029879D /* ModalView.swift */,
+				E04CD5422B888D0400AE3F23 /* WelcomeView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -205,8 +207,6 @@
 				BEAECC6B2B8371AD003C3A6A /* Toothless.entitlements */,
 				E09286142B7F591F00BD1788 /* ToothlessApp.swift */,
 				E04D1F1C2B835C8000C8EFDD /* Toothless.swift */,
-				991F74E02B87E12F0092EA9D /* PageView.swift */,
-				991F74E22B87E1490092EA9D /* PageModel.swift */,
 				E04D1F1B2B835C4A00C8EFDD /* Views */,
 				E04D1F1A2B835C4200C8EFDD /* Componentes */,
 				E04D1F192B835C3900C8EFDD /* Store */,
@@ -329,7 +329,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				E04CD52C2B87E79000AE3F23 /* WatchToothlessApp.swift in Sources */,
-				E04CD53F2B87ECA500AE3F23 /* RingViewWatch.swift in Sources */,
 				E04CD53B2B87E83200AE3F23 /* TimerViewWatch.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -356,6 +355,7 @@
 				176B44232B7F97CD0029879D /* InfoBoardingView.swift in Sources */,
 				991F74E12B87E12F0092EA9D /* PageView.swift in Sources */,
 				176B44392B834CE40029879D /* ButtonHomeView.swift in Sources */,
+				E04CD5432B888D0400AE3F23 /* WelcomeView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
