@@ -120,7 +120,7 @@ struct CompleteTimer: View {
                     }
                     
                     if textSwap{
-                        Text("Tap to send a notification")
+                        Text("Tap to send an alert")
                             .font(.title3)
                             .fontWeight(.bold)
                             .offset(x: 0, y: -150)
