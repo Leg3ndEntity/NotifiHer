@@ -82,7 +82,7 @@ struct TimerViewWatch: View {
                     Image(systemName: "exclamationmark.triangle.fill")
                         .resizable()
                         .frame(width: 50, height: 50)
-                        .foregroundColor(Color("Triangle"))
+                        .foregroundColor(Color.red)
                         .opacity(withAnimation{showMark ? 1 : 0})
                         .opacity(withAnimation{buttonTapped ? 0.2 : 1})
                 }.padding(.bottom, 40)

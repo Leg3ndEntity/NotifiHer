@@ -107,7 +107,6 @@ struct ModalView: View {
             .alert(isPresented: $showAlert2) {
                 Alert(
                     title: Text("Are you sure?"),
-                    message: Text("If so, tap on dismiss"),
                     primaryButton: .default(
                         Text("Dismiss"),
                         action: {

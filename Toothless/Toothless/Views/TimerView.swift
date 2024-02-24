@@ -95,8 +95,8 @@ struct CompleteTimer: View {
     
     func SwapText(){
         if textSwap{
-            DispatchQueue.main.asyncAfter(deadline: .now() + 6) {
-                withAnimation(.easeInOut(duration: 1.0)) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                withAnimation(.smooth(duration: 1)) {
                     textSwap.toggle()
                     SwapText()
                 }
@@ -144,23 +144,36 @@ struct CompleteTimer: View {
                     
                     if !isActivated{
                         if textSwap{
-                            Text("Tap to send an alert")
-                                .font(.title3)
-                                .fontWeight(.bold)
-                                .offset(x: 0, y: -150)
-                        }else{
-                            Text("Hold to start the timer")
-                                .font(.title3)
-                                .fontWeight(.bold)
-                                .offset(x: 0, y: -150)
-                        }
+                            HStack {
+                                Text("TAP")
+                                    .foregroundStyle(.red)
+                                    .fontWeight(.bold)
+                                    .font(.title)
+                                    .offset(x: 2, y: -150)
+                                Text("to send an alert")
+                                    .font(.title2)
+                                    .fontWeight(.bold)
+                                    .offset(x: 0, y: -150)
+                            }                        }else{
+                                HStack {
+                                    Text("HOLD")
+                                        .foregroundStyle(.red)
+                                        .fontWeight(.bold)
+                                        .font(.title)
+                                        .offset(x: 2, y: -150)
+                                    Text("to start the timer")
+                                        .font(.title2)
+                                        .fontWeight(.bold)
+                                        .offset(x: 0, y: -150)
+                                }
+                            }
                     }
                     if showSeiSicuro{
                         VStack {
                             Text("Are you sure?")
                                 .font(.title3)
                                 .fontWeight(.bold)
-                            .offset(x: 0, y: -150)
+                                .offset(x: 0, y: -150)
                             
                             Text("Press again")
                                 .font(.title3)
@@ -278,12 +291,10 @@ struct CompleteTimer: View {
                         // Check if the timer has started before deactivating
                         if isActivated && start {
                             withAnimation {
-                                showMark = true
+                                showMark = false
                                 isPressed = false
-                                start = false
-                                isActivated.toggle()
+                                showAlert2.toggle()
                             }
-                            restart()
                         }
                     }
                     .opacity(withAnimation{
@@ -295,7 +306,7 @@ struct CompleteTimer: View {
         .bottomSheet(presentationDetents: [.height(190), .height(80)], isPresented: .constant(true), sheetCornerRadius: 20) {
             ScrollView(.vertical, showsIndicators: false) {
                 ModalView(isActivated: $isActivated, showMark: $showMark, showAlert: $showAlert, showAlert2: $showAlert2, start: $start, count: $count, to: $to)
-
+                
             }
         } onDismiss: {}
             .onAppear(perform: {
@@ -303,28 +314,33 @@ struct CompleteTimer: View {
                 UNUserNotificationCenter.current().requestAuthorization(options: [.badge,.sound,.alert]) { (_, _) in
                 }
             })
-            .onReceive(self.time) { (_) in
-                if self.start{
-                    if self.count > 0 {
-                        self.count -= 1
-                        print("\(count)")
-                    }
-                    else{
-                        self.start.toggle()
-                        self.Notify()
-                        self.showAlert = true
-                        self.dismissTimer = Timer.scheduledTimer(withTimeInterval: 5, repeats: false) { _ in
-                            if showAlert{
-                                print("Popup alert ignored for 10 seconds")
-                                self.showAlert = false
-                                restart()
-                                isActivated.toggle()
-                                showMark = true
+            .onReceive(self.time) { _ in
+                DispatchQueue.global().async {
+                    if self.start {
+                        DispatchQueue.main.async {
+                            if self.count > 0 {
+                                self.count -= 1
+                                print("\(self.count)")
+                            } else {
+                                self.start.toggle()
+                                self.Notify()
+                                self.showAlert = true
+                                self.dismissTimer = Timer.scheduledTimer(withTimeInterval: 5, repeats: false) { _ in
+                                    if self.showAlert {
+                                        print("Popup alert ignored for 10 seconds")
+                                        self.showAlert = false
+                                        self.restart()
+                                        self.isActivated.toggle()
+                                        self.showMark = true
+                                    }
+                                }
                             }
                         }
                     }
                 }
-            }//fine onReceive
+            }
+
+//fine onReceive
     }
 }
 
