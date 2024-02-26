@@ -57,12 +57,7 @@ struct CompleteTimer: View {
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.2) {
             isPressed = false
             if isActivated{
-                if self.count == 0 {
                     self.count = 300 // Riporta il timer a 5 minuti
-                    withAnimation(.default){
-                        self.to = 0
-                    }
-                }
                 self.start.toggle()
                 print("start")
             }
@@ -188,7 +183,6 @@ struct CompleteTimer: View {
                         }
                     }
                     
-                    
                     if isPressed {
                         RingView(percentage: 1, backgroundColor: Color.white.opacity(0), startColor: .white, endColor: .white, thickness: 37)
                             .scaleEffect(0.671)
@@ -240,18 +234,16 @@ struct CompleteTimer: View {
                             }
                             feedbackGenerator.impactOccurred()
                         }
-                        if start{
-                            showAlert2.toggle()
-                        }
                     }//fine onTapGesture
-                    .onLongPressGesture(minimumDuration: 0.1) {
+                    .onLongPressGesture(minimumDuration: 0.001) {
                         // Check if the timer has started before starting a new timer
                         if !isActivated && !start {
                             withAnimation {
+                                timerStart()
+                                isActivated = true
                                 isPressed = true
                                 showMark = false
-                                timerStart()
-                                isActivated.toggle()
+                                showCancel = true
                             }
                             selectionFeedbackGenerator.selectionChanged()
                         }
@@ -279,10 +271,11 @@ struct CompleteTimer: View {
                 .onTapGesture {
                     if isActivated{
                         feedbackGenerator.impactOccurred()
-                        startedAnimation = false
                         isActivated = false
-                        circleOpacity = false
+                        showCircle = false
                         showCancel = false
+                        start = false
+                        showMark = true
                     }
                 }
                 Circle()
@@ -297,16 +290,6 @@ struct CompleteTimer: View {
                     .foregroundStyle(Color("Timer"))
                     .font(.system(size: 65))
                     .fontWeight(.bold)
-                    .onTapGesture {
-                        // Check if the timer has started before deactivating
-                        if isActivated && start {
-                            withAnimation {
-                                showMark = false
-                                isPressed = false
-                                showAlert2.toggle()
-                            }
-                        }
-                    }
                     .opacity(withAnimation{
                         start ? 1 : 0
                     })
@@ -316,7 +299,6 @@ struct CompleteTimer: View {
         .bottomSheet(presentationDetents: [.height(190), .height(80)], isPresented: .constant(true), sheetCornerRadius: 20) {
             ScrollView(.vertical, showsIndicators: false) {
                 ModalView(isActivated: $isActivated, showMark: $showMark, showAlert: $showAlert, showAlert2: $showAlert2, start: $start, count: $count, to: $to)
-                
             }
         } onDismiss: {}
             .onAppear(perform: {

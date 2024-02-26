@@ -15,7 +15,7 @@ struct ModalView: View {
     @State var modal3: Bool = false
     @State var modal4: Bool = false
     @State var modal5: Bool = false
-    @State private var feedbackGenerator = UIImpactFeedbackGenerator(style: .medium)
+    @State private var feedbackGenerator = UIImpactFeedbackGenerator(style: .soft)
 
     
     @Binding var isActivated: Bool
@@ -63,6 +63,7 @@ struct ModalView: View {
                         .foregroundColor(.black)
                 }.onTapGesture {
                     modal5.toggle()
+                    feedbackGenerator.impactOccurred()
                 }
             }
             .padding(.vertical, 20)
@@ -106,10 +107,10 @@ struct ModalView: View {
                     dismissButton: .default(
                         Text("Dismiss"),
                         action: {
+                            feedbackGenerator.impactOccurred()
                             timerRestart()
                             self.dismissTimer?.invalidate()
                             showAlert = false
-                            feedbackGenerator.impactOccurred()
                             
                         }
                     )
@@ -122,20 +123,20 @@ struct ModalView: View {
                         Text("Dismiss"),
                         action: {
                             withAnimation{
+                                feedbackGenerator.impactOccurred()
                                 restart()
                                 self.dismissTimer?.invalidate()
                                 showAlert = false
                                 isActivated = false
                                 showMark = true
-                                feedbackGenerator.impactOccurred()
                             }
                         }
                     ),
                     secondaryButton: .default(
                         Text("Never mind"),
                         action: {
-                            showAlert = false
                             feedbackGenerator.impactOccurred()
+                            showAlert = false
                         }
                     )
                 )
