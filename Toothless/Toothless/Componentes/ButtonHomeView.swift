@@ -6,10 +6,12 @@
 //
 
 import SwiftUI
+import UIKit
 
 struct ButtonHomeView: View {
     var iconName: String = ""
     var nameFeature: String = ""
+    @State private var feedbackGenerator = UIImpactFeedbackGenerator(style: .medium)
     
     
     @Binding var showModal: Bool
@@ -31,7 +33,14 @@ struct ButtonHomeView: View {
                 .bold()
                 .foregroundStyle(CustomColor.text)
         }.onTapGesture {
+            feedbackGenerator.impactOccurred()
             showModal.toggle()
+        }
+        .onAppear {
+            feedbackGenerator.prepare()
+        }
+        .onDisappear {
+            feedbackGenerator = UIImpactFeedbackGenerator(style: .medium)
         }
     }
 }

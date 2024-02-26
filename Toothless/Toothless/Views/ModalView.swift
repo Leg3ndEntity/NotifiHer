@@ -69,21 +69,9 @@ struct ModalView: View {
             VStack(alignment: .leading){
                 HStack(spacing: 20){
                     ButtonHomeView(iconName: "map.fill", nameFeature:"Map", showModal: $modal1)
-                        .onTapGesture {
-                            feedbackGenerator.impactOccurred()
-                        }
                     ButtonHomeView(iconName: "phone.fill.arrow.down.left", nameFeature:"Fake Calls", showModal: $modal2)
-                        .onTapGesture {
-                            feedbackGenerator.impactOccurred()
-                        }
                     ButtonHomeView(iconName: "exclamationmark.bubble.fill", nameFeature:"Reports", showModal: $modal3)
-                        .onTapGesture {
-                            feedbackGenerator.impactOccurred()
-                        }
                     ButtonHomeView(iconName: "waveform.and.mic", nameFeature:"Walkie-Talkie", showModal: $modal4)
-                        .onTapGesture {
-                            feedbackGenerator.impactOccurred()
-                        }
                 }
             }
             .padding(.top, 10.0)
@@ -92,9 +80,7 @@ struct ModalView: View {
         }
         .bottomSheet2(presentationDetents: [.large], isPresented: $modal1, sheetCornerRadius: 20) {
             MapView()
-        } onDismiss: {}.onTapGesture {
-            feedbackGenerator.impactOccurred()
-        }
+        } onDismiss: {}
 //            .sheet(isPresented: $modal2, content: {
 //                UserProfileView()
 //            })
@@ -106,9 +92,7 @@ struct ModalView: View {
 //            })
             .sheet(isPresented: $modal5, content: {
                 UserProfileView()
-            }).onTapGesture {
-                feedbackGenerator.impactOccurred()
-            }
+            })
             .onAppear {
                 feedbackGenerator.prepare()
             }
@@ -151,6 +135,7 @@ struct ModalView: View {
                         Text("Never mind"),
                         action: {
                             showAlert = false
+                            feedbackGenerator.impactOccurred()
                         }
                     )
                 )
