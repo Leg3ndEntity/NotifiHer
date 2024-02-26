@@ -28,6 +28,7 @@ struct MapView: View {
             visibleRegion = context.region
         }
         .onAppear{
+            viewModel.checkIfLocationEnabled()
             search(for: ["Pharmacy", "Supermarket", "Police Stations", "Hospital"])
         }
         .mapControls {
