@@ -71,7 +71,7 @@ struct ModalView: View {
                     ButtonHomeView(iconName: "map.fill", nameFeature:"Map", showModal: $modal1)
                     ButtonHomeView(iconName: "phone.fill.arrow.down.left", nameFeature:"Fake Calls", showModal: $modal2)
                     ButtonHomeView(iconName: "exclamationmark.bubble.fill", nameFeature:"Reports", showModal: $modal3)
-                    ButtonHomeView(iconName: "waveform.and.mic", nameFeature:"Walkie-Talkie", showModal: $modal4)
+                    ButtonHomeView(iconName: "waveform.and.mic", nameFeature:"WT", showModal: $modal4)
                 }
             }
             .padding(.top, 10.0)
