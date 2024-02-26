@@ -7,6 +7,7 @@
 
 import SwiftUI
 import MapKit
+import UIKit
 
 struct ModalView: View {
     @State var modal1: Bool = false
@@ -14,6 +15,8 @@ struct ModalView: View {
     @State var modal3: Bool = false
     @State var modal4: Bool = false
     @State var modal5: Bool = false
+    @State private var feedbackGenerator = UIImpactFeedbackGenerator(style: .medium)
+
     
     @Binding var isActivated: Bool
     @Binding var showMark: Bool
@@ -66,9 +69,21 @@ struct ModalView: View {
             VStack(alignment: .leading){
                 HStack(spacing: 20){
                     ButtonHomeView(iconName: "map.fill", nameFeature:"Map", showModal: $modal1)
+                        .onTapGesture {
+                            feedbackGenerator.impactOccurred()
+                        }
                     ButtonHomeView(iconName: "phone.fill.arrow.down.left", nameFeature:"Fake Calls", showModal: $modal2)
+                        .onTapGesture {
+                            feedbackGenerator.impactOccurred()
+                        }
                     ButtonHomeView(iconName: "exclamationmark.bubble.fill", nameFeature:"Reports", showModal: $modal3)
+                        .onTapGesture {
+                            feedbackGenerator.impactOccurred()
+                        }
                     ButtonHomeView(iconName: "waveform.and.mic", nameFeature:"Walkie-Talkie", showModal: $modal4)
+                        .onTapGesture {
+                            feedbackGenerator.impactOccurred()
+                        }
                 }
             }
             .padding(.top, 10.0)
@@ -77,7 +92,9 @@ struct ModalView: View {
         }
         .bottomSheet2(presentationDetents: [.large], isPresented: $modal1, sheetCornerRadius: 20) {
             MapView()
-        } onDismiss: {}
+        } onDismiss: {}.onTapGesture {
+            feedbackGenerator.impactOccurred()
+        }
 //            .sheet(isPresented: $modal2, content: {
 //                UserProfileView()
 //            })
@@ -89,7 +106,15 @@ struct ModalView: View {
 //            })
             .sheet(isPresented: $modal5, content: {
                 UserProfileView()
-            })
+            }).onTapGesture {
+                feedbackGenerator.impactOccurred()
+            }
+            .onAppear {
+                feedbackGenerator.prepare()
+            }
+            .onDisappear {
+                feedbackGenerator = UIImpactFeedbackGenerator(style: .medium)
+            }
             .alert(isPresented: $showAlert) {
                 Alert(
                     title: Text("Are you ok?"),
@@ -100,6 +125,8 @@ struct ModalView: View {
                             timerRestart()
                             self.dismissTimer?.invalidate()
                             showAlert = false
+                            feedbackGenerator.impactOccurred()
+                            
                         }
                     )
                 )
@@ -116,6 +143,7 @@ struct ModalView: View {
                                 showAlert = false
                                 isActivated = false
                                 showMark = true
+                                feedbackGenerator.impactOccurred()
                             }
                         }
                     ),
@@ -127,8 +155,6 @@ struct ModalView: View {
                     )
                 )
             }
-
-        
     }
 }
 

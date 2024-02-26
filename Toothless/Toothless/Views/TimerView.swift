@@ -7,8 +7,14 @@
 
 import SwiftUI
 import UserNotifications
+import UIKit
+
 
 struct CompleteTimer: View {
+    @State private var feedbackGenerator = UIImpactFeedbackGenerator(style: .medium)
+    @State private var selectionFeedbackGenerator = UISelectionFeedbackGenerator()
+
+
     @State var buttonTapped: Bool = false
     @State var isActivated: Bool = false
     @State var isPressed: Bool = false
@@ -232,6 +238,7 @@ struct CompleteTimer: View {
                                 circleOpacity = true
                                 showCancel = true
                             }
+                            feedbackGenerator.impactOccurred()
                         }
                         if start{
                             showAlert2.toggle()
@@ -246,6 +253,7 @@ struct CompleteTimer: View {
                                 timerStart()
                                 isActivated.toggle()
                             }
+                            selectionFeedbackGenerator.selectionChanged()
                         }
                     }//fine onLongPressGesture
                 }//fine 1° Zstack
@@ -263,12 +271,14 @@ struct CompleteTimer: View {
                             .font(.subheadline)
                             .fontWeight(.semibold)
                     }.foregroundColor(.white)
+                    
                 }
                 .padding(.bottom, 630)
                 .padding(.leading, 240)
                 .opacity(showCancel ? 1 : 0)
                 .onTapGesture {
                     if isActivated{
+                        feedbackGenerator.impactOccurred()
                         startedAnimation = false
                         isActivated = false
                         circleOpacity = false
@@ -310,10 +320,16 @@ struct CompleteTimer: View {
             }
         } onDismiss: {}
             .onAppear(perform: {
+                selectionFeedbackGenerator.prepare()
+                feedbackGenerator.prepare()
                 SwapText()
                 UNUserNotificationCenter.current().requestAuthorization(options: [.badge,.sound,.alert]) { (_, _) in
                 }
             })
+            .onDisappear {
+                feedbackGenerator = UIImpactFeedbackGenerator(style: .medium)
+                selectionFeedbackGenerator = UISelectionFeedbackGenerator()
+        }
             .onReceive(self.time) { _ in
                 DispatchQueue.global().async {
                     if self.start {
