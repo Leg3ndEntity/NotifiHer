@@ -1,4 +1,3 @@
-//
 //  PushToTalkManager.swift
 //  Toothless
 //
@@ -25,10 +24,29 @@ class ImageCacheManager {
     }
 }
 
+class ChannelDescriptorCache {
+    static let shared = ChannelDescriptorCache()
+    
+    private var cache = [UUID: PTChannelDescriptor]()
+    
+    private init() {}
+    
+    func cacheDescriptor(_ descriptor: PTChannelDescriptor, forUUID uuid: UUID) {
+        cache[uuid] = descriptor
+    }
+    
+    func retrieveDescriptor(forUUID uuid: UUID) -> PTChannelDescriptor? {
+        return cache[uuid]
+    }
+}
+
+
+
 class PushToTalkManager: NSObject, ObservableObject {
     
     var channelManager: PTChannelManager!
     var channelDescriptor: PTChannelDescriptor!
+   
     
     func setupChannelManager() async throws {
         channelManager = try await PTChannelManager.channelManager(delegate: self,
@@ -109,6 +127,15 @@ extension PushToTalkManager: PTChannelRestorationDelegate {
     }
 }
 
+func getCachedChannelDescriptor(_ channelUUID: UUID) -> PTChannelDescriptor {
+    guard let cachedDescriptor = ChannelDescriptorCache.shared.retrieveDescriptor(forUUID: channelUUID) else {
+        // Se il descrittore del canale non è presente nella cache, restituisci un descrittore vuoto o di default
+        return PTChannelDescriptor(name: "", image: nil)
+    }
+    return cachedDescriptor
+}
+
+
 // These functions were declared twice and one of them was missing its implementation
 // I'm assuming you meant to put these outside the class
 func chanelManager(_ channelManager: PTChannelManager, didJoinChannel channelUUID: UUID, reason: PTChannelJoinReason) {
@@ -133,6 +160,89 @@ func channelManager(_ channelManager: PTChannelManager, didLeaveChannel channelU
     print ("Left channel with UUID: \(channelUUID)")
 }
 
-//func updateChannel(_ channelDescriptor: PTChannelDescriptor) async throws {
+func channelDescriptor(restoredChannelUUID channelUUID: UUID) -> PTChannelDescriptor {
+    return getCachedChannelDescriptor(channelUUID)
+    
+}
+
+//func updateChannel(_ channelDescriptor: PTChannelDescriptor, channelUUID: UUID) async throws {
 //    try await channelManager.setChannelDescriptor(channelDescriptor, channelUUID: channelUUID)
+//}
+//
+//func reportServiceIsReconnecting() async throws {
+//    try await channelManager.setServiceStatus(.connecting, channelUUID: channelUUID)
+//}
+//func reportServiceIsConnected() async throws {
+//    try await channelManager.setServiceStatus(.ready, channelUUID: channelUUID)
+//}
+//func startTransmitting(){
+//    channelManager.requestBeginTransmitting(channelUUID: channelUUID)
+//}
+//func channelManager (_ channelManager: PTChannelManager, failedToBeginTransmittingChannel channelUUID: UUID, error: Error) {
+//    let error = error as NSError
+//    
+//    switch error.code {
+//    case PTChannelError.callActive.rawValue:
+//        print("The system has another ongoing call that is preventing transmission.")
+//    default:
+//        break
+//    }
+//}
+//
+//
+//func stopTransmitting() {
+//    channelManager.stopTransmitting(channelUUID: channelUUID)
+//}
+//
+//func channelManager(_ channelManager: PTChannelManager, failedToStopTransmittingInChannel channelUUID: UUID, error: Error){
+//    let error = error as NSError
+//    switch error.code {
+//    case PTChannelError.transmissionNotFound.rawValue:
+//        print("The user was not in a transmitting state")
+//    default:
+//        break
+//    }
+//}
+//
+//func channelManager(_ channelManager: PTChannelManager,
+//                    channelUUID: UUID,
+//                    didBeginTransmittingFrom source: PTChannelTransmitRequestSource) {
+//    print("Did begin transmission from: \(source)")
+//}
+//
+//func channelManager(_ channelManager: PTChannelManager,
+//                    didActivate audioSession: AVAudioSession) {
+//    print("Did activate audio session")
+//    // Configure your audio session and begin recording
+//}
+//
+//func channelManager(_ channelManager: PTChannelManager,
+//                    channelUUID: UUID,
+//                    didEndTransmittingFrom source: PTChannelTransmitRequestSource) {
+//    print("Did end transmission from: \(source)")
+//}
+//
+//func channelManager(_ channelManager: PTChannelManager,
+//                    didDeactivate audioSession: AVAudioSession) {
+//    print("Did deactivate audio session")
+//    // Stop recording and clean up resources
+//}
+//
+//func incomingPushResult(channelManager: PTChannelManager,
+//                        channelUUID: UUID,
+//                        pushPayload: [String : Any]) -> PTPushResult {
+//
+//    guard let activeSpeaker = pushPayload["activeSpeaker"] as? String else {
+//        // If no active speaker is set, the only other valid operation
+//        // is to leave the channel
+//        return .leaveChannel
+//    }
+//
+//    let activeSpeakerImage = getActiveSpeakerImage(activeSpeaker)
+//    let participant = PTParticipant(name: activeSpeaker, image: activeSpeakerImage)
+//    return .activeRemoteParticipant(participant)
+//}
+//
+//func stopReceivingAudio() {
+//    channelManager.setActiveRemoteParticipant(nil, channelUUID: channelUUID)
 //}
