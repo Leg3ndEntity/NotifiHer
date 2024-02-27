@@ -10,6 +10,7 @@ import UserNotifications
 import UIKit
 
 
+
 struct CompleteTimer: View {
     @State private var feedbackGenerator = UIImpactFeedbackGenerator(style: .medium)
     @State private var selectionFeedbackGenerator = UISelectionFeedbackGenerator()
@@ -243,7 +244,7 @@ struct CompleteTimer: View {
                             feedbackGenerator.impactOccurred()
                         }
                     }//fine onTapGesture
-                    .onLongPressGesture(minimumDuration: 0.5) {
+                    .onLongPressGesture {
                         // Check if the timer has started before starting a new timer
                         if !isActivated && !start {
                             withAnimation {
