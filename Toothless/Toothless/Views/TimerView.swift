@@ -14,6 +14,9 @@ struct CompleteTimer: View {
     @State private var feedbackGenerator = UIImpactFeedbackGenerator(style: .medium)
     @State private var selectionFeedbackGenerator = UISelectionFeedbackGenerator()
 
+    
+    @State private var canCancel: Bool = false
+    @State private var cancelGroup = DispatchGroup()
 
     @State var buttonTapped: Bool = false
     @State var isActivated: Bool = false
@@ -53,16 +56,20 @@ struct CompleteTimer: View {
         self.to = 0
         print("restart")
     }
-    func timerStart(){
+    func timerStart() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.2) {
             isPressed = false
-            if isActivated{
-                    self.count = 300 // Riporta il timer a 5 minuti
+            if isActivated {
+                cancelGroup.enter()
+                self.count = 300
                 self.start.toggle()
                 print("start")
+                cancelGroup.leave()
+                canCancel = true // Set the flag to allow cancellation
             }
         }
     }
+
     func timerRestart(){
         if self.count == 0 {
             self.count = 300 // Riporta il timer a 5 minuti
@@ -119,7 +126,6 @@ struct CompleteTimer: View {
                     showCircle.toggle()
                     CircleAnimation()
                 }else{
-                    print("boh")
                 }
             }
         }
@@ -223,6 +229,7 @@ struct CompleteTimer: View {
                     .onTapGesture {
                         if !isActivated{
                             //ShowAlert()
+                            start = false
                             startedAnimation = true
                             buttonTapped = true
                             TapAnimation()
@@ -231,11 +238,12 @@ struct CompleteTimer: View {
                                 isActivated = true
                                 circleOpacity = true
                                 showCancel = true
+                                canCancel = true
                             }
                             feedbackGenerator.impactOccurred()
                         }
                     }//fine onTapGesture
-                    .onLongPressGesture(minimumDuration: 0.001) {
+                    .onLongPressGesture(minimumDuration: 0.5) {
                         // Check if the timer has started before starting a new timer
                         if !isActivated && !start {
                             withAnimation {
@@ -269,13 +277,15 @@ struct CompleteTimer: View {
                 .padding(.leading, 240)
                 .opacity(showCancel ? 1 : 0)
                 .onTapGesture {
-                    if isActivated{
+                    if isActivated && canCancel{
                         feedbackGenerator.impactOccurred()
+                        isPressed = false
                         isActivated = false
                         showCircle = false
                         showCancel = false
                         start = false
                         showMark = true
+                        canCancel = false // Reset the canCancel flag
                     }
                 }
                 Circle()
