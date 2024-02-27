@@ -1,10 +1,3 @@
-//
-//  Toothless.swift
-//  Toothless_prova
-//
-//  Created by Simone Sarnataro on 17/02/24.
-//
-
 import SwiftUI
 
 struct WelcomeView: View {
@@ -18,26 +11,42 @@ struct WelcomeView: View {
     var body: some View {
         TabView(selection: $pageIndex) {
             ForEach(pages) { page in
-                VStack {
+                VStack(alignment: .trailing) {
+                    // Skip Button
+                    Button("Skip", action: {
+                        isWelcomeScreenOver = true
+                        isShowingMain.toggle()
+                    })
+                    .foregroundColor(.blue)
+                    .padding(.trailing, 20)
+                    
                     Spacer()
                     PageView(page: page)
                     Spacer()
                     if page == pages.last {
-                        Text("Get started")
-                            .font(.title2)
-                            .foregroundColor(.white)
-                            .padding(10)
-                            .background(RoundedRectangle(cornerRadius: 8).fill(Color.blue))
+                        HStack {
+                            Spacer()
+                            Text("Get started")
+                                .font(.title2)
+                                .foregroundColor(.white)
+                                .padding(10)
+                                .background(RoundedRectangle(cornerRadius: 8).fill(Color.blue))
+                            Spacer()
+                        }
                             .onTapGesture {
-                                    isWelcomeScreenOver = true
-                                    isShowingMain.toggle()
-                                    print("ciao")
-                                }
+                                isWelcomeScreenOver = true
+                                isShowingMain.toggle()
+                                print("ciao")
+                            }
                     }
-                        else {
-                        Button("Next", action: incrementPage)
-                            .buttonStyle(.borderedProminent)
-                            .font(.title2)
+                    else {
+                        HStack {
+                            Spacer()
+                            Button("Next", action: incrementPage)
+                                .buttonStyle(.borderedProminent)
+                                .font(.title2)
+                            Spacer()
+                        }
                     }
                     Spacer()
                 }
@@ -55,7 +64,7 @@ struct WelcomeView: View {
             CompleteTimer()
         })
     }
-
+    
     func incrementPage() {
         pageIndex += 1
     }
@@ -68,4 +77,3 @@ struct WelcomeView: View {
 #Preview {
     WelcomeView()
 }
-

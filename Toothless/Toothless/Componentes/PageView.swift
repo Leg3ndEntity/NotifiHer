@@ -12,27 +12,30 @@ struct PageView: View {
     
     var body: some View {
         VStack(spacing: 10) {
-            Image("\(page.imageUrl)")
-                .resizable()
-                .scaledToFit()
-                .padding()
-                .cornerRadius(30)
-                .background(.gray.opacity(0.10))
-                .cornerRadius(10)
-                .padding()
+            HStack {
+                Spacer()
+                GifImage(page.gif)
+                    .cornerRadius(20)
+                    .frame(width: 340, height: 310)
+                    .padding(.bottom, 50)
+                Spacer()
+            }
             
             Text(page.name)
                 .font(.title)
+                .bold()
+                .frame(width: 340)
+            
             Text(page.description)
-                .font(.subheadline)
-                .frame(width: 300)
+                .font(.title3)
+                .padding(.horizontal)
         }
     }
 }
 
-struct PageView_Previews: PreviewProvider {
-    static var previews: some View {
-        PageView(page: Page.samplePage)
-    }
-}
+//struct PageView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        PageView(page: Page.samplePage)
+//    }
+//}
 

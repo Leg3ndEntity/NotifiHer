@@ -40,10 +40,10 @@ struct MapView: View {
             ZStack{
                 Rectangle()
                     .frame(width: 400, height: 180)
-                    .opacity(0.7)
+                    .opacity((selectedResults != nil) ? 0.7 : 0)
                     .cornerRadius(20)
                     .foregroundColor(CustomColor.background)
-                VStack(alignment: .center){
+                VStack(alignment: .leading){
                     Text("\(selectedResults?.name ?? "")")
                         .font((selectedResults?.name?.count ?? 0 > 21 ? .title2 : .title))
                         .bold()
@@ -65,8 +65,8 @@ struct MapView: View {
                             .padding(.top, 2)
                     }
                 }.frame(maxWidth: 360)
-                    .padding(.bottom, 5)
-                    .padding(.leading,1.5)
+                    .padding(.bottom, 45)
+                    .padding(.leading, -120)
             }.padding(.bottom, -35)
             , alignment: .bottom)
     }

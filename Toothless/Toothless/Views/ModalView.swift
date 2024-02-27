@@ -123,10 +123,10 @@ struct ModalView: View {
                         Text("Yes"),
                         action: {
                             withAnimation{
+                                showAlert2.toggle()
                                 feedbackGenerator.impactOccurred()
                                 restart()
                                 self.dismissTimer?.invalidate()
-                                showAlert = false
                                 isActivated = false
                                 showMark = true
                             }
@@ -136,7 +136,6 @@ struct ModalView: View {
                         Text("No, help me"),
                         action: {
                             feedbackGenerator.impactOccurred()
-                            showAlert = false
                         }
                     )
                 )

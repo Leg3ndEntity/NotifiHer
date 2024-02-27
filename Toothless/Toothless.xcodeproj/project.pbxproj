@@ -17,7 +17,12 @@
 		991F74DF2B875BF80092EA9D /* Extensions2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991F74DE2B875BF80092EA9D /* Extensions2.swift */; };
 		991F74E12B87E12F0092EA9D /* PageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991F74E02B87E12F0092EA9D /* PageView.swift */; };
 		991F74E32B87E1490092EA9D /* PageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991F74E22B87E1490092EA9D /* PageModel.swift */; };
+		99A653902B8DF53C0038C1D4 /* GIFImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A6538F2B8DF53C0038C1D4 /* GIFImage.swift */; };
+		99A653922B8DF8810038C1D4 /* GiFFF.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A653912B8DF8810038C1D4 /* GiFFF.swift */; };
+		99A653942B8E1EC00038C1D4 /* map.gif in Resources */ = {isa = PBXBuildFile; fileRef = 99A653932B8E1EC00038C1D4 /* map.gif */; };
 		99D05C812B81640F00E96315 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D05C802B81640F00E96315 /* Extensions.swift */; };
+		99F2971D2B8E617C00B88E68 /* hold.gif in Resources */ = {isa = PBXBuildFile; fileRef = 99F2971B2B8E617C00B88E68 /* hold.gif */; };
+		99F2971E2B8E617C00B88E68 /* tap.gif in Resources */ = {isa = PBXBuildFile; fileRef = 99F2971C2B8E617C00B88E68 /* tap.gif */; };
 		BE0E089B2B873EE3005C848F /* PushToTalkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0E089A2B873D7C005C848F /* PushToTalkManager.swift */; };
 		E04CD52C2B87E79000AE3F23 /* WatchToothlessApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04CD52B2B87E79000AE3F23 /* WatchToothlessApp.swift */; };
 		E04CD5302B87E79100AE3F23 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E04CD52F2B87E79100AE3F23 /* Assets.xcassets */; };
@@ -71,7 +76,12 @@
 		991F74DE2B875BF80092EA9D /* Extensions2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions2.swift; sourceTree = "<group>"; };
 		991F74E02B87E12F0092EA9D /* PageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageView.swift; sourceTree = "<group>"; };
 		991F74E22B87E1490092EA9D /* PageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageModel.swift; sourceTree = "<group>"; };
+		99A6538F2B8DF53C0038C1D4 /* GIFImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GIFImage.swift; sourceTree = "<group>"; };
+		99A653912B8DF8810038C1D4 /* GiFFF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiFFF.swift; sourceTree = "<group>"; };
+		99A653932B8E1EC00038C1D4 /* map.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = map.gif; sourceTree = "<group>"; };
 		99D05C802B81640F00E96315 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		99F2971B2B8E617C00B88E68 /* hold.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = hold.gif; path = "../../../../../Downloads/iloveimg-compressed/hold.gif"; sourceTree = "<group>"; };
+		99F2971C2B8E617C00B88E68 /* tap.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = tap.gif; path = "../../../../../Downloads/iloveimg-compressed/tap.gif"; sourceTree = "<group>"; };
 		BE0E089A2B873D7C005C848F /* PushToTalkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushToTalkManager.swift; sourceTree = "<group>"; };
 		BEAECC6B2B8371AD003C3A6A /* Toothless.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Toothless.entitlements; sourceTree = "<group>"; };
 		E04CD5292B87E79000AE3F23 /* WatchToothless Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WatchToothless Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -159,7 +169,9 @@
 		E04D1F1A2B835C4200C8EFDD /* Componentes */ = {
 			isa = PBXGroup;
 			children = (
+				99A6538F2B8DF53C0038C1D4 /* GIFImage.swift */,
 				991F74E02B87E12F0092EA9D /* PageView.swift */,
+				99A653912B8DF8810038C1D4 /* GiFFF.swift */,
 				991F74E22B87E1490092EA9D /* PageModel.swift */,
 				176B44222B7F97CD0029879D /* InfoBoardingView.swift */,
 				176B44382B834CE40029879D /* ButtonHomeView.swift */,
@@ -211,6 +223,9 @@
 				E04D1F1A2B835C4200C8EFDD /* Componentes */,
 				E04D1F192B835C3900C8EFDD /* Store */,
 				E09286182B7F592000BD1788 /* Assets.xcassets */,
+				99F2971B2B8E617C00B88E68 /* hold.gif */,
+				99F2971C2B8E617C00B88E68 /* tap.gif */,
+				99A653932B8E1EC00038C1D4 /* map.gif */,
 				E092861A2B7F592000BD1788 /* Preview Content */,
 			);
 			path = Toothless;
@@ -317,6 +332,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				99F2971E2B8E617C00B88E68 /* tap.gif in Resources */,
+				99F2971D2B8E617C00B88E68 /* hold.gif in Resources */,
+				99A653942B8E1EC00038C1D4 /* map.gif in Resources */,
 				E092861C2B7F592000BD1788 /* Preview Assets.xcassets in Resources */,
 				E09286192B7F592000BD1788 /* Assets.xcassets in Resources */,
 			);
@@ -348,6 +366,7 @@
 				E04D1F1D2B835C8000C8EFDD /* Toothless.swift in Sources */,
 				1763FA862B860400005BC39C /* MapView.swift in Sources */,
 				E04D1F1F2B835D1B00C8EFDD /* TimerView.swift in Sources */,
+				99A653902B8DF53C0038C1D4 /* GIFImage.swift in Sources */,
 				BE0E089B2B873EE3005C848F /* PushToTalkManager.swift in Sources */,
 				176B44352B834C920029879D /* MapViewModel.swift in Sources */,
 				E04D1F212B835D5600C8EFDD /* User.swift in Sources */,
@@ -355,6 +374,7 @@
 				E09286152B7F591F00BD1788 /* ToothlessApp.swift in Sources */,
 				176B44232B7F97CD0029879D /* InfoBoardingView.swift in Sources */,
 				991F74E12B87E12F0092EA9D /* PageView.swift in Sources */,
+				99A653922B8DF8810038C1D4 /* GiFFF.swift in Sources */,
 				176B44392B834CE40029879D /* ButtonHomeView.swift in Sources */,
 				E04CD5432B888D0400AE3F23 /* WelcomeView.swift in Sources */,
 			);

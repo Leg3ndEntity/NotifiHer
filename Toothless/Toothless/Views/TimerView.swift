@@ -14,7 +14,6 @@ import UIKit
 struct CompleteTimer: View {
     @State private var feedbackGenerator = UIImpactFeedbackGenerator(style: .medium)
     @State private var selectionFeedbackGenerator = UISelectionFeedbackGenerator()
-
     
     @State private var canCancel: Bool = false
     @State private var cancelGroup = DispatchGroup()
@@ -230,6 +229,7 @@ struct CompleteTimer: View {
                     .onTapGesture {
                         if !isActivated{
                             //ShowAlert()
+                            showAlert2 = false
                             start = false
                             startedAnimation = true
                             buttonTapped = true
@@ -276,7 +276,7 @@ struct CompleteTimer: View {
                 }
                 .padding(.bottom, 630)
                 .padding(.leading, 240)
-                .opacity(showCancel ? 1 : 0)
+                .opacity(showCancel && !showAlert2 ? 1 : 0)
                 .onTapGesture {
                     if isActivated && canCancel{
                         feedbackGenerator.impactOccurred()
