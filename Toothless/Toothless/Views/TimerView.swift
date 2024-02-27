@@ -119,7 +119,7 @@ struct CompleteTimer: View {
                     showCircle.toggle()
                     CircleAnimation()
                 }else{
-                    print("fanculo")
+                    print("boh")
                 }
             }
         }
