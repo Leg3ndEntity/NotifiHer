@@ -118,9 +118,9 @@ struct ModalView: View {
             }
             .alert(isPresented: $showAlert2) {
                 Alert(
-                    title: Text("Are you sure?"),
+                    title: Text("Are you safe?"),
                     primaryButton: .default(
-                        Text("Dismiss"),
+                        Text("Yes"),
                         action: {
                             withAnimation{
                                 feedbackGenerator.impactOccurred()
@@ -133,7 +133,7 @@ struct ModalView: View {
                         }
                     ),
                     secondaryButton: .default(
-                        Text("Never mind"),
+                        Text("No, help me"),
                         action: {
                             feedbackGenerator.impactOccurred()
                             showAlert = false

@@ -62,7 +62,7 @@ struct CompleteTimer: View {
             isPressed = false
             if isActivated {
                 cancelGroup.enter()
-                self.count = 300
+                self.count = 3
                 self.start.toggle()
                 print("start")
                 cancelGroup.leave()
@@ -333,11 +333,11 @@ struct CompleteTimer: View {
                             } else {
                                 self.start.toggle()
                                 self.Notify()
-                                self.showAlert = true
+                                self.showAlert2 = true
                                 self.dismissTimer = Timer.scheduledTimer(withTimeInterval: 5, repeats: false) { _ in
-                                    if self.showAlert {
+                                    if self.showAlert2 {
                                         print("Popup alert ignored for 10 seconds")
-                                        self.showAlert = false
+                                        self.showAlert2 = false
                                         self.restart()
                                         self.isActivated.toggle()
                                         self.showMark = true
