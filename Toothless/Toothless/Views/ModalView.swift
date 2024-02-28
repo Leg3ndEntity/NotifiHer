@@ -20,6 +20,7 @@ struct ModalView: View {
     
     @Binding var isActivated: Bool
     @Binding var showMark: Bool
+    @Binding var isPressed: Bool
     
     @Binding var showAlert: Bool
     @Binding var showAlert2: Bool
@@ -36,6 +37,7 @@ struct ModalView: View {
         print("restart")
     }
     func timerRestart(){
+        isPressed = false
         if self.count == 0 {
             self.count = 300 // Riporta il timer a 5 minuti
             withAnimation(.default){
@@ -123,12 +125,10 @@ struct ModalView: View {
                         Text("Yes"),
                         action: {
                             withAnimation{
-                                showAlert2.toggle()
+                                isPressed = true
                                 feedbackGenerator.impactOccurred()
-                                restart()
+                                timerRestart()
                                 self.dismissTimer?.invalidate()
-                                isActivated = false
-                                showMark = true
                             }
                         }
                     ),

@@ -71,6 +71,7 @@ struct CompleteTimer: View {
     }
 
     func timerRestart(){
+        isPressed = false
         if self.count == 0 {
             self.count = 300 // Riporta il timer a 5 minuti
             withAnimation(.default){
@@ -309,7 +310,7 @@ struct CompleteTimer: View {
         }//fine 3° Zstack
         .bottomSheet(presentationDetents: [.height(190), .height(80)], isPresented: .constant(true), sheetCornerRadius: 20) {
             ScrollView(.vertical, showsIndicators: false) {
-                ModalView(isActivated: $isActivated, showMark: $showMark, showAlert: $showAlert, showAlert2: $showAlert2, start: $start, count: $count, to: $to)
+                ModalView(isActivated: $isActivated, showMark: $showMark, isPressed: $isPressed, showAlert: $showAlert, showAlert2: $showAlert2, start: $start, count: $count, to: $to)
             }
         } onDismiss: {}
             .onAppear(perform: {
