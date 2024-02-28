@@ -126,7 +126,6 @@
 			children = (
 				E04CD52B2B87E79000AE3F23 /* WatchToothlessApp.swift */,
 				E04CD5402B87ECC300AE3F23 /* Views */,
-				E04CD5412B87ECCA00AE3F23 /* Componentes */,
 				E04CD52F2B87E79100AE3F23 /* Assets.xcassets */,
 				E04CD5312B87E79100AE3F23 /* Preview Content */,
 			);
@@ -147,13 +146,6 @@
 				E08421AE2B87E4DA00EB795D /* TimerViewWatch.swift */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		E04CD5412B87ECCA00AE3F23 /* Componentes */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Componentes;
 			sourceTree = "<group>";
 		};
 		E04D1F192B835C3900C8EFDD /* Store */ = {
