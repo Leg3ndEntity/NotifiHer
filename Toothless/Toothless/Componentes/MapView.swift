@@ -9,68 +9,55 @@ import SwiftUI
 import MapKit
 
 struct MapView: View {
+    private let stroke = StrokeStyle(lineWidth: 3, lineCap: .round, lineJoin: .round, dash: [5, 5])
+    @State var clicked : Bool = false
     @StateObject private var viewModel = MapViewModel()
-    @State private var  searchResults: [MKMapItem] = []
+    @State private var searchResults: [MKMapItem] = []
     @State private var selectedResults: MKMapItem?
+    @State private var travelTime: String?
     @State private var route: MKRoute?
     @State var visibleRegion: MKCoordinateRegion?
-    let Yuri = CLLocationCoordinate2D(latitude: 40.826823770004644, longitude: 14.196899024494087)
-    
+    @State private var position: MapCameraPosition = .userLocation(
+        followsHeading: true,
+        fallback: .automatic
+    )
     var body: some View {
-        Map(selection: $selectedResults){
+        Map(position: $position, selection: $selectedResults){
             UserAnnotation()
-            
             ForEach(searchResults, id:\.self){
                 result in Marker(item:result)
             }
+            if clicked{
+                MapPolyline(route!.polyline)
+                    .stroke(.blue, style:stroke)
+            }
         }
+        .safeAreaInset(edge: .bottom){InfoPointView( clicked: $clicked, route:$route, travelTime:$travelTime, selectedResults: $selectedResults)}
         .onMapCameraChange {context in
             visibleRegion = context.region
         }
         .onAppear{
-            viewModel.checkIfLocationEnabled()
             search(for: ["Pharmacy", "Supermarket", "Police Stations", "Hospital"])
+        }
+        .onChange(of:searchResults){
+            position = .userLocation(
+                followsHeading: true,
+                fallback: .automatic
+            )
+        }
+        .onChange(of:selectedResults){
+            fetchRouteFrom((viewModel.locationManager?.location!.coordinate)!, to: (selectedResults?.placemark.coordinate)!)
         }
         .mapControls {
             MapUserLocationButton()
-            MapPitchToggle()
         }
         .mapStyle(.standard(elevation:.realistic))
-        .overlay(
-            ZStack{
-                Rectangle()
-                    .frame(width: 400, height: 180)
-                    .opacity((selectedResults != nil) ? 0.7 : 0)
-                    .cornerRadius(20)
-                    .foregroundColor(CustomColor.background)
-                VStack(alignment: .leading){
-                    Text("\(selectedResults?.name ?? "")")
-                        .font((selectedResults?.name?.count ?? 0 > 21 ? .title2 : .title))
-                        .bold()
-                        .foregroundStyle(CustomColor.text)
-                        .multilineTextAlignment(.center)
-                    Text(StringInterestPoint(category: selectedResults?.pointOfInterestCategory ?? .park))
-                    Text("\(selectedResults?.phoneNumber ?? "")")
-                        .bold()
-                    if let thoroughfare = selectedResults?.placemark.thoroughfare,
-                       let subThoroughfare = selectedResults?.placemark.subThoroughfare {
-                        Text("\(thoroughfare) \(subThoroughfare)")
-                            .bold()
-                            .font(.headline)
-                            .padding(.top, 2)
-                    } else {
-                        Text("\(selectedResults?.placemark.thoroughfare ?? "")")
-                            .bold()
-                            .font(.headline)
-                            .padding(.top, 2)
-                    }
-                }.frame(maxWidth: 360)
-                    .padding(.bottom, 45)
-                    .padding(.leading, -120)
-            }.padding(.bottom, -35)
-            , alignment: .bottom)
     }
     
+    
+}
+
+extension MapView{
     func search(for queries: [String]) {
         viewModel.checkIfLocationEnabled()
         
@@ -80,7 +67,7 @@ struct MapView: View {
             let request = MKLocalSearch.Request()
             request.naturalLanguageQuery = query
             request.resultTypes = .pointOfInterest
-            request.region = visibleRegion ?? viewModel.region
+            request.region = visibleRegion ?? MKCoordinateRegion(center: (viewModel.locationManager?.location!.coordinate)!, span: MapDetails.defaultSpan)
             
             Task {
                 let search = MKLocalSearch(request: request)
@@ -90,22 +77,25 @@ struct MapView: View {
             }
         }
     }
-    
-    func StringInterestPoint(category: MKPointOfInterestCategory) -> String {
-        switch category {
-        case .pharmacy:
-            return "Pharmacy"
-        case .hospital:
-            return "Hospital"
-        case .police:
-            return "Police Stations"
-        case .restaurant:
-            return "Restaurant"
-        case .foodMarket:
-            return "Supermarket"
-        default:
-            return ""
+    private func fetchRouteFrom(_ source: CLLocationCoordinate2D, to destination: CLLocationCoordinate2D) {
+        let request = MKDirections.Request()
+        request.source = MKMapItem(placemark: MKPlacemark(coordinate: source))
+        request.destination = MKMapItem(placemark: MKPlacemark(coordinate: destination))
+        request.transportType = .walking
+        
+        Task {
+            let result = try? await MKDirections(request: request).calculate()
+            route = result?.routes.first
+            getTravelTime()
         }
+    }
+    
+    private func getTravelTime() {
+        guard let route else { return }
+        let formatter = DateComponentsFormatter()
+        formatter.unitsStyle = .abbreviated
+        formatter.allowedUnits = [.hour, .minute]
+        travelTime = formatter.string(from: route.expectedTravelTime)
     }
 }
 
