@@ -101,6 +101,7 @@ struct CompleteTimer: View {
         }
     }
     
+    
     func SwapText(){
         if textSwap{
             DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
