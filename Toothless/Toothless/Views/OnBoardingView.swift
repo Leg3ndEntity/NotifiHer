@@ -36,7 +36,7 @@ struct OnBoardingView: View {
                             .frame(width: 30)
                         
                         VStack(alignment: .leading) {
-                            Text("Avoid dangerous situations")
+                            Text("Avoid dangerous situations ")
                                 .fontWeight(.bold)
                             
                             Text("A map will show all the safe spots that you can reach.")
