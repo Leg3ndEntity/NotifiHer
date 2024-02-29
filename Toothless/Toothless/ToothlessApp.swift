@@ -58,9 +58,9 @@ class AppDelegate: NSObject, UIApplicationDelegate{
         return true
     }
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: 
-    [AnyHashable : Any],
+                     [AnyHashable : Any],
                      fetchCompletionHandler completionHandler: @escaping
-    (UIBackgroundFetchResult) -> Void) {
+                     (UIBackgroundFetchResult) -> Void) {
         if let messageID = userInfo[gcmMessageIDKey] {
             print("Message ID: \(messageID)")
         }
@@ -73,10 +73,10 @@ class AppDelegate: NSObject, UIApplicationDelegate{
     }
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         let tokenString = deviceToken.map { String(format: "%02.2hhx", $0) }.joined()
-                print("Device Token: \(tokenString)")
-                
-                // Store the FCM token in UserDefaults or another storage mechanism
-                UserDefaults.standard.set(tokenString, forKey: "fcmToken")
+        print("Device Token: \(tokenString)")
+        
+        // Store the FCM token in UserDefaults or another storage mechanism
+        UserDefaults.standard.set(tokenString, forKey: "fcmToken")
     }
 }
 
@@ -85,10 +85,10 @@ extension AppDelegate: MessagingDelegate {
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
         
         if let fcmToken = fcmToken {
-                    print("FCM Token: \(fcmToken)")
-                    // Store the FCM token in UserDefaults or another storage mechanism
-                    UserDefaults.standard.set(fcmToken, forKey: "fcmToken")
-                }
+            print("FCM Token: \(fcmToken)")
+            // Store the FCM token in UserDefaults or another storage mechanism
+            UserDefaults.standard.set(fcmToken, forKey: "fcmToken")
+        }
     }
 }
 

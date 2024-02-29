@@ -29,7 +29,7 @@ struct ModalView: View {
     
     func timerRestart(){
         if self.count == 0 {
-            self.count = 3 // Riporta il timer a 5 minuti
+            self.count = 300
             withAnimation(.default){
                 self.to = 0
             }
@@ -70,7 +70,7 @@ struct ModalView: View {
             }
             .padding(.vertical, 20)
             VStack(alignment: .leading){
-                HStack(spacing: 20){
+                HStack(spacing: 30){
                     ButtonHomeView(iconName: "map.fill", nameFeature:"Map", showModal: $modal1)
                     ButtonHomeView(iconName: "phone.fill.arrow.down.left", nameFeature:"Fake Calls", showModal: $modal2)
                     ButtonHomeView(iconName: "exclamationmark.bubble.fill", nameFeature:"Reports", showModal: $modal3)
@@ -94,7 +94,7 @@ struct ModalView: View {
         //                UserProfileView()
         //            })
             .sheet(isPresented: $modal5, content: {
-                UserProfileView(userData: [])
+                SettingsView(userData: [])
             })
             .onAppear {
                 feedbackGenerator.prepare()

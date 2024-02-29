@@ -85,11 +85,11 @@ struct Registration: View {
         })
     }
 }
-    
-    
-    struct Registration_Previews: PreviewProvider {
-        static var previews: some View {
-            Registration(name: "", surname: "", phoneNumber: "")
-        }
+
+
+struct Registration_Previews: PreviewProvider {
+    static var previews: some View {
+        Registration(name: "", surname: "", phoneNumber: "")
     }
-    
+}
+

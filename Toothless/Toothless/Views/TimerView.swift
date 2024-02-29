@@ -46,7 +46,7 @@ struct CompleteTimer: View {
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.2) {
             isPressed = false
             if isActivated {
-                self.count = 3
+                self.count = 300
                 self.start.toggle()
                 print("start")
                 canCancel = true // Set the flag to allow cancellation
@@ -82,7 +82,7 @@ struct CompleteTimer: View {
             }
         }else{
             DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                withAnimation(.easeInOut(duration: 1.0)) {
+                withAnimation(.easeInOut(duration: 1)) {
                     textSwap.toggle()
                     SwapText()
                 }
