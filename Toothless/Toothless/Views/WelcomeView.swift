@@ -28,7 +28,8 @@ struct WelcomeView: View {
                     PageView(page: page)
                     Spacer()
                     if page == pages.last {
-                        AppleSignIN(isUserSignedIn: $isUserSignedIn)
+                        Registration(name: "", surname: "", phoneNumber: "")
+                        Spacer()
                         HStack {
                             Spacer()
                             Text("Get started")
