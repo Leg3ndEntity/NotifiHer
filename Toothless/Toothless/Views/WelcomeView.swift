@@ -1,13 +1,15 @@
 import SwiftUI
+import AuthenticationServices
 
 struct WelcomeView: View {
     @AppStorage("isWelcomeScreenOver") var isWelcomeScreenOver = false
     @State var isShowingMain: Bool = false
+    @State private var isUserSignedIn: Bool = false
     
     @State private var pageIndex = 0
     private let pages: [Page] = Page.samplePages
     private let dotAppearance = UIPageControl.appearance()
-
+    
     var body: some View {
         TabView(selection: $pageIndex) {
             ForEach(pages) { page in
@@ -26,6 +28,7 @@ struct WelcomeView: View {
                     PageView(page: page)
                     Spacer()
                     if page == pages.last {
+                        AppleSignIN(isUserSignedIn: $isUserSignedIn)
                         HStack {
                             Spacer()
                             Text("Get started")
@@ -33,13 +36,21 @@ struct WelcomeView: View {
                                 .foregroundColor(.white)
                                 .padding(10)
                                 .background(RoundedRectangle(cornerRadius: 8).fill(Color.blue))
+                                .onTapGesture {
+                                    if isUserSignedIn { // Only allow tap if the user is signed in
+                                        isWelcomeScreenOver = true
+                                        isShowingMain.toggle()
+                                        print("ciao")
+                                    }
+                                }
                             Spacer()
                         }
-                            .onTapGesture {
-                                isWelcomeScreenOver = true
-                                isShowingMain.toggle()
-                                print("ciao")
-                            }
+                        .padding(.bottom, 60)
+                        .onTapGesture {
+                            isWelcomeScreenOver = true
+                            isShowingMain.toggle()
+                            print("ciao")
+                        }
                     }
                     else {
                         HStack {
@@ -70,7 +81,7 @@ struct WelcomeView: View {
     func incrementPage() {
         pageIndex += 1
     }
-
+    
     func goToZero() {
         pageIndex = 0
     }

@@ -10,9 +10,9 @@ import ImageIO
 
 struct Page: Identifiable, Equatable {
     let id = UUID()
-    var name: String
-    var description: String
-    var gif: String
+    var name: String?
+    var description: String?
+    var gif: String?
     var tag: Int
     
     static var samplePage = Page(name: "Title Example", description: "This is a sample description for the purpose of debugging", gif: "work", tag: 0)
@@ -22,6 +22,7 @@ struct Page: Identifiable, Equatable {
         Page(name: "Start the timer!", description: "If you feel a sense of danger, hold the button to start a timer. When it ends, your emergency contacts will be notified.", gif: "hold", tag: 1),
         Page(name: "Visualize safe spots!", description: "Open the map from the bottom sheet to see all the safe spots sorrounding your position.", gif: "map", tag: 2),
         Page(name: "Use Fake Calls!", description: "Fake calls are a helpful tool that you can use to get out of a dangerous situation.", gif: "", tag: 3),
-        Page(name: "Get help with a Walkie-Talkie!", description: "Get in touch with your emergency contacts in a really fast and simple way.", gif: "", tag: 4)
+        Page(name: "Get help with a Walkie-Talkie!", description: "Get in touch with your emergency contacts in a really fast and simple way.", gif: "", tag: 4),
+        Page(tag: 5)
     ]
 }

@@ -8,34 +8,30 @@
 import SwiftUI
 
 struct PageView: View {
+    private let pages: [Page] = Page.samplePages
     var page: Page
     
     var body: some View {
         VStack(spacing: 10) {
             HStack {
                 Spacer()
-                GifImage(page.gif)
-                    .cornerRadius(20)
-                    .frame(width: 340, height: 310)
-                    .padding(.bottom, 50)
+                if let gif = page.gif {
+                    GifImage(gif)
+                        .cornerRadius(20)
+                        .frame(width: 340, height: 310)
+                        .padding(.bottom, 50)
+                }
                 Spacer()
             }
             
-            Text(page.name)
+            Text(page.name ?? "")
                 .font(.title)
                 .bold()
                 .frame(width: 340)
             
-            Text(page.description)
+            Text(page.description ?? "")
                 .font(.title3)
                 .padding(.horizontal)
         }
     }
 }
-
-//struct PageView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        PageView(page: Page.samplePage)
-//    }
-//}
-
