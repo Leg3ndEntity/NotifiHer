@@ -613,7 +613,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Toothless/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "";
+				INFOPLIST_KEY_CFBundleDisplayName = NotifiHer;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Use the live position on the map";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "The usage of the microphone is required for accessing the Push To Talk \"Walkie Talkie\" feature";
@@ -654,7 +654,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Toothless/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "";
+				INFOPLIST_KEY_CFBundleDisplayName = NotifiHer;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Use the live position on the map";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "The usage of the microphone is required for accessing the Push To Talk \"Walkie Talkie\" feature";

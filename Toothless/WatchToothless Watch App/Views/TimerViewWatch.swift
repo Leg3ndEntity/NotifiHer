@@ -86,22 +86,22 @@ struct TimerViewWatch: View {
                         .opacity(withAnimation{showMark ? 1 : 0})
                         .opacity(withAnimation{buttonTapped ? 0.2 : 1})
                 }.padding(.bottom, 40)
-                .onLongPressGesture(minimumDuration: 1.5){
-                    print("notifica")
-                    if !isActivated{
-                        ShowAlert()
-                        buttonTapped = true
-                        TapAnimation()
-                        withAnimation{
-                            CircleAnimation()
-                            isActivated = true
-                            showMark = true
+                    .onLongPressGesture(minimumDuration: 1.5){
+                        print("notifica")
+                        if !isActivated{
+                            ShowAlert()
+                            buttonTapped = true
+                            TapAnimation()
+                            withAnimation{
+                                CircleAnimation()
+                                isActivated = true
+                                showMark = true
+                            }
+                        }else{
+                            isActivated = false
+                            circleOpacity = true
                         }
-                    }else{
-                        isActivated = false
-                        circleOpacity = true
                     }
-                }
             }.ignoresSafeArea()
         } .alert(isPresented: $showAlert) {
             Alert(

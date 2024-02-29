@@ -50,11 +50,10 @@ struct ModalView: View {
     
     var body: some View {
         VStack{
-            HStack(alignment: .center, spacing: 200.0){
-                Text("Safe Places")
+            HStack(alignment: .center, spacing: 215){
+                Text("Services")
                     .font(.title3)
                     .fontWeight(.bold)
-                
                 ZStack{
                     Circle()
                         .frame(width:40)
@@ -70,14 +69,13 @@ struct ModalView: View {
             }
             .padding(.vertical, 20)
             VStack(alignment: .leading){
-                HStack(spacing: 30){
+                HStack(spacing: 28){
                     ButtonHomeView(iconName: "map.fill", nameFeature:"Map", showModal: $modal1)
                     ButtonHomeView(iconName: "phone.fill.arrow.down.left", nameFeature:"Fake Calls", showModal: $modal2)
                     ButtonHomeView(iconName: "exclamationmark.bubble.fill", nameFeature:"Reports", showModal: $modal3)
                     ButtonHomeView(iconName: "waveform.and.mic", nameFeature:"WT", showModal: $modal4)
                 }
-            }
-            .padding(.top, 10.0)
+            }.padding(.top, 10.0)
             
             
         }

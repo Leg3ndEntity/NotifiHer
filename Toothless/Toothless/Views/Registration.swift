@@ -72,12 +72,10 @@ struct Registration: View {
             }
             .padding(.bottom, 60)
             .onTapGesture {
-                if isUserSignedIn {
-                    isWelcomeScreenOver = true
-                    isShowingMain.toggle()
-                    modelContext.insert(User(name: name, surname: surname, phoneNumber: phoneNumber))
-                    print("ciao")
-                }
+                isWelcomeScreenOver = true
+                isShowingMain.toggle()
+                modelContext.insert(User(name: name, surname: surname, phoneNumber: phoneNumber))
+                print("ciao")
             }
         }
         .fullScreenCover(isPresented: $isShowingMain, content: {
