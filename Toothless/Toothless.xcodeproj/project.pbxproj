@@ -20,10 +20,15 @@
 		991F74DF2B875BF80092EA9D /* Extensions2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991F74DE2B875BF80092EA9D /* Extensions2.swift */; };
 		991F74E12B87E12F0092EA9D /* PageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991F74E02B87E12F0092EA9D /* PageView.swift */; };
 		991F74E32B87E1490092EA9D /* PageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991F74E22B87E1490092EA9D /* PageModel.swift */; };
+		99A040972B8FB37A00099984 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 99A040962B8FB37A00099984 /* FirebaseAnalytics */; };
+		99A040992B8FB37A00099984 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 99A040982B8FB37A00099984 /* FirebaseMessaging */; };
+		99A0409B2B8FB37A00099984 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 99A0409A2B8FB37A00099984 /* FirebaseStorage */; };
 		99A653902B8DF53C0038C1D4 /* GIFImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A6538F2B8DF53C0038C1D4 /* GIFImage.swift */; };
 		99A653922B8DF8810038C1D4 /* GiFFF.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A653912B8DF8810038C1D4 /* GiFFF.swift */; };
 		99A653942B8E1EC00038C1D4 /* map.gif in Resources */ = {isa = PBXBuildFile; fileRef = 99A653932B8E1EC00038C1D4 /* map.gif */; };
 		99D05C812B81640F00E96315 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D05C802B81640F00E96315 /* Extensions.swift */; };
+		99D8E7262B8FCEF900449F8D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 99D8E7252B8FCEF900449F8D /* GoogleService-Info.plist */; };
+		99D8E7272B8FCEF900449F8D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 99D8E7252B8FCEF900449F8D /* GoogleService-Info.plist */; };
 		BE0E089B2B873EE3005C848F /* PushToTalkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0E089A2B873D7C005C848F /* PushToTalkManager.swift */; };
 		E04CD52C2B87E79000AE3F23 /* WatchToothlessApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04CD52B2B87E79000AE3F23 /* WatchToothlessApp.swift */; };
 		E04CD5302B87E79100AE3F23 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E04CD52F2B87E79100AE3F23 /* Assets.xcassets */; };
@@ -75,7 +80,7 @@
 		176B44342B834C920029879D /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 		176B44362B834CBF0029879D /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
 		176B44382B834CE40029879D /* ButtonHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonHomeView.swift; sourceTree = "<group>"; };
-		176B443A2B83531B0029879D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		176B443A2B83531B0029879D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Info.plist; sourceTree = "<group>"; };
 		17F449992B8F4BA400E29688 /* InfoPointView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoPointView.swift; sourceTree = "<group>"; };
 		991F74DE2B875BF80092EA9D /* Extensions2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions2.swift; sourceTree = "<group>"; };
 		991F74E02B87E12F0092EA9D /* PageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageView.swift; sourceTree = "<group>"; };
@@ -84,6 +89,9 @@
 		99A653912B8DF8810038C1D4 /* GiFFF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiFFF.swift; sourceTree = "<group>"; };
 		99A653932B8E1EC00038C1D4 /* map.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = map.gif; sourceTree = "<group>"; };
 		99D05C802B81640F00E96315 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		99D8E7252B8FCEF900449F8D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		99D8E7282B8FDD5E00449F8D /* WatchToothless-Watch-App-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "WatchToothless-Watch-App-Info.plist"; sourceTree = SOURCE_ROOT; };
+		99D8E7292B8FDD6600449F8D /* WatchToothless Watch App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "WatchToothless Watch App.entitlements"; sourceTree = "<group>"; };
 		BE0E089A2B873D7C005C848F /* PushToTalkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushToTalkManager.swift; sourceTree = "<group>"; };
 		BEAECC6B2B8371AD003C3A6A /* Toothless.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Toothless.entitlements; sourceTree = "<group>"; };
 		E04CD5292B87E79000AE3F23 /* WatchToothless Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WatchToothless Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -115,6 +123,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				99A040992B8FB37A00099984 /* FirebaseMessaging in Frameworks */,
+				99A040972B8FB37A00099984 /* FirebaseAnalytics in Frameworks */,
+				99A0409B2B8FB37A00099984 /* FirebaseStorage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -124,6 +135,8 @@
 		E04CD52A2B87E79000AE3F23 /* WatchToothless Watch App */ = {
 			isa = PBXGroup;
 			children = (
+				99D8E7292B8FDD6600449F8D /* WatchToothless Watch App.entitlements */,
+				99D8E7282B8FDD5E00449F8D /* WatchToothless-Watch-App-Info.plist */,
 				E04CD52B2B87E79000AE3F23 /* WatchToothlessApp.swift */,
 				E04CD5402B87ECC300AE3F23 /* Views */,
 				E04CD52F2B87E79100AE3F23 /* Assets.xcassets */,
@@ -192,7 +205,6 @@
 		E09286082B7F591F00BD1788 = {
 			isa = PBXGroup;
 			children = (
-				176B443A2B83531B0029879D /* Info.plist */,
 				E09286132B7F591F00BD1788 /* Toothless */,
 				E04CD52A2B87E79000AE3F23 /* WatchToothless Watch App */,
 				E09286122B7F591F00BD1788 /* Products */,
@@ -211,6 +223,8 @@
 		E09286132B7F591F00BD1788 /* Toothless */ = {
 			isa = PBXGroup;
 			children = (
+				176B443A2B83531B0029879D /* Info.plist */,
+				99D8E7252B8FCEF900449F8D /* GoogleService-Info.plist */,
 				BEAECC6B2B8371AD003C3A6A /* Toothless.entitlements */,
 				E09286142B7F591F00BD1788 /* ToothlessApp.swift */,
 				E04D1F1C2B835C8000C8EFDD /* Toothless.swift */,
@@ -269,6 +283,11 @@
 				E04CD5352B87E79100AE3F23 /* PBXTargetDependency */,
 			);
 			name = Toothless;
+			packageProductDependencies = (
+				99A040962B8FB37A00099984 /* FirebaseAnalytics */,
+				99A040982B8FB37A00099984 /* FirebaseMessaging */,
+				99A0409A2B8FB37A00099984 /* FirebaseStorage */,
+			);
 			productName = Toothless;
 			productReference = E09286112B7F591F00BD1788 /* Toothless.app */;
 			productType = "com.apple.product-type.application";
@@ -302,6 +321,7 @@
 			);
 			mainGroup = E09286082B7F591F00BD1788;
 			packageReferences = (
+				99A040952B8FB37A00099984 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = E09286122B7F591F00BD1788 /* Products */;
 			projectDirPath = "";
@@ -318,6 +338,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				99D8E7272B8FCEF900449F8D /* GoogleService-Info.plist in Resources */,
 				E04CD5332B87E79100AE3F23 /* Preview Assets.xcassets in Resources */,
 				E04CD5302B87E79100AE3F23 /* Assets.xcassets in Resources */,
 			);
@@ -327,6 +348,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				99D8E7262B8FCEF900449F8D /* GoogleService-Info.plist in Resources */,
 				173376F52B8F25D5009D05AC /* tap.gif in Resources */,
 				173376F42B8F25D5009D05AC /* hold.gif in Resources */,
 				99A653942B8E1EC00038C1D4 /* map.gif in Resources */,
@@ -392,22 +414,24 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "WatchToothless Watch App/WatchToothless Watch App.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"WatchToothless Watch App/Preview Content\"";
-				DEVELOPMENT_TEAM = 25V24PM769;
+				DEVELOPMENT_TEAM = AWX4HJ7JT5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "WatchToothless-Watch-App-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = WatchToothless;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.alessiaprevidente.Toothless;
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.yurigianoli.Toothless;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.alessiaprevidente.Toothless.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yurigianoli.Toothless.watchkitappp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -423,22 +447,24 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "WatchToothless Watch App/WatchToothless Watch App.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"WatchToothless Watch App/Preview Content\"";
-				DEVELOPMENT_TEAM = 25V24PM769;
+				DEVELOPMENT_TEAM = AWX4HJ7JT5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "WatchToothless-Watch-App-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = WatchToothless;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.alessiaprevidente.Toothless;
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.yurigianoli.Toothless;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.alessiaprevidente.Toothless.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yurigianoli.Toothless.watchkitappp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -579,10 +605,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Toothless/Preview Content\"";
-				DEVELOPMENT_TEAM = 25V24PM769;
+				DEVELOPMENT_TEAM = AWX4HJ7JT5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Toothless/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Use the live position on the map";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "The usage of the microphone is required for accessing the Push To Talk \"Walkie Talkie\" feature";
@@ -595,7 +622,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.alessiaprevidente.Toothless;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yurigianoli.Toothless;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -619,10 +646,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Toothless/Preview Content\"";
-				DEVELOPMENT_TEAM = 25V24PM769;
+				DEVELOPMENT_TEAM = AWX4HJ7JT5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Toothless/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Use the live position on the map";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "The usage of the microphone is required for accessing the Push To Talk \"Walkie Talkie\" feature";
@@ -635,7 +663,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.alessiaprevidente.Toothless;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yurigianoli.Toothless;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -679,6 +707,35 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		99A040952B8FB37A00099984 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.21.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		99A040962B8FB37A00099984 /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 99A040952B8FB37A00099984 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		99A040982B8FB37A00099984 /* FirebaseMessaging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 99A040952B8FB37A00099984 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseMessaging;
+		};
+		99A0409A2B8FB37A00099984 /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 99A040952B8FB37A00099984 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = E09286092B7F591F00BD1788 /* Project object */;
 }
