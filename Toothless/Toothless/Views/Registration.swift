@@ -7,19 +7,22 @@ struct Registration: View {
     @State var surname: String
     @State var phoneNumber: String
     
+    var fcmToken: String? {
+        UserDefaults.standard.string(forKey: "fcmToken")
+    }
+    
     var body: some View {
         VStack {
-            Text("Set up Health Details")
+            Text("Set up personal details")
                 .font(.title)
                 .bold()
-                .padding()
             
-            Text("Your health details are the basic information the app needs to provide you with relevant information.")
+            Text("Your personal details are the basic information the app needs to help you in case of danger.")
                 .font(.headline)
                 .fontWeight(.regular)
                 .multilineTextAlignment(.center)
                 .frame(width: 350)
-                .padding(.top, 20)
+                .padding(.top, 1)
                 .padding(.bottom, 50)
             
             Divider()
@@ -60,6 +63,11 @@ struct Registration: View {
             .padding(.top)
             
             Divider().padding(.bottom, 50)
+            
+            if let fcmToken = fcmToken {
+                Text("FCM Token: \(fcmToken)")
+                    .padding()
+            }
         }
     }
 }

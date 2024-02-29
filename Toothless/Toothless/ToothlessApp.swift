@@ -71,7 +71,11 @@ class AppDelegate: NSObject, UIApplicationDelegate{
         
     }
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-        
+        let tokenString = deviceToken.map { String(format: "%02.2hhx", $0) }.joined()
+                print("Device Token: \(tokenString)")
+                
+                // Store the FCM token in UserDefaults or another storage mechanism
+                UserDefaults.standard.set(tokenString, forKey: "fcmToken")
     }
 }
 
@@ -79,8 +83,11 @@ extension AppDelegate: MessagingDelegate {
     
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
         
-        let dataDict:[String: String] = ["token": fcmToken ?? ""]
-print(dataDict)
+        if let fcmToken = fcmToken {
+                    print("FCM Token: \(fcmToken)")
+                    // Store the FCM token in UserDefaults or another storage mechanism
+                    UserDefaults.standard.set(fcmToken, forKey: "fcmToken")
+                }
     }
 }
 
