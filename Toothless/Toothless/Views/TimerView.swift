@@ -6,39 +6,32 @@
 //
 
 import SwiftUI
-import UserNotifications
 import UIKit
 
-
-
 struct CompleteTimer: View {
-    @State private var feedbackGenerator = UIImpactFeedbackGenerator(style: .medium)
-    @State private var selectionFeedbackGenerator = UISelectionFeedbackGenerator()
+    @Environment(\.colorScheme) var colorScheme
     
-    @State private var canCancel: Bool = false
-    @State private var cancelGroup = DispatchGroup()
-
+    @State var feedbackGenerator = UIImpactFeedbackGenerator(style: .medium)
+    @State var selectionFeedbackGenerator = UISelectionFeedbackGenerator()
+    
+    @State var canCancel: Bool = false
     @State var buttonTapped: Bool = false
     @State var isActivated: Bool = false
     @State var isPressed: Bool = false
     
-    @State var showAlert2: Bool = false
-    @State var showSeiSicuro: Bool = false
-    @State var startedAnimation: Bool = false
-    @State var showCancel = false
-    @State var showCircle = false
+    @State var showAlert: Bool = false
+    @State var showCancel: Bool = false
+    @State var showCircle: Bool = false
     @State var circleOpacity = false
     @State var showMark: Bool = true
-    @State var showAlert = false
     @State var textSwap = true
     
     @State var start = false
     @State var to : CGFloat = 0
     @State var count = 300
     @State var time = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
-    @State private var dismissTimer: Timer?
+    @State var dismissTimer: Timer?
     
-    @Environment(\.colorScheme) var colorScheme
     var changeFunction: (() -> Void)?
     var formattedTime: String {
         let minutes = count / 60
@@ -49,27 +42,17 @@ struct CompleteTimer: View {
         let progress = 1 - to
         return .degrees(Double(progress) * 360 - 90)
     }
-    
-    func restart(){
-        start = false
-        self.count = 300
-        self.to = 0
-        print("restart")
-    }
     func timerStart() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.2) {
             isPressed = false
             if isActivated {
-                cancelGroup.enter()
                 self.count = 3
                 self.start.toggle()
                 print("start")
-                cancelGroup.leave()
                 canCancel = true // Set the flag to allow cancellation
             }
         }
     }
-
     func timerRestart(){
         if self.count == 0 {
             self.count = 300 // Riporta il timer a 5 minuti
@@ -81,37 +64,24 @@ struct CompleteTimer: View {
         print("start")
     }
     
-    
-    func Notify(){
-        let content = UNMutableNotificationContent()
-        content.title = "Are you ok?"
-        content.body = "If you don’t dismiss this notification, a default message will be sent to your emergency contact"
-        
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
-        let req = UNNotificationRequest(identifier: "MSG", content: content, trigger: trigger)
-        UNUserNotificationCenter.current().add(req, withCompletionHandler: nil)
-    }
-    
-    
     func TapAnimation(){
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
             withAnimation{
                 self.buttonTapped = false
             }
         }
     }
     
-    
     func SwapText(){
         if textSwap{
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
                 withAnimation(.smooth(duration: 1)) {
                     textSwap.toggle()
                     SwapText()
                 }
             }
         }else{
-            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                 withAnimation(.easeInOut(duration: 1.0)) {
                     textSwap.toggle()
                     SwapText()
@@ -127,14 +97,10 @@ struct CompleteTimer: View {
                     showCircle.toggle()
                     CircleAnimation()
                 }else{
+                    print("stop animazione cerchi")
+                    showCircle = false
                 }
             }
-        }
-    }
-    
-    func ShowAlert(){
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
-            showAlert = true
         }
     }
     
@@ -157,36 +123,24 @@ struct CompleteTimer: View {
                                     .foregroundStyle(.red)
                                     .fontWeight(.bold)
                                     .font(.title)
-                                    .offset(x: 2, y: -150)
+                                    .offset(x: 0, y: -150)
                                 Text("to send an alert")
                                     .font(.title2)
                                     .fontWeight(.bold)
                                     .offset(x: 0, y: -150)
-                            }                        }else{
-                                HStack {
-                                    Text("HOLD")
-                                        .foregroundStyle(.red)
-                                        .fontWeight(.bold)
-                                        .font(.title)
-                                        .offset(x: 2, y: -150)
-                                    Text("to start the timer")
-                                        .font(.title2)
-                                        .fontWeight(.bold)
-                                        .offset(x: 0, y: -150)
-                                }
                             }
-                    }
-                    if showSeiSicuro{
-                        VStack {
-                            Text("Are you sure?")
-                                .font(.title3)
-                                .fontWeight(.bold)
-                                .offset(x: 0, y: -150)
-                            
-                            Text("Press again")
-                                .font(.title3)
-                                .fontWeight(.bold)
-                                .offset(x: 0, y: -150)
+                        }else{
+                            HStack {
+                                Text("HOLD")
+                                    .foregroundStyle(.red)
+                                    .fontWeight(.bold)
+                                    .font(.title)
+                                    .offset(x: 0, y: -150)
+                                Text("to start the timer")
+                                    .font(.title2)
+                                    .fontWeight(.bold)
+                                    .offset(x: 0, y: -150)
+                            }
                         }
                     }
                     
@@ -194,18 +148,15 @@ struct CompleteTimer: View {
                         RingView(percentage: 1, backgroundColor: Color.white.opacity(0), startColor: .white, endColor: .white, thickness: 37)
                             .scaleEffect(0.671)
                     }
-                    //bottone
                     ZStack {
-                        if startedAnimation{
-                            Circle()
-                                .foregroundColor(.white)
-                                .opacity(circleOpacity ? 0.3 : 0)
-                                .frame(width: showCircle ? 270 : 170)
-                            Circle()
-                                .foregroundColor(.white)
-                                .opacity(circleOpacity ? 0.3 : 0)
-                                .frame(width: showCircle ? 220: 170)
-                        }
+                        Circle()
+                            .foregroundColor(.white)
+                            .opacity(circleOpacity ? 0.3 : 0)
+                            .frame(width: showCircle ? 270 : 170)
+                        Circle()
+                            .foregroundColor(.white)
+                            .opacity(circleOpacity ? 0.3 : 0)
+                            .frame(width: showCircle ? 220: 170)
                         if !isActivated {
                             Circle()
                                 .foregroundColor(.white)
@@ -218,8 +169,6 @@ struct CompleteTimer: View {
                                 .shadow(radius: 7)
                                 .opacity(withAnimation{buttonTapped ? 0.2 : 1})
                         }
-                        
-                        
                         Image(systemName: "exclamationmark.triangle.fill")
                             .resizable()
                             .frame(width: 75, height: 70)
@@ -229,15 +178,12 @@ struct CompleteTimer: View {
                     }//fine bottone
                     .onTapGesture {
                         if !isActivated{
-                            //ShowAlert()
-                            showAlert2 = false
-                            start = false
-                            startedAnimation = true
+                            //start = false
                             buttonTapped = true
                             TapAnimation()
                             withAnimation{
-                                CircleAnimation()
                                 isActivated = true
+                                CircleAnimation()
                                 circleOpacity = true
                                 showCancel = true
                                 canCancel = true
@@ -246,7 +192,6 @@ struct CompleteTimer: View {
                         }
                     }//fine onTapGesture
                     .onLongPressGesture {
-                        // Check if the timer has started before starting a new timer
                         if !isActivated && !start {
                             withAnimation {
                                 timerStart()
@@ -273,21 +218,19 @@ struct CompleteTimer: View {
                             .font(.subheadline)
                             .fontWeight(.semibold)
                     }.foregroundColor(.white)
-                    
                 }
                 .padding(.bottom, 630)
                 .padding(.leading, 240)
-                .opacity(showCancel && !showAlert2 ? 1 : 0)
+                .opacity(showCancel ? 1 : 0)
                 .onTapGesture {
                     if isActivated && canCancel{
                         feedbackGenerator.impactOccurred()
-                        isPressed = false
+                        circleOpacity = false
                         isActivated = false
-                        showCircle = false
                         showCancel = false
                         start = false
                         showMark = true
-                        canCancel = false // Reset the canCancel flag
+                        canCancel = false
                     }
                 }
                 Circle()
@@ -310,7 +253,7 @@ struct CompleteTimer: View {
         }//fine 3° Zstack
         .bottomSheet(presentationDetents: [.height(190), .height(80)], isPresented: .constant(true), sheetCornerRadius: 20) {
             ScrollView(.vertical, showsIndicators: false) {
-                ModalView(isActivated: $isActivated, showMark: $showMark, showAlert: $showAlert, showAlert2: $showAlert2, start: $start, count: $count, to: $to)
+                ModalView(showMark: $showMark, showCircle: $showCircle, showAlert: $showAlert, circleOpacity: $circleOpacity, start: $start, count: $count, to: $to, dismissTimer: $dismissTimer)
             }
         } onDismiss: {}
             .onAppear(perform: {
@@ -323,34 +266,28 @@ struct CompleteTimer: View {
             .onDisappear {
                 feedbackGenerator = UIImpactFeedbackGenerator(style: .medium)
                 selectionFeedbackGenerator = UISelectionFeedbackGenerator()
-        }
+            }
             .onReceive(self.time) { _ in
-                DispatchQueue.global().async {
-                    if self.start {
-                        DispatchQueue.main.async {
-                            if self.count > 0 {
-                                self.count -= 1
-                                print("\(self.count)")
-                            } else {
-                                self.start.toggle()
-                                self.Notify()
-                                self.showAlert2 = true
-                                self.dismissTimer = Timer.scheduledTimer(withTimeInterval: 5, repeats: false) { _ in
-                                    if self.showAlert2 {
-                                        print("Popup alert ignored for 10 seconds")
-                                        self.showAlert2 = false
-                                        self.restart()
-                                        self.isActivated.toggle()
-                                        self.showMark = true
-                                    }
-                                }
-                            }
+                if self.start {
+                    if self.count > 0 {
+                        self.count -= 1
+                        print("\(self.count)")
+                    } else {
+                        print("ciao")
+                        start.toggle()
+                        showAlert = true
+                        dismissTimer = Timer.scheduledTimer(withTimeInterval: 10, repeats: false) { _ in
+                            print("Popup alert ignored for 10 seconds")
+                            showAlert = false
+                            showMark = true
+                            CircleAnimation()
+                            circleOpacity = true
                         }
                     }
                 }
             }
-
-//fine onReceive
+        
+        
     }
 }
 

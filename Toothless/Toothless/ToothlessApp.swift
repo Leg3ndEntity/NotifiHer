@@ -10,6 +10,7 @@ import PushToTalk
 import AVFoundation
 import UIKit
 import Firebase
+import SwiftData
 
 
 @main
@@ -26,7 +27,7 @@ struct Toothless_provaApp: App {
                 .task {
                     // Initialize the PushToTalk Manager
                 }
-        }
+        }.modelContainer(for: [User.self])
         
     }
 }

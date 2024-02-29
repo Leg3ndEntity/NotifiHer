@@ -1,22 +1,47 @@
 import SwiftUI
+import SwiftData
 
 struct UserProfileView: View {
-    var email: String
-    var firstName: String
-    var lastName: String
-    var userID: String
+    @Query var userData: [User]
+    @State private var randomColor: Color
+    
+    init(userData: [User]) {
+            if let savedColorData = UserDefaults.standard.data(forKey: "userProfileColor"),
+               let savedColor = try? NSKeyedUnarchiver.unarchivedObject(ofClass: UIColor.self, from: savedColorData) {
+                self._randomColor = State(initialValue: Color(savedColor))
+            } else {
+                let hue = Double.random(in: 0...1)
+                let saturation = Double.random(in: 0.5...1)
+                let brightness = Double.random(in: 0.5...1)
+                self._randomColor = State(initialValue: Color(hue: hue, saturation: saturation, brightness: brightness))
+                
+                if let colorData = try? NSKeyedArchiver.archivedData(withRootObject: UIColor(self.randomColor), requiringSecureCoding: false) {
+                    UserDefaults.standard.set(colorData, forKey: "userProfileColor")
+                }
+            }
+        }
+    
     
     var body: some View {
+        let initials = String(userData[0].name.prefix(1) + userData[0].surname.prefix(1))
+        
         VStack {
-            Text("Welcome, \(firstName) \(lastName)!")
+            
+            ZStack {
+                Circle()
+                    .fill(randomColor)
+                    .frame(width: 100, height: 100)
+                Text(initials)
+                    .font(.title)
+                    .fontWeight(.bold)
+                    .foregroundColor(.white)
+            }
+            
+            Text("Welcome, \(userData[0].name) \(userData[0].surname)!")
                 .font(.largeTitle)
                 .padding()
             
-            Text("Your email is: \(email)")
-                .font(.title)
-                .padding()
-            
-            Text("Your user ID is: \(userID)")
+            Text("Your phone number is: \(userData[0].phoneNumber)")
                 .font(.title)
                 .padding()
         }
@@ -24,5 +49,5 @@ struct UserProfileView: View {
 }
 
 #Preview {
-    UserProfileView(email: "", firstName: "", lastName: "", userID: "")
+    UserProfileView(userData: [])
 }

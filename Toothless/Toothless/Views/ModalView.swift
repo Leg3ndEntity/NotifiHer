@@ -15,29 +15,21 @@ struct ModalView: View {
     @State var modal3: Bool = false
     @State var modal4: Bool = false
     @State var modal5: Bool = false
-    @State private var feedbackGenerator = UIImpactFeedbackGenerator(style: .soft)
-
+    @State var feedbackGenerator = UIImpactFeedbackGenerator(style: .soft)
     
-    @Binding var isActivated: Bool
     @Binding var showMark: Bool
-    
+    @Binding var showCircle: Bool
     @Binding var showAlert: Bool
-    @Binding var showAlert2: Bool
+    @Binding var circleOpacity: Bool
     
     @Binding var start: Bool
     @Binding var count: Int
     @Binding var to: CGFloat
-    @State private var dismissTimer: Timer?
+    @Binding var dismissTimer: Timer?
     
-    func restart(){
-        start = false
-        self.count = 300
-        self.to = 0
-        print("restart")
-    }
     func timerRestart(){
         if self.count == 0 {
-            self.count = 300 // Riporta il timer a 5 minuti
+            self.count = 3 // Riporta il timer a 5 minuti
             withAnimation(.default){
                 self.to = 0
             }
@@ -45,13 +37,23 @@ struct ModalView: View {
         self.start.toggle()
         print("start")
     }
+    func CircleAnimation() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            withAnimation {
+                showCircle.toggle()
+                CircleAnimation()
+                circleOpacity = true
+            }
+        }
+    }
+    
     
     var body: some View {
         VStack{
             HStack(alignment: .center, spacing: 200.0){
                 Text("Safe Places")
                     .font(.title3)
-                    .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                    .fontWeight(.bold)
                 
                 ZStack{
                     Circle()
@@ -82,17 +84,17 @@ struct ModalView: View {
         .bottomSheet2(presentationDetents: [.large], isPresented: $modal1, sheetCornerRadius: 20) {
             MapView()
         } onDismiss: {}
-//            .sheet(isPresented: $modal2, content: {
-//                UserProfileView()
-//            })
-//            .sheet(isPresented: $modal3, content: {
-//                UserProfileView()
-//            })
-//            .sheet(isPresented: $modal4, content: {
-//                UserProfileView()
-//            })
+        //            .sheet(isPresented: $modal2, content: {
+        //                UserProfileView()
+        //            })
+        //            .sheet(isPresented: $modal3, content: {
+        //                UserProfileView()
+        //            })
+        //            .sheet(isPresented: $modal4, content: {
+        //                UserProfileView()
+        //            })
             .sheet(isPresented: $modal5, content: {
-                UserProfileView(email: "", firstName: "", lastName: "", userID: "")
+                UserProfileView(userData: [])
             })
             .onAppear {
                 feedbackGenerator.prepare()
@@ -102,40 +104,26 @@ struct ModalView: View {
             }
             .alert(isPresented: $showAlert) {
                 Alert(
-                    title: Text("Are you ok?"),
-                    message: Text("If you don’t dismiss this notification, a default message will be sent to your emergency contact"),
-                    dismissButton: .default(
-                        Text("Dismiss"),
-                        action: {
-                            feedbackGenerator.impactOccurred()
-                            timerRestart()
-                            self.dismissTimer?.invalidate()
-                            showAlert = false
-                            
-                        }
-                    )
-                )
-            }
-            .alert(isPresented: $showAlert2) {
-                Alert(
                     title: Text("Are you safe?"),
+                    
                     primaryButton: .default(
                         Text("Yes"),
                         action: {
                             withAnimation{
-                                showAlert2.toggle()
+                                dismissTimer?.invalidate()
+                                timerRestart()
                                 feedbackGenerator.impactOccurred()
-                                restart()
-                                self.dismissTimer?.invalidate()
-                                isActivated = false
-                                showMark = true
                             }
                         }
                     ),
                     secondaryButton: .default(
                         Text("No, help me"),
                         action: {
+                            CircleAnimation()
+                            circleOpacity = true
+                            dismissTimer?.invalidate()
                             feedbackGenerator.impactOccurred()
+                            showMark = true
                         }
                     )
                 )
