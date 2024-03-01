@@ -13,6 +13,7 @@ struct SignupView: View {
     @State private var password: String = ""
     @AppStorage("uid") var userID: String = ""
     @Binding var currentShowingView: String
+    @Environment(\.colorScheme) var colorScheme
     
     private func isValidPassword(_ password: String) -> Bool {
         // minimum 6 characters long
@@ -26,12 +27,12 @@ struct SignupView: View {
     
     var body: some View {
         ZStack {
-            Color.black.edgesIgnoringSafeArea(.all)
+            Color(colorScheme == .dark ? .black : .white)
             
             VStack {
                 HStack {
                     Text("Create an Account!")
-                        .foregroundColor(.white)
+                        .foregroundStyle(colorScheme == .dark ? .white : .black)
                         .font(.largeTitle)
                         .bold()
                     
@@ -43,7 +44,7 @@ struct SignupView: View {
                 Spacer()
                 
                 HStack {
-                    Image(systemName: "mail")
+                    Image(systemName: "mail").foregroundStyle(colorScheme == .dark ? .white : .black)
                     TextField("Email", text: $email)
                     
                     Spacer()
@@ -62,7 +63,7 @@ struct SignupView: View {
                 .overlay(
                     RoundedRectangle(cornerRadius: 10)
                         .stroke(lineWidth: 2)
-                        .foregroundColor(.white)
+                        .foregroundStyle(colorScheme == .dark ? .white : .black)
                     
                 )
                 
@@ -70,7 +71,7 @@ struct SignupView: View {
                 
                 
                 HStack {
-                    Image(systemName: "lock")
+                    Image(systemName: "lock").foregroundStyle(colorScheme == .dark ? .white : .black)
                     SecureField("Password", text: $password)
                     
                     Spacer()
@@ -88,7 +89,7 @@ struct SignupView: View {
                 .overlay(
                     RoundedRectangle(cornerRadius: 10)
                         .stroke(lineWidth: 2)
-                        .foregroundColor(.white)
+                        .foregroundStyle(colorScheme == .dark ? .white : .black)
                     
                 )
                 .padding()
@@ -100,7 +101,7 @@ struct SignupView: View {
                     }
                 }) {
                     Text("Already have an account?")
-                        .foregroundColor(.gray)
+                        .foregroundStyle(colorScheme == .dark ? .white : .black)
                 }
                 
                 Spacer()
@@ -126,7 +127,7 @@ struct SignupView: View {
                     
                 } label: {
                     Text("Create New Account")
-                        .foregroundColor(.black)
+                        .foregroundStyle(colorScheme == .dark ? .black : .white)
                         .font(.title3)
                         .bold()
                     
@@ -135,12 +136,10 @@ struct SignupView: View {
                     
                         .background(
                             RoundedRectangle(cornerRadius: 10)
-                                .fill(Color.white)
+                                .fill(Color(colorScheme == .dark ? .white : .black))
                         )
                         .padding(.horizontal)
                 }
-                
-                
             }
             
         }

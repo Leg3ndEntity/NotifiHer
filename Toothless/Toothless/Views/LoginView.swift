@@ -12,7 +12,7 @@ struct LoginView: View {
     @Binding var currentShowingView: String
     @AppStorage("uid") var userID: String = ""
     
-    
+    @Environment(\.colorScheme) var colorScheme
     @State private var email: String = ""
     @State private var password: String = ""
     @State private var isAuthenticated: Bool = false
@@ -30,13 +30,14 @@ struct LoginView: View {
     
     var body: some View {
         ZStack {
-            Color.white.edgesIgnoringSafeArea(.all)
+            colorScheme == .dark ? Color.black : Color.white
             
             VStack {
                 HStack {
                     Text("Welcome Back!")
                         .font(.largeTitle)
                         .bold()
+                        .foregroundStyle(colorScheme == .dark ? .white : .black)
                     
                     Spacer()
                 }
@@ -46,7 +47,7 @@ struct LoginView: View {
                 Spacer()
                 
                 HStack {
-                    Image(systemName: "mail")
+                    Image(systemName: "mail").foregroundStyle(colorScheme == .dark ? .white : .black)
                     TextField("Email", text: $email)
                     
                     Spacer()
@@ -64,7 +65,7 @@ struct LoginView: View {
                 .overlay(
                     RoundedRectangle(cornerRadius: 10)
                         .stroke(lineWidth: 2)
-                        .foregroundColor(.black)
+                        .foregroundStyle(colorScheme == .dark ? .white : .black)
                     
                 )
                 
@@ -72,7 +73,7 @@ struct LoginView: View {
                 
                 
                 HStack {
-                    Image(systemName: "lock")
+                    Image(systemName: "lock").foregroundStyle(colorScheme == .dark ? .white : .black)
                     SecureField("Password", text: $password)
                     
                     Spacer()
@@ -89,7 +90,7 @@ struct LoginView: View {
                 .overlay(
                     RoundedRectangle(cornerRadius: 10)
                         .stroke(lineWidth: 2)
-                        .foregroundColor(.black)
+                        .foregroundStyle(colorScheme == .dark ? .white : .black)
                     
                 )
                 .padding()
@@ -103,7 +104,7 @@ struct LoginView: View {
                     
                 }) {
                     Text("Don't have an account?")
-                        .foregroundColor(.black.opacity(0.7))
+                        .foregroundStyle(colorScheme == .dark ? .white : .black)
                 }
                 
                 Spacer()
@@ -129,7 +130,7 @@ struct LoginView: View {
                     }
                 } label: {
                     Text("Sign In")
-                        .foregroundColor(.white)
+                        .foregroundStyle(colorScheme == .dark ? .black : .white)
                         .font(.title3)
                         .bold()
                     
@@ -138,7 +139,7 @@ struct LoginView: View {
                     
                         .background(
                             RoundedRectangle(cornerRadius: 10)
-                                .fill(Color.black)
+                                .fill(Color(colorScheme == .dark ? .white : .black))
                         )
                         .padding(.horizontal)
                 }
@@ -146,7 +147,7 @@ struct LoginView: View {
                 
             }
             .fullScreenCover(isPresented: $isAuthenticated, content: {
-                            WelcomeView() // Present WelcomeView when isAuthenticated is true
+                WelcomeView().preferredColorScheme(.none) // Present WelcomeView when isAuthenticated is true
                         })
             
         }

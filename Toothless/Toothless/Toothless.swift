@@ -16,14 +16,16 @@ struct Toothless: View {
         VStack {
             Group {
                 if checkWelcomeScreen {
-                    // If the welcome screen is not over, show the authentication views
-                        CompleteTimer()
+                    
+                    CompleteTimer()
                 } else {
-                    // If the welcome screen is over, show a different view (e.g., your main app content)
+                    
                     if(currentViewShowing == "login") {
                         LoginView(currentShowingView: $currentViewShowing)
+                            
                     } else {
                         SignupView(currentShowingView: $currentViewShowing)
+                            
                     }
                 }
             }
