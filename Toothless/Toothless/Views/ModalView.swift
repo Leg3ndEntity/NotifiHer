@@ -82,9 +82,9 @@ struct ModalView: View {
         .bottomSheet2(presentationDetents: [.large], isPresented: $modal1, sheetCornerRadius: 20) {
             MapView()
         } onDismiss: {}
-        //            .sheet(isPresented: $modal2, content: {
-        //                UserProfileView()
-        //            })
+                    .sheet(isPresented: $modal2, content: {
+                        SearchUsers()
+                    })
         //            .sheet(isPresented: $modal3, content: {
         //                UserProfileView()
         //            })

@@ -147,7 +147,7 @@ struct LoginView: View {
                 
             }
             .fullScreenCover(isPresented: $isAuthenticated, content: {
-                WelcomeView().preferredColorScheme(.none) // Present WelcomeView when isAuthenticated is true
+                WelcomeView() // Present WelcomeView when isAuthenticated is true
                         })
             
         }

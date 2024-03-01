@@ -6,6 +6,7 @@ struct Registration: View {
     @State var name: String
     @State var surname: String
     @State var phoneNumber: String
+    let customDocumentID = "customDocumentID123"
     
     @AppStorage("isWelcomeScreenOver") var isWelcomeScreenOver = false
     @State var isShowingMain: Bool = false
@@ -74,14 +75,12 @@ struct Registration: View {
             }
             .padding(.bottom, 60)
             .onTapGesture {
-                database.addUser(utentiName: name)
-                database.addUser(utentiSurname: surname)
-                database.addUser(utentiPhoneNumber: phoneNumber)
-                database.addUser(utentifcmToken: fcmToken ?? "")
+                let user = User(name: name, surname: surname, phoneNumber: phoneNumber, fcmToken: fcmToken ?? "")
+                database.addUser(user: user, phoneNumber: user.phoneNumber)
                 
                 isWelcomeScreenOver = true
                 isShowingMain.toggle()
-                modelContext.insert(User(name: name, surname: surname, phoneNumber: phoneNumber, fcmToken: fcmToken ?? ""))
+                modelContext.insert(user)
                 print("ciao")
             }
         }

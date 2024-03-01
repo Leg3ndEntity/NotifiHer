@@ -11,13 +11,14 @@ struct Toothless: View {
     @AppStorage("isWelcomeScreenOver") var isWelcomeScreenOver = false
     @State var checkWelcomeScreen: Bool = false
     @State private var currentViewShowing: String = "login"
+    @EnvironmentObject var tokenManager: TokenManager
     
     var body: some View {
         VStack {
             Group {
                 if checkWelcomeScreen {
                     
-                    CompleteTimer()
+                    CompleteTimer().environmentObject(tokenManager)
                 } else {
                     
                     if(currentViewShowing == "login") {

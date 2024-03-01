@@ -1,9 +1,9 @@
-
 import SwiftUI
 import Firebase
 import FirebaseFirestore
 
 class Database: ObservableObject {
+    
     @Published var utenti: [User] = []
     
     init() {
@@ -28,46 +28,52 @@ class Database: ObservableObject {
                     let surname = data["surname"] as? String ?? ""
                     let phoneNumber = data["phoneNumber"] as? String ?? ""
                     
-                    let utenti = User(name: name, surname: surname, phoneNumber: phoneNumber, fcmToken: fcmToken)
-                    self.utenti.append(utenti)
+                    let user = User(name: name, surname: surname, phoneNumber: phoneNumber, fcmToken: fcmToken)
+                    self.utenti.append(user)
                 }
             }
         }
     }
-    func addUser(utentiName: String) {
+    
+    func addUser(user: User, phoneNumber: String) {
+        // Remove non-alphanumeric characters from the phone number
+        let sanitizedPhoneNumber = phoneNumber.components(separatedBy: CharacterSet.alphanumerics.inverted).joined()
+
         let db = Firestore.firestore()
-        let ref = db.collection("utenti").document(utentiName)
-        ref.setData(["name": utentiName, "id": 10]) { error in
+        let ref = db.collection("utenti").document(sanitizedPhoneNumber)
+        
+        ref.setData([
+            "name": user.name,
+            "surname": user.surname,
+            "phoneNumber": user.phoneNumber,
+            "fcmToken": user.fcmToken,
+        ]) { error in
             if let error = error {
                 print(error.localizedDescription)
             }
         }
     }
-    func addUser(utentiSurname: String) {
-        let db = Firestore.firestore()
-        let ref = db.collection("utenti").document(utentiSurname)
-        ref.setData(["surname": utentiSurname, "id": 10]) { error in
-            if let error = error {
-                print(error.localizedDescription)
+    func searchUserByPhoneNumber(phoneNumber: String, completion: @escaping (String?) -> Void) {
+            let sanitizedPhoneNumber = phoneNumber.components(separatedBy: CharacterSet.alphanumerics.inverted).joined()
+
+            let db = Firestore.firestore()
+            let ref = db.collection("utenti").document(sanitizedPhoneNumber)
+
+            ref.getDocument { document, error in
+                guard error == nil else {
+                    print(error!.localizedDescription)
+                    completion(nil)
+                    return
+                }
+
+                if let document = document, document.exists {
+                    let data = document.data()
+                    let fcmToken = data?["fcmToken"] as? String
+                    completion(fcmToken)
+                } else {
+                    // Document not found
+                    completion(nil)
+                }
             }
         }
     }
-    func addUser(utentiPhoneNumber: String) {
-        let db = Firestore.firestore()
-        let ref = db.collection("utenti").document(utentiPhoneNumber)
-        ref.setData(["phoneNumber": utentiPhoneNumber, "id": 10]) { error in
-            if let error = error {
-                print(error.localizedDescription)
-            }
-        }
-    }
-    func addUser(utentifcmToken: String) {
-        let db = Firestore.firestore()
-        let ref = db.collection("utenti").document(utentifcmToken)
-        ref.setData(["fcmToken": utentifcmToken, "id": 10]) { error in
-            if let error = error {
-                print(error.localizedDescription)
-            }
-        }
-    }
-}
