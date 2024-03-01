@@ -202,6 +202,7 @@ struct CompleteTimer: View {
                             }
                             selectionFeedbackGenerator.selectionChanged()
                         }
+                        
                     }//fine onLongPressGesture
                 }//fine 1° Zstack
                 
