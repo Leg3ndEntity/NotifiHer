@@ -15,15 +15,6 @@ struct WelcomeView: View {
         TabView(selection: $pageIndex) {
             ForEach(pages) { page in
                 VStack(alignment: .trailing) {
-                    if page != pages.last {
-                        // Skip Button
-                        Button("Skip", action: {
-                            isWelcomeScreenOver = true
-                            isShowingMain.toggle()
-                            
-                        }).foregroundColor(.blue)
-                            .padding(.trailing, 20)
-                    }
                     
                     Spacer()
                     PageView(page: page)

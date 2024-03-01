@@ -1,14 +1,14 @@
 //
-//  User.swift
+//  User2.swift
 //  Toothless
 //
-//  Created by Simone Sarnataro on 16/02/24.
+//  Created by Andrea Romano on 01/03/24.
 //
 
 import Foundation
 import SwiftData
 
-@Model class User: Identifiable {
+class User2: Identifiable, Codable {
     var name: String
     var surname: String
     var phoneNumber: String

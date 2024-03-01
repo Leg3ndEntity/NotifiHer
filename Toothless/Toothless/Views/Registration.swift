@@ -1,5 +1,6 @@
 
 import SwiftUI
+import Firebase
 
 struct Registration: View {
     @State var name: String
@@ -11,6 +12,7 @@ struct Registration: View {
     @State private var isUserSignedIn: Bool = false
     
     @Environment(\.modelContext) var modelContext
+    @EnvironmentObject var database: Database
     
     var fcmToken: String? {
         UserDefaults.standard.string(forKey: "fcmToken")
@@ -72,9 +74,14 @@ struct Registration: View {
             }
             .padding(.bottom, 60)
             .onTapGesture {
+                database.addUser(utentiName: name)
+                database.addUser(utentiSurname: surname)
+                database.addUser(utentiPhoneNumber: phoneNumber)
+                database.addUser(utentifcmToken: fcmToken ?? "")
+                
                 isWelcomeScreenOver = true
                 isShowingMain.toggle()
-                modelContext.insert(User(name: name, surname: surname, phoneNumber: phoneNumber))
+                modelContext.insert(User(name: name, surname: surname, phoneNumber: phoneNumber, fcmToken: fcmToken ?? ""))
                 print("ciao")
             }
         }

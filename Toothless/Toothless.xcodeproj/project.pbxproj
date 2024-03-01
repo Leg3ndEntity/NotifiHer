@@ -21,6 +21,17 @@
 		991F74E12B87E12F0092EA9D /* PageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991F74E02B87E12F0092EA9D /* PageView.swift */; };
 		991F74E32B87E1490092EA9D /* PageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991F74E22B87E1490092EA9D /* PageModel.swift */; };
 		992B23052B90D91D00A0B0A1 /* Registration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992B23042B90D91D00A0B0A1 /* Registration.swift */; };
+		9970DDE82B91D57100539FA9 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9970DDE72B91D57100539FA9 /* Database.swift */; };
+		9970DDEB2B91DB7F00539FA9 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 9970DDEA2B91DB7F00539FA9 /* FirebaseFirestore */; };
+		9970DDED2B91DB7F00539FA9 /* FirebaseFirestoreCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 9970DDEC2B91DB7F00539FA9 /* FirebaseFirestoreCombine-Community */; };
+		9970DDEF2B91DB7F00539FA9 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 9970DDEE2B91DB7F00539FA9 /* FirebaseFirestoreSwift */; };
+		9970DDF12B91DE0900539FA9 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9970DDF02B91DE0900539FA9 /* ListView.swift */; };
+		9970DDF32B91EC9600539FA9 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9970DDF22B91EC9600539FA9 /* LoginView.swift */; };
+		9970DDF52B91ECB900539FA9 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9970DDF42B91ECB900539FA9 /* String.swift */; };
+		9970DDF72B91ECD100539FA9 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9970DDF62B91ECD100539FA9 /* SignUpView.swift */; };
+		9970DDF92B91ED4B00539FA9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9970DDF82B91ED4B00539FA9 /* ContentView.swift */; };
+		9970DDFB2B91ED5C00539FA9 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 9970DDFA2B91ED5C00539FA9 /* FirebaseAuth */; };
+		9970DDFD2B91F53A00539FA9 /* User2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9970DDFC2B91F53A00539FA9 /* User2.swift */; };
 		99A040972B8FB37A00099984 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 99A040962B8FB37A00099984 /* FirebaseAnalytics */; };
 		99A040992B8FB37A00099984 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 99A040982B8FB37A00099984 /* FirebaseMessaging */; };
 		99A0409B2B8FB37A00099984 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 99A0409A2B8FB37A00099984 /* FirebaseStorage */; };
@@ -87,6 +98,13 @@
 		991F74E02B87E12F0092EA9D /* PageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageView.swift; sourceTree = "<group>"; };
 		991F74E22B87E1490092EA9D /* PageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageModel.swift; sourceTree = "<group>"; };
 		992B23042B90D91D00A0B0A1 /* Registration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Registration.swift; sourceTree = "<group>"; };
+		9970DDE72B91D57100539FA9 /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
+		9970DDF02B91DE0900539FA9 /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
+		9970DDF22B91EC9600539FA9 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		9970DDF42B91ECB900539FA9 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		9970DDF62B91ECD100539FA9 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		9970DDF82B91ED4B00539FA9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		9970DDFC2B91F53A00539FA9 /* User2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User2.swift; sourceTree = "<group>"; };
 		99A6538F2B8DF53C0038C1D4 /* GIFImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GIFImage.swift; sourceTree = "<group>"; };
 		99A653912B8DF8810038C1D4 /* GiFFF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiFFF.swift; sourceTree = "<group>"; };
 		99A653932B8E1EC00038C1D4 /* map.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = map.gif; sourceTree = "<group>"; };
@@ -126,14 +144,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				99A040992B8FB37A00099984 /* FirebaseMessaging in Frameworks */,
+				9970DDEB2B91DB7F00539FA9 /* FirebaseFirestore in Frameworks */,
 				99A040972B8FB37A00099984 /* FirebaseAnalytics in Frameworks */,
+				9970DDED2B91DB7F00539FA9 /* FirebaseFirestoreCombine-Community in Frameworks */,
 				99A0409B2B8FB37A00099984 /* FirebaseStorage in Frameworks */,
+				9970DDFB2B91ED5C00539FA9 /* FirebaseAuth in Frameworks */,
+				9970DDEF2B91DB7F00539FA9 /* FirebaseFirestoreSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9970DDE92B91DB7F00539FA9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		E04CD52A2B87E79000AE3F23 /* WatchToothless Watch App */ = {
 			isa = PBXGroup;
 			children = (
@@ -171,6 +200,7 @@
 				99D05C802B81640F00E96315 /* Extensions.swift */,
 				991F74DE2B875BF80092EA9D /* Extensions2.swift */,
 				E04D1F202B835D5600C8EFDD /* User.swift */,
+				9970DDFC2B91F53A00539FA9 /* User2.swift */,
 			);
 			path = Store;
 			sourceTree = "<group>";
@@ -180,6 +210,7 @@
 			children = (
 				99A6538F2B8DF53C0038C1D4 /* GIFImage.swift */,
 				991F74E02B87E12F0092EA9D /* PageView.swift */,
+				9970DDF42B91ECB900539FA9 /* String.swift */,
 				99A653912B8DF8810038C1D4 /* GiFFF.swift */,
 				991F74E22B87E1490092EA9D /* PageModel.swift */,
 				176B44222B7F97CD0029879D /* InfoBoardingView.swift */,
@@ -196,9 +227,14 @@
 			children = (
 				176B44242B7F97F30029879D /* OnBoardingView.swift */,
 				E04D1F1E2B835D1B00C8EFDD /* TimerView.swift */,
+				9970DDF82B91ED4B00539FA9 /* ContentView.swift */,
 				176B44362B834CBF0029879D /* UserProfileView.swift */,
 				176B44322B834C5C0029879D /* ModalView.swift */,
+				9970DDF22B91EC9600539FA9 /* LoginView.swift */,
+				9970DDF62B91ECD100539FA9 /* SignUpView.swift */,
 				E04CD5422B888D0400AE3F23 /* WelcomeView.swift */,
+				9970DDF02B91DE0900539FA9 /* ListView.swift */,
+				9970DDE72B91D57100539FA9 /* Database.swift */,
 				992B23042B90D91D00A0B0A1 /* Registration.swift */,
 				E0CE9A112B911E67009FD256 /* SettingsView.swift */,
 			);
@@ -211,6 +247,7 @@
 				E09286132B7F591F00BD1788 /* Toothless */,
 				E04CD52A2B87E79000AE3F23 /* WatchToothless Watch App */,
 				E09286122B7F591F00BD1788 /* Products */,
+				9970DDE92B91DB7F00539FA9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -290,6 +327,10 @@
 				99A040962B8FB37A00099984 /* FirebaseAnalytics */,
 				99A040982B8FB37A00099984 /* FirebaseMessaging */,
 				99A0409A2B8FB37A00099984 /* FirebaseStorage */,
+				9970DDEA2B91DB7F00539FA9 /* FirebaseFirestore */,
+				9970DDEC2B91DB7F00539FA9 /* FirebaseFirestoreCombine-Community */,
+				9970DDEE2B91DB7F00539FA9 /* FirebaseFirestoreSwift */,
+				9970DDFA2B91ED5C00539FA9 /* FirebaseAuth */,
 			);
 			productName = Toothless;
 			productReference = E09286112B7F591F00BD1788 /* Toothless.app */;
@@ -379,11 +420,16 @@
 				176B44332B834C5C0029879D /* ModalView.swift in Sources */,
 				99D05C812B81640F00E96315 /* Extensions.swift in Sources */,
 				176B44372B834CBF0029879D /* UserProfileView.swift in Sources */,
+				9970DDF52B91ECB900539FA9 /* String.swift in Sources */,
 				991F74E32B87E1490092EA9D /* PageModel.swift in Sources */,
 				E04D1F452B84B2A900C8EFDD /* RingView.swift in Sources */,
 				176B44252B7F97F30029879D /* OnBoardingView.swift in Sources */,
+				9970DDE82B91D57100539FA9 /* Database.swift in Sources */,
+				9970DDF12B91DE0900539FA9 /* ListView.swift in Sources */,
+				9970DDFD2B91F53A00539FA9 /* User2.swift in Sources */,
 				E04D1F1D2B835C8000C8EFDD /* Toothless.swift in Sources */,
 				1763FA862B860400005BC39C /* MapView.swift in Sources */,
+				9970DDF32B91EC9600539FA9 /* LoginView.swift in Sources */,
 				E0CE9A122B911E67009FD256 /* SettingsView.swift in Sources */,
 				E04D1F1F2B835D1B00C8EFDD /* TimerView.swift in Sources */,
 				99A653902B8DF53C0038C1D4 /* GIFImage.swift in Sources */,
@@ -396,7 +442,9 @@
 				991F74E12B87E12F0092EA9D /* PageView.swift in Sources */,
 				99A653922B8DF8810038C1D4 /* GiFFF.swift in Sources */,
 				17F4499A2B8F4BA400E29688 /* InfoPointView.swift in Sources */,
+				9970DDF72B91ECD100539FA9 /* SignUpView.swift in Sources */,
 				176B44392B834CE40029879D /* ButtonHomeView.swift in Sources */,
+				9970DDF92B91ED4B00539FA9 /* ContentView.swift in Sources */,
 				992B23052B90D91D00A0B0A1 /* Registration.swift in Sources */,
 				E04CD5432B888D0400AE3F23 /* WelcomeView.swift in Sources */,
 			);
@@ -423,19 +471,19 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"WatchToothless Watch App/Preview Content\"";
-				DEVELOPMENT_TEAM = WAHQLN65AG;
+				DEVELOPMENT_TEAM = AWX4HJ7JT5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "WatchToothless-Watch-App-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = WatchToothless;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.simonesarnataro.Toothless;
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.yurigianoli.Toothless;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.simonesarnataro.Toothless.watchkitappp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yurigianoli.Toothless.watchkitappp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -456,19 +504,19 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"WatchToothless Watch App/Preview Content\"";
-				DEVELOPMENT_TEAM = WAHQLN65AG;
+				DEVELOPMENT_TEAM = AWX4HJ7JT5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "WatchToothless-Watch-App-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = WatchToothless;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.simonesarnataro.Toothless;
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.yurigianoli.Toothless;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.simonesarnataro.Toothless.watchkitappp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yurigianoli.Toothless.watchkitappp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -609,7 +657,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Toothless/Preview Content\"";
-				DEVELOPMENT_TEAM = WAHQLN65AG;
+				DEVELOPMENT_TEAM = AWX4HJ7JT5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Toothless/Info.plist;
@@ -626,7 +674,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.simonesarnataro.Toothless;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yurigianoli.Toothless;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -650,7 +698,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Toothless/Preview Content\"";
-				DEVELOPMENT_TEAM = WAHQLN65AG;
+				DEVELOPMENT_TEAM = AWX4HJ7JT5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Toothless/Info.plist;
@@ -667,7 +715,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.simonesarnataro.Toothless;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yurigianoli.Toothless;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -724,6 +772,26 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		9970DDEA2B91DB7F00539FA9 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 99A040952B8FB37A00099984 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		9970DDEC2B91DB7F00539FA9 /* FirebaseFirestoreCombine-Community */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 99A040952B8FB37A00099984 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = "FirebaseFirestoreCombine-Community";
+		};
+		9970DDEE2B91DB7F00539FA9 /* FirebaseFirestoreSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 99A040952B8FB37A00099984 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestoreSwift;
+		};
+		9970DDFA2B91ED5C00539FA9 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 99A040952B8FB37A00099984 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
 		99A040962B8FB37A00099984 /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 99A040952B8FB37A00099984 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;

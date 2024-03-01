@@ -17,11 +17,12 @@ import SwiftData
 struct Toothless_provaApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     @StateObject var viewModel = MapViewModel()
+    @StateObject var database = Database()
     
     var body: some Scene {
         
         WindowGroup {
-            Toothless()
+            Toothless().environmentObject(database)
                 .onAppear{viewModel.checkIfLocationEnabled()
                 }
                 .task {
