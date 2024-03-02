@@ -15,6 +15,7 @@ struct AddContact: View {
     @State  var surname: String = ""
     @State  var phoneNumber: String = ""
     
+    @Binding var fatto: Bool
     var body: some View {
         NavigationStack{
             List{
@@ -34,7 +35,9 @@ struct AddContact: View {
                     ToolbarItem(placement: .navigationBarTrailing) {
                         Button(action: {
                             modelContext.insert(Contacts(name: name, surname: surname, phoneNumber: phoneNumber))
+                            fatto = true
                             dismiss()
+                            
                         }) {
                             Text("Done")
                                 .foregroundColor(.customRed)
@@ -49,6 +52,6 @@ struct AddContact: View {
     }
 }
 
-#Preview {
-    AddContact()
-}
+//#Preview {
+//    AddContact()
+//}

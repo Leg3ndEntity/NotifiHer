@@ -88,9 +88,9 @@ struct ModalView: View {
         //            .sheet(isPresented: $modal3, content: {
         //                UserProfileView()
         //            })
-        //            .sheet(isPresented: $modal4, content: {
-        //                UserProfileView()
-        //            })
+                    .sheet(isPresented: $modal4, content: {
+                        ContactsView()
+                    })
             .sheet(isPresented: $modal5, content: {
                 SettingsView(userData: [])
             })

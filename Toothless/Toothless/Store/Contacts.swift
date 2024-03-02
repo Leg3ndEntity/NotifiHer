@@ -8,7 +8,8 @@
 import Foundation
 import SwiftData
 
-@Model class Contacts: Identifiable {
+@Model
+final class Contacts{
     var name: String
     var surname: String
     var phoneNumber: String

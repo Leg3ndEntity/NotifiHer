@@ -8,7 +8,8 @@
 import Foundation
 import SwiftData
 
-@Model class UserToken: Identifiable {
+@Model
+final class UserToken: Identifiable {
     var fcmToken: String?
     
     init(fcmToken: String?) {

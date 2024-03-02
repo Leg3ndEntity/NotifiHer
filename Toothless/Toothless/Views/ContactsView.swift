@@ -8,26 +8,18 @@ import Foundation
 import SwiftUI
 import SwiftData
 
-struct ContactManager {
-    static let shared = ContactManager()
-    
-    @Environment(\.modelContext) var modelContext: ModelContext
-    // Function to add a contact
-    func addContact(name: String, surname: String, phoneNumber: String, fcmToken: String) {
-        modelContext.insert(Contacts(name: name, surname: surname, phoneNumber: phoneNumber))
-    }
-}
-
 struct ContactsView: View {
     @State var newContact: Bool = false
     @State var userData: [Contacts] = []
+    @State var fatto: Bool = false
+    @Environment(\.modelContext) var modelContext
     
     var body: some View {
         NavigationView{
             
             List{
                 ForEach(userData) { contact in
-                    VStack(alignment: .leading) {
+                    HStack(){
                         Text("Name: \(contact.name)")
                         Text("Surname: \(contact.surname)")
                         Text("Phone Number: \(contact.phoneNumber)")
@@ -48,11 +40,12 @@ struct ContactsView: View {
                 }
             
         }.sheet(isPresented: $newContact, content: {
-            AddContact()
+            AddContact(fatto: $fatto)
         })
     }
 }
 
 #Preview {
     ContactsView()
+        .modelContainer(for: Contacts.self, inMemory: true)
 }
