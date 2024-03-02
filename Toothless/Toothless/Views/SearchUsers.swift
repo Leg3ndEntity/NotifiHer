@@ -1,4 +1,5 @@
 import SwiftUI
+import SwiftData
 import Firebase
 import FirebaseFirestore
 
@@ -23,7 +24,7 @@ struct SearchUsers: View {
     
     @State private var isTokenSaved: Bool = false
     
-    
+    @Environment(\.modelContext) var modelContext
 
     var body: some View {
         VStack {
@@ -66,6 +67,7 @@ struct SearchUsers: View {
                             } else {
                                 Button(action: {
                                     tokenManager.saveToken(token)
+                                    modelContext.insert(UserToken(fcmToken: token))
                                 }) {
                                     Text("Save Token")
                                         .padding()

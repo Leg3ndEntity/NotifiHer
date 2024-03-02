@@ -7,11 +7,12 @@
 
 import SwiftUI
 import UIKit
+import SwiftData
 
 struct CompleteTimer: View {
     @Environment(\.colorScheme) var colorScheme
-
     @EnvironmentObject var tokenManager: TokenManager
+    @Query var userData: [UserToken]
     
     @State var feedbackGenerator = UIImpactFeedbackGenerator(style: .medium)
     @State var selectionFeedbackGenerator = UISelectionFeedbackGenerator()
@@ -46,7 +47,7 @@ struct CompleteTimer: View {
     }
     
     func scheduleNotification() {
-            guard let savedToken = tokenManager.savedToken else {
+            guard let savedToken = userData[0].fcmToken else {
                 print("Token not found")
                 return
             }
