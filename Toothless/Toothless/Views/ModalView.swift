@@ -17,6 +17,8 @@ struct ModalView: View {
     @State var modal5: Bool = false
     @State var feedbackGenerator = UIImpactFeedbackGenerator(style: .soft)
     
+    @EnvironmentObject var tokenManager: TokenManager
+    
     @Binding var showMark: Bool
     @Binding var showCircle: Bool
     @Binding var showAlert: Bool
@@ -46,6 +48,35 @@ struct ModalView: View {
             }
         }
     }
+    func scheduleNotification() {
+            guard let savedToken = userData[0].fcmToken else {
+                print("Token not found")
+                return
+            }
+
+            // Create a notification content
+            let content = UNMutableNotificationContent()
+            content.title = "Timer Alert"
+            content.body = "Your timer has finished!"
+            content.sound = UNNotificationSound.default
+            content.userInfo = ["token": savedToken]
+
+            // Create a trigger for the notification (you can customize this based on your needs)
+            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
+
+            // Create a request with a unique identifier
+            let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+
+            // Schedule the notification
+            UNUserNotificationCenter.current().add(request) { error in
+                if let error = error {
+                    print("Error scheduling notification: \(error.localizedDescription)")
+                } else {
+                    print("Notification scheduled successfully")
+                }
+            }
+        }
+
     
     
     var body: some View {
@@ -82,12 +113,12 @@ struct ModalView: View {
         .bottomSheet2(presentationDetents: [.large], isPresented: $modal1, sheetCornerRadius: 20) {
             MapView()
         } onDismiss: {}
-                    .sheet(isPresented: $modal2, content: {
+//                    .sheet(isPresented: $modal2, content: {
+//                        SearchUsers()
+//                    })
+                    .sheet(isPresented: $modal3, content: {
                         SearchUsers()
                     })
-        //            .sheet(isPresented: $modal3, content: {
-        //                UserProfileView()
-        //            })
         //            .sheet(isPresented: $modal4, content: {
         //                UserProfileView()
         //            })
@@ -117,6 +148,7 @@ struct ModalView: View {
                     secondaryButton: .default(
                         Text("No, help me"),
                         action: {
+                            scheduleNotification()
                             CircleAnimation()
                             circleOpacity = true
                             dismissTimer?.invalidate()
