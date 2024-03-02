@@ -10,7 +10,7 @@ import UIKit
 
 struct CompleteTimer: View {
     @Environment(\.colorScheme) var colorScheme
-
+    
     @EnvironmentObject var tokenManager: TokenManager
     
     @State var feedbackGenerator = UIImpactFeedbackGenerator(style: .medium)
@@ -46,35 +46,35 @@ struct CompleteTimer: View {
     }
     
     func scheduleNotification() {
-            guard let savedToken = tokenManager.savedToken else {
-                print("Token not found")
-                return
-            }
-
-            // Create a notification content
-            let content = UNMutableNotificationContent()
-            content.title = "Timer Alert"
-            content.body = "Your timer has finished!"
-            content.sound = UNNotificationSound.default
-            content.userInfo = ["token": savedToken]
-
-            // Create a trigger for the notification (you can customize this based on your needs)
-            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
-
-            // Create a request with a unique identifier
-            let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
-
-            // Schedule the notification
-            UNUserNotificationCenter.current().add(request) { error in
-                if let error = error {
-                    print("Error scheduling notification: \(error.localizedDescription)")
-                } else {
-                    print("Notification scheduled successfully")
-                }
+        guard let savedToken = UserDefaults.standard.string(forKey: "savedToken") else {
+            print("Token not found")
+            return
+        }
+        
+        // Create a notification content
+        let content = UNMutableNotificationContent()
+        content.title = "I'm in danger"
+        content.body = "dajeeeee!"
+        content.sound = UNNotificationSound.default
+        content.userInfo = ["token": savedToken]
+        
+        // Create a trigger for the notification (you can customize this based on your needs)
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
+        
+        // Create a request with a unique identifier
+        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+        
+        // Schedule the notification
+        UNUserNotificationCenter.current().add(request) { error in
+            if let error = error {
+                print("Error scheduling notification: \(error.localizedDescription)")
+            } else {
+                print("Notification scheduled successfully")
             }
         }
-
-        
+    }
+    
+    
     func timerStart() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.2) {
             isPressed = false
@@ -177,7 +177,6 @@ struct CompleteTimer: View {
                             }
                         }
                     }
-                    
                     if isPressed {
                         RingView(percentage: 1, backgroundColor: Color.white.opacity(0), startColor: .white, endColor: .white, thickness: 37)
                             .scaleEffect(0.671)

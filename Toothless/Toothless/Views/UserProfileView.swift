@@ -4,6 +4,8 @@ import SwiftData
 struct UserProfileView: View {
     @Query var userData: [User]
     @State private var randomColor: Color
+    //@EnvironmentObject var tokenManager: TokenManager
+    @StateObject private var tokenManager = TokenManager()
     
     init(userData: [User]) {
         if let savedColorData = UserDefaults.standard.data(forKey: "userProfileColor"),
@@ -23,7 +25,7 @@ struct UserProfileView: View {
     
     
     var body: some View {
-        //let initials = String(userData[0].name.prefix(1) + userData[0].surname.prefix(1))
+        let initials = String(userData[0].name.prefix(1) + userData[0].surname.prefix(1))
         
         VStack {
             
@@ -31,21 +33,38 @@ struct UserProfileView: View {
                 Circle()
                     .fill(randomColor)
                     .frame(width: 100, height: 100)
-                Text("SS")
-                //Text(initials)
+                //Text("SS")
+                Text(initials)
                     .font(.title)
                     .fontWeight(.bold)
                     .foregroundColor(.white)
             }
-            Text("Welcome!")
-            //Text("Welcome, \(userData[0].name) \(userData[0].surname)!")
+            //Text("Welcome!")
+            Text("Welcome, \(userData[0].name) \(userData[0].surname)!")
                 .font(.largeTitle)
                 .padding()
-            Text("Your phone number is")
-            //Text("Your phone number is: \(userData[0].phoneNumber)")
+            //Text("Your phone number is")
+            Text("Your phone number is: \(userData[0].phoneNumber)")
                 .font(.title)
                 .padding()
-        }
+            Text("Your token is: \(userData[0].fcmToken)")
+                .font(.title)
+                .padding()
+            if let savedToken = tokenManager.savedToken {
+                Text("Token is saved: \(savedToken)")
+                    .padding()
+            } else {
+                Text("Token not found")
+                    .padding()
+            }
+            if let savedToken = UserDefaults.standard.string(forKey: "savedToken") {
+                Text("Token is saved: \(savedToken)")
+                    .padding()
+            } else {
+                Text("Token not found")
+                    .padding()
+            }
+        }.environmentObject(tokenManager)
     }
 }
 
