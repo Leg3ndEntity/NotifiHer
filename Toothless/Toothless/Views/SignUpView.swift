@@ -45,7 +45,7 @@ struct SignupView: View {
                 
                 HStack {
                     Image(systemName: "mail").foregroundStyle(colorScheme == .dark ? .white : .black)
-                    TextField("Email", text: $email).foregroundStyle(colorScheme == .dark ? .white : .black)
+                    TextField("Email", text: $email)
                     
                     Spacer()
                     
@@ -72,7 +72,7 @@ struct SignupView: View {
                 
                 HStack {
                     Image(systemName: "lock").foregroundStyle(colorScheme == .dark ? .white : .black)
-                    SecureField("Password", text: $password).foregroundStyle(colorScheme == .dark ? .white : .black)
+                    SecureField("Password", text: $password)
                     
                     Spacer()
                     
@@ -110,7 +110,7 @@ struct SignupView: View {
                 
                 Button {
                     
-                    
+              
                     Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
                         
                         if let error = error {

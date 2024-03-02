@@ -66,27 +66,23 @@ struct Registration: View {
             .padding(.top)
             Divider().padding(.bottom, 50)
             
-            
-            Button{
+            HStack {
+                Text("Get started")
+                    .font(.title2)
+                    .foregroundColor(.white)
+                    .padding(10)
+                    .background(RoundedRectangle(cornerRadius: 8).fill(Color.blue))
+            }
+            .padding(.bottom, 60)
+            .onTapGesture {
                 let user = User(name: name, surname: surname, phoneNumber: phoneNumber, fcmToken: fcmToken ?? "")
                 database.addUser(user: user, phoneNumber: user.phoneNumber)
                 
                 isWelcomeScreenOver = true
                 isShowingMain.toggle()
                 modelContext.insert(user)
-                print("Get started")
-                
-            }label:{
-                HStack {
-                    Text("Get started")
-                        .font(.title2)
-                        .foregroundColor(.white)
-                        .padding(10)
-                        .background(RoundedRectangle(cornerRadius: 8).fill(Color.blue))
-                }
+                print("ciao")
             }
-            .disabled(name.trimmingCharacters(in: .whitespaces).isEmpty || surname.trimmingCharacters(in: .whitespaces).isEmpty||phoneNumber.trimmingCharacters(in: .whitespaces).isEmpty)
-            .padding(.bottom, 60)
         }
         .fullScreenCover(isPresented: $isShowingMain, content: {
             CompleteTimer()

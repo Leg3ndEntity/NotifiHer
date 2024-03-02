@@ -10,7 +10,6 @@ class TokenManager: ObservableObject {
         print("Attempting to save token: \(token)")
         savedToken = token
         print("Token saved: \(savedToken ?? "nil")")
-        
     }
 }
 
@@ -25,7 +24,7 @@ struct SearchUsers: View {
     @State private var isTokenSaved: Bool = false
     
     
-    
+
     var body: some View {
         VStack {
             HStack {
@@ -44,43 +43,45 @@ struct SearchUsers: View {
             )
             .padding()
             .onChange(of: searchText) { newSearchText in
-                // Perform search when the search text changes
-                database.searchUserByPhoneNumber(phoneNumber: newSearchText) { fcmToken in
-                    if let fcmToken = fcmToken {
-                        // Handle the found fcmToken
-                        foundToken = fcmToken
-                    } else {
-                        // Handle case when the phone number is not found
-                        foundToken = nil
-                    }
-                    // Reset the token saved flag when the search text changes
-                    isTokenSaved = false
-                }
-            }
+                            // Perform search when the search text changes
+                            database.searchUserByPhoneNumber(phoneNumber: newSearchText) { fcmToken in
+                                if let fcmToken = fcmToken {
+                                    // Handle the found fcmToken
+                                    foundToken = fcmToken
+                                } else {
+                                    // Handle case when the phone number is not found
+                                    foundToken = nil
+                                }
+                                // Reset the token saved flag when the search text changes
+                                isTokenSaved = false
+                            }
+                        }
+            
+            
+
             if let token = foundToken {
-                if let savedToken = tokenManager.savedToken {
-                    Text("Token is saved: \(savedToken)")
-                        .padding()
-                } else {
-                    Button(action: {
-                        tokenManager.saveToken(token)
-                        UserDefaults.standard.set(token, forKey: "savedToken")
-                    }) {
-                        Text("Save Token")
-                            .padding()
-                            .background(Color.blue)
-                            .foregroundColor(.white)
-                            .cornerRadius(8)
+                            if let savedToken = tokenManager.savedToken {
+                                Text("Token is saved: \(savedToken)")
+                                    .padding()
+                            } else {
+                                Button(action: {
+                                    tokenManager.saveToken(token)
+                                }) {
+                                    Text("Save Token")
+                                        .padding()
+                                        .background(Color.blue)
+                                        .foregroundColor(.white)
+                                        .cornerRadius(8)
+                                }
+                            }
+                        } else {
+                            Text("Phone number not found")
+                                .padding()
+                        }
                     }
+                    .environmentObject(tokenManager) // Inject the TokenManager into the environment
                 }
-            } else {
-                Text("Phone number not found")
-                    .padding()
             }
-        }
-        .environmentObject(tokenManager) // Inject the TokenManager into the environment
-    }
-}
 
 //#if DEBUG
 //struct SearchUsers_Previews: PreviewProvider {
