@@ -46,15 +46,7 @@ struct WelcomeView: View {
                         }
                     }
                     else {
-                        HStack {
-                            Spacer()
-                            Button("Next", action: incrementPage)
-                                .buttonStyle(.borderedProminent)
-                                .font(.title2)
-                            Spacer()
-                        }
                     }
-                    Spacer()
                 }
                 .tag(page.tag)
             }
