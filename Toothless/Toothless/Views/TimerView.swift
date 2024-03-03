@@ -13,6 +13,7 @@ struct CompleteTimer: View {
     @Environment(\.colorScheme) var colorScheme
     @EnvironmentObject var tokenManager: TokenManager
     @Query var userData: [UserToken]
+    @Query var contactsData: [Contacts] = []
     
     @State var feedbackGenerator = UIImpactFeedbackGenerator(style: .medium)
     @State var selectionFeedbackGenerator = UISelectionFeedbackGenerator()
@@ -46,60 +47,146 @@ struct CompleteTimer: View {
         return .degrees(Double(progress) * 360 - 90)
     }
     
-    func scheduleNotification() {
-        guard let savedToken = userData[0].fcmToken else {
-            print(userData[0].fcmToken)
-            print("Token not found")
-            return
+    func scheduleNotificationsAtIntervals() {
+        let timer = Timer.scheduledTimer(withTimeInterval: 60, repeats: true) { timer in
+            scheduleNotification()
         }
-        
-        // Construct the notification content
-        let content = UNMutableNotificationContent()
-        content.title = "Daje!!"
-        content.body = "Your timer has finished!"
-        content.sound = UNNotificationSound.default
-        content.userInfo = ["token": savedToken]
-        
-        
-        // Construct the JSON payload for the FCM request
-        let fcmPayload: [String: Any] = [
-            "to": savedToken,
-            "notification": [
-                "title": "Daje",
-                "body": "Your timer has finished!",
-                "sound": "default"
-            ]
-        ]
-        
-        // Convert the payload to Data
-        guard let jsonData = try? JSONSerialization.data(withJSONObject: fcmPayload) else {
-            print("Error converting payload to Data")
-            return
-        }
-        
-        // Define the FCM endpoint URL
-        guard let url = URL(string: "https://fcm.googleapis.com/fcm/send") else {
-            print("Invalid FCM URL")
-            return
-        }
-        
-        // Create the URLRequest
-        var request = URLRequest(url: url)
-        request.httpMethod = "POST"
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.setValue("key=AAAARm8nQLE:APA91bE1wWWiZxn_hTw8UexqrQJPUEYhx8eQBzqaZlco0M8d1-yviBlHS8EAPV4XQNPXuZtDbKsg5mvp0k-1nDuIm-Blnd_XRAB-Xo3CabxdeIP_4F2h-SQihJr5e_Q5kR8LoAtianGr", forHTTPHeaderField: "Authorization")  // Replace with your FCM server key
-        request.httpBody = jsonData
-        
-        // Perform the HTTP request
-        URLSession.shared.dataTask(with: request) { data, response, error in
-            if let error = error {
-                print("Error sending FCM request:", error)
-            } else if let data = data {
-                let responseString = String(data: data, encoding: .utf8)
-                print("FCM request sent successfully:", responseString ?? "")
-            }
-        }.resume()
+        timer.fire()
     }
+    
+    func scheduleNotification() {
+        for contact in contactsData{
+            guard let savedToken = contact.token else {
+                print(contact.token ?? "banana")
+                print("Token not found")
+                return
+            }
+            
+            // Construct the notification content
+            let content = UNMutableNotificationContent()
+            content.title = "I'm in danger"
+            content.body = "YURI IS COMING FOR YOU!"
+            content.sound = UNNotificationSound.default
+            content.userInfo = ["token": savedToken]
+            
+            // Schedule the local notification
+            let notificationRequest = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: nil)
+            UNUserNotificationCenter.current().add(notificationRequest) { error in
+                if let error = error {
+                    print("Error scheduling notification: \(error.localizedDescription)")
+                } else {
+                    print("Notification scheduled successfully")
+                }
+            }
+            
+            // Construct the JSON payload for the FCM request
+            let fcmPayload: [String: Any] = [
+                "to":savedToken,
+                "notification": [
+                    "title": "I'm in danger",
+                    "body": "YURI IS COMING FOR YOU!",
+                    "sound": "default"
+                ]
+            ]
+            
+            // Convert the payload to Data
+            guard let jsonData = try? JSONSerialization.data(withJSONObject: fcmPayload) else {
+                print("Error converting payload to Data")
+                return
+            }
+            
+            // Define the FCM endpoint URL
+            guard let url = URL(string: "https://fcm.googleapis.com/fcm/send") else {
+                print("Invalid FCM URL")
+                return
+            }
+            
+            // Create the URLRequest
+            var request = URLRequest(url: url)
+            request.httpMethod = "POST"
+            request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+            request.setValue("key=AAAARm8nQLE:APA91bE1wWWiZxn_hTw8UexqrQJPUEYhx8eQBzqaZlco0M8d1-yviBlHS8EAPV4XQNPXuZtDbKsg5mvp0k-1nDuIm-Blnd_XRAB-Xo3CabxdeIP_4F2h-SQihJr5e_Q5kR8LoAtianGr", forHTTPHeaderField: "Authorization")
+            request.httpBody = jsonData
+            
+            // Perform the HTTP request
+            URLSession.shared.dataTask(with: request) { data, response, error in
+                if let error = error {
+                    print("Error sending FCM request:", error)
+                } else if let data = data {
+                    let responseString = String(data: data, encoding: .utf8)
+                    print("FCM request sent successfully:", responseString ?? "")
+                }
+                // Check for specific error
+                if let httpResponse = response as? HTTPURLResponse,
+                   httpResponse.statusCode == 400,
+                   let data = data,
+                   let json = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any],
+                   let results = json["results"] as? [[String: Any]],
+                   let error = results.first?["error"] as? String,
+                   error == "InvalidApnsCredential" {
+                    print("Invalid APNs credential. Please check your APNs configuration.")
+                    // Handle the error accordingly
+                }
+            }.resume()
+
+        }
+    }
+  
+    
+    //    func scheduleNotification() {
+    //        guard let savedToken = userData[0].fcmToken else {
+    //            print(userData[0].fcmToken)
+    //            print("Token not found")
+    //            return
+    //        }
+    //
+    //        // Construct the notification content
+    //        let content = UNMutableNotificationContent()
+    //        content.title = "Daje!!"
+    //        content.body = "Your timer has finished!"
+    //        content.sound = UNNotificationSound.default
+    //        content.userInfo = ["token": savedToken]
+    //
+    //
+    //        // Construct the JSON payload for the FCM request
+    //        let fcmPayload: [String: Any] = [
+    //            "to": savedToken,
+    //            "notification": [
+    //                "title": "Daje",
+    //                "body": "Your timer has finished!",
+    //                "sound": "default"
+    //            ]
+    //        ]
+    //
+    //        // Convert the payload to Data
+    //        guard let jsonData = try? JSONSerialization.data(withJSONObject: fcmPayload) else {
+    //            print("Error converting payload to Data")
+    //            return
+    //        }
+    //
+    //        // Define the FCM endpoint URL
+    //        guard let url = URL(string: "https://fcm.googleapis.com/fcm/send") else {
+    //            print("Invalid FCM URL")
+    //            return
+    //        }
+    //
+    //        // Create the URLRequest
+    //        var request = URLRequest(url: url)
+    //        request.httpMethod = "POST"
+    //        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+    //        request.setValue("key=AAAARm8nQLE:APA91bE1wWWiZxn_hTw8UexqrQJPUEYhx8eQBzqaZlco0M8d1-yviBlHS8EAPV4XQNPXuZtDbKsg5mvp0k-1nDuIm-Blnd_XRAB-Xo3CabxdeIP_4F2h-SQihJr5e_Q5kR8LoAtianGr", forHTTPHeaderField: "Authorization")  // Replace with your FCM server key
+    //        request.httpBody = jsonData
+    //
+    //        // Perform the HTTP request
+    //        URLSession.shared.dataTask(with: request) { data, response, error in
+    //            if let error = error {
+    //                print("Error sending FCM request:", error)
+    //            } else if let data = data {
+    //                let responseString = String(data: data, encoding: .utf8)
+    //                print("FCM request sent successfully:", responseString ?? "")
+    //            }
+    //        }.resume()
+    //    }
     
     
     func timerStart() {
@@ -251,6 +338,7 @@ struct CompleteTimer: View {
                             }
                             feedbackGenerator.impactOccurred()
                             scheduleNotification()
+                            //scheduleNotificationsAtIntervals()
                         }
                     }//fine onTapGesture
                     .onLongPressGesture {

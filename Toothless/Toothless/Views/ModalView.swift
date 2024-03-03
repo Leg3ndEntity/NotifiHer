@@ -72,7 +72,7 @@ struct ModalView: View {
                 HStack(spacing: 28){
                     ButtonHomeView(iconName: "map.fill", nameFeature:"Map", showModal: $modal1)
                     ButtonHomeView(iconName: "phone.fill.arrow.down.left", nameFeature:"Fake Calls", showModal: $modal2)
-                    ButtonHomeView(iconName: "exclamationmark.bubble.fill", nameFeature:"Reports", showModal: $modal3)
+                    ButtonHomeView(iconName: "person.fill", nameFeature:"Contacts", showModal: $modal3)
                     ButtonHomeView(iconName: "waveform.and.mic", nameFeature:"WT", showModal: $modal4)
                 }
             }.padding(.top, 10.0)
@@ -82,15 +82,15 @@ struct ModalView: View {
         .bottomSheet2(presentationDetents: [.large], isPresented: $modal1, sheetCornerRadius: 20) {
             MapView()
         } onDismiss: {}
-                    .sheet(isPresented: $modal2, content: {
-                        SearchUsers()
-                    })
-        //            .sheet(isPresented: $modal3, content: {
-        //                UserProfileView()
-        //            })
-                    .sheet(isPresented: $modal4, content: {
+//                    .sheet(isPresented: $modal2, content: {
+//                        SearchUsers()
+//                    })
+                    .sheet(isPresented: $modal3, content: {
                         ContactsView()
                     })
+//                    .sheet(isPresented: $modal4, content: {
+//                        ContactsView()
+//                    })
             .sheet(isPresented: $modal5, content: {
                 SettingsView(userData: [])
             })

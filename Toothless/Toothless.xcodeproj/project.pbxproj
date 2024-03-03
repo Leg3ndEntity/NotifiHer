@@ -173,6 +173,39 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		E023E34F2B9487E80056AAB6 /* Contacts */ = {
+			isa = PBXGroup;
+			children = (
+				E08AE9B12B932B5900825826 /* ContactsView.swift */,
+				E01B88F92B9333490007B5B9 /* AddContact.swift */,
+			);
+			path = Contacts;
+			sourceTree = "<group>";
+		};
+		E023E3502B9488280056AAB6 /* OnBoarding */ = {
+			isa = PBXGroup;
+			children = (
+				176B44242B7F97F30029879D /* OnBoardingView.swift */,
+				E04CD5422B888D0400AE3F23 /* WelcomeView.swift */,
+				992B23042B90D91D00A0B0A1 /* Registration.swift */,
+				9970DDF22B91EC9600539FA9 /* LoginView.swift */,
+				9970DDF62B91ECD100539FA9 /* SignUpView.swift */,
+				9970DDF82B91ED4B00539FA9 /* ContentView.swift */,
+			);
+			path = OnBoarding;
+			sourceTree = "<group>";
+		};
+		E023E3512B9488510056AAB6 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E04D1F202B835D5600C8EFDD /* User.swift */,
+				E01B88F72B932F870007B5B9 /* Contacts.swift */,
+				E01B89012B933C350007B5B9 /* UserToken.swift */,
+				9970DDFC2B91F53A00539FA9 /* User2.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		E04CD52A2B87E79000AE3F23 /* WatchToothless Watch App */ = {
 			isa = PBXGroup;
 			children = (
@@ -209,10 +242,7 @@
 				176B44342B834C920029879D /* MapViewModel.swift */,
 				99D05C802B81640F00E96315 /* Extensions.swift */,
 				991F74DE2B875BF80092EA9D /* Extensions2.swift */,
-				E04D1F202B835D5600C8EFDD /* User.swift */,
-				E01B88F72B932F870007B5B9 /* Contacts.swift */,
-				E01B89012B933C350007B5B9 /* UserToken.swift */,
-				9970DDFC2B91F53A00539FA9 /* User2.swift */,
+				E023E3512B9488510056AAB6 /* Models */,
 			);
 			path = Store;
 			sourceTree = "<group>";
@@ -220,6 +250,8 @@
 		E04D1F1A2B835C4200C8EFDD /* Componentes */ = {
 			isa = PBXGroup;
 			children = (
+				9970DDE72B91D57100539FA9 /* Database.swift */,
+				9970DDF02B91DE0900539FA9 /* ListView.swift */,
 				99A6538F2B8DF53C0038C1D4 /* GIFImage.swift */,
 				991F74E02B87E12F0092EA9D /* PageView.swift */,
 				9970DDF42B91ECB900539FA9 /* String.swift */,
@@ -237,21 +269,13 @@
 		E04D1F1B2B835C4A00C8EFDD /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				176B44242B7F97F30029879D /* OnBoardingView.swift */,
 				E04D1F1E2B835D1B00C8EFDD /* TimerView.swift */,
-				9970DDF82B91ED4B00539FA9 /* ContentView.swift */,
-				176B44362B834CBF0029879D /* UserProfileView.swift */,
 				176B44322B834C5C0029879D /* ModalView.swift */,
-				9970DDF22B91EC9600539FA9 /* LoginView.swift */,
-				9970DDF62B91ECD100539FA9 /* SignUpView.swift */,
 				9970DDFE2B92686900539FA9 /* SearchUsers.swift */,
-				E04CD5422B888D0400AE3F23 /* WelcomeView.swift */,
-				9970DDF02B91DE0900539FA9 /* ListView.swift */,
-				9970DDE72B91D57100539FA9 /* Database.swift */,
-				992B23042B90D91D00A0B0A1 /* Registration.swift */,
+				176B44362B834CBF0029879D /* UserProfileView.swift */,
 				E0CE9A112B911E67009FD256 /* SettingsView.swift */,
-				E08AE9B12B932B5900825826 /* ContactsView.swift */,
-				E01B88F92B9333490007B5B9 /* AddContact.swift */,
+				E023E3502B9488280056AAB6 /* OnBoarding */,
+				E023E34F2B9487E80056AAB6 /* Contacts */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -491,19 +515,19 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"WatchToothless Watch App/Preview Content\"";
-				DEVELOPMENT_TEAM = AWX4HJ7JT5;
+				DEVELOPMENT_TEAM = WAHQLN65AG;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "WatchToothless-Watch-App-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = WatchToothless;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.yurigianoli.Toothless;
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.simonesarnataro.Toothless;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.yurigianoli.Toothless.watchkitappp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.simonesarnataro.Toothless.watchkitappp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -524,19 +548,19 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"WatchToothless Watch App/Preview Content\"";
-				DEVELOPMENT_TEAM = AWX4HJ7JT5;
+				DEVELOPMENT_TEAM = WAHQLN65AG;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "WatchToothless-Watch-App-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = WatchToothless;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.yurigianoli.Toothless;
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.simonesarnataro.Toothless;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.yurigianoli.Toothless.watchkitappp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.simonesarnataro.Toothless.watchkitappp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -677,7 +701,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Toothless/Preview Content\"";
-				DEVELOPMENT_TEAM = AWX4HJ7JT5;
+				DEVELOPMENT_TEAM = WAHQLN65AG;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Toothless/Info.plist;
@@ -694,7 +718,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.yurigianoli.Toothless;
+				PRODUCT_BUNDLE_IDENTIFIER = com.simonesarnataro.Toothless;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -718,7 +742,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Toothless/Preview Content\"";
-				DEVELOPMENT_TEAM = AWX4HJ7JT5;
+				DEVELOPMENT_TEAM = WAHQLN65AG;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Toothless/Info.plist;
@@ -735,7 +759,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.yurigianoli.Toothless;
+				PRODUCT_BUNDLE_IDENTIFIER = com.simonesarnataro.Toothless;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
