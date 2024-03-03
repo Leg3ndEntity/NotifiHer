@@ -515,19 +515,19 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"WatchToothless Watch App/Preview Content\"";
-				DEVELOPMENT_TEAM = WAHQLN65AG;
+				DEVELOPMENT_TEAM = AWX4HJ7JT5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "WatchToothless-Watch-App-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = WatchToothless;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.simonesarnataro.Toothless;
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.andrearomano.Toothless;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.simonesarnataro.Toothless.watchkitappp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.andrearomano.Toothless.watchkitappp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -548,19 +548,19 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"WatchToothless Watch App/Preview Content\"";
-				DEVELOPMENT_TEAM = WAHQLN65AG;
+				DEVELOPMENT_TEAM = AWX4HJ7JT5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "WatchToothless-Watch-App-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = WatchToothless;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.simonesarnataro.Toothless;
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.andrearomano.Toothless;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.simonesarnataro.Toothless.watchkitappp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.andrearomano.Toothless.watchkitappp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -701,7 +701,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Toothless/Preview Content\"";
-				DEVELOPMENT_TEAM = WAHQLN65AG;
+				DEVELOPMENT_TEAM = AWX4HJ7JT5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Toothless/Info.plist;
@@ -718,7 +718,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.simonesarnataro.Toothless;
+				PRODUCT_BUNDLE_IDENTIFIER = com.andrearomano.Toothless;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -742,7 +742,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Toothless/Preview Content\"";
-				DEVELOPMENT_TEAM = WAHQLN65AG;
+				DEVELOPMENT_TEAM = AWX4HJ7JT5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Toothless/Info.plist;
@@ -759,7 +759,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.simonesarnataro.Toothless;
+				PRODUCT_BUNDLE_IDENTIFIER = com.andrearomano.Toothless;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";

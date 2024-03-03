@@ -22,28 +22,7 @@ struct WelcomeView: View {
                     if page == pages.last {
                         Registration(name: "", surname: "", phoneNumber: "")
                         Spacer()
-                        HStack {
-                            Spacer()
-                            Text("Get started")
-                                .font(.title2)
-                                .foregroundColor(.white)
-                                .padding(10)
-                                .background(RoundedRectangle(cornerRadius: 8).fill(Color.blue))
-                                .onTapGesture {
-                                    if isUserSignedIn { // Only allow tap if the user is signed in
-                                        isWelcomeScreenOver = true
-                                        isShowingMain.toggle()
-                                        print("ciao")
-                                    }
-                                }
-                            Spacer()
-                        }
-                        .padding(.bottom, 60)
-                        .onTapGesture {
-                            isWelcomeScreenOver = true
-                            isShowingMain.toggle()
-                            print("ciao")
-                        }
+                        
                     }
                     else {
                     }
