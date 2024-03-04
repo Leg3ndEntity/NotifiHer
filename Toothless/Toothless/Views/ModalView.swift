@@ -8,6 +8,9 @@
 import SwiftUI
 import MapKit
 import UIKit
+import AVFoundation
+import PushToTalk
+
 
 struct ModalView: View {
     @State var modal1: Bool = false
@@ -26,6 +29,8 @@ struct ModalView: View {
     @Binding var count: Int
     @Binding var to: CGFloat
     @Binding var dismissTimer: Timer?
+    
+    @ObservedObject var pushToTalkManager: PushToTalkManager
     
     func timerRestart(){
         if self.count == 0 {
@@ -88,9 +93,9 @@ struct ModalView: View {
         //            .sheet(isPresented: $modal3, content: {
         //                UserProfileView()
         //            })
-        //            .sheet(isPresented: $modal4, content: {
-        //                UserProfileView()
-        //            })
+                    .sheet(isPresented: $modal4, content: {
+                        PushToTalkView(pushToTalkManager: PushToTalkManager())
+                    })
             .sheet(isPresented: $modal5, content: {
                 SettingsView(userData: [])
             })

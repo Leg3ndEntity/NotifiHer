@@ -6,6 +6,7 @@ struct Registration: View {
     @State var surname: String
     @State var phoneNumber: String
     
+    @ObservedObject var pushToTalkManager: PushToTalkManager
     @AppStorage("isWelcomeScreenOver") var isWelcomeScreenOver = false
     @State var isShowingMain: Bool = false
     @State private var isUserSignedIn: Bool = false
@@ -79,15 +80,15 @@ struct Registration: View {
             }
         }
         .fullScreenCover(isPresented: $isShowingMain, content: {
-            CompleteTimer()
+            CompleteTimer(pushToTalkManager: PushToTalkManager())
         })
     }
 }
 
 
-struct Registration_Previews: PreviewProvider {
-    static var previews: some View {
-        Registration(name: "", surname: "", phoneNumber: "")
-    }
-}
+//struct Registration_Previews: PreviewProvider {
+//    static var previews: some View {
+//        Registration(name: "", surname: "", phoneNumber: "")
+//    }
+//}
 

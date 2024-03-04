@@ -15,13 +15,19 @@ import SwiftData
 
 @main
 struct Toothless_provaApp: App {
+    init() {
+           // Initialize the PushToTalk Manager
+           self.pushToTalkManager = PushToTalkManager()
+       }
+    
+    @ObservedObject var pushToTalkManager: PushToTalkManager
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     @StateObject var viewModel = MapViewModel()
     
     var body: some Scene {
         
         WindowGroup {
-            Toothless()
+            Toothless(pushToTalkManager: PushToTalkManager())
                 .onAppear{viewModel.checkIfLocationEnabled()
                 }
                 .task {

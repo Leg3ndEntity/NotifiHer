@@ -29,7 +29,7 @@ struct WelcomeView: View {
                     PageView(page: page)
                     Spacer()
                     if page == pages.last {
-                        Registration(name: "", surname: "", phoneNumber: "")
+                        Registration(name: "", surname: "", phoneNumber: "", pushToTalkManager: PushToTalkManager())
                         Spacer()
                         HStack {
                             Spacer()
@@ -76,7 +76,7 @@ struct WelcomeView: View {
             dotAppearance.pageIndicatorTintColor = .gray
         }
         .fullScreenCover(isPresented: $isShowingMain, content: {
-            CompleteTimer()
+            CompleteTimer(pushToTalkManager: PushToTalkManager())
         })
     }
     

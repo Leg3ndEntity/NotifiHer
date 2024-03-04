@@ -9,12 +9,13 @@ import SwiftUI
 
 struct Toothless: View {
     @AppStorage("isWelcomeScreenOver") var isWelcomeScreenOver = false
+    @ObservedObject var pushToTalkManager: PushToTalkManager
     @State var checkWelcomeScreen: Bool = false
     
     var body: some View {
         VStack {
             if checkWelcomeScreen {
-                CompleteTimer()
+                CompleteTimer(pushToTalkManager: PushToTalkManager())
             } else {
                 WelcomeView()
             }
@@ -24,6 +25,6 @@ struct Toothless: View {
     }
 }
 
-#Preview {
-    Toothless()
-}
+//#Preview {
+//    Toothless()
+//}

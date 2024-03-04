@@ -10,6 +10,7 @@ import UIKit
 
 struct CompleteTimer: View {
     @Environment(\.colorScheme) var colorScheme
+    @ObservedObject var pushToTalkManager: PushToTalkManager
     
     @State var feedbackGenerator = UIImpactFeedbackGenerator(style: .medium)
     @State var selectionFeedbackGenerator = UISelectionFeedbackGenerator()
@@ -253,7 +254,7 @@ struct CompleteTimer: View {
         }//fine 3° Zstack
         .bottomSheet(presentationDetents: [.height(190), .height(80)], isPresented: .constant(true), sheetCornerRadius: 20) {
             ScrollView(.vertical, showsIndicators: false) {
-                ModalView(showMark: $showMark, showCircle: $showCircle, showAlert: $showAlert, circleOpacity: $circleOpacity, start: $start, count: $count, to: $to, dismissTimer: $dismissTimer)
+                ModalView(showMark: $showMark, showCircle: $showCircle, showAlert: $showAlert, circleOpacity: $circleOpacity, start: $start, count: $count, to: $to, dismissTimer: $dismissTimer, pushToTalkManager: PushToTalkManager())
             }
         } onDismiss: {}
             .onAppear(perform: {
@@ -291,6 +292,6 @@ struct CompleteTimer: View {
     }
 }
 
-#Preview {
-    CompleteTimer()
-}
+//#Preview {
+//    CompleteTimer()
+//}

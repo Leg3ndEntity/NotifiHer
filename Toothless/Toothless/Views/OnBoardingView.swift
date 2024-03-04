@@ -17,6 +17,7 @@ struct CustomColor {
 }
 
 struct OnBoardingView: View {
+    @ObservedObject var pushToTalkManager: PushToTalkManager
     @AppStorage("isWelcomeScreenOver") var isWelcomeScreenOver = false
     @State var isShowingMain: Bool = false
     var body: some View {
@@ -131,12 +132,12 @@ struct OnBoardingView: View {
             }
         }.frame(width: 350)
             .fullScreenCover(isPresented: $isShowingMain, content: {
-                CompleteTimer()
+                CompleteTimer(pushToTalkManager: PushToTalkManager())
             })
         
     }
 }
-
-#Preview {
-    OnBoardingView()
-}
+//
+//#Preview {
+//    OnBoardingView()
+//}
