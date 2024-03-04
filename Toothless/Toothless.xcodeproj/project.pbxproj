@@ -20,7 +20,7 @@
 		991F74DF2B875BF80092EA9D /* Extensions2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991F74DE2B875BF80092EA9D /* Extensions2.swift */; };
 		991F74E12B87E12F0092EA9D /* PageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991F74E02B87E12F0092EA9D /* PageView.swift */; };
 		991F74E32B87E1490092EA9D /* PageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991F74E22B87E1490092EA9D /* PageModel.swift */; };
-		992649B82B95DC3700A5912A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 992649B72B95DC3700A5912A /* GoogleService-Info.plist */; };
+		992649BC2B95DF2400A5912A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 992649BB2B95DF2400A5912A /* GoogleService-Info.plist */; };
 		992B23052B90D91D00A0B0A1 /* Registration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992B23042B90D91D00A0B0A1 /* Registration.swift */; };
 		9970DDE82B91D57100539FA9 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9970DDE72B91D57100539FA9 /* Database.swift */; };
 		9970DDF12B91DE0900539FA9 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9970DDF02B91DE0900539FA9 /* ListView.swift */; };
@@ -99,7 +99,7 @@
 		991F74DE2B875BF80092EA9D /* Extensions2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions2.swift; sourceTree = "<group>"; };
 		991F74E02B87E12F0092EA9D /* PageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageView.swift; sourceTree = "<group>"; };
 		991F74E22B87E1490092EA9D /* PageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageModel.swift; sourceTree = "<group>"; };
-		992649B72B95DC3700A5912A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		992649BB2B95DF2400A5912A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		992B23042B90D91D00A0B0A1 /* Registration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Registration.swift; sourceTree = "<group>"; };
 		9970DDE72B91D57100539FA9 /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
 		9970DDF02B91DE0900539FA9 /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
@@ -266,6 +266,7 @@
 			children = (
 				E04D1F1E2B835D1B00C8EFDD /* TimerView.swift */,
 				176B44322B834C5C0029879D /* ModalView.swift */,
+				992649BB2B95DF2400A5912A /* GoogleService-Info.plist */,
 				9970DDFE2B92686900539FA9 /* SearchUsers.swift */,
 				176B44362B834CBF0029879D /* UserProfileView.swift */,
 				E0CE9A112B911E67009FD256 /* SettingsView.swift */,
@@ -298,7 +299,6 @@
 			isa = PBXGroup;
 			children = (
 				176B443A2B83531B0029879D /* Info.plist */,
-				992649B72B95DC3700A5912A /* GoogleService-Info.plist */,
 				BEAECC6B2B8371AD003C3A6A /* Toothless.entitlements */,
 				E09286142B7F591F00BD1788 /* ToothlessApp.swift */,
 				E04D1F1C2B835C8000C8EFDD /* Toothless.swift */,
@@ -423,12 +423,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				992649BC2B95DF2400A5912A /* GoogleService-Info.plist in Resources */,
 				173376F52B8F25D5009D05AC /* tap.gif in Resources */,
 				173376F42B8F25D5009D05AC /* hold.gif in Resources */,
 				99A653942B8E1EC00038C1D4 /* map.gif in Resources */,
 				E092861C2B7F592000BD1788 /* Preview Assets.xcassets in Resources */,
 				E09286192B7F592000BD1788 /* Assets.xcassets in Resources */,
-				992649B82B95DC3700A5912A /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

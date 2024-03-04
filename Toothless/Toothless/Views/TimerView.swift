@@ -71,7 +71,7 @@ struct CompleteTimer: View {
             
             // Construct the JSON payload for the FCM request
             let fcmPayload: [String: Any] = [
-                "to":savedToken,
+                "to": savedToken,
                 "notification": [
                     "title": "I'm in danger",
                     "body": "YURI IS COMING FOR YOU!",
@@ -90,12 +90,12 @@ struct CompleteTimer: View {
                 print("Invalid FCM URL")
                 return
             }
-            
+            let serverKey = "AAAARm8nQLE:APA91bE1wWWiZxn_hTw8UexqrQJPUEYhx8eQBzqaZlco0M8d1-yviBlHS8EAPV4XQNPXuZtDbKsg5mvp0k-1nDuIm-Blnd_XRAB-Xo3CabxdeIP_4F2h-SQihJr5e_Q5kR8LoAtianGr"
             // Create the URLRequest
             var request = URLRequest(url: url)
             request.httpMethod = "POST"
             request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-            request.setValue("key=AAAARm8nQLE:APA91bE1wWWiZxn_hTw8UexqrQJPUEYhx8eQBzqaZlco0M8d1-yviBlHS8EAPV4XQNPXuZtDbKsg5mvp0k-1nDuIm-Blnd_XRAB-Xo3CabxdeIP_4F2h-SQihJr5e_Q5kR8LoAtianGr", forHTTPHeaderField: "Authorization")
+            request.setValue("key=\(serverKey)", forHTTPHeaderField: "Authorization")
             request.httpBody = jsonData
             
             // Perform the HTTP request
