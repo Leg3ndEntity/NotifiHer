@@ -16,6 +16,12 @@
 		176B44352B834C920029879D /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176B44342B834C920029879D /* MapViewModel.swift */; };
 		176B44372B834CBF0029879D /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176B44362B834CBF0029879D /* UserProfileView.swift */; };
 		176B44392B834CE40029879D /* ButtonHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176B44382B834CE40029879D /* ButtonHomeView.swift */; };
+		179FB1242B95E95200FDE246 /* FakeCallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179FB1232B95E95200FDE246 /* FakeCallView.swift */; };
+		179FB1262B95E96700FDE246 /* SingleCallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179FB1252B95E96700FDE246 /* SingleCallView.swift */; };
+		179FB1292B95E99C00FDE246 /* FakeCalls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179FB1282B95E99C00FDE246 /* FakeCalls.swift */; };
+		179FB12B2B95E9F000FDE246 /* FakeCallsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179FB12A2B95E9F000FDE246 /* FakeCallsViewModel.swift */; };
+		179FB12D2B95EA6B00FDE246 /* VideoProva.MOV in Resources */ = {isa = PBXBuildFile; fileRef = 179FB12C2B95EA6B00FDE246 /* VideoProva.MOV */; };
+		179FB12F2B95EA7500FDE246 /* VideoProva2.MOV in Resources */ = {isa = PBXBuildFile; fileRef = 179FB12E2B95EA7500FDE246 /* VideoProva2.MOV */; };
 		17F4499A2B8F4BA400E29688 /* InfoPointView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F449992B8F4BA400E29688 /* InfoPointView.swift */; };
 		991F74DF2B875BF80092EA9D /* Extensions2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991F74DE2B875BF80092EA9D /* Extensions2.swift */; };
 		991F74E12B87E12F0092EA9D /* PageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991F74E02B87E12F0092EA9D /* PageView.swift */; };
@@ -95,6 +101,12 @@
 		176B44362B834CBF0029879D /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
 		176B44382B834CE40029879D /* ButtonHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonHomeView.swift; sourceTree = "<group>"; };
 		176B443A2B83531B0029879D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Info.plist; sourceTree = "<group>"; };
+		179FB1232B95E95200FDE246 /* FakeCallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeCallView.swift; sourceTree = "<group>"; };
+		179FB1252B95E96700FDE246 /* SingleCallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleCallView.swift; sourceTree = "<group>"; };
+		179FB1282B95E99C00FDE246 /* FakeCalls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeCalls.swift; sourceTree = "<group>"; };
+		179FB12A2B95E9F000FDE246 /* FakeCallsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeCallsViewModel.swift; sourceTree = "<group>"; };
+		179FB12C2B95EA6B00FDE246 /* VideoProva.MOV */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; name = VideoProva.MOV; path = ../../../BeBrave/BeBrave/FakeCalls/Video/VideoProva.MOV; sourceTree = "<group>"; };
+		179FB12E2B95EA7500FDE246 /* VideoProva2.MOV */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; name = VideoProva2.MOV; path = ../../../BeBrave/BeBrave/FakeCalls/Video/VideoProva2.MOV; sourceTree = "<group>"; };
 		17F449992B8F4BA400E29688 /* InfoPointView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoPointView.swift; sourceTree = "<group>"; };
 		991F74DE2B875BF80092EA9D /* Extensions2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions2.swift; sourceTree = "<group>"; };
 		991F74E02B87E12F0092EA9D /* PageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageView.swift; sourceTree = "<group>"; };
@@ -161,6 +173,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		179FB1272B95E97800FDE246 /* FakeCall */ = {
+			isa = PBXGroup;
+			children = (
+				179FB1232B95E95200FDE246 /* FakeCallView.swift */,
+				179FB1252B95E96700FDE246 /* SingleCallView.swift */,
+			);
+			path = FakeCall;
+			sourceTree = "<group>";
+		};
 		9970DDE92B91DB7F00539FA9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -257,6 +278,8 @@
 				E04D1F442B84B2A900C8EFDD /* RingView.swift */,
 				1763FA852B860400005BC39C /* MapView.swift */,
 				17F449992B8F4BA400E29688 /* InfoPointView.swift */,
+				179FB1282B95E99C00FDE246 /* FakeCalls.swift */,
+				179FB12A2B95E9F000FDE246 /* FakeCallsViewModel.swift */,
 			);
 			path = Componentes;
 			sourceTree = "<group>";
@@ -270,6 +293,7 @@
 				9970DDFE2B92686900539FA9 /* SearchUsers.swift */,
 				176B44362B834CBF0029879D /* UserProfileView.swift */,
 				E0CE9A112B911E67009FD256 /* SettingsView.swift */,
+				179FB1272B95E97800FDE246 /* FakeCall */,
 				E023E3502B9488280056AAB6 /* OnBoarding */,
 				E023E34F2B9487E80056AAB6 /* Contacts */,
 			);
@@ -306,6 +330,8 @@
 				E04D1F1A2B835C4200C8EFDD /* Componentes */,
 				E04D1F192B835C3900C8EFDD /* Store */,
 				E09286182B7F592000BD1788 /* Assets.xcassets */,
+				179FB12C2B95EA6B00FDE246 /* VideoProva.MOV */,
+				179FB12E2B95EA7500FDE246 /* VideoProva2.MOV */,
 				173376F22B8F25D5009D05AC /* hold.gif */,
 				173376F32B8F25D5009D05AC /* tap.gif */,
 				99A653932B8E1EC00038C1D4 /* map.gif */,
@@ -423,6 +449,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				179FB12F2B95EA7500FDE246 /* VideoProva2.MOV in Resources */,
+				179FB12D2B95EA6B00FDE246 /* VideoProva.MOV in Resources */,
 				992649BC2B95DF2400A5912A /* GoogleService-Info.plist in Resources */,
 				173376F52B8F25D5009D05AC /* tap.gif in Resources */,
 				173376F42B8F25D5009D05AC /* hold.gif in Resources */,
@@ -451,6 +479,7 @@
 				176B44332B834C5C0029879D /* ModalView.swift in Sources */,
 				99D05C812B81640F00E96315 /* Extensions.swift in Sources */,
 				176B44372B834CBF0029879D /* UserProfileView.swift in Sources */,
+				179FB12B2B95E9F000FDE246 /* FakeCallsViewModel.swift in Sources */,
 				9970DDF52B91ECB900539FA9 /* String.swift in Sources */,
 				991F74E32B87E1490092EA9D /* PageModel.swift in Sources */,
 				E04D1F452B84B2A900C8EFDD /* RingView.swift in Sources */,
@@ -468,6 +497,7 @@
 				9970DDFF2B92686900539FA9 /* SearchUsers.swift in Sources */,
 				E01B88F82B932F870007B5B9 /* Contacts.swift in Sources */,
 				99A653902B8DF53C0038C1D4 /* GIFImage.swift in Sources */,
+				179FB1292B95E99C00FDE246 /* FakeCalls.swift in Sources */,
 				BE0E089B2B873EE3005C848F /* PushToTalkManager.swift in Sources */,
 				176B44352B834C920029879D /* MapViewModel.swift in Sources */,
 				E04D1F212B835D5600C8EFDD /* User.swift in Sources */,
@@ -475,9 +505,11 @@
 				E09286152B7F591F00BD1788 /* ToothlessApp.swift in Sources */,
 				176B44232B7F97CD0029879D /* InfoBoardingView.swift in Sources */,
 				991F74E12B87E12F0092EA9D /* PageView.swift in Sources */,
+				179FB1242B95E95200FDE246 /* FakeCallView.swift in Sources */,
 				99A653922B8DF8810038C1D4 /* GiFFF.swift in Sources */,
 				17F4499A2B8F4BA400E29688 /* InfoPointView.swift in Sources */,
 				9970DDF72B91ECD100539FA9 /* SignUpView.swift in Sources */,
+				179FB1262B95E96700FDE246 /* SingleCallView.swift in Sources */,
 				176B44392B834CE40029879D /* ButtonHomeView.swift in Sources */,
 				9970DDF92B91ED4B00539FA9 /* ContentView.swift in Sources */,
 				E01B89022B933C350007B5B9 /* UserToken.swift in Sources */,
@@ -513,13 +545,13 @@
 				INFOPLIST_FILE = "WatchToothless-Watch-App-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = WatchToothless;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.sos.Toothless;
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.yurigianoli.Toothless;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.sos.Toothless.watchkitappp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yurigianoli.Toothless.watchkitappp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -546,13 +578,13 @@
 				INFOPLIST_FILE = "WatchToothless-Watch-App-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = WatchToothless;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.sos.Toothless;
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.yurigianoli.Toothless;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.sos.Toothless.watchkitappp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yurigianoli.Toothless.watchkitappp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -710,7 +742,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.sos.Toothless;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yurigianoli.Toothless;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -751,7 +783,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.sos.Toothless;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yurigianoli.Toothless;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
