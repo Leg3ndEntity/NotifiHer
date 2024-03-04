@@ -20,13 +20,13 @@
 		179FB1262B95E96700FDE246 /* SingleCallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179FB1252B95E96700FDE246 /* SingleCallView.swift */; };
 		179FB1292B95E99C00FDE246 /* FakeCalls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179FB1282B95E99C00FDE246 /* FakeCalls.swift */; };
 		179FB12B2B95E9F000FDE246 /* FakeCallsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179FB12A2B95E9F000FDE246 /* FakeCallsViewModel.swift */; };
-		179FB12D2B95EA6B00FDE246 /* VideoProva.MOV in Resources */ = {isa = PBXBuildFile; fileRef = 179FB12C2B95EA6B00FDE246 /* VideoProva.MOV */; };
-		179FB12F2B95EA7500FDE246 /* VideoProva2.MOV in Resources */ = {isa = PBXBuildFile; fileRef = 179FB12E2B95EA7500FDE246 /* VideoProva2.MOV */; };
 		17F4499A2B8F4BA400E29688 /* InfoPointView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F449992B8F4BA400E29688 /* InfoPointView.swift */; };
 		991F74DF2B875BF80092EA9D /* Extensions2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991F74DE2B875BF80092EA9D /* Extensions2.swift */; };
 		991F74E12B87E12F0092EA9D /* PageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991F74E02B87E12F0092EA9D /* PageView.swift */; };
 		991F74E32B87E1490092EA9D /* PageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991F74E22B87E1490092EA9D /* PageModel.swift */; };
 		992649BC2B95DF2400A5912A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 992649BB2B95DF2400A5912A /* GoogleService-Info.plist */; };
+		992649BF2B95EB0F00A5912A /* VideoProva.MOV in Resources */ = {isa = PBXBuildFile; fileRef = 992649BD2B95EB0F00A5912A /* VideoProva.MOV */; };
+		992649C02B95EB0F00A5912A /* VideoProva2.MOV in Resources */ = {isa = PBXBuildFile; fileRef = 992649BE2B95EB0F00A5912A /* VideoProva2.MOV */; };
 		992B23052B90D91D00A0B0A1 /* Registration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992B23042B90D91D00A0B0A1 /* Registration.swift */; };
 		9970DDE82B91D57100539FA9 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9970DDE72B91D57100539FA9 /* Database.swift */; };
 		9970DDF12B91DE0900539FA9 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9970DDF02B91DE0900539FA9 /* ListView.swift */; };
@@ -105,13 +105,13 @@
 		179FB1252B95E96700FDE246 /* SingleCallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleCallView.swift; sourceTree = "<group>"; };
 		179FB1282B95E99C00FDE246 /* FakeCalls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeCalls.swift; sourceTree = "<group>"; };
 		179FB12A2B95E9F000FDE246 /* FakeCallsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeCallsViewModel.swift; sourceTree = "<group>"; };
-		179FB12C2B95EA6B00FDE246 /* VideoProva.MOV */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; name = VideoProva.MOV; path = ../../../BeBrave/BeBrave/FakeCalls/Video/VideoProva.MOV; sourceTree = "<group>"; };
-		179FB12E2B95EA7500FDE246 /* VideoProva2.MOV */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; name = VideoProva2.MOV; path = ../../../BeBrave/BeBrave/FakeCalls/Video/VideoProva2.MOV; sourceTree = "<group>"; };
 		17F449992B8F4BA400E29688 /* InfoPointView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoPointView.swift; sourceTree = "<group>"; };
 		991F74DE2B875BF80092EA9D /* Extensions2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions2.swift; sourceTree = "<group>"; };
 		991F74E02B87E12F0092EA9D /* PageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageView.swift; sourceTree = "<group>"; };
 		991F74E22B87E1490092EA9D /* PageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageModel.swift; sourceTree = "<group>"; };
 		992649BB2B95DF2400A5912A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		992649BD2B95EB0F00A5912A /* VideoProva.MOV */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = VideoProva.MOV; sourceTree = "<group>"; };
+		992649BE2B95EB0F00A5912A /* VideoProva2.MOV */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = VideoProva2.MOV; sourceTree = "<group>"; };
 		992B23042B90D91D00A0B0A1 /* Registration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Registration.swift; sourceTree = "<group>"; };
 		9970DDE72B91D57100539FA9 /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
 		9970DDF02B91DE0900539FA9 /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
@@ -330,8 +330,8 @@
 				E04D1F1A2B835C4200C8EFDD /* Componentes */,
 				E04D1F192B835C3900C8EFDD /* Store */,
 				E09286182B7F592000BD1788 /* Assets.xcassets */,
-				179FB12C2B95EA6B00FDE246 /* VideoProva.MOV */,
-				179FB12E2B95EA7500FDE246 /* VideoProva2.MOV */,
+				992649BD2B95EB0F00A5912A /* VideoProva.MOV */,
+				992649BE2B95EB0F00A5912A /* VideoProva2.MOV */,
 				173376F22B8F25D5009D05AC /* hold.gif */,
 				173376F32B8F25D5009D05AC /* tap.gif */,
 				99A653932B8E1EC00038C1D4 /* map.gif */,
@@ -449,8 +449,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				179FB12F2B95EA7500FDE246 /* VideoProva2.MOV in Resources */,
-				179FB12D2B95EA6B00FDE246 /* VideoProva.MOV in Resources */,
+				992649C02B95EB0F00A5912A /* VideoProva2.MOV in Resources */,
+				992649BF2B95EB0F00A5912A /* VideoProva.MOV in Resources */,
 				992649BC2B95DF2400A5912A /* GoogleService-Info.plist in Resources */,
 				173376F52B8F25D5009D05AC /* tap.gif in Resources */,
 				173376F42B8F25D5009D05AC /* hold.gif in Resources */,
