@@ -99,15 +99,15 @@ struct InfoPointView: View {
 func StringInterestPoint(category: MKPointOfInterestCategory) -> String {
     switch category {
     case .pharmacy:
-        return "Pharmacy"
+        return NSLocalizedString("Pharmacy", comment: "")
     case .hospital:
-        return "Hospital"
+        return NSLocalizedString("Hospital", comment: "")
     case .police:
-        return "Police Stations"
+        return NSLocalizedString("Police Station", comment: "")
     case .restaurant:
-        return "Restaurant"
+        return NSLocalizedString("Restaurant", comment: "")
     case .foodMarket:
-        return "Supermarket"
+        return NSLocalizedString("Supermarket", comment: "")
     default:
         return ""
     }

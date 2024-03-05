@@ -71,10 +71,10 @@ struct ModalView: View {
             .padding(.vertical, 20)
             VStack(alignment: .leading){
                 HStack(spacing: 28){
-                    ButtonHomeView(iconName: "map.fill", nameFeature:"Map", showModal: $modal1)
-                    ButtonHomeView(iconName: "phone.fill.arrow.down.left", nameFeature:"Fake Calls", showModal: $modal2)
-                    ButtonHomeView(iconName: "person.fill", nameFeature:"Contacts", showModal: $modal3)
-                    ButtonHomeView(iconName: "waveform.and.mic", nameFeature:"WT", showModal: $modal4)
+                    ButtonHomeView(iconName: "map.fill", nameFeature: NSLocalizedString("Map", comment: ""), showModal: $modal1)
+                    ButtonHomeView(iconName: "phone.fill.arrow.down.left", nameFeature: NSLocalizedString("Fake Calls", comment: ""), showModal: $modal2)
+                    ButtonHomeView(iconName: "person.fill", nameFeature: NSLocalizedString("Contacts", comment: ""), showModal: $modal3)
+                    ButtonHomeView(iconName: "waveform.and.mic", nameFeature: NSLocalizedString("WT", comment: ""), showModal: $modal4)
                 }
             }.padding(.top, 10.0)
             
