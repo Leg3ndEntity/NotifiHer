@@ -63,33 +63,25 @@ struct SettingsView: View {
                         } label: {
                             Text("")
                         }
-                        Text("")
-                        Text("")
-                    }
-                    Section{
-                        Text("Notifications")
-                    }
-                    Section{
-                        Text("")
-                        Text("")
+                        
+                        .navigationTitle("Account")
+                        .navigationBarTitleDisplayMode(.inline)
+                        .toolbar(content: {
+                            ToolbarItem{
+                                Button{
+                                    dismiss()
+                                }label:{
+                                    Text("Done")
+                                        .fontWeight(.bold)
+                                        .foregroundColor(.red)
+                                    
+                                }
+                            }
+                        })
+                        
+                        
                     }
                 }
-                .navigationTitle("Account")
-                .navigationBarTitleDisplayMode(.inline)
-                .toolbar(content: {
-                    ToolbarItem{
-                        Button{
-                            dismiss()
-                        }label:{
-                            Text("Done")
-                                .fontWeight(.bold)
-                                .foregroundColor(.red)
-                            
-                        }
-                    }
-                })
-                
-                
             }
         }
     }

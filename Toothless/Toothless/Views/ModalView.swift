@@ -93,7 +93,7 @@ struct ModalView: View {
 //                        ContactsView()
 //                    })
             .sheet(isPresented: $modal5, content: {
-                SettingsView(userData: [])
+                UserProfileView(userData: [])
             })
             .onAppear {
                 feedbackGenerator.prepare()

@@ -3,6 +3,7 @@ import SwiftData
 
 struct UserProfileView: View {
     @Query var userData: [User]
+    @Environment(\.dismiss) var dismiss
     @State private var randomColor: Color
     
     init(userData: [User]) {
@@ -21,33 +22,56 @@ struct UserProfileView: View {
         }
     }
     
-    
     var body: some View {
-        //let initials = String(userData[0].name.prefix(1) + userData[0].surname.prefix(1))
+        let initials = String(userData[0].name.prefix(1) + userData[0].surname.prefix(1))
         
         VStack {
-            
-            ZStack {
-                Circle()
-                    .fill(randomColor)
-                    .frame(width: 100, height: 100)
-                Text("SS")
-                //Text(initials)
-                    .font(.title)
-                    .fontWeight(.bold)
-                    .foregroundColor(.white)
+                    HStack {
+                        Spacer()
+                        Button(action: {
+                            dismiss()
+                        }) {
+                            Text("Done")
+                                .fontWeight(.bold)
+                                .foregroundColor(.red)
+                        }
+                        .padding(.trailing, 25)
+                    }
+                    .padding(.top, -150)
+                    
+                    VStack {
+                        ZStack {
+                            Circle()
+                                .fill(randomColor)
+                                .frame(width: 120, height: 120)
+                            Text(initials)
+                                .font(.largeTitle)
+                                .fontWeight(.bold)
+                                .foregroundColor(.white)
+                        }
+                        .padding()
+                        .padding(.bottom, 30)
+                        
+                        VStack(alignment: .center) {
+                            Text("Welcome,")
+                                .font(.largeTitle)
+                            Text("\(userData[0].name) \(userData[0].surname)!")
+                                .font(.largeTitle)
+                        }
+                        .padding()
+                        
+                        VStack(alignment: .center) {
+                            Text("Your phone number is:")
+                                .font(.title)
+                            Text("\(userData[0].phoneNumber)")
+                                .font(.title)
+                        }
+                    }
+                    .navigationBarTitle("Account")
+                    .navigationBarTitleDisplayMode(.inline)
+                }
             }
-            Text("Welcome!")
-            //Text("Welcome, \(userData[0].name) \(userData[0].surname)!")
-                .font(.largeTitle)
-                .padding()
-            Text("Your phone number is")
-            //Text("Your phone number is: \(userData[0].phoneNumber)")
-                .font(.title)
-                .padding()
         }
-    }
-}
 
 #Preview {
     UserProfileView(userData: [])
