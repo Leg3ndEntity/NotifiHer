@@ -16,6 +16,7 @@ struct ModalView: View {
     @State var modal4: Bool = false
     @State var modal5: Bool = false
     @State var feedbackGenerator = UIImpactFeedbackGenerator(style: .soft)
+    @ObservedObject var viewModel: MapViewModel = MapViewModel()
     
     @Binding var showMark: Bool
     @Binding var showCircle: Bool

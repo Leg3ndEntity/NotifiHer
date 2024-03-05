@@ -17,7 +17,6 @@ import SwiftData
 struct Toothless_provaApp: App {
     
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
-    @StateObject var viewModel = MapViewModel()
     @StateObject var database = Database()
     @StateObject private var tokenManager = TokenManager()
     
@@ -25,9 +24,6 @@ struct Toothless_provaApp: App {
         
         WindowGroup {
             Toothless().environmentObject(database).environmentObject(tokenManager)
-                .onAppear{viewModel.checkIfLocationEnabled()
-                }
-            
                 .task {
                     // Initialize the PushToTalk Manager
                 }

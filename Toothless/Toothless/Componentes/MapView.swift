@@ -22,40 +22,48 @@ struct MapView: View {
         fallback: .automatic
     )
     var body: some View {
-        Map(position: $position, selection: $selectedResults){
-            UserAnnotation()
-            ForEach(searchResults, id:\.self){
-                result in Marker(item:result)
+            Map(position: $position, selection: $selectedResults) {
+                UserAnnotation()
+                ForEach(searchResults, id:\.self) {
+                    result in Marker(item: result)
+                }
+                if clicked {
+                    MapPolyline(route!.polyline)
+                        .stroke(.blue, style: stroke)
+                }
             }
-            if clicked{
-                MapPolyline(route!.polyline)
-                    .stroke(.blue, style:stroke)
+            .safeAreaInset(edge: .bottom) {
+                InfoPointView(clicked: $clicked, route: $route, travelTime: $travelTime, selectedResults: $selectedResults)
             }
+            .onMapCameraChange { context in
+                visibleRegion = context.region
+            }
+            .onAppear {
+                // Request location authorization when the MapView appears
+                viewModel.checkLocationAuthorization()
+                search(for: ["Pharmacy", "Supermarket", "Police Stations", "Hospital"])
+            }
+            .onChange(of: searchResults) {
+                position = .userLocation(
+                    followsHeading: true,
+                    fallback: .automatic
+                )
+            }
+            .onChange(of: selectedResults) {
+                fetchRouteFrom((viewModel.locationManager?.location!.coordinate)!, to: (selectedResults?.placemark.coordinate)!)
+            }
+            .mapControls {
+                MapUserLocationButton()
+            }
+            .mapStyle(.standard(elevation: .realistic))
+            // Add a tap gesture to request location authorization when the map is tapped
+            .gesture(TapGesture().onEnded {
+                viewModel.checkLocationAuthorization()
+            })
         }
-        .safeAreaInset(edge: .bottom){InfoPointView( clicked: $clicked, route:$route, travelTime:$travelTime, selectedResults: $selectedResults)}
-        .onMapCameraChange {context in
-            visibleRegion = context.region
-        }
-        .onAppear{
-            search(for: ["Pharmacy", "Supermarket", "Police Stations", "Hospital"])
-        }
-        .onChange(of:searchResults){
-            position = .userLocation(
-                followsHeading: true,
-                fallback: .automatic
-            )
-        }
-        .onChange(of:selectedResults){
-            fetchRouteFrom((viewModel.locationManager?.location!.coordinate)!, to: (selectedResults?.placemark.coordinate)!)
-        }
-        .mapControls {
-            MapUserLocationButton()
-        }
-        .mapStyle(.standard(elevation:.realistic))
     }
-    
-    
-}
+
+
 
 extension MapView{
     func search(for queries: [String]) {
@@ -67,7 +75,9 @@ extension MapView{
             let request = MKLocalSearch.Request()
             request.naturalLanguageQuery = query
             request.resultTypes = .pointOfInterest
-            request.region = visibleRegion ?? MKCoordinateRegion(center: (viewModel.locationManager?.location!.coordinate)!, span: MapDetails.defaultSpan)
+            request.region = visibleRegion ?? viewModel.region
+            
+            /*MKCoordinateRegion(center: (viewModel.locationManager?.location!.coordinate)!, span: MapDetails.defaultSpan)*/
             
             Task {
                 let search = MKLocalSearch(request: request)

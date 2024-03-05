@@ -17,7 +17,7 @@ final class MapViewModel : NSObject, ObservableObject, CLLocationManagerDelegate
     
     var locationManager: CLLocationManager?
     
-    private func checkLocationAuthorization(){
+     func checkLocationAuthorization(){
         guard let locationManager = locationManager else { return }
         
         switch locationManager.authorizationStatus{
