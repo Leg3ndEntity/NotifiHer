@@ -34,7 +34,7 @@ struct LoginView: View {
             
             VStack {
                 HStack {
-                    Text("Welcome Back!")
+                    Text("Welcome Back!").accessibilityLabel("Welcome Back!")
                         .font(.largeTitle)
                         .bold()
                         .foregroundStyle(colorScheme == .dark ? .white : .black)
@@ -47,8 +47,10 @@ struct LoginView: View {
                 Spacer()
                 
                 HStack {
-                    Image(systemName: "mail").foregroundStyle(colorScheme == .dark ? .white : .black)
-                    TextField("Email", text: $email).foregroundStyle(colorScheme == .dark ? .white : .black)
+                    Image(systemName: "mail").accessibilityHidden(true)
+                        .foregroundStyle(colorScheme == .dark ? .white : .black)
+                    TextField("Email", text: $email).accessibilityHidden(true)
+                        .foregroundStyle(colorScheme == .dark ? .white : .black)
                     
                     Spacer()
                     
@@ -60,7 +62,7 @@ struct LoginView: View {
                             .foregroundColor(email.isValidEmail() ? .green : .red)
                     }
                     
-                }
+                }.accessibility(label: Text("Email")).accessibilityHint("Insert your email")
                 .padding()
                 .overlay(
                     RoundedRectangle(cornerRadius: 10)
@@ -73,8 +75,10 @@ struct LoginView: View {
                 
                 
                 HStack {
-                    Image(systemName: "lock").foregroundStyle(colorScheme == .dark ? .white : .black)
-                    SecureField("Password", text: $password).foregroundStyle(colorScheme == .dark ? .white : .black)
+                    Image(systemName: "lock").accessibilityHidden(true)
+                        .foregroundStyle(colorScheme == .dark ? .white : .black)
+                    SecureField("Password", text: $password).accessibilityHidden(true)
+                        .foregroundStyle(colorScheme == .dark ? .white : .black)
                     
                     Spacer()
                     
@@ -85,7 +89,7 @@ struct LoginView: View {
                             .foregroundColor(isValidPassword(password) ? .green : .red)
                     }
                     
-                }
+                }.accessibility(label: Text("Password")).accessibilityHint("Insert your password")
                 .padding()
                 .overlay(
                     RoundedRectangle(cornerRadius: 10)
@@ -103,7 +107,7 @@ struct LoginView: View {
                     
                     
                 }) {
-                    Text("Don't have an account?")
+                    Text("Don't have an account?").accessibilityLabel("Don't have an account?")
                         .foregroundStyle(colorScheme == .dark ? .white : .black)
                 }
                 
@@ -129,7 +133,7 @@ struct LoginView: View {
                         
                     }
                 } label: {
-                    Text("Sign In")
+                    Text("Sign In").accessibilityLabel("Sign In").accessibilityHint("Click to sign in")
                         .foregroundStyle(colorScheme == .dark ? .black : .white)
                         .font(.title3)
                         .bold()

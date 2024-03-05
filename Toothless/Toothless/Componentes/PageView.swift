@@ -16,7 +16,7 @@ struct PageView: View {
             HStack {
                 Spacer()
                 if let gif = page.gif {
-                    GifImage(gif)
+                    GifImage(gif).accessibilityHidden(true)
                         .cornerRadius(20)
                         .frame(width: 340, height: 310)
                         .padding(.bottom, 50)

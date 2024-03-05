@@ -63,7 +63,8 @@ struct ModalView: View {
                         .resizable()
                         .frame(width: 20, height: 20)
                         .foregroundColor(.black)
-                }.onTapGesture {
+                }.accessibilityElement(children: .combine).accessibility(label: Text("Profile"))
+                .onTapGesture {
                     modal5.toggle()
                     feedbackGenerator.impactOccurred()
                 }
@@ -72,9 +73,17 @@ struct ModalView: View {
             VStack(alignment: .leading){
                 HStack(spacing: 28){
                     ButtonHomeView(iconName: "map.fill", nameFeature: NSLocalizedString("Map", comment: ""), showModal: $modal1)
+                        .accessibilityElement(children: .combine)
+                        .accessibility(label: Text("Map"))
                     ButtonHomeView(iconName: "phone.fill.arrow.down.left", nameFeature: NSLocalizedString("Fake Calls", comment: ""), showModal: $modal2)
+                        .accessibilityElement(children: .combine)
+                        .accessibility(label: Text("Fake Calls"))
                     ButtonHomeView(iconName: "person.fill", nameFeature: NSLocalizedString("Contacts", comment: ""), showModal: $modal3)
+                        .accessibilityElement(children: .combine)
+                        .accessibility(label: Text("Contacts"))
                     ButtonHomeView(iconName: "waveform.and.mic", nameFeature: NSLocalizedString("WT", comment: ""), showModal: $modal4)
+                        .accessibilityElement(children: .combine)
+                        .accessibility(label: Text("Walkie-Talkie"))
                 }
             }.padding(.top, 10.0)
             

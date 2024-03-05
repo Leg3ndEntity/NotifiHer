@@ -48,7 +48,7 @@ struct UserProfileView: View {
                                 .font(.largeTitle)
                                 .fontWeight(.bold)
                                 .foregroundColor(.white)
-                        }
+                        }.accessibilityHidden(true)
                         .padding()
                         .padding(.bottom, 30)
                         

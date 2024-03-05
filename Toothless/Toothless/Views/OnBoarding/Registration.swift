@@ -72,7 +72,7 @@ struct Registration: View {
                     .foregroundColor(.white)
                     .padding(10)
                     .background(RoundedRectangle(cornerRadius: 8).fill(Color.blue))
-            }
+            }.accessibilityLabel("Get started")
             .padding(.bottom, 60)
             .onTapGesture {
                 let user = User(name: name, surname: surname, phoneNumber: phoneNumber, fcmToken: fcmToken ?? "")

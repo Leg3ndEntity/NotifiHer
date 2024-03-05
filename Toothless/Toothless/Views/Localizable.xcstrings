@@ -111,6 +111,15 @@
         }
       }
     },
+    "Cancel Button" : {
+
+    },
+    "Click to sign in" : {
+
+    },
+    "Click to sign up" : {
+
+    },
     "Contacts" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -173,6 +182,9 @@
       }
     },
     "Email" : {
+
+    },
+    "Emergency button" : {
 
     },
     "Emergency contacts" : {
@@ -271,7 +283,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "TIENI PREMUTO per poter inizializzare il mistico cronografotemporizzatore"
+            "value" : "TIENI PREMUTO per avviare il timer"
           }
         }
       }
@@ -308,6 +320,12 @@
           }
         }
       }
+    },
+    "Insert your email" : {
+
+    },
+    "Insert your password" : {
+
     },
     "Last Name" : {
       "localizations" : {
@@ -426,6 +444,9 @@
         }
       }
     },
+    "Profile" : {
+
+    },
     "Public Transportation" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -530,6 +551,9 @@
         }
       }
     },
+    "Sign Up" : {
+
+    },
     "Simulate calls with a friend or a relative to avoid unsafe situations." : {
       "localizations" : {
         "en" : {
@@ -583,6 +607,9 @@
         }
       }
     },
+    "Tap to send an alert. Hold to start the timer." : {
+
+    },
     "Taxi/Uber" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -619,7 +646,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "per poter inizializzare il mistico cronografotemporizzatore"
+            "value" : "per avviare il timer"
           }
         }
       }
@@ -644,6 +671,9 @@
           }
         }
       }
+    },
+    "Walkie-Talkie" : {
+
     },
     "Walking Alone" : {
       "extractionState" : "manual",

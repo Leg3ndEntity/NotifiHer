@@ -216,7 +216,7 @@ struct CompleteTimer: View {
                                     .font(.title2)
                                     .fontWeight(.bold)
                                     .offset(x: 0, y: -150)
-                            }
+                            }.accessibilityHidden(true)
                         }else{
                             HStack {
                                 Text("HOLD")
@@ -228,7 +228,7 @@ struct CompleteTimer: View {
                                     .font(.title2)
                                     .fontWeight(.bold)
                                     .offset(x: 0, y: -150)
-                            }
+                            }.accessibilityHidden(true)
                         }
                     }
                     
@@ -263,7 +263,7 @@ struct CompleteTimer: View {
                             .foregroundColor(Color.red)
                             .opacity(showMark ? 1 : 0)
                             .opacity(withAnimation{buttonTapped ? 0.2 : 1})
-                    }//fine bottone
+                    }.accessibilityElement(children: .combine).accessibilityAddTraits(.isButton).accessibilityLabel("Emergency button").accessibilityHint("Tap to send an alert. Hold to start the timer.")//fine bottone
                     .onTapGesture {
                         if !buttonLocked && !isActivated{
                             buttonTapped = true
@@ -308,8 +308,9 @@ struct CompleteTimer: View {
                         Text("CANCEL")
                             .font(.subheadline)
                             .fontWeight(.semibold)
-                    }.foregroundColor(.white)
-                }
+                    }
+                    .foregroundColor(.white)
+                }.accessibilityElement(children: .combine).accessibilityLabel("Cancel Button")
                 .padding(.bottom, 630)
                 .padding(.leading, 240)
                 .opacity(showCancel ? 1 : 0)

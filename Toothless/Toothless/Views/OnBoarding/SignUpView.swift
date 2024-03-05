@@ -31,7 +31,7 @@ struct SignupView: View {
             
             VStack {
                 HStack {
-                    Text("Create an Account!")
+                    Text("Create an Account!").accessibilityLabel("Create an Account!")
                         .foregroundStyle(colorScheme == .dark ? .white : .black)
                         .font(.largeTitle)
                         .bold()
@@ -44,8 +44,10 @@ struct SignupView: View {
                 Spacer()
                 
                 HStack {
-                    Image(systemName: "mail").foregroundStyle(colorScheme == .dark ? .white : .black)
-                    TextField("Email", text: $email).foregroundStyle(colorScheme == .dark ? .white : .black)
+                    Image(systemName: "mail").accessibilityHidden(true)
+                        .foregroundStyle(colorScheme == .dark ? .white : .black)
+                    TextField("Email", text: $email).accessibilityHidden(true)
+                        .foregroundStyle(colorScheme == .dark ? .white : .black)
                     
                     Spacer()
                     
@@ -57,7 +59,7 @@ struct SignupView: View {
                             .foregroundColor(email.isValidEmail() ? .green : .red)
                     }
                     
-                }
+                }.accessibility(label: Text("Email")).accessibilityHint("Insert your email")
                 .foregroundColor(.white)
                 .padding()
                 .overlay(
@@ -71,8 +73,10 @@ struct SignupView: View {
                 
                 
                 HStack {
-                    Image(systemName: "lock").foregroundStyle(colorScheme == .dark ? .white : .black)
-                    SecureField("Password", text: $password).foregroundStyle(colorScheme == .dark ? .white : .black)
+                    Image(systemName: "lock").accessibilityHidden(true)
+                        .foregroundStyle(colorScheme == .dark ? .white : .black)
+                    SecureField("Password", text: $password).accessibilityHidden(true)
+                        .foregroundStyle(colorScheme == .dark ? .white : .black)
                     
                     Spacer()
                     
@@ -83,7 +87,7 @@ struct SignupView: View {
                             .foregroundColor(isValidPassword(password) ? .green : .red)
                     }
                     
-                }
+                }.accessibility(label: Text("Password")).accessibilityHint("Insert your password")
                 .foregroundColor(.white)
                 .padding()
                 .overlay(
@@ -100,7 +104,7 @@ struct SignupView: View {
                         self.currentShowingView = "login"
                     }
                 }) {
-                    Text("Already have an account?")
+                    Text("Already have an account?").accessibilityLabel("Already have an account?").accessibilityHint("Click to sign up")
                         .foregroundStyle(colorScheme == .dark ? .white : .black)
                 }
                 
@@ -126,7 +130,7 @@ struct SignupView: View {
                     }
                     
                 } label: {
-                    Text("Create New Account")
+                    Text("Create New Account").accessibilityLabel("Sign Up").accessibilityHint("Click to sign up")
                         .foregroundStyle(colorScheme == .dark ? .black : .white)
                         .font(.title3)
                         .bold()
