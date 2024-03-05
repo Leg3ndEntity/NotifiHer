@@ -16,7 +16,7 @@ struct ContactsView: View {
     var body: some View {
         NavigationView {
             List {
-                ForEach(userData.sorted(by: { $0.name < $1.name || ($0.name == $1.name && $0.surname < $1.surname) })) { contact in
+                ForEach(userData) { contact in
                     HStack {
                         Text("\(contact.name) \(contact.surname)")
                     }

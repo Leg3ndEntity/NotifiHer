@@ -54,7 +54,7 @@ struct AddContact: View {
                             if let token = foundToken {
                                 if let savedToken = tokenManager.savedToken {
                                     print("Token is already saved: \(savedToken)")
-                                                                    } else {
+                                } else {
                                     tokenManager.saveToken(token)
                                     modelContext.insert(Contacts(name: name, surname: surname, phoneNumber: phoneNumber, token: token))
                                     dismiss()

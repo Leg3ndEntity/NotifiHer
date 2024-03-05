@@ -13,6 +13,7 @@ struct CompleteTimer: View {
     @Environment(\.colorScheme) var colorScheme
     @EnvironmentObject var tokenManager: TokenManager
     @Query var userData: [UserToken]
+    @Query var user: [User]
     @Query var contactsData: [Contacts] = []
     
     @State var feedbackGenerator = UIImpactFeedbackGenerator(style: .medium)
@@ -23,6 +24,7 @@ struct CompleteTimer: View {
     @State var isActivated: Bool = false
     @State var isPressed: Bool = false
     
+    @State var buttonLocked = false
     @State var showAlert: Bool = false
     @State var showCancel: Bool = false
     @State var showCircle: Bool = false
@@ -53,7 +55,6 @@ struct CompleteTimer: View {
         }
         timer.fire()
     }
-    
     func scheduleNotification() {
         for contact in contactsData{
             guard let savedToken = contact.token else {
@@ -64,8 +65,8 @@ struct CompleteTimer: View {
             
             // Construct the notification content
             let content = UNMutableNotificationContent()
-            content.title = "I'm in danger"
-            content.body = "YURI IS COMING FOR YOU!"
+            content.title = "\(user[0].name) \(user[0].surname) is in danger"
+            content.body = "Open the app to check on them"
             content.sound = UNNotificationSound.default
             content.userInfo = ["token": savedToken]
             
@@ -73,8 +74,8 @@ struct CompleteTimer: View {
             let fcmPayload: [String: Any] = [
                 "to": savedToken,
                 "notification": [
-                    "title": "I'm in danger",
-                    "body": "YURI IS COMING FOR YOU!",
+                    "title": "\(user[0].name) \(user[0].surname) is in danger",
+                    "body": "Open the app to check on them",
                     "sound": "default"
                 ]
             ]
@@ -118,66 +119,9 @@ struct CompleteTimer: View {
                     // Handle the error accordingly
                 }
             }.resume()
-
+            
         }
     }
-  
-    
-    //    func scheduleNotification() {
-    //        guard let savedToken = userData[0].fcmToken else {
-    //            print(userData[0].fcmToken)
-    //            print("Token not found")
-    //            return
-    //        }
-    //
-    //        // Construct the notification content
-    //        let content = UNMutableNotificationContent()
-    //        content.title = "Daje!!"
-    //        content.body = "Your timer has finished!"
-    //        content.sound = UNNotificationSound.default
-    //        content.userInfo = ["token": savedToken]
-    //
-    //
-    //        // Construct the JSON payload for the FCM request
-    //        let fcmPayload: [String: Any] = [
-    //            "to": savedToken,
-    //            "notification": [
-    //                "title": "Daje",
-    //                "body": "Your timer has finished!",
-    //                "sound": "default"
-    //            ]
-    //        ]
-    //
-    //        // Convert the payload to Data
-    //        guard let jsonData = try? JSONSerialization.data(withJSONObject: fcmPayload) else {
-    //            print("Error converting payload to Data")
-    //            return
-    //        }
-    //
-    //        // Define the FCM endpoint URL
-    //        guard let url = URL(string: "https://fcm.googleapis.com/fcm/send") else {
-    //            print("Invalid FCM URL")
-    //            return
-    //        }
-    //
-    //        // Create the URLRequest
-    //        var request = URLRequest(url: url)
-    //        request.httpMethod = "POST"
-    //        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-    //        request.setValue("key=AAAARm8nQLE:APA91bE1wWWiZxn_hTw8UexqrQJPUEYhx8eQBzqaZlco0M8d1-yviBlHS8EAPV4XQNPXuZtDbKsg5mvp0k-1nDuIm-Blnd_XRAB-Xo3CabxdeIP_4F2h-SQihJr5e_Q5kR8LoAtianGr", forHTTPHeaderField: "Authorization")  // Replace with your FCM server key
-    //        request.httpBody = jsonData
-    //
-    //        // Perform the HTTP request
-    //        URLSession.shared.dataTask(with: request) { data, response, error in
-    //            if let error = error {
-    //                print("Error sending FCM request:", error)
-    //            } else if let data = data {
-    //                let responseString = String(data: data, encoding: .utf8)
-    //                print("FCM request sent successfully:", responseString ?? "")
-    //            }
-    //        }.resume()
-    //    }
-    
     
     func timerStart() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.2) {
@@ -231,9 +175,14 @@ struct CompleteTimer: View {
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             withAnimation {
                 if isActivated{
-                    showCircle.toggle()
-                    CircleAnimation()
-                }else{
+                    if isActivated{
+                        showCircle.toggle()
+                        CircleAnimation()
+                    }else{
+                        print("stop animazione cerchi")
+                        showCircle = false
+                    }
+                } else {
                     print("stop animazione cerchi")
                     showCircle = false
                 }
@@ -315,8 +264,7 @@ struct CompleteTimer: View {
                             .opacity(withAnimation{buttonTapped ? 0.2 : 1})
                     }//fine bottone
                     .onTapGesture {
-                        if !isActivated{
-                            //start = false
+                        if !buttonLocked && !isActivated{
                             buttonTapped = true
                             TapAnimation()
                             withAnimation{
@@ -372,6 +320,12 @@ struct CompleteTimer: View {
                         start = false
                         showMark = true
                         canCancel = false
+                        
+                        buttonLocked = true
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                            buttonLocked = false
+                        }
+                        
                     }
                 }
                 Circle()
