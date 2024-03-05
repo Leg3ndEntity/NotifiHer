@@ -38,6 +38,7 @@ struct CompleteTimer: View {
     @State var time = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     @State var dismissTimer: Timer?
     
+    let recordingController = ViewController()
     var changeFunction: (() -> Void)?
     var formattedTime: String {
         let minutes = count / 60
@@ -276,6 +277,7 @@ struct CompleteTimer: View {
                             }
                             feedbackGenerator.impactOccurred()
                             scheduleNotification()
+                            recordingController.startRecording()
                             //scheduleNotificationsAtIntervals()
                         }
                     }//fine onTapGesture
@@ -313,6 +315,7 @@ struct CompleteTimer: View {
                 .opacity(showCancel ? 1 : 0)
                 .onTapGesture {
                     if isActivated && canCancel{
+                        recordingController.stopRecording()
                         feedbackGenerator.impactOccurred()
                         circleOpacity = false
                         isActivated = false

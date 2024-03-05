@@ -64,6 +64,7 @@
 		E092861C2B7F592000BD1788 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E092861B2B7F592000BD1788 /* Preview Assets.xcassets */; };
 		E0CE9A122B911E67009FD256 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0CE9A112B911E67009FD256 /* SettingsView.swift */; };
 		E0E9AF4E2B96165A00E75EE9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E0E9AF4D2B96165A00E75EE9 /* GoogleService-Info.plist */; };
+		E0E9AF502B97341500E75EE9 /* RecordingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E9AF4F2B97341500E75EE9 /* RecordingController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -148,6 +149,7 @@
 		E092861B2B7F592000BD1788 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E0CE9A112B911E67009FD256 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		E0E9AF4D2B96165A00E75EE9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		E0E9AF4F2B97341500E75EE9 /* RecordingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -280,6 +282,7 @@
 				17F449992B8F4BA400E29688 /* InfoPointView.swift */,
 				179FB1282B95E99C00FDE246 /* FakeCalls.swift */,
 				179FB12A2B95E9F000FDE246 /* FakeCallsViewModel.swift */,
+				E0E9AF4F2B97341500E75EE9 /* RecordingController.swift */,
 			);
 			path = Componentes;
 			sourceTree = "<group>";
@@ -489,6 +492,7 @@
 				9970DDF12B91DE0900539FA9 /* ListView.swift in Sources */,
 				E01B88FA2B9333490007B5B9 /* AddContact.swift in Sources */,
 				9970DDFD2B91F53A00539FA9 /* User2.swift in Sources */,
+				E0E9AF502B97341500E75EE9 /* RecordingController.swift in Sources */,
 				E04D1F1D2B835C8000C8EFDD /* Toothless.swift in Sources */,
 				1763FA862B860400005BC39C /* MapView.swift in Sources */,
 				9970DDF32B91EC9600539FA9 /* LoginView.swift in Sources */,
@@ -733,6 +737,7 @@
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Use the live position on the map";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "The usage of the microphone is required for accessing the Push To Talk \"Walkie Talkie\" feature";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "The background recording will be saved in your files";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -774,6 +779,7 @@
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Use the live position on the map";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "The usage of the microphone is required for accessing the Push To Talk \"Walkie Talkie\" feature";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "The background recording will be saved in your files";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
