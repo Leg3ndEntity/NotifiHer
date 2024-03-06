@@ -217,18 +217,17 @@ struct CompleteTimer: View {
                                     .fontWeight(.bold)
                                     .offset(x: 0, y: -150)
                             }.accessibilityHidden(true)
-                        }else{
-                            HStack {
-                                Text("HOLD")
-                                    .foregroundStyle(.red)
-                                    .fontWeight(.bold)
-                                    .font(.title)
-                                    .offset(x: 0, y: -150)
-                                Text("to start the timer")
-                                    .font(.title2)
-                                    .fontWeight(.bold)
-                                    .offset(x: 0, y: -150)
-                            }.accessibilityHidden(true)
+                        }else if Locale.current.language.languageCode?.identifier == "it" {
+                            Text(LocalizedStringKey("PREMI per inviare un avviso")).accessibilityHidden(true)
+                                .font(.headline) // Adjust the font size for Italian
+                                .fontWeight(.bold)
+                                .frame(width: 250)
+                                .offset(x: 0, y: -150)
+                        } else {
+                            Text(LocalizedStringKey("TAP to send an alert")).accessibilityHidden(true)
+                                .font(.title2)
+                                .fontWeight(.bold)
+                                .offset(x: 0, y: -150)
                         }
                     }
                     
@@ -390,6 +389,12 @@ struct CompleteTimer: View {
     
 }
 
-#Preview {
+#Preview("English") {
     CompleteTimer()
 }
+
+#Preview("Italian") {
+    CompleteTimer()
+        .environment(\.locale, Locale(identifier: "IT"))
+}
+
