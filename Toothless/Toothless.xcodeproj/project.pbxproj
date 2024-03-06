@@ -44,11 +44,11 @@
 		E01B89022B933C350007B5B9 /* UserToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01B89012B933C350007B5B9 /* UserToken.swift */; };
 		E03B4AD22B989F6E00BCE36D /* TimerSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03B4AD12B989F6E00BCE36D /* TimerSettings.swift */; };
 		E03B4AD42B989F9100BCE36D /* TimerCounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03B4AD32B989F9100BCE36D /* TimerCounter.swift */; };
-		E03B4ADD2B98A1FF00BCE36D /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = E03B4ADB2B98A1FF00BCE36D /* Localizable.xcstrings */; };
 		E03B4ADE2B98A1FF00BCE36D /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = E03B4ADC2B98A1FF00BCE36D /* InfoPlist.xcstrings */; };
 		E03B4AE22B98A4EB00BCE36D /* sfondo2.gif in Resources */ = {isa = PBXBuildFile; fileRef = E03B4ADF2B98A4EB00BCE36D /* sfondo2.gif */; };
 		E03B4AE32B98A4EB00BCE36D /* sfondo1.gif in Resources */ = {isa = PBXBuildFile; fileRef = E03B4AE02B98A4EB00BCE36D /* sfondo1.gif */; };
 		E03B4AE42B98A4EB00BCE36D /* sfondo31.gif in Resources */ = {isa = PBXBuildFile; fileRef = E03B4AE12B98A4EB00BCE36D /* sfondo31.gif */; };
+		E03B4AE72B98A8FC00BCE36D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E03B4AE92B98A8FC00BCE36D /* Localizable.strings */; };
 		E04CD52C2B87E79000AE3F23 /* WatchToothlessApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04CD52B2B87E79000AE3F23 /* WatchToothlessApp.swift */; };
 		E04CD5302B87E79100AE3F23 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E04CD52F2B87E79100AE3F23 /* Assets.xcassets */; };
 		E04CD5332B87E79100AE3F23 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E04CD5322B87E79100AE3F23 /* Preview Assets.xcassets */; };
@@ -128,11 +128,12 @@
 		E01B89012B933C350007B5B9 /* UserToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserToken.swift; sourceTree = "<group>"; };
 		E03B4AD12B989F6E00BCE36D /* TimerSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerSettings.swift; sourceTree = "<group>"; };
 		E03B4AD32B989F9100BCE36D /* TimerCounter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerCounter.swift; sourceTree = "<group>"; };
-		E03B4ADB2B98A1FF00BCE36D /* Localizable.xcstrings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json.xcstrings; name = Localizable.xcstrings; path = Toothless/Localizable.xcstrings; sourceTree = SOURCE_ROOT; };
 		E03B4ADC2B98A1FF00BCE36D /* InfoPlist.xcstrings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json.xcstrings; name = InfoPlist.xcstrings; path = Toothless/InfoPlist.xcstrings; sourceTree = SOURCE_ROOT; };
 		E03B4ADF2B98A4EB00BCE36D /* sfondo2.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = sfondo2.gif; path = ../../../../../Desktop/NotifiHer/sfondo2.gif; sourceTree = "<group>"; };
 		E03B4AE02B98A4EB00BCE36D /* sfondo1.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = sfondo1.gif; path = ../../../../../Desktop/NotifiHer/sfondo1.gif; sourceTree = "<group>"; };
 		E03B4AE12B98A4EB00BCE36D /* sfondo31.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = sfondo31.gif; path = ../../../../../Desktop/NotifiHer/sfondo31.gif; sourceTree = "<group>"; };
+		E03B4AE82B98A8FC00BCE36D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		E03B4AEA2B98A8FE00BCE36D /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
 		E04CD5292B87E79000AE3F23 /* WatchToothless Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WatchToothless Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E04CD52B2B87E79000AE3F23 /* WatchToothlessApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchToothlessApp.swift; sourceTree = "<group>"; };
 		E04CD52F2B87E79100AE3F23 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -289,7 +290,6 @@
 				E04D1F1E2B835D1B00C8EFDD /* TimerView.swift */,
 				176B44322B834C5C0029879D /* ModalView.swift */,
 				E03B4ADC2B98A1FF00BCE36D /* InfoPlist.xcstrings */,
-				E03B4ADB2B98A1FF00BCE36D /* Localizable.xcstrings */,
 				9970DDFE2B92686900539FA9 /* SearchUsers.swift */,
 				176B44362B834CBF0029879D /* UserProfileView.swift */,
 				E0CE9A112B911E67009FD256 /* SettingsView.swift */,
@@ -297,6 +297,7 @@
 				179FB1272B95E97800FDE246 /* FakeCall */,
 				E023E3502B9488280056AAB6 /* OnBoarding */,
 				E023E34F2B9487E80056AAB6 /* Contacts */,
+				E03B4AE92B98A8FC00BCE36D /* Localizable.strings */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -453,13 +454,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				992649C02B95EB0F00A5912A /* VideoProva2.MOV in Resources */,
+				E03B4AE72B98A8FC00BCE36D /* Localizable.strings in Resources */,
 				992649BF2B95EB0F00A5912A /* VideoProva.MOV in Resources */,
 				E0E9AF4E2B96165A00E75EE9 /* GoogleService-Info.plist in Resources */,
 				E092861C2B7F592000BD1788 /* Preview Assets.xcassets in Resources */,
 				E03B4AE42B98A4EB00BCE36D /* sfondo31.gif in Resources */,
 				E03B4AE22B98A4EB00BCE36D /* sfondo2.gif in Resources */,
 				E03B4AE32B98A4EB00BCE36D /* sfondo1.gif in Resources */,
-				E03B4ADD2B98A1FF00BCE36D /* Localizable.xcstrings in Resources */,
 				E09286192B7F592000BD1788 /* Assets.xcassets in Resources */,
 				9984EFC32B989BF8006279AD /* VideoProva3.MOV in Resources */,
 				E03B4ADE2B98A1FF00BCE36D /* InfoPlist.xcstrings in Resources */,
@@ -531,6 +532,18 @@
 			targetProxy = E04CD5342B87E79100AE3F23 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		E03B4AE92B98A8FC00BCE36D /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E03B4AE82B98A8FC00BCE36D /* en */,
+				E03B4AEA2B98A8FE00BCE36D /* it */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		E04CD5382B87E79100AE3F23 /* Debug */ = {

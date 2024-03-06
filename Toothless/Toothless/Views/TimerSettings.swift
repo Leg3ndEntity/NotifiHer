@@ -12,11 +12,11 @@ struct GoalView: View {
     var body: some View {
         VStack {
             VStack{
-                Text("Your Daily Move Goal")
+                Text("set your time")
                     .font(.largeTitle)
                     .fontWeight(.bold)
                     .padding()
-                Text("Set a goal based on how active you are, or \nhow active you'd like to be, each day.")
+                Text("Set a custom timer to notify your emergency contacts exactly after the amount of time that most fits your needs.")
                     .font(.headline)
                     .fontWeight(.regular)
             }.multilineTextAlignment(.center)
