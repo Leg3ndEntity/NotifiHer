@@ -20,6 +20,10 @@
 		179FB1262B95E96700FDE246 /* SingleCallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179FB1252B95E96700FDE246 /* SingleCallView.swift */; };
 		179FB1292B95E99C00FDE246 /* FakeCalls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179FB1282B95E99C00FDE246 /* FakeCalls.swift */; };
 		179FB12B2B95E9F000FDE246 /* FakeCallsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179FB12A2B95E9F000FDE246 /* FakeCallsViewModel.swift */; };
+		179FB1382B98756800FDE246 /* sfondo1.gif in Resources */ = {isa = PBXBuildFile; fileRef = 179FB1372B98756800FDE246 /* sfondo1.gif */; };
+		179FB13A2B98756E00FDE246 /* sfondo2.gif in Resources */ = {isa = PBXBuildFile; fileRef = 179FB1392B98756E00FDE246 /* sfondo2.gif */; };
+		179FB13C2B987A4700FDE246 /* sfondo3.gif in Resources */ = {isa = PBXBuildFile; fileRef = 179FB13B2B987A4700FDE246 /* sfondo3.gif */; };
+		179FB13E2B987D8700FDE246 /* sfondo31.gif in Resources */ = {isa = PBXBuildFile; fileRef = 179FB13D2B987D8700FDE246 /* sfondo31.gif */; };
 		17F4499A2B8F4BA400E29688 /* InfoPointView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F449992B8F4BA400E29688 /* InfoPointView.swift */; };
 		991F74DF2B875BF80092EA9D /* Extensions2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991F74DE2B875BF80092EA9D /* Extensions2.swift */; };
 		991F74E12B87E12F0092EA9D /* PageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991F74E02B87E12F0092EA9D /* PageView.swift */; };
@@ -108,6 +112,10 @@
 		179FB1252B95E96700FDE246 /* SingleCallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleCallView.swift; sourceTree = "<group>"; };
 		179FB1282B95E99C00FDE246 /* FakeCalls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeCalls.swift; sourceTree = "<group>"; };
 		179FB12A2B95E9F000FDE246 /* FakeCallsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeCallsViewModel.swift; sourceTree = "<group>"; };
+		179FB1372B98756800FDE246 /* sfondo1.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = sfondo1.gif; path = ../../../../../Downloads/sfondo1.gif; sourceTree = "<group>"; };
+		179FB1392B98756E00FDE246 /* sfondo2.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = sfondo2.gif; path = ../../../../../Downloads/sfondo2.gif; sourceTree = "<group>"; };
+		179FB13B2B987A4700FDE246 /* sfondo3.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = sfondo3.gif; path = ../../../../../Downloads/sfondo3.gif; sourceTree = "<group>"; };
+		179FB13D2B987D8700FDE246 /* sfondo31.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = sfondo31.gif; path = ../../../../../Downloads/sfondo31.gif; sourceTree = "<group>"; };
 		17F449992B8F4BA400E29688 /* InfoPointView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoPointView.swift; sourceTree = "<group>"; };
 		991F74DE2B875BF80092EA9D /* Extensions2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions2.swift; sourceTree = "<group>"; };
 		991F74E02B87E12F0092EA9D /* PageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageView.swift; sourceTree = "<group>"; };
@@ -341,6 +349,10 @@
 				E09286182B7F592000BD1788 /* Assets.xcassets */,
 				992649BD2B95EB0F00A5912A /* VideoProva.MOV */,
 				992649BE2B95EB0F00A5912A /* VideoProva2.MOV */,
+				179FB1372B98756800FDE246 /* sfondo1.gif */,
+				179FB1392B98756E00FDE246 /* sfondo2.gif */,
+				179FB13B2B987A4700FDE246 /* sfondo3.gif */,
+				179FB13D2B987D8700FDE246 /* sfondo31.gif */,
 				173376F22B8F25D5009D05AC /* hold.gif */,
 				173376F32B8F25D5009D05AC /* tap.gif */,
 				99A653932B8E1EC00038C1D4 /* map.gif */,
@@ -459,14 +471,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				992649C02B95EB0F00A5912A /* VideoProva2.MOV in Resources */,
+				179FB13E2B987D8700FDE246 /* sfondo31.gif in Resources */,
 				992649BF2B95EB0F00A5912A /* VideoProva.MOV in Resources */,
 				E0E9AF4E2B96165A00E75EE9 /* GoogleService-Info.plist in Resources */,
+				179FB1382B98756800FDE246 /* sfondo1.gif in Resources */,
 				173376F52B8F25D5009D05AC /* tap.gif in Resources */,
 				173376F42B8F25D5009D05AC /* hold.gif in Resources */,
 				9971EBB22B977A61005FEEE4 /* Localizable.xcstrings in Resources */,
 				9971EBB42B977A7E005FEEE4 /* InfoPlist.xcstrings in Resources */,
 				99A653942B8E1EC00038C1D4 /* map.gif in Resources */,
 				E092861C2B7F592000BD1788 /* Preview Assets.xcassets in Resources */,
+				179FB13C2B987A4700FDE246 /* sfondo3.gif in Resources */,
+				179FB13A2B98756E00FDE246 /* sfondo2.gif in Resources */,
 				E09286192B7F592000BD1788 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

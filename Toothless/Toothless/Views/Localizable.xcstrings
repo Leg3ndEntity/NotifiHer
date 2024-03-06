@@ -114,12 +114,6 @@
     "Cancel Button" : {
 
     },
-    "Click to sign in" : {
-
-    },
-    "Click to sign up" : {
-
-    },
     "Contacts" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -257,6 +251,9 @@
         }
       }
     },
+    "Generated Code" : {
+
+    },
     "Get started" : {
       "localizations" : {
         "en" : {
@@ -321,12 +318,6 @@
         }
       }
     },
-    "Insert your email" : {
-
-    },
-    "Insert your password" : {
-
-    },
     "Last Name" : {
       "localizations" : {
         "en" : {
@@ -357,6 +348,9 @@
           }
         }
       }
+    },
+    "Name" : {
+
     },
     "New Contact" : {
       "localizations" : {
@@ -414,6 +408,7 @@
       }
     },
     "Phone Number" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -424,6 +419,7 @@
       }
     },
     "Phone number not found" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -492,6 +488,7 @@
 
     },
     "Save Token" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -551,9 +548,6 @@
         }
       }
     },
-    "Sign Up" : {
-
-    },
     "Simulate calls with a friend or a relative to avoid unsafe situations." : {
       "localizations" : {
         "en" : {
@@ -585,6 +579,9 @@
           }
         }
       }
+    },
+    "Surname" : {
+
     },
     "TAP" : {
       "localizations" : {
@@ -652,6 +649,7 @@
       }
     },
     "Token is saved: %@" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -686,8 +684,12 @@
         }
       }
     },
+    "Welcome back!" : {
+
+    },
     "Welcome Back!" : {
       "comment" : "Localizable.strings\n  Toothless\n\n  Created by Andrea Romano on 05/03/24.",
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -740,6 +742,9 @@
           }
         }
       }
+    },
+    "You must use a capital letter and a special character" : {
+
     },
     "Your personal details are the basic information the app needs to help you in case of danger." : {
       "localizations" : {
