@@ -143,13 +143,6 @@ Button(action: {
 
 
                 Button {
-                    let user = User(name: name, surname: surname, phoneNumber: generatedCode, fcmToken: fcmToken ?? "")
-                    database.addUser(user: user, phoneNumber: user.phoneNumber)
-
-                    isWelcomeScreenOver = true
-                    isShowingMain.toggle()
-                    modelContext.insert(user)
-                    print("ciao")
                     Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
                         if let error = error {
                             print(error)
@@ -163,9 +156,14 @@ Button(action: {
                                 isAuthenticated = true
                             }
                         }
-
-
                     }
+                    let user = User(name: name, surname: surname, phoneNumber: generatedCode, fcmToken: fcmToken ?? "")
+                    database.addUser(user: user, phoneNumber: user.phoneNumber)
+
+                    isWelcomeScreenOver = true
+                    isShowingMain.toggle()
+                    modelContext.insert(user)
+                    print("ciao")
                 } label: {
 Text("Sign In")
                         .foregroundStyle(colorScheme == .dark ? .black : .white)
