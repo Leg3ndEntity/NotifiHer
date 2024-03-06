@@ -2,6 +2,14 @@
 import SwiftUI
 import AuthenticationServices
 
+struct CustomColor {
+    static let background = Color("Background")
+    static let customred = Color("CustomRed")
+    static let text = Color("Text")
+    static let brightred = Color("BrightRed")
+    static let backgroundhome = Color("BackgroundHome")
+}
+
 struct WelcomeView: View {
     @AppStorage("isWelcomeScreenOver") var isWelcomeScreenOver = false
     @State static var currentShowingView: String = "signup"

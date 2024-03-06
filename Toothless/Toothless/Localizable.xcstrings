@@ -34,6 +34,7 @@
 
     },
     "A map will show all the safe spots that you can reach." : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -81,6 +82,7 @@
       }
     },
     "Automatic notifications will be sent in order to see whether you are in danger or not." : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -91,6 +93,7 @@
       }
     },
     "Avoid dangerous situations " : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -138,6 +141,7 @@
       }
     },
     "Continue" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -231,6 +235,7 @@
       }
     },
     "Fake calls" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -344,6 +349,7 @@
 
     },
     "Logged In! \nYour user id is %@" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -487,6 +493,7 @@
       }
     },
     "Push-Notification System" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -497,6 +504,7 @@
       }
     },
     "Real Time Reports" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -530,6 +538,7 @@
       }
     },
     "See on the map all the dangerous zone to avoid reported by other users." : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -576,6 +585,7 @@
       }
     },
     "Sign Out" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -586,6 +596,7 @@
       }
     },
     "Simulate calls with a friend or a relative to avoid unsafe situations." : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -734,9 +745,6 @@
           }
         }
       }
-    },
-    "Welcome to \n nome app!" : {
-
     },
     "Welcome," : {
       "localizations" : {

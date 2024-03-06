@@ -387,6 +387,7 @@ struct CompleteTimer: View {
                         showAlert = true
                         dismissTimer = Timer.scheduledTimer(withTimeInterval: 10, repeats: false) { _ in
                             print("Popup alert ignored for 10 seconds")
+                            scheduleNotification()
                             showAlert = false
                             showMark = true
                             CircleAnimation()
