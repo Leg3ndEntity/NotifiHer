@@ -177,7 +177,7 @@ struct SignupView: View {
                 Spacer()
             }
             
-        }
+        }.preferredColorScheme(.light)
         .onAppear {
             generatedCode = generateUniqueCode()
         }

@@ -21,7 +21,8 @@
 "Done" = "Done";
 "Email" = "Email";
 "Emergency contacts" = "Emergency contacts";
-"Enter phoneNumber" = "Enter phoneNumber";
+"Enter name" = "Enter name";
+"Enter code" = "Enter code";
 "Enter surname" = "Enter surname";
 "Fake calls" = "Fake calls";
 "Fake Calls" = "Fake Calls";
@@ -39,6 +40,7 @@
 "Logged In!" = "Logged In!";
 "Your user id is %@" = "Your user id is %@";
 "Maps" = "Maps";
+"Map" = "Map";
 "Minus" = "Minus";
 "Mode" = "Mode";
 "Moderatly" = "Moderatly";
@@ -57,6 +59,7 @@
 "Privicy" = "Privicy";
 "Privacy Policy" = "Privacy Policy";
 "Public Transportation" = "Public Transportation";
+"Notification" = "Notification";
 "Push-Notification System" = "Push-Notification System";
 "Real Time Reports" = "Real Time Reports";
 "Required" = "Required";
@@ -93,3 +96,6 @@
 "Yes" = "Yes";
 "You must use a capital letter and a special character" = "You must use a capital letter and a special character";
 "Your phone number is:" = "Your phone number is:";
+"Share NotifiHer" = "Share NotifiHer";
+"Supermarket" = "Supermarket";
+"Each user has a code assigned randomly. Ask your friends their code to add them." = "Each user has a code assigned randomly. Ask your friends their code to add them.";

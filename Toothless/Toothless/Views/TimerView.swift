@@ -89,7 +89,8 @@ struct CompleteTimer: View {
                 print("Impossibile ottenere la posizione dell'utente")
                 return
             }
-            let userLocationURL = "https://maps.apple.com/?ll=\(currentLocation.latitude),\(currentLocation.longitude)"
+            let userLocationURL = "https://maps.apple.com/?ll=\(currentLocation.latitude),\(currentLocation.longitude)&q=\(user[0].name)%20\(user[0].surname)%E2%80%99s%20Location&t=m"
+
             // Construct the notification content
             let content = UNMutableNotificationContent()
             content.title = "\(user[0].name) \(user[0].surname) is in danger"
@@ -253,18 +254,34 @@ struct CompleteTimer: View {
                                     .fontWeight(.bold)
                                     .offset(x: 0, y: -150)
                             }
-                        }else{
-                            HStack {
-                                Text("HOLD")
+                        }else if Locale.current.language.languageCode?.identifier == "it" {
+                            VStack(alignment: .center){
+                                Text(LocalizedStringKey("TIENI PREMUTO"))
                                     .foregroundStyle(.red)
                                     .fontWeight(.bold)
                                     .font(.title)
                                     .offset(x: 0, y: -150)
-                                Text("to start the timer")
+                                Text(LocalizedStringKey("per avviare il timer"))
                                     .font(.title2)
                                     .fontWeight(.bold)
                                     .offset(x: 0, y: -150)
                             }
+                            
+                            
+                        } else {
+                            HStack{
+                                Text(LocalizedStringKey("HOLD"))
+                                    .foregroundStyle(.red)
+                                    .fontWeight(.bold)
+                                    .font(.title)
+                                    .offset(x: 0, y: -150)
+                                Text(LocalizedStringKey("to start the timer"))
+                                    .font(.title2)
+                                    .fontWeight(.bold)
+                                    .offset(x: 0, y: -150)
+                            }
+
+                            
                         }
                     }
                     
@@ -404,6 +421,7 @@ struct CompleteTimer: View {
             }
         } onDismiss: {}
             .onAppear(perform: {
+                viewModel.checkIfLocationEnabled()
                 selectionFeedbackGenerator.prepare()
                 feedbackGenerator.prepare()
                 SwapText()

@@ -14,6 +14,12 @@ struct SettingsView: View {
     
     @State private var randomColor: Color
     
+    func shareLink() {
+        let url = URL(string: "https://testflight.apple.com/join/UjB0xSRP")!
+        let activityViewController = UIActivityViewController(activityItems: [url], applicationActivities: nil)
+        UIApplication.shared.windows.first?.rootViewController?.present(activityViewController, animated: true, completion: nil)
+    }
+    
     init(userData: [User]) {
         if let savedColorData = UserDefaults.standard.data(forKey: "userProfileColor"),
            let savedColor = try? NSKeyedUnarchiver.unarchivedObject(ofClass: UIColor.self, from: savedColorData) {
@@ -96,19 +102,15 @@ struct SettingsView: View {
                     }
                     Section(header: Text("About")){
                         
-                            Button(action: {
-                                if let url = URL(string: "https://testflight.apple.com/join/UjB0xSRP") {
-                                    UIApplication.shared.open(url)
-                                }
-                            }) {
-                                HStack{
-                                    Text("Share NotifiHer")
-                                        .foregroundColor(.primary)
-                                    Spacer()
-                                    Image(systemName: "square.and.arrow.up")
-                                        .foregroundStyle(CustomColor.customred)
-                                }
-                            }
+                        HStack {
+                            Text("Share NotifiHer")
+                                .foregroundColor(.primary)
+                            Spacer()
+                            Image(systemName: "square.and.arrow.up")
+                                .foregroundColor(.primary)
+                        }.onTapGesture {
+                            shareLink()
+                        }
                         
                     }
                     Section(header: Text("Privacy")){
@@ -124,10 +126,10 @@ struct SettingsView: View {
                             }
                         }
                     }
-//                    Section(header: Text("More features")) {
-//                        Text("Widgets")
-//                        Text("")
-//                    }.listRowBackground(Color.clear)
+                    //                    Section(header: Text("More features")) {
+                    //                        Text("Widgets")
+                    //                        Text("")
+                    //                    }.listRowBackground(Color.clear)
                 }
                 .navigationTitle("Account")
                 .navigationBarTitleDisplayMode(.inline)

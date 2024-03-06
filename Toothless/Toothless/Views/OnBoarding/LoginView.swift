@@ -190,7 +190,7 @@ Text("Sign In")
                 SignupView()
             })
 
-        }
+        }.preferredColorScheme(.light)
     }
 }
 

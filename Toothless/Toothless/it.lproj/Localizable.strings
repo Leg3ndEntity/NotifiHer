@@ -12,7 +12,7 @@
 "Call" = "Chiama";
 "CANCEL" = "CANCELLA";
 "Change Language" = "Cambia Lingua";
-"Change time" = "Cambia l'orario";
+"Change time" = "Modifica durata timer";
 "Contacts" = "Contatti";
 "Continue" = "Continua";
 "Create an Account!" = "Crea un Account!";
@@ -20,11 +20,12 @@
 "Don't have an account?" = "Non hai un account?";
 "Done" = "Fatto";
 "Email" = "Email";
-"Emergency contacts" = "Contatti D'Emergenza";
-"Enter phoneNumber" = "Inserisci il Numero di Telefono";
-"Enter surname" = "Inserisci il Nome Utente";
-"Fake calls" = "Chiamate finte";
-"Fake Calls" = "Chiamate Finte";
+"Emergency contacts" = "Contatti di emergenza";
+"Enter name" = "Inserisci nome";
+"Enter code" = "Inserisci codice";
+"Enter surname" = "Inserisci cognome";
+"Fake calls" = "Fake calls";
+"Fake Calls" = "Fake Calls";
 "First Name" = "Nome";
 "Generated Code" = "Codice Generato";
 "Get started" = "Incominciamo";
@@ -39,6 +40,7 @@
 "Logged In!" = "Accesso Effettuato!";
 "Your user id is %@" = "Il tuo codice utente è %@";
 "Maps" = "Mappe";
+"Map" = "Mappa";
 "Minus" = "Minore";
 "Mode" = "Modalità";
 "Moderatly" = "Moderatamente";
@@ -57,6 +59,7 @@
 "Privicy" = "Privacy";
 "Privacy Policy" = "Normative sulla Privacy";
 "Public Transportation" = "Transporti pubblici";
+"Notification" = "Notifiche";
 "Push-Notification System" = "Sistema di Notifiche-Push";
 "Real Time Reports" = "Report in tempo reale ";
 "Required" = "Richiesto";
@@ -93,3 +96,6 @@
 "Yes" = "Si";
 "You must use a capital letter and a special character" = "Devi usare una lettera maiuscole e un carattere speciale";
 "Your phone number is:" = "Il tuo numero di telefono è:";
+"Share NotifiHer" = "Condividi NotifiHer";
+"Supermarket" = "Supermercato";
+"Each user has a code assigned randomly. Ask your friends their code to add them." = "Ad ogni utente viene assegnato un codice casuale. Chiedi ai tuoi amici il loro codice per aggiungerli";

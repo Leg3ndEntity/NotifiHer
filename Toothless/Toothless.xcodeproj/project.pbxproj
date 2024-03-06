@@ -48,6 +48,7 @@
 		E03B4AE42B98A4EB00BCE36D /* sfondo31.gif in Resources */ = {isa = PBXBuildFile; fileRef = E03B4AE12B98A4EB00BCE36D /* sfondo31.gif */; };
 		E03B4AE72B98A8FC00BCE36D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E03B4AE92B98A8FC00BCE36D /* Localizable.strings */; };
 		E03B4AEC2B99033B00BCE36D /* Counter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03B4AEB2B99033B00BCE36D /* Counter.swift */; };
+		E03B4AEE2B991A9B00BCE36D /* VideoProva4.MOV in Resources */ = {isa = PBXBuildFile; fileRef = E03B4AED2B991A9B00BCE36D /* VideoProva4.MOV */; };
 		E04CD52C2B87E79000AE3F23 /* WatchToothlessApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04CD52B2B87E79000AE3F23 /* WatchToothlessApp.swift */; };
 		E04CD5302B87E79100AE3F23 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E04CD52F2B87E79100AE3F23 /* Assets.xcassets */; };
 		E04CD5332B87E79100AE3F23 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E04CD5322B87E79100AE3F23 /* Preview Assets.xcassets */; };
@@ -132,6 +133,7 @@
 		E03B4AE82B98A8FC00BCE36D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		E03B4AEA2B98A8FE00BCE36D /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
 		E03B4AEB2B99033B00BCE36D /* Counter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Counter.swift; sourceTree = "<group>"; };
+		E03B4AED2B991A9B00BCE36D /* VideoProva4.MOV */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; name = VideoProva4.MOV; path = ../../../../../Downloads/VideoProva4.MOV; sourceTree = "<group>"; };
 		E04CD5292B87E79000AE3F23 /* WatchToothless Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WatchToothless Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E04CD52B2B87E79000AE3F23 /* WatchToothlessApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchToothlessApp.swift; sourceTree = "<group>"; };
 		E04CD52F2B87E79100AE3F23 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -336,6 +338,7 @@
 				992649BD2B95EB0F00A5912A /* VideoProva.MOV */,
 				992649BE2B95EB0F00A5912A /* VideoProva2.MOV */,
 				9984EFC22B989BF8006279AD /* VideoProva3.MOV */,
+				E03B4AED2B991A9B00BCE36D /* VideoProva4.MOV */,
 				E092861A2B7F592000BD1788 /* Preview Content */,
 			);
 			path = Toothless;
@@ -452,6 +455,7 @@
 			files = (
 				992649C02B95EB0F00A5912A /* VideoProva2.MOV in Resources */,
 				E03B4AE72B98A8FC00BCE36D /* Localizable.strings in Resources */,
+				E03B4AEE2B991A9B00BCE36D /* VideoProva4.MOV in Resources */,
 				992649BF2B95EB0F00A5912A /* VideoProva.MOV in Resources */,
 				E0E9AF4E2B96165A00E75EE9 /* GoogleService-Info.plist in Resources */,
 				E092861C2B7F592000BD1788 /* Preview Assets.xcassets in Resources */,

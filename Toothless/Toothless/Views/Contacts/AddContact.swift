@@ -39,7 +39,11 @@ struct AddContact: View {
             List{
                 TextField("Enter name", text: $name)
                 TextField("Enter surname", text: $surname)
-                TextField("Enter phoneNumber", text: $phoneNumber)
+                TextField("Enter code", text: $phoneNumber)
+                Text("Each user has a code assigned randomly. Ask your friends their code to add them.")
+                    .multilineTextAlignment(.leading)
+                    .font(.caption2)
+                    .listRowBackground(Color.clear)
             }.navigationTitle("New Contact").navigationBarTitleDisplayMode(.inline)
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
@@ -61,6 +65,7 @@ struct AddContact: View {
                                 }
                             } else {
                                 print("Phone number not found")
+                                showAlert.toggle()
                                 
                             }
                         }) {
@@ -81,6 +86,7 @@ struct AddContact: View {
                         isTokenSaved = false
                     }
                 }
+            
             
         }.alert(isPresented: $showAlert) {
             Alert(
