@@ -16,6 +16,7 @@ struct CompleteTimer: View {
     @Query var userData: [UserToken]
     @Query var user: [User]
     @Query var contactsData: [Contacts] = []
+    @Query var counter: [Counter]
     
     @State var feedbackGenerator = UIImpactFeedbackGenerator(style: .medium)
     @State var selectionFeedbackGenerator = UISelectionFeedbackGenerator()
@@ -40,13 +41,25 @@ struct CompleteTimer: View {
     @State var time = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     @State var dismissTimer: Timer?
     
-    //let recordingController = ViewController()
     var changeFunction: (() -> Void)?
+    //    var formattedTime: String {
+    //        let minutes = count / 60
+    //        let seconds = count % 60
+    //        return String(format: "%d:%02d", minutes, seconds)
+    //    }
     var formattedTime: String {
-        let minutes = count / 60
-        let seconds = count % 60
-        return String(format: "%d:%02d", minutes, seconds)
+        if let lastCounter = counter.last {
+            count = lastCounter.counter
+            let minutes = count / 60
+            let seconds = count % 60
+            return String(format: "%d:%02d", minutes, seconds)
+        } else {
+            let minutes = count / 60
+            let seconds = count % 60
+            return String(format: "%d:%02d", minutes, seconds)
+        }
     }
+    
     var rotationAngle: Angle {
         let progress = 1 - to
         return .degrees(Double(progress) * 360 - 90)
@@ -56,7 +69,7 @@ struct CompleteTimer: View {
         let batteryPercentage = Int(batteryLevel * 100)
         return batteryPercentage
     }
-
+    
     func scheduleNotificationsAtIntervals() {
         let timer = Timer.scheduledTimer(withTimeInterval: 60, repeats: true) { timer in
             scheduleNotification()
@@ -83,7 +96,7 @@ struct CompleteTimer: View {
             content.body = "Open the app to check on them \nPosizione: \(userLocationURL)"
             content.sound = UNNotificationSound.default
             content.userInfo = ["token": savedToken]
-
+            
             
             // Construct the JSON payload for the FCM request
             let fcmPayload: [String: Any] = [
@@ -138,17 +151,37 @@ struct CompleteTimer: View {
         }
     }
     
+    //    func timerStart() {
+    //        DispatchQueue.main.asyncAfter(deadline: .now() + 2.2) {
+    //            isPressed = false
+    //            if isActivated {
+    //                self.count = 300
+    //                self.start.toggle()
+    //                print("start")
+    //                canCancel = true // Set the flag to allow cancellation
+    //            }
+    //        }
+    //    }
     func timerStart() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.2) {
             isPressed = false
             if isActivated {
-                self.count = 300
-                self.start.toggle()
-                print("start")
-                canCancel = true // Set the flag to allow cancellation
+                // Imposta il valore di self.count utilizzando l'ultimo counter salvato
+                if let lastCounter = counter.last {
+                    count = lastCounter.counter
+                    self.start.toggle()
+                    canCancel = true
+                    print("start")
+                } else {
+                    self.count = 300
+                    self.start.toggle()
+                    canCancel = true
+                    print("start")
+                }
             }
         }
     }
+    
     func TapAnimation(){
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
             withAnimation{
@@ -268,32 +301,35 @@ struct CompleteTimer: View {
                             .opacity(withAnimation{buttonTapped ? 0.2 : 1})
                     }//fine bottone
                     .onTapGesture {
-                        if !buttonLocked && !isActivated{
-                            buttonTapped = true
-                            TapAnimation()
-                            withAnimation{
-                                isActivated = true
-                                CircleAnimation()
-                                circleOpacity = true
-                                showCancel = true
-                                canCancel = true
+                        DispatchQueue.main.async {
+                            if !buttonLocked && !isActivated{
+                                buttonTapped = true
+                                TapAnimation()
+                                withAnimation{
+                                    isActivated = true
+                                    CircleAnimation()
+                                    circleOpacity = true
+                                    showCancel = true
+                                    canCancel = true
+                                }
+                                feedbackGenerator.impactOccurred()
+                                scheduleNotification()
                             }
-                            feedbackGenerator.impactOccurred()
-                            scheduleNotification()
                         }
                     }//fine onTapGesture
                     .onLongPressGesture {
-                        if !isActivated && !start {
-                            withAnimation {
-                                timerStart()
-                                isActivated = true
-                                isPressed = true
-                                showMark = false
-                                showCancel = true
+                        DispatchQueue.main.async {
+                            if !isActivated && !start {
+                                withAnimation {
+                                    timerStart()
+                                    isActivated = true
+                                    isPressed = true
+                                    showMark = false
+                                    showCancel = true
+                                }
+                                selectionFeedbackGenerator.selectionChanged()
                             }
-                            selectionFeedbackGenerator.selectionChanged()
                         }
-                        
                     }//fine onLongPressGesture
                 }//fine 1° Zstack
                 
@@ -331,14 +367,27 @@ struct CompleteTimer: View {
                         
                     }
                 }
+                //                Circle()
+                //                    .trim(from: 0, to: self.to)
+                //                    .stroke(Color.white.opacity(start ? 1 : 0), style: StrokeStyle(lineWidth: 25, lineCap: .round))
+                //                    .frame(width: 214.5, height: 214.5)
+                //                    .rotationEffect(rotationAngle)
+                //                    .onReceive(self.time) { _ in
+                //                        self.to = CGFloat(self.count) / 300
+                //                    }
                 Circle()
                     .trim(from: 0, to: self.to)
                     .stroke(Color.white.opacity(start ? 1 : 0), style: StrokeStyle(lineWidth: 25, lineCap: .round))
                     .frame(width: 214.5, height: 214.5)
                     .rotationEffect(rotationAngle)
                     .onReceive(self.time) { _ in
-                        self.to = CGFloat(self.count) / 300
+                        if let lastCounter = counter.last {
+                            self.to = CGFloat(self.count) / CGFloat(lastCounter.counter)
+                        } else {
+                            self.to = CGFloat(self.count) / 300
+                        }
                     }
+                
                 Text("\(formattedTime)")
                     .foregroundStyle(Color("Timer"))
                     .font(.system(size: 65))
@@ -366,29 +415,30 @@ struct CompleteTimer: View {
                 selectionFeedbackGenerator = UISelectionFeedbackGenerator()
             }
             .onReceive(self.time) { _ in
-                if self.start {
-                    if self.count > 0 {
-                        self.count -= 1
-                        print("\(self.count)")
-                    } else {
-                        print("ciao")
-                        start.toggle()
-                        showAlert = true
-                        dismissTimer = Timer.scheduledTimer(withTimeInterval: 10, repeats: false) { _ in
-                            print("Popup alert ignored for 10 seconds")
-                            showAlert = false
-                            showMark = true
-                            CircleAnimation()
-                            circleOpacity = true
+                DispatchQueue.main.async {
+                    if self.start {
+                        if self.count > 0 {
+                            self.count -= 1
+                            print("\(self.count)")
+                        } else {
+                            print("ciao")
+                            start.toggle()
+                            showAlert = true
+                            dismissTimer = Timer.scheduledTimer(withTimeInterval: 10, repeats: false) { _ in
+                                print("Popup alert ignored for 10 seconds")
+                                showAlert = false
+                                showMark = true
+                                CircleAnimation()
+                                circleOpacity = true
+                            }
+                            
                         }
                     }
                 }
             }
-        
     }
-    
 }
-
-#Preview {
-    CompleteTimer()
-}
+//
+//#Preview {
+//    CompleteTimer()
+//}

@@ -32,7 +32,7 @@ struct SettingsView: View {
     
     @State var url = URL(string: "https://www.iubenda.com/privacy-policy/49969320")
     var body: some View {
-        //let initials = String(userData[0].name.prefix(1) + userData[0].surname.prefix(1))
+        let initials = String(userData[0].name.prefix(1) + userData[0].surname.prefix(1))
         
         NavigationStack{
             VStack{
@@ -43,17 +43,17 @@ struct SettingsView: View {
                                 Circle()
                                     .fill(randomColor)
                                     .frame(width: 35, height: 35)
-                                Text("SS")
-                                //Text(initials)
+                                //Text("SS")
+                                Text(initials)
                                     .fontWeight(.bold)
                                     .foregroundColor(.white)
                             }
                             VStack(alignment: .leading, spacing: -2.0){
-                                //Text("\(userData[0].name) \(userData[0].surname)")
-                                Text("Simone Sarnataro")
+                                Text("\(userData[0].name) \(userData[0].surname)")
+                                //Text("Simone Sarnataro")
                                     .fontWeight(.medium)
-                                //Text("\(userData[0].phoneNumber)")
-                                Text("+39 3716703252")
+                                Text("\(userData[0].phoneNumber)")
+                                //Text("+39 3716703252")
                                     .font(.subheadline)
                             }
                         }.accessibilityElement(children: .combine)
@@ -65,6 +65,21 @@ struct SettingsView: View {
                         } label: {
                             Text("Change time")
                         }
+                        
+                        Button(action: {
+                            if let url = URL(string: UIApplication.openSettingsURLString), UIApplication.shared.canOpenURL(url) {
+                                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                            }
+                        }) {
+                            HStack {
+                                Text("Notification")
+                                    .foregroundColor(.primary)
+                                Spacer()
+                                Image(systemName: "arrow.up.forward")
+                                    .foregroundStyle(CustomColor.customred)
+                            }
+                        }
+                        
                         Button(action: {
                             if let url = URL(string: UIApplication.openSettingsURLString), UIApplication.shared.canOpenURL(url) {
                                 UIApplication.shared.open(url, options: [:], completionHandler: nil)
@@ -72,20 +87,41 @@ struct SettingsView: View {
                         }) {
                             HStack {
                                 Text("Change Language")
+                                    .foregroundColor(.primary)
                                 Spacer()
                                 Image(systemName: "arrow.up.forward")
+                                    .foregroundStyle(CustomColor.customred)
                             }
                         }
                     }
                     Section(header: Text("About")){
-                        ShareLink(item: "Share NotifiHer")
-                        Text("")
+                        
+                            Button(action: {
+                                if let url = URL(string: "https://testflight.apple.com/join/UjB0xSRP") {
+                                    UIApplication.shared.open(url)
+                                }
+                            }) {
+                                HStack{
+                                    Text("Share NotifiHer")
+                                        .foregroundColor(.primary)
+                                    Spacer()
+                                    Image(systemName: "square.and.arrow.up")
+                                        .foregroundStyle(CustomColor.customred)
+                                }
+                            }
+                        
                     }
                     Section(header: Text("Privacy")){
                         HStack {
                             Link("Privacy Policy", destination: url!)
+                                .foregroundColor(.primary)
                             Spacer()
                             Image(systemName: "arrow.up.forward")
+                                .foregroundStyle(CustomColor.customred)
+                        }.onTapGesture {
+                            if let url = URL(string: "https://www.iubenda.com/privacy-policy/49969320") {
+                                UIApplication.shared.open(url)
+                            }
                         }
                     }
 //                    Section(header: Text("More features")) {

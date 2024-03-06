@@ -15,7 +15,7 @@ struct WelcomeView: View {
     @State static var currentShowingView: String = "signup"
     @State var showSignIn: Bool = false
     @State private var isUserSignedIn: Bool = false
-    @Binding var currentShowingView: String
+    //@Binding var currentShowingView: String
     
     @State private var pageIndex = 0
     private let pages: [Page] = Page.samplePages
@@ -80,7 +80,7 @@ struct WELCOMEView_Previews: PreviewProvider {
     @State static var currentShowingView: String = "signup"
     
     static var previews: some View {
-        WelcomeView(currentShowingView: $currentShowingView)
+        WelcomeView()
         
     }
 }

@@ -3,6 +3,7 @@ import SwiftUI
 struct GoalView: View {
     
     @Environment(\.modelContext) var modelContext
+    @Environment(\.dismiss) var dismiss
     
     @State var num = 1
     @State var cont = 180
@@ -12,13 +13,14 @@ struct GoalView: View {
     var body: some View {
         VStack {
             VStack{
-                Text("set your time")
+                Text("Set your time")
                     .font(.largeTitle)
                     .fontWeight(.bold)
                     .padding()
                 Text("Set a custom timer to notify your emergency contacts exactly after the amount of time that most fits your needs.")
                     .font(.headline)
                     .fontWeight(.regular)
+                    .frame(width: 330)
             }.multilineTextAlignment(.center)
             
             Picker(selection: $selectedMode, label: Text("Mode")) {
@@ -59,7 +61,9 @@ struct GoalView: View {
             } .padding(.top, 200)
                 .onTapGesture {
                     //modelContext.insert(Goal(goal: cont))
+                    modelContext.insert(Counter(counter: cont))
                     isShowingMain.toggle()
+                    dismiss()
                 }
                 .accessibilityElement(children: .combine)
                 .accessibilityAddTraits(.isButton)

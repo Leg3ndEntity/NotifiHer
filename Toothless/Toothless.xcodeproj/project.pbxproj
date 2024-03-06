@@ -47,6 +47,7 @@
 		E03B4AE32B98A4EB00BCE36D /* sfondo1.gif in Resources */ = {isa = PBXBuildFile; fileRef = E03B4AE02B98A4EB00BCE36D /* sfondo1.gif */; };
 		E03B4AE42B98A4EB00BCE36D /* sfondo31.gif in Resources */ = {isa = PBXBuildFile; fileRef = E03B4AE12B98A4EB00BCE36D /* sfondo31.gif */; };
 		E03B4AE72B98A8FC00BCE36D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E03B4AE92B98A8FC00BCE36D /* Localizable.strings */; };
+		E03B4AEC2B99033B00BCE36D /* Counter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03B4AEB2B99033B00BCE36D /* Counter.swift */; };
 		E04CD52C2B87E79000AE3F23 /* WatchToothlessApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04CD52B2B87E79000AE3F23 /* WatchToothlessApp.swift */; };
 		E04CD5302B87E79100AE3F23 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E04CD52F2B87E79100AE3F23 /* Assets.xcassets */; };
 		E04CD5332B87E79100AE3F23 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E04CD5322B87E79100AE3F23 /* Preview Assets.xcassets */; };
@@ -130,6 +131,7 @@
 		E03B4AE12B98A4EB00BCE36D /* sfondo31.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = sfondo31.gif; path = ../../../../../Desktop/NotifiHer/sfondo31.gif; sourceTree = "<group>"; };
 		E03B4AE82B98A8FC00BCE36D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		E03B4AEA2B98A8FE00BCE36D /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
+		E03B4AEB2B99033B00BCE36D /* Counter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Counter.swift; sourceTree = "<group>"; };
 		E04CD5292B87E79000AE3F23 /* WatchToothless Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WatchToothless Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E04CD52B2B87E79000AE3F23 /* WatchToothlessApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchToothlessApp.swift; sourceTree = "<group>"; };
 		E04CD52F2B87E79100AE3F23 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -211,6 +213,7 @@
 		E023E3512B9488510056AAB6 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				E03B4AEB2B99033B00BCE36D /* Counter.swift */,
 				E04D1F202B835D5600C8EFDD /* User.swift */,
 				E01B88F72B932F870007B5B9 /* Contacts.swift */,
 				E01B89012B933C350007B5B9 /* UserToken.swift */,
@@ -509,6 +512,7 @@
 				9970DDF72B91ECD100539FA9 /* SignUpView.swift in Sources */,
 				179FB1262B95E96700FDE246 /* SingleCallView.swift in Sources */,
 				176B44392B834CE40029879D /* ButtonHomeView.swift in Sources */,
+				E03B4AEC2B99033B00BCE36D /* Counter.swift in Sources */,
 				E01B89022B933C350007B5B9 /* UserToken.swift in Sources */,
 				992B23052B90D91D00A0B0A1 /* Registration.swift in Sources */,
 				E04CD5432B888D0400AE3F23 /* WelcomeView.swift in Sources */,

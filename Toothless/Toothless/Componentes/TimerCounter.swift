@@ -19,7 +19,9 @@ struct GoalSelectorView: View {
                 if increase {
                     counter += 10
                 } else {
-                    counter -= 10
+                    if counter != 0{
+                        counter -= 10
+                    }
                 }
                 durata += 0.2
                 
@@ -33,15 +35,18 @@ struct GoalSelectorView: View {
     }
     
     func startFastTimer(increase: Bool) {
-        if counter != 590{
             timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { timer in
                 if increase {
-                    counter += 10
+                    
+                    if counter != 590{
+                        counter += 10
+                    }
                 } else {
-                    counter -= 10
+                    if counter != 0{
+                        counter -= 10
+                    }
                 }
             }
-        }
     }
     
     func stopTimer() {

@@ -27,7 +27,7 @@ struct Toothless_provaApp: App {
                 .task {
                     // Initialize the PushToTalk Manager
                 }
-        }.modelContainer(for: [User.self, Contacts.self, UserToken.self])
+        }.modelContainer(for: [User.self, Contacts.self, UserToken.self, Counter.self])
         
     }
 }

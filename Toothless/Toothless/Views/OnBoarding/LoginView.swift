@@ -159,7 +159,6 @@ Button(action: {
                     }
                     let user = User(name: name, surname: surname, phoneNumber: generatedCode, fcmToken: fcmToken ?? "")
                     database.addUser(user: user, phoneNumber: user.phoneNumber)
-
                     isWelcomeScreenOver = true
                     isShowingMain.toggle()
                     modelContext.insert(user)
