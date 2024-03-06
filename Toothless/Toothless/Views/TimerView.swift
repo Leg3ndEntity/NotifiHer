@@ -149,17 +149,6 @@ struct CompleteTimer: View {
             }
         }
     }
-//    func timerRestart(){
-//        if self.count == 0 {
-//            self.count = 300 // Riporta il timer a 5 minuti
-//            withAnimation(.default){
-//                self.to = 0
-//            }
-//        }
-//        self.start.toggle()
-//        print("start")
-//    }
-//
     func TapAnimation(){
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
             withAnimation{
@@ -387,7 +376,6 @@ struct CompleteTimer: View {
                         showAlert = true
                         dismissTimer = Timer.scheduledTimer(withTimeInterval: 10, repeats: false) { _ in
                             print("Popup alert ignored for 10 seconds")
-                            scheduleNotification()
                             showAlert = false
                             showMark = true
                             CircleAnimation()
