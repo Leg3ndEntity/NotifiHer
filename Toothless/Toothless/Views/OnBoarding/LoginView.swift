@@ -18,6 +18,7 @@ struct LoginView: View {
     @Environment(\.modelContext) var modelContext
     @AppStorage("isWelcomeScreenOver") var isWelcomeScreenOver = false
 
+    @State var showSign: Bool = false
     @State var isShowingMain: Bool = false
     @State private var isUserSignedIn: Bool = false
 
@@ -39,7 +40,7 @@ struct LoginView: View {
         return code
     }
 
-    @Binding var currentShowingView: String
+    //@Binding var currentShowingView: String
     @AppStorage("uid") var userID: String = ""
 
     @Environment(\.colorScheme) var colorScheme
@@ -128,7 +129,8 @@ HStack {
                 .padding()
 Button(action: {
                     withAnimation {
-                        self.currentShowingView = "signup"
+                        //self.currentShowingView = "signup"
+                        showSign.toggle()
                     }
 
 
@@ -177,6 +179,7 @@ Text("Sign In")
                         )
                         .padding(.horizontal)
                 }.padding(.top, 30)
+                .disabled(name.trimmingCharacters(in: .whitespaces).isEmpty || surname.trimmingCharacters(in: .whitespaces).isEmpty||email.trimmingCharacters(in: .whitespaces).isEmpty||password.trimmingCharacters(in: .whitespaces).isEmpty||isValidPassword(password))
                 Spacer()
 
 
@@ -185,6 +188,9 @@ Text("Sign In")
             }
             .fullScreenCover(isPresented: $isShowingMain, content: {
                 CompleteTimer()
+            })
+            .fullScreenCover(isPresented: $showSign, content: {
+                SignupView()
             })
 
         }

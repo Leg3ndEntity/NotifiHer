@@ -27,6 +27,12 @@
         }
       }
     },
+    "10 seconds less" : {
+
+    },
+    "10 seconds more" : {
+
+    },
     "A map will show all the safe spots that you can reach." : {
       "localizations" : {
         "en" : {
@@ -36,6 +42,9 @@
           }
         }
       }
+    },
+    "About" : {
+
     },
     "Account" : {
 
@@ -111,7 +120,10 @@
         }
       }
     },
-    "Cancel Button" : {
+    "Change Language" : {
+
+    },
+    "Change time" : {
 
     },
     "Contacts" : {
@@ -176,9 +188,6 @@
       }
     },
     "Email" : {
-
-    },
-    "Emergency button" : {
 
     },
     "Emergency contacts" : {
@@ -264,6 +273,9 @@
         }
       }
     },
+    "Highly" : {
+
+    },
     "HOLD" : {
       "localizations" : {
         "en" : {
@@ -328,6 +340,9 @@
         }
       }
     },
+    "Lightly" : {
+
+    },
     "Logged In! \nYour user id is %@" : {
       "localizations" : {
         "en" : {
@@ -348,6 +363,18 @@
           }
         }
       }
+    },
+    "Minus" : {
+
+    },
+    "Mode" : {
+
+    },
+    "Moderately" : {
+
+    },
+    "More features" : {
+
     },
     "Name" : {
 
@@ -419,7 +446,6 @@
       }
     },
     "Phone number not found" : {
-      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -428,6 +454,9 @@
           }
         }
       }
+    },
+    "Plus" : {
+
     },
     "Police Station" : {
       "extractionState" : "manual",
@@ -440,7 +469,10 @@
         }
       }
     },
-    "Profile" : {
+    "Privacy" : {
+
+    },
+    "Privacy Policy" : {
 
     },
     "Public Transportation" : {
@@ -488,7 +520,6 @@
 
     },
     "Save Token" : {
-      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -517,6 +548,12 @@
           }
         }
       }
+    },
+    "Set a goal based on how active you are, or \nhow active you'd like to be, each day." : {
+
+    },
+    "Set timer" : {
+
     },
     "Set up personal details" : {
       "localizations" : {
@@ -583,6 +620,9 @@
     "Surname" : {
 
     },
+    "System" : {
+
+    },
     "TAP" : {
       "localizations" : {
         "en" : {
@@ -603,9 +643,6 @@
           }
         }
       }
-    },
-    "Tap to send an alert. Hold to start the timer." : {
-
     },
     "Taxi/Uber" : {
       "extractionState" : "manual",
@@ -628,6 +665,9 @@
         }
       }
     },
+    "TIMER TIME" : {
+
+    },
     "to send an alert" : {
       "localizations" : {
         "en" : {
@@ -649,7 +689,6 @@
       }
     },
     "Token is saved: %@" : {
-      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -669,9 +708,6 @@
           }
         }
       }
-    },
-    "Walkie-Talkie" : {
-
     },
     "Walking Alone" : {
       "extractionState" : "manual",
@@ -712,6 +748,9 @@
         }
       }
     },
+    "Widgets" : {
+
+    },
     "WT" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -744,6 +783,9 @@
       }
     },
     "You must use a capital letter and a special character" : {
+
+    },
+    "Your Daily Move Goal" : {
 
     },
     "Your personal details are the basic information the app needs to help you in case of danger." : {

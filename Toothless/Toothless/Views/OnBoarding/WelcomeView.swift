@@ -1,44 +1,51 @@
 
-    import SwiftUI
-    import AuthenticationServices
+import SwiftUI
+import AuthenticationServices
 
-    struct WelcomeView: View {
-        @AppStorage("isWelcomeScreenOver") var isWelcomeScreenOver = false
-        
-        @State var isShowingMain: Bool = false
-        @State private var isUserSignedIn: Bool = false
-        @Binding var currentShowingView: String
-        
-        @State private var pageIndex = 0
-        private let pages: [Page] = Page.samplePages
-        private let dotAppearance = UIPageControl.appearance()
-        
-        @EnvironmentObject var database: Database
-        @Environment(\.modelContext) var modelContex
-        
-        var body: some View {
-            TabView(selection: $pageIndex) {
-                ForEach(pages) { page in
-                    ZStack {
-                            Spacer()
+struct WelcomeView: View {
+    @AppStorage("isWelcomeScreenOver") var isWelcomeScreenOver = false
+    @State static var currentShowingView: String = "signup"
+    @State var showSignIn: Bool = false
+    @State private var isUserSignedIn: Bool = false
+    @Binding var currentShowingView: String
+    
+    @State private var pageIndex = 0
+    private let pages: [Page] = Page.samplePages
+    private let dotAppearance = UIPageControl.appearance()
+    
+    @EnvironmentObject var database: Database
+    @Environment(\.modelContext) var modelContex
+    @Environment(\.colorScheme) var colorScheme
+    
+    var body: some View {
+        TabView(selection: $pageIndex) {
+            ForEach(pages) { page in
+                ZStack {
+                    PageView(page: page)
+                        .ignoresSafeArea()
+                    Spacer()
+                    if page == pages.last {
+                        ZStack{
                             PageView(page: page)
                                 .ignoresSafeArea()
-                            Spacer()
-                        if page == pages.last {
-                            ZStack{
-                                Spacer()
-                                PageView(page: page)
-                                    .ignoresSafeArea()
-                                Spacer()
-                            }
-                                
-                            }
-                            else {
-                            }
+                            ZStack {
+                                RoundedRectangle(cornerRadius: 15)
+                                    .frame(width:200, height:60)
+                                    .foregroundStyle(colorScheme == .dark ? .white : .black)
+                                Text("Get started")
+                                    .font(.title2)
+                                    .fontWeight(.bold)
+                                    .foregroundStyle(colorScheme == .dark ? .black : .white)
+                            }.padding(.top, 630)
+                        }.onTapGesture {
+                            showSignIn.toggle()
                         }
-                        .tag(page.tag)
+                        
+                    }
                 }
-            }.ignoresSafeArea()
+                .tag(page.tag)
+            }
+        }.ignoresSafeArea()
             .animation(.easeInOut, value: pageIndex)
             .indexViewStyle(.page(backgroundDisplayMode: .interactive))
             .tabViewStyle(PageTabViewStyle())
@@ -46,18 +53,26 @@
                 dotAppearance.currentPageIndicatorTintColor = .red
                 dotAppearance.pageIndicatorTintColor = .gray
             }
-        }
-        
-        func incrementPage() {
-            pageIndex += 1
-        }
-        
-        func goToZero() {
-            pageIndex = 0
-        }
+            .fullScreenCover(isPresented: $showSignIn, content: {
+                SignupView()
+            })
     }
+    
+    func incrementPage() {
+        pageIndex += 1
+    }
+    
+    func goToZero() {
+        pageIndex = 0
+    }
+}
 
 
-//    #Preview {
-//        WelcomeView(, currentShowingView: $current)
-//    }
+struct WELCOMEView_Previews: PreviewProvider {
+    @State static var currentShowingView: String = "signup"
+    
+    static var previews: some View {
+        WelcomeView(currentShowingView: $currentShowingView)
+        
+    }
+}

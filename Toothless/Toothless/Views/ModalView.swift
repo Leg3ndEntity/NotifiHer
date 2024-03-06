@@ -16,7 +16,6 @@ struct ModalView: View {
     @State var modal4: Bool = false
     @State var modal5: Bool = false
     @State var feedbackGenerator = UIImpactFeedbackGenerator(style: .soft)
-    @ObservedObject var viewModel: MapViewModel = MapViewModel()
     
     @Binding var showMark: Bool
     @Binding var showCircle: Bool
@@ -51,10 +50,11 @@ struct ModalView: View {
     
     var body: some View {
         VStack{
-            HStack(alignment: .center, spacing: 215){
+            HStack(){
                 Text("Services")
                     .font(.title3)
                     .fontWeight(.bold)
+                Spacer()
                 ZStack{
                     Circle()
                         .frame(width:40)
@@ -63,27 +63,18 @@ struct ModalView: View {
                         .resizable()
                         .frame(width: 20, height: 20)
                         .foregroundColor(.black)
-                }.accessibilityElement(children: .combine).accessibility(label: Text("Profile"))
-                .onTapGesture {
+                }.onTapGesture {
                     modal5.toggle()
                     feedbackGenerator.impactOccurred()
                 }
-            }
+            }.frame(width: 350)
             .padding(.vertical, 20)
             VStack(alignment: .leading){
                 HStack(spacing: 28){
-                    ButtonHomeView(iconName: "map.fill", nameFeature: NSLocalizedString("Map", comment: ""), showModal: $modal1)
-                        .accessibilityElement(children: .combine)
-                        .accessibility(label: Text("Map"))
-                    ButtonHomeView(iconName: "phone.fill.arrow.down.left", nameFeature: NSLocalizedString("Fake Calls", comment: ""), showModal: $modal2)
-                        .accessibilityElement(children: .combine)
-                        .accessibility(label: Text("Fake Calls"))
-                    ButtonHomeView(iconName: "person.fill", nameFeature: NSLocalizedString("Contacts", comment: ""), showModal: $modal3)
-                        .accessibilityElement(children: .combine)
-                        .accessibility(label: Text("Contacts"))
-                    ButtonHomeView(iconName: "waveform.and.mic", nameFeature: NSLocalizedString("WT", comment: ""), showModal: $modal4)
-                        .accessibilityElement(children: .combine)
-                        .accessibility(label: Text("Walkie-Talkie"))
+                    ButtonHomeView(iconName: "map.fill", nameFeature:"Map", showModal: $modal1)
+                    ButtonHomeView(iconName: "phone.fill.arrow.down.left", nameFeature:"Fake Calls", showModal: $modal2)
+                    ButtonHomeView(iconName: "person.fill", nameFeature:"Contacts", showModal: $modal3)
+                    ButtonHomeView(iconName: "waveform.and.mic", nameFeature:"WT", showModal: $modal4)
                 }
             }.padding(.top, 10.0)
             
@@ -102,7 +93,7 @@ struct ModalView: View {
 //                        ContactsView()
 //                    })
             .sheet(isPresented: $modal5, content: {
-                UserProfileView(userData: [])
+                SettingsView(userData: [])
             })
             .onAppear {
                 feedbackGenerator.prepare()

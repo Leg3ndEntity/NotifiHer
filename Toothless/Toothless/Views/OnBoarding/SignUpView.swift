@@ -17,8 +17,8 @@ struct SignupView: View {
     @EnvironmentObject var database: Database
     @Environment(\.modelContext) var modelContext
     @AppStorage("isWelcomeScreenOver") var isWelcomeScreenOver = false
-
     @State var isShowingMain: Bool = false
+    @State var showLogin: Bool = false
     @State private var isUserSignedIn: Bool = false
 
     var fcmToken: String? {
@@ -42,7 +42,7 @@ struct SignupView: View {
     @State private var email: String = ""
     @State private var password: String = ""
     @AppStorage("uid") var userID: String = ""
-    @Binding var currentShowingView: String
+    //@Binding var currentShowingView: String
     @Environment(\.colorScheme) var colorScheme
 
     private func isValidPassword(_ password: String) -> Bool {
@@ -132,7 +132,8 @@ HStack {
 
                 Button(action: {
                     withAnimation {
-                        self.currentShowingView = "login"
+                        //self.currentShowingView = "login"
+                        showLogin.toggle()
                     }
                 }) {
                     Text("Already have an account?")
@@ -171,6 +172,8 @@ Button {
                         )
                         .padding(.horizontal)
                 }.padding(.top, 30)
+                
+                .disabled(name.trimmingCharacters(in: .whitespaces).isEmpty || surname.trimmingCharacters(in: .whitespaces).isEmpty||email.trimmingCharacters(in: .whitespaces).isEmpty||password.trimmingCharacters(in: .whitespaces).isEmpty||isValidPassword(password))
                 Spacer()
             }
 
@@ -180,6 +183,9 @@ Button {
         }
         .fullScreenCover(isPresented: $isShowingMain, content: {
             CompleteTimer()
+        })
+        .fullScreenCover(isPresented: $showLogin, content: {
+            LoginView()
         })
     }
 }

@@ -30,6 +30,7 @@ struct SettingsView: View {
         }
     }
     
+    @State var url = URL(string: "https://www.iubenda.com/privacy-policy/49969320")
     var body: some View {
         let initials = String(userData[0].name.prefix(1) + userData[0].surname.prefix(1))
         
@@ -57,31 +58,49 @@ struct SettingsView: View {
                             }
                         }.accessibilityElement(children: .combine)
                     }
-                    Section{
+                    Section(header: Text("System")){
                         NavigationLink {
-                            UserProfileView(userData: [])
+                            //UserProfileView(userData: [])
+                            GoalView()
                         } label: {
-                            Text("")
+                            Text("Change time")
                         }
-                        
-                        .navigationTitle("Account")
-                        .navigationBarTitleDisplayMode(.inline)
-                        .toolbar(content: {
-                            ToolbarItem{
-                                Button{
-                                    dismiss()
-                                }label:{
-                                    Text("Done")
-                                        .fontWeight(.bold)
-                                        .foregroundColor(.red)
-                                    
-                                }
+                        Button(action: {
+                            if let url = URL(string: UIApplication.openSettingsURLString), UIApplication.shared.canOpenURL(url) {
+                                UIApplication.shared.open(url, options: [:], completionHandler: nil)
                             }
-                        })
-                        
-                        
+                        }) {
+                            Text("Change Language")
+                        }
                     }
+                    Section(header: Text("About")){
+                        ShareLink(item: "Share NotifiHer")
+                        Text("")
+                    }
+                    Section(header: Text("Privacy")){
+                        Link("Privacy Policy", destination: url!)
+                    }
+                    Section(header: Text("More features")) {
+                        Text("Widgets")
+                        Text("")
+                    }.listRowBackground(Color.clear)
                 }
+                .navigationTitle("Account")
+                .navigationBarTitleDisplayMode(.inline)
+                .toolbar(content: {
+                    ToolbarItem{
+                        Button{
+                            dismiss()
+                        }label:{
+                            Text("Done")
+                                .fontWeight(.bold)
+                                .foregroundColor(.red)
+                            
+                        }
+                    }
+                })
+                
+                
             }
         }
     }

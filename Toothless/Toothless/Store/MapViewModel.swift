@@ -12,16 +12,25 @@ enum MapDetails{
     static let defaultSpan = MKCoordinateSpan(latitudeDelta: 0.005, longitudeDelta: 0.005)
 }
 
-final class MapViewModel : NSObject, ObservableObject, CLLocationManagerDelegate {
+final class MapViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
     @Published var region = MKCoordinateRegion(center: MapDetails.startingLocation, span: MapDetails.defaultSpan)
-    
+
     var locationManager: CLLocationManager?
-    
-     func checkLocationAuthorization(){
+
+    func checkIfLocationEnabled() {
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager = CLLocationManager()
+            locationManager!.delegate = self
+            checkLocationAuthorization()
+        } else {
+            print("alert: location is off, need to turn it on")
+        }
+    }
+
+    private func checkLocationAuthorization() {
         guard let locationManager = locationManager else { return }
-        
-        switch locationManager.authorizationStatus{
-            
+
+        switch locationManager.authorizationStatus {
         case .notDetermined:
             locationManager.requestWhenInUseAuthorization()
         case .restricted:
@@ -29,21 +38,17 @@ final class MapViewModel : NSObject, ObservableObject, CLLocationManagerDelegate
         case .denied:
             print("location denied")
         case .authorizedAlways, .authorizedWhenInUse:
-            region = MKCoordinateRegion(center: locationManager.location!.coordinate, span: MapDetails.defaultSpan)
+            if let userLocation = locationManager.location {
+                region = MKCoordinateRegion(center: userLocation.coordinate, span: MapDetails.defaultSpan)
+                print("User location retrived:\(region)")
+            } else {
+                print("User location not available yet")
+            }
         @unknown default:
             break
         }
     }
-    
-    func checkIfLocationEnabled() {
-        if CLLocationManager.locationServicesEnabled(){
-            locationManager = CLLocationManager()
-            locationManager!.delegate = self
-        }
-        else {
-            print("alert: location is off, need to turn it on")
-        }
-    }
+
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         checkLocationAuthorization()
     }

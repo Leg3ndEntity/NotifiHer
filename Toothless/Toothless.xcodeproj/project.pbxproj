@@ -54,6 +54,8 @@
 		E01B88F82B932F870007B5B9 /* Contacts.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01B88F72B932F870007B5B9 /* Contacts.swift */; };
 		E01B88FA2B9333490007B5B9 /* AddContact.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01B88F92B9333490007B5B9 /* AddContact.swift */; };
 		E01B89022B933C350007B5B9 /* UserToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01B89012B933C350007B5B9 /* UserToken.swift */; };
+		E03B4ACE2B9894EB00BCE36D /* TimerSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03B4ACD2B9894EB00BCE36D /* TimerSettings.swift */; };
+		E03B4AD02B98950D00BCE36D /* TimerCounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03B4ACF2B98950D00BCE36D /* TimerCounter.swift */; };
 		E04CD52C2B87E79000AE3F23 /* WatchToothlessApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04CD52B2B87E79000AE3F23 /* WatchToothlessApp.swift */; };
 		E04CD5302B87E79100AE3F23 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E04CD52F2B87E79100AE3F23 /* Assets.xcassets */; };
 		E04CD5332B87E79100AE3F23 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E04CD5322B87E79100AE3F23 /* Preview Assets.xcassets */; };
@@ -144,6 +146,8 @@
 		E01B88F72B932F870007B5B9 /* Contacts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contacts.swift; sourceTree = "<group>"; };
 		E01B88F92B9333490007B5B9 /* AddContact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddContact.swift; sourceTree = "<group>"; };
 		E01B89012B933C350007B5B9 /* UserToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserToken.swift; sourceTree = "<group>"; };
+		E03B4ACD2B9894EB00BCE36D /* TimerSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerSettings.swift; sourceTree = "<group>"; };
+		E03B4ACF2B98950D00BCE36D /* TimerCounter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerCounter.swift; sourceTree = "<group>"; };
 		E04CD5292B87E79000AE3F23 /* WatchToothless Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WatchToothless Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E04CD52B2B87E79000AE3F23 /* WatchToothlessApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchToothlessApp.swift; sourceTree = "<group>"; };
 		E04CD52F2B87E79100AE3F23 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -295,6 +299,7 @@
 				179FB1282B95E99C00FDE246 /* FakeCalls.swift */,
 				179FB12A2B95E9F000FDE246 /* FakeCallsViewModel.swift */,
 				E0E9AF4F2B97341500E75EE9 /* RecordingController.swift */,
+				E03B4ACF2B98950D00BCE36D /* TimerCounter.swift */,
 			);
 			path = Componentes;
 			sourceTree = "<group>";
@@ -304,11 +309,10 @@
 			children = (
 				E04D1F1E2B835D1B00C8EFDD /* TimerView.swift */,
 				176B44322B834C5C0029879D /* ModalView.swift */,
-				9971EBB12B977A61005FEEE4 /* Localizable.xcstrings */,
-				9971EBB32B977A7E005FEEE4 /* InfoPlist.xcstrings */,
 				9970DDFE2B92686900539FA9 /* SearchUsers.swift */,
 				176B44362B834CBF0029879D /* UserProfileView.swift */,
 				E0CE9A112B911E67009FD256 /* SettingsView.swift */,
+				E03B4ACD2B9894EB00BCE36D /* TimerSettings.swift */,
 				179FB1272B95E97800FDE246 /* FakeCall */,
 				E023E3502B9488280056AAB6 /* OnBoarding */,
 				E023E34F2B9487E80056AAB6 /* Contacts */,
@@ -340,6 +344,8 @@
 			children = (
 				176B443A2B83531B0029879D /* Info.plist */,
 				E0E9AF4D2B96165A00E75EE9 /* GoogleService-Info.plist */,
+				9971EBB12B977A61005FEEE4 /* Localizable.xcstrings */,
+				9971EBB32B977A7E005FEEE4 /* InfoPlist.xcstrings */,
 				BEAECC6B2B8371AD003C3A6A /* Toothless.entitlements */,
 				E09286142B7F591F00BD1788 /* ToothlessApp.swift */,
 				E04D1F1C2B835C8000C8EFDD /* Toothless.swift */,
@@ -506,12 +512,14 @@
 				176B44332B834C5C0029879D /* ModalView.swift in Sources */,
 				99D05C812B81640F00E96315 /* Extensions.swift in Sources */,
 				176B44372B834CBF0029879D /* UserProfileView.swift in Sources */,
+				E03B4ACE2B9894EB00BCE36D /* TimerSettings.swift in Sources */,
 				179FB12B2B95E9F000FDE246 /* FakeCallsViewModel.swift in Sources */,
 				9970DDF52B91ECB900539FA9 /* String.swift in Sources */,
 				991F74E32B87E1490092EA9D /* PageModel.swift in Sources */,
 				E04D1F452B84B2A900C8EFDD /* RingView.swift in Sources */,
 				176B44252B7F97F30029879D /* OnBoardingView.swift in Sources */,
 				E08AE9B22B932B5900825826 /* ContactsView.swift in Sources */,
+				E03B4AD02B98950D00BCE36D /* TimerCounter.swift in Sources */,
 				9970DDE82B91D57100539FA9 /* Database.swift in Sources */,
 				9970DDF12B91DE0900539FA9 /* ListView.swift in Sources */,
 				E01B88FA2B9333490007B5B9 /* AddContact.swift in Sources */,
