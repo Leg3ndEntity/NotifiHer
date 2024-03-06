@@ -39,11 +39,11 @@ struct WelcomeView: View {
                             ZStack {
                                 RoundedRectangle(cornerRadius: 15)
                                     .frame(width:200, height:60)
-                                    .foregroundStyle(colorScheme == .dark ? .white : .black)
+                                    .foregroundStyle(.black)
                                 Text("Get started")
                                     .font(.title2)
                                     .fontWeight(.bold)
-                                    .foregroundStyle(colorScheme == .dark ? .black : .white)
+                                    .foregroundStyle(.white)
                             }.padding(.top, 630)
                         }.onTapGesture {
                             showSignIn.toggle()
