@@ -32,7 +32,7 @@ struct SettingsView: View {
     
     @State var url = URL(string: "https://www.iubenda.com/privacy-policy/49969320")
     var body: some View {
-        let initials = String(userData[0].name.prefix(1) + userData[0].surname.prefix(1))
+        //let initials = String(userData[0].name.prefix(1) + userData[0].surname.prefix(1))
         
         NavigationStack{
             VStack{
@@ -43,17 +43,17 @@ struct SettingsView: View {
                                 Circle()
                                     .fill(randomColor)
                                     .frame(width: 35, height: 35)
-                                //Text("SS")
-                                Text(initials)
+                                Text("SS")
+                                //Text(initials)
                                     .fontWeight(.bold)
                                     .foregroundColor(.white)
                             }
                             VStack(alignment: .leading, spacing: -2.0){
-                                Text("\(userData[0].name) \(userData[0].surname)")
-                                //Text("Simone Sarnataro")
+                                //Text("\(userData[0].name) \(userData[0].surname)")
+                                Text("Simone Sarnataro")
                                     .fontWeight(.medium)
-                                Text("\(userData[0].phoneNumber)")
-                                //Text("+39 3716703252")
+                                //Text("\(userData[0].phoneNumber)")
+                                Text("+39 3716703252")
                                     .font(.subheadline)
                             }
                         }.accessibilityElement(children: .combine)
@@ -70,7 +70,11 @@ struct SettingsView: View {
                                 UIApplication.shared.open(url, options: [:], completionHandler: nil)
                             }
                         }) {
-                            Text("Change Language")
+                            HStack {
+                                Text("Change Language")
+                                Spacer()
+                                Image(systemName: "arrow.up.forward")
+                            }
                         }
                     }
                     Section(header: Text("About")){
@@ -78,12 +82,16 @@ struct SettingsView: View {
                         Text("")
                     }
                     Section(header: Text("Privacy")){
-                        Link("Privacy Policy", destination: url!)
+                        HStack {
+                            Link("Privacy Policy", destination: url!)
+                            Spacer()
+                            Image(systemName: "arrow.up.forward")
+                        }
                     }
-                    Section(header: Text("More features")) {
-                        Text("Widgets")
-                        Text("")
-                    }.listRowBackground(Color.clear)
+//                    Section(header: Text("More features")) {
+//                        Text("Widgets")
+//                        Text("")
+//                    }.listRowBackground(Color.clear)
                 }
                 .navigationTitle("Account")
                 .navigationBarTitleDisplayMode(.inline)
