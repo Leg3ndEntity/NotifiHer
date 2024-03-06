@@ -8,6 +8,7 @@
 import SwiftUI
 import UIKit
 import SwiftData
+import CoreLocation
 
 struct CompleteTimer: View {
     @Environment(\.colorScheme) var colorScheme
@@ -18,6 +19,7 @@ struct CompleteTimer: View {
     
     @State var feedbackGenerator = UIImpactFeedbackGenerator(style: .medium)
     @State var selectionFeedbackGenerator = UISelectionFeedbackGenerator()
+    @StateObject private var viewModel = MapViewModel()
     
     @State var canCancel: Bool = false
     @State var buttonTapped: Bool = false
@@ -38,7 +40,7 @@ struct CompleteTimer: View {
     @State var time = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     @State var dismissTimer: Timer?
     
-    let recordingController = ViewController()
+    //let recordingController = ViewController()
     var changeFunction: (() -> Void)?
     var formattedTime: String {
         let minutes = count / 60
@@ -49,7 +51,12 @@ struct CompleteTimer: View {
         let progress = 1 - to
         return .degrees(Double(progress) * 360 - 90)
     }
-    
+    func getBatteryLevel() -> Int {
+        let batteryLevel = UIDevice.current.batteryLevel
+        let batteryPercentage = Int(batteryLevel * 100)
+        return batteryPercentage
+    }
+
     func scheduleNotificationsAtIntervals() {
         let timer = Timer.scheduledTimer(withTimeInterval: 60, repeats: true) { timer in
             scheduleNotification()
@@ -64,19 +71,26 @@ struct CompleteTimer: View {
                 return
             }
             
+            viewModel.checkIfLocationEnabled()
+            guard let currentLocation = viewModel.locationManager?.location?.coordinate else {
+                print("Impossibile ottenere la posizione dell'utente")
+                return
+            }
+            let userLocationURL = "https://maps.apple.com/?ll=\(currentLocation.latitude),\(currentLocation.longitude)"
             // Construct the notification content
             let content = UNMutableNotificationContent()
             content.title = "\(user[0].name) \(user[0].surname) is in danger"
-            content.body = "Open the app to check on them"
+            content.body = "Open the app to check on them \nPosizione: \(userLocationURL)"
             content.sound = UNNotificationSound.default
             content.userInfo = ["token": savedToken]
+
             
             // Construct the JSON payload for the FCM request
             let fcmPayload: [String: Any] = [
                 "to": savedToken,
                 "notification": [
                     "title": "\(user[0].name) \(user[0].surname) is in danger",
-                    "body": "Open the app to check on them",
+                    "body": "Open the app to check on them \nPosizione: \(userLocationURL)",
                     "sound": "default"
                 ]
             ]
@@ -135,17 +149,17 @@ struct CompleteTimer: View {
             }
         }
     }
-    func timerRestart(){
-        if self.count == 0 {
-            self.count = 300 // Riporta il timer a 5 minuti
-            withAnimation(.default){
-                self.to = 0
-            }
-        }
-        self.start.toggle()
-        print("start")
-    }
-    
+//    func timerRestart(){
+//        if self.count == 0 {
+//            self.count = 300 // Riporta il timer a 5 minuti
+//            withAnimation(.default){
+//                self.to = 0
+//            }
+//        }
+//        self.start.toggle()
+//        print("start")
+//    }
+//
     func TapAnimation(){
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
             withAnimation{
@@ -216,18 +230,19 @@ struct CompleteTimer: View {
                                     .font(.title2)
                                     .fontWeight(.bold)
                                     .offset(x: 0, y: -150)
-                            }.accessibilityHidden(true)
-                        }else if Locale.current.language.languageCode?.identifier == "it" {
-                            Text(LocalizedStringKey("PREMI per inviare un avviso")).accessibilityHidden(true)
-                                .font(.headline) // Adjust the font size for Italian
-                                .fontWeight(.bold)
-                                .frame(width: 250)
-                                .offset(x: 0, y: -150)
-                        } else {
-                            Text(LocalizedStringKey("TAP to send an alert")).accessibilityHidden(true)
-                                .font(.title2)
-                                .fontWeight(.bold)
-                                .offset(x: 0, y: -150)
+                            }
+                        }else{
+                            HStack {
+                                Text("HOLD")
+                                    .foregroundStyle(.red)
+                                    .fontWeight(.bold)
+                                    .font(.title)
+                                    .offset(x: 0, y: -150)
+                                Text("to start the timer")
+                                    .font(.title2)
+                                    .fontWeight(.bold)
+                                    .offset(x: 0, y: -150)
+                            }
                         }
                     }
                     
@@ -262,7 +277,7 @@ struct CompleteTimer: View {
                             .foregroundColor(Color.red)
                             .opacity(showMark ? 1 : 0)
                             .opacity(withAnimation{buttonTapped ? 0.2 : 1})
-                    }.accessibilityElement(children: .combine).accessibilityAddTraits(.isButton).accessibilityLabel("Emergency button").accessibilityHint("Tap to send an alert. Hold to start the timer.")//fine bottone
+                    }//fine bottone
                     .onTapGesture {
                         if !buttonLocked && !isActivated{
                             buttonTapped = true
@@ -276,8 +291,6 @@ struct CompleteTimer: View {
                             }
                             feedbackGenerator.impactOccurred()
                             scheduleNotification()
-                            recordingController.startRecording()
-                            //scheduleNotificationsAtIntervals()
                         }
                     }//fine onTapGesture
                     .onLongPressGesture {
@@ -307,15 +320,13 @@ struct CompleteTimer: View {
                         Text("CANCEL")
                             .font(.subheadline)
                             .fontWeight(.semibold)
-                    }
-                    .foregroundColor(.white)
-                }.accessibilityElement(children: .combine).accessibilityLabel("Cancel Button")
+                    }.foregroundColor(.white)
+                }
                 .padding(.bottom, 630)
                 .padding(.leading, 240)
                 .opacity(showCancel ? 1 : 0)
                 .onTapGesture {
                     if isActivated && canCancel{
-                        recordingController.stopRecording()
                         feedbackGenerator.impactOccurred()
                         circleOpacity = false
                         isActivated = false
@@ -389,12 +400,6 @@ struct CompleteTimer: View {
     
 }
 
-#Preview("English") {
+#Preview {
     CompleteTimer()
 }
-
-#Preview("Italian") {
-    CompleteTimer()
-        .environment(\.locale, Locale(identifier: "IT"))
-}
-

@@ -27,6 +27,12 @@
         }
       }
     },
+    "10 seconds less" : {
+
+    },
+    "10 seconds more" : {
+
+    },
     "A map will show all the safe spots that you can reach." : {
       "localizations" : {
         "en" : {
@@ -36,6 +42,9 @@
           }
         }
       }
+    },
+    "About" : {
+
     },
     "Account" : {
 
@@ -111,13 +120,10 @@
         }
       }
     },
-    "Cancel Button" : {
+    "Change Language" : {
 
     },
-    "Click to sign in" : {
-
-    },
-    "Click to sign up" : {
+    "Change time" : {
 
     },
     "Contacts" : {
@@ -182,9 +188,6 @@
       }
     },
     "Email" : {
-
-    },
-    "Emergency button" : {
 
     },
     "Emergency contacts" : {
@@ -257,6 +260,9 @@
         }
       }
     },
+    "Generated Code" : {
+
+    },
     "Get started" : {
       "localizations" : {
         "en" : {
@@ -266,6 +272,9 @@
           }
         }
       }
+    },
+    "Highly" : {
+
     },
     "HOLD" : {
       "localizations" : {
@@ -321,12 +330,6 @@
         }
       }
     },
-    "Insert your email" : {
-
-    },
-    "Insert your password" : {
-
-    },
     "Last Name" : {
       "localizations" : {
         "en" : {
@@ -336,6 +339,9 @@
           }
         }
       }
+    },
+    "Lightly" : {
+
     },
     "Logged In! \nYour user id is %@" : {
       "localizations" : {
@@ -357,6 +363,21 @@
           }
         }
       }
+    },
+    "Minus" : {
+
+    },
+    "Mode" : {
+
+    },
+    "Moderately" : {
+
+    },
+    "More features" : {
+
+    },
+    "Name" : {
+
     },
     "New Contact" : {
       "localizations" : {
@@ -414,6 +435,7 @@
       }
     },
     "Phone Number" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -433,6 +455,9 @@
         }
       }
     },
+    "Plus" : {
+
+    },
     "Police Station" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -444,7 +469,10 @@
         }
       }
     },
-    "Profile" : {
+    "Privacy" : {
+
+    },
+    "Privacy Policy" : {
 
     },
     "Public Transportation" : {
@@ -521,6 +549,12 @@
         }
       }
     },
+    "Set a goal based on how active you are, or \nhow active you'd like to be, each day." : {
+
+    },
+    "Set timer" : {
+
+    },
     "Set up personal details" : {
       "localizations" : {
         "en" : {
@@ -550,9 +584,6 @@
           }
         }
       }
-    },
-    "Sign Up" : {
-
     },
     "Simulate calls with a friend or a relative to avoid unsafe situations." : {
       "localizations" : {
@@ -586,6 +617,12 @@
         }
       }
     },
+    "Surname" : {
+
+    },
+    "System" : {
+
+    },
     "TAP" : {
       "localizations" : {
         "en" : {
@@ -607,9 +644,6 @@
         }
       }
     },
-    "Tap to send an alert. Hold to start the timer." : {
-
-    },
     "Taxi/Uber" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -630,6 +664,9 @@
           }
         }
       }
+    },
+    "TIMER TIME" : {
+
     },
     "to send an alert" : {
       "localizations" : {
@@ -672,9 +709,6 @@
         }
       }
     },
-    "Walkie-Talkie" : {
-
-    },
     "Walking Alone" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -686,8 +720,12 @@
         }
       }
     },
+    "Welcome back!" : {
+
+    },
     "Welcome Back!" : {
       "comment" : "Localizable.strings\n  Toothless\n\n  Created by Andrea Romano on 05/03/24.",
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -709,6 +747,9 @@
           }
         }
       }
+    },
+    "Widgets" : {
+
     },
     "WT" : {
       "extractionState" : "manual",
@@ -740,6 +781,12 @@
           }
         }
       }
+    },
+    "You must use a capital letter and a special character" : {
+
+    },
+    "Your Daily Move Goal" : {
+
     },
     "Your personal details are the basic information the app needs to help you in case of danger." : {
       "localizations" : {

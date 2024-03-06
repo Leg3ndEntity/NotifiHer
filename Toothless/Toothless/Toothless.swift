@@ -10,24 +10,23 @@ import SwiftUI
 struct Toothless: View {
     @AppStorage("isWelcomeScreenOver") var isWelcomeScreenOver = false
     @State var checkWelcomeScreen: Bool = false
-    @State private var currentViewShowing: String = "login"
+    @State private var currentViewShowing: String = "signup"
     @EnvironmentObject var tokenManager: TokenManager
     
     var body: some View {
         VStack {
             Group {
                 if checkWelcomeScreen {
-                    
                     CompleteTimer().environmentObject(tokenManager)
                 } else {
-                    
-                    if(currentViewShowing == "login") {
-                        LoginView(currentShowingView: $currentViewShowing)
-                            
-                    } else {
-                        SignupView(currentShowingView: $currentViewShowing)
-                            
-                    }
+                    WelcomeView(currentShowingView: $currentViewShowing)
+//                    if(currentViewShowing == "login") {
+//                        LoginView(currentShowingView: $currentViewShowing)
+//                            
+//                    } else {
+//                        SignupView(currentShowingView: $currentViewShowing)
+//                            
+//                    }
                 }
             }
             ////            if checkWelcomeScreen {

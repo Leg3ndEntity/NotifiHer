@@ -10,28 +10,29 @@ import SwiftUI
 struct PageView: View {
     private let pages: [Page] = Page.samplePages
     var page: Page
-    
+
     var body: some View {
-        VStack(spacing: 10) {
-            HStack {
-                Spacer()
-                if let gif = page.gif {
-                    GifImage(gif).accessibilityHidden(true)
-                        .cornerRadius(20)
-                        .frame(width: 340, height: 310)
-                        .padding(.bottom, 50)
-                }
-                Spacer()
+        ZStack{
+            if let gif = page.gif {
+                GifImage(gif)
             }
-            
-            Text(page.name ?? "")
-                .font(.title)
-                .bold()
-                .frame(width: 340)
-            
-            Text(page.description ?? "")
-                .font(.title3)
-                .padding(.horizontal)
-        }
+            if let image = page.image{
+                Image(image)
+            }
+            VStack{
+                Text(page.name ?? "")
+                    .foregroundStyle(.black)
+                    .font(.title)
+                    .bold()
+                    .frame(width: 340)
+
+                Text(page.description ?? "")
+                    .foregroundStyle(.black)
+                    .font(.title3)
+                    .frame(width: 340)
+                    .multilineTextAlignment(.center)
+                    .padding(.horizontal)
+            }.padding(.top, 400)
+        }.ignoresSafeArea()
     }
 }

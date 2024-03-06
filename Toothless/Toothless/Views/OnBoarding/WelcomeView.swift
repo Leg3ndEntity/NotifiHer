@@ -4,42 +4,58 @@ import AuthenticationServices
 
 struct WelcomeView: View {
     @AppStorage("isWelcomeScreenOver") var isWelcomeScreenOver = false
-    @State var isShowingMain: Bool = false
+    @State static var currentShowingView: String = "signup"
+    @State var showSignIn: Bool = false
     @State private var isUserSignedIn: Bool = false
+    @Binding var currentShowingView: String
     
     @State private var pageIndex = 0
     private let pages: [Page] = Page.samplePages
     private let dotAppearance = UIPageControl.appearance()
     
+    @EnvironmentObject var database: Database
+    @Environment(\.modelContext) var modelContex
+    @Environment(\.colorScheme) var colorScheme
+    
     var body: some View {
         TabView(selection: $pageIndex) {
             ForEach(pages) { page in
-                VStack(alignment: .trailing) {
-                    
-                    Spacer()
+                ZStack {
                     PageView(page: page)
+                        .ignoresSafeArea()
                     Spacer()
                     if page == pages.last {
-                        Registration(name: "", surname: "", phoneNumber: "")
-                        Spacer()
+                        ZStack{
+                            PageView(page: page)
+                                .ignoresSafeArea()
+                            ZStack {
+                                RoundedRectangle(cornerRadius: 15)
+                                    .frame(width:200, height:60)
+                                    .foregroundStyle(colorScheme == .dark ? .white : .black)
+                                Text("Get started")
+                                    .font(.title2)
+                                    .fontWeight(.bold)
+                                    .foregroundStyle(colorScheme == .dark ? .black : .white)
+                            }.padding(.top, 630)
+                        }.onTapGesture {
+                            showSignIn.toggle()
+                        }
                         
-                    }
-                    else {
                     }
                 }
                 .tag(page.tag)
             }
-        }
-        .animation(.easeInOut, value: pageIndex)
-        .indexViewStyle(.page(backgroundDisplayMode: .interactive))
-        .tabViewStyle(PageTabViewStyle())
-        .onAppear {
-            dotAppearance.currentPageIndicatorTintColor = .red
-            dotAppearance.pageIndicatorTintColor = .gray
-        }
-        .fullScreenCover(isPresented: $isShowingMain, content: {
-            CompleteTimer()
-        })
+        }.ignoresSafeArea()
+            .animation(.easeInOut, value: pageIndex)
+            .indexViewStyle(.page(backgroundDisplayMode: .interactive))
+            .tabViewStyle(PageTabViewStyle())
+            .onAppear {
+                dotAppearance.currentPageIndicatorTintColor = .red
+                dotAppearance.pageIndicatorTintColor = .gray
+            }
+            .fullScreenCover(isPresented: $showSignIn, content: {
+                SignupView()
+            })
     }
     
     func incrementPage() {
@@ -52,6 +68,11 @@ struct WelcomeView: View {
 }
 
 
-#Preview {
-    WelcomeView()
+struct WELCOMEView_Previews: PreviewProvider {
+    @State static var currentShowingView: String = "signup"
+    
+    static var previews: some View {
+        WelcomeView(currentShowingView: $currentShowingView)
+        
+    }
 }
