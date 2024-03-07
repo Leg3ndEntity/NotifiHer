@@ -1,10 +1,3 @@
-//
-//  SignUpView.swift
-//  Toothless
-//
-//  Created by Andrea Romano on 01/03/24.
-//
-
 import SwiftUI
 import FirebaseAuth
 
@@ -14,6 +7,7 @@ struct SignupView: View {
     @State private var generatedCode: String = ""
     let customDocumentID = "customDocumentID123"
     
+    @State var accettato: Bool = false
     @EnvironmentObject var database: Database
     @Environment(\.modelContext) var modelContext
     @AppStorage("isWelcomeScreenOver") var isWelcomeScreenOver = false
@@ -24,7 +18,7 @@ struct SignupView: View {
     var fcmToken: String? {
         UserDefaults.standard.string(forKey: "fcmToken")
     }
-    
+    @State var url = URL(string: "https://www.iubenda.com/privacy-policy/49969320")
     private func generateUniqueCode() -> String {
         var code = ""
         repeat {
@@ -89,10 +83,10 @@ struct SignupView: View {
                     )
                     .padding()
                 HStack {
-                    Image(systemName: "mail").foregroundStyle(colorScheme == .dark ? .white : .black)
+                    Image(systemName: "mail").foregroundStyle(colorScheme == .dark ? .white : .black).accessibilityHidden(true)
                     TextField("Email", text: $email).foregroundStyle(colorScheme == .dark ? .white : .black)
                     if(email.count != 0) {
-                        Image(systemName: email.isValidEmail() ? "checkmark" : "xmark")
+                        Image(systemName: email.isValidEmail() ? "checkmark" : "xmark").accessibilityHidden(true)
                             .fontWeight(.bold)
                             .foregroundColor(email.isValidEmail() ? .green : .red)
                     }
@@ -111,10 +105,10 @@ struct SignupView: View {
                         .padding(.leading, 30)
                         .foregroundStyle(colorScheme == .dark ? .gray : .gray)
                     HStack {
-                        Image(systemName: "lock").foregroundStyle(colorScheme == .dark ? .white : .black)
+                        Image(systemName: "lock").foregroundStyle(colorScheme == .dark ? .white : .black).accessibilityHidden(true)
                         SecureField("Password", text: $password).foregroundStyle(colorScheme == .dark ? .white : .black)
                         if(password.count != 0) {
-                            Image(systemName: isValidPassword(password) ? "checkmark" : "xmark")
+                            Image(systemName: isValidPassword(password) ? "checkmark" : "xmark").accessibilityHidden(true)
                                 .fontWeight(.bold)
                                 .foregroundColor(isValidPassword(password) ? .green : .red)
                         }
@@ -141,60 +135,69 @@ struct SignupView: View {
                 }
                 
                 Spacer()
-                Button {
+                VStack(alignment: .leading){
+                    HStack {
+                        Link("I agree to the privacy policy", destination: url!)
+                            .foregroundColor(.primary)
+                        if !accettato{
+                            Image(systemName: "square")
+                                .foregroundStyle(CustomColor.customred)
+                                .onTapGesture {
+                                    accettato.toggle()
+                                }
+                        } else {
+                            Image(systemName: "checkmark.square")
+                                .foregroundStyle(CustomColor.customred)
+                                .onTapGesture {
+                                    accettato.toggle()
+                                }
+                        }
+                    }.padding(.horizontal)
+                    Button {
+                        Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
+                            if let error = error {
+                                print(error)
+                                return
+                            }
+                            if let authResult = authResult {
+                                print(authResult.user.uid)
+                                userID = authResult.user.uid
+                            }
+                        }
+                        let user = User(name: name, surname: surname, phoneNumber: generatedCode, fcmToken: fcmToken ?? "")
+                        database.addUser(user: user, phoneNumber: user.phoneNumber)
+                        isWelcomeScreenOver = true
+                        isShowingMain.toggle()
+                        modelContext.insert(user)
+                        print("ciao")
+                    } label: {
+                        Text("Create New Account")
+                            .foregroundStyle(colorScheme == .dark ? .black : .white)
+                            .font(.title3)
+                            .bold()
+                            .frame(maxWidth: .infinity)
+                            .padding()
+                            .background(
+                                RoundedRectangle(cornerRadius: 10)
+                                    .fill(Color(colorScheme == .dark ? .white : .black))
+                            )
+                            .padding(.horizontal)
+                    }.padding(.top, 30)
                     
-                    Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
-                        if let error = error {
-                            print(error)
-                            return
-                        }
-                        if let authResult = authResult {
-                            print(authResult.user.uid)
-                            userID = authResult.user.uid
-                        }
-                    }
-                    let user = User(name: name, surname: surname, phoneNumber: generatedCode, fcmToken: fcmToken ?? "")
-                    database.addUser(user: user, phoneNumber: user.phoneNumber)
-                    isWelcomeScreenOver = true
-                    isShowingMain.toggle()
-                    modelContext.insert(user)
-                    print("ciao")
-                } label: {
-                    Text("Create New Account")
-                        .foregroundStyle(colorScheme == .dark ? .black : .white)
-                        .font(.title3)
-                        .bold()
-                        .frame(maxWidth: .infinity)
-                        .padding()
-                        .background(
-                            RoundedRectangle(cornerRadius: 10)
-                                .fill(Color(colorScheme == .dark ? .white : .black))
-                        )
-                        .padding(.horizontal)
-                }.padding(.top, 30)
-                
-                    .disabled(name.trimmingCharacters(in: .whitespaces).isEmpty || surname.trimmingCharacters(in: .whitespaces).isEmpty||email.trimmingCharacters(in: .whitespaces).isEmpty||password.trimmingCharacters(in: .whitespaces).isEmpty||isValidPassword(password))
+                        .disabled(name.trimmingCharacters(in: .whitespaces).isEmpty || surname.trimmingCharacters(in: .whitespaces).isEmpty||email.trimmingCharacters(in: .whitespaces).isEmpty||password.trimmingCharacters(in: .whitespaces).isEmpty||isValidPassword(password)||accettato == false||email.isValidEmail())
+                }
                 Spacer()
             }
             
         }.preferredColorScheme(.light)
-        .onAppear {
-            generatedCode = generateUniqueCode()
-        }
-        .fullScreenCover(isPresented: $isShowingMain, content: {
-            CompleteTimer()
-        })
-        .fullScreenCover(isPresented: $showLogin, content: {
-            LoginView()
-        })
+            .onAppear {
+                generatedCode = generateUniqueCode()
+            }
+            .fullScreenCover(isPresented: $isShowingMain, content: {
+                CompleteTimer()
+            })
+            .fullScreenCover(isPresented: $showLogin, content: {
+                LoginView()
+            })
     }
 }
-
-//struct SignupView_Previews: PreviewProvider {
-//    @State static var currentShowingView: String = "signup"
-//
-//    static var previews: some View {
-//        SignupView(currentShowingView: $currentShowingView)
-//            .preferredColorScheme(.none) // Optionally, set the color scheme for preview
-//    }
-//}

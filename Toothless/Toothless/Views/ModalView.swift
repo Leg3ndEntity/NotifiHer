@@ -165,6 +165,8 @@ struct ModalView: View {
                         .resizable()
                         .frame(width: 20, height: 20)
                         .foregroundColor(.black)
+                        .accessibilityElement(children: .ignore)
+                            .accessibilityLabel("Account")
                 }.onTapGesture {
                     modal5.toggle()
                     feedbackGenerator.impactOccurred()
@@ -173,10 +175,10 @@ struct ModalView: View {
             .padding(.vertical, 20)
             VStack(alignment: .leading){
                 HStack(spacing: 28){
-                    ButtonHomeView(iconName: "map.fill", nameFeature:NSLocalizedString("Map", comment: ""), showModal: $modal1)
-                    ButtonHomeView(iconName: "phone.fill.arrow.down.left", nameFeature:NSLocalizedString("Fake Calls", comment: ""), showModal: $modal2)
-                    ButtonHomeView(iconName: "person.fill", nameFeature:NSLocalizedString("Contacts", comment: ""), showModal: $modal3)
-                    ButtonHomeView(iconName: "waveform.and.mic", nameFeature:NSLocalizedString("WT", comment: ""), showModal: $modal4)
+                    ButtonHomeView(iconName: "map.fill", nameFeature:NSLocalizedString("Map", comment: ""), showModal: $modal1).accessibilityElement(children: .combine).accessibilityLabel("Map")
+                    ButtonHomeView(iconName: "phone.fill.arrow.down.left", nameFeature:NSLocalizedString("Fake Calls", comment: ""), showModal: $modal2).accessibilityElement(children: .combine).accessibilityLabel("Fake Calls")
+                    ButtonHomeView(iconName: "person.fill", nameFeature:NSLocalizedString("Contacts", comment: ""), showModal: $modal3).accessibilityElement(children: .combine).accessibilityLabel("Contacts")
+                    ButtonHomeView(iconName: "waveform.and.mic", nameFeature:NSLocalizedString("WT", comment: ""), showModal: $modal4).accessibilityElement(children: .combine).accessibilityLabel("Walkie-Talkie")
                 }
             }.padding(.top, 10.0)
             

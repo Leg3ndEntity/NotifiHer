@@ -94,7 +94,7 @@ struct CompleteTimer: View {
             // Construct the notification content
             let content = UNMutableNotificationContent()
             content.title = "\(user[0].name) \(user[0].surname) is in danger"
-            content.body = "Open the app to check on them \nPosizione: \(userLocationURL)"
+            content.body = "Open the app to check on them \nPosition: \(userLocationURL)"
             content.sound = UNNotificationSound.default
             content.userInfo = ["token": savedToken]
             
@@ -104,7 +104,7 @@ struct CompleteTimer: View {
                 "to": savedToken,
                 "notification": [
                     "title": "\(user[0].name) \(user[0].surname) is in danger",
-                    "body": "Open the app to check on them \nPosizione: \(userLocationURL)",
+                    "body": "Open the app to check on them \nPosition: \(userLocationURL)",
                     "sound": "default"
                 ]
             ]
@@ -253,7 +253,7 @@ struct CompleteTimer: View {
                                     .font(.title2)
                                     .fontWeight(.bold)
                                     .offset(x: 0, y: -150)
-                            }
+                            }.accessibilityHidden(true)
                         }else if Locale.current.language.languageCode?.identifier == "it" {
                             VStack(alignment: .center){
                                 Text(LocalizedStringKey("TIENI PREMUTO"))
@@ -265,7 +265,7 @@ struct CompleteTimer: View {
                                     .font(.title2)
                                     .fontWeight(.bold)
                                     .offset(x: 0, y: -150)
-                            }
+                            }.accessibilityHidden(true)
                             
                             
                         } else {
@@ -279,7 +279,7 @@ struct CompleteTimer: View {
                                     .font(.title2)
                                     .fontWeight(.bold)
                                     .offset(x: 0, y: -150)
-                            }
+                            }.accessibilityHidden(true)
 
                             
                         }
@@ -316,7 +316,7 @@ struct CompleteTimer: View {
                             .foregroundColor(Color.red)
                             .opacity(showMark ? 1 : 0)
                             .opacity(withAnimation{buttonTapped ? 0.2 : 1})
-                    }//fine bottone
+                    }.accessibilityElement(children: .ignore).accessibilityLabel("Emergency Button")//fine bottone
                     .onTapGesture {
                         DispatchQueue.main.async {
                             if !buttonLocked && !isActivated{
@@ -363,7 +363,7 @@ struct CompleteTimer: View {
                             .font(.subheadline)
                             .fontWeight(.semibold)
                     }.foregroundColor(.white)
-                }
+                }.accessibilityElement(children: .combine).accessibilityLabel("Cancel Button")
                 .padding(.bottom, 630)
                 .padding(.leading, 240)
                 .opacity(showCancel ? 1 : 0)

@@ -26,14 +26,17 @@
 		9970DDF52B91ECB900539FA9 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9970DDF42B91ECB900539FA9 /* String.swift */; };
 		9970DDF72B91ECD100539FA9 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9970DDF62B91ECD100539FA9 /* SignUpView.swift */; };
 		9970DDFD2B91F53A00539FA9 /* User2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9970DDFC2B91F53A00539FA9 /* User2.swift */; };
-		9971EBA42B975879005FEEE4 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 9971EBA32B975879005FEEE4 /* FirebaseAnalytics */; };
-		9971EBA62B97587D005FEEE4 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 9971EBA52B97587D005FEEE4 /* FirebaseAuth */; settings = {ATTRIBUTES = (Required, ); }; };
-		9971EBA82B975882005FEEE4 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 9971EBA72B975882005FEEE4 /* FirebaseDatabase */; };
-		9971EBAA2B975885005FEEE4 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 9971EBA92B975885005FEEE4 /* FirebaseFirestore */; };
-		9971EBAC2B97588A005FEEE4 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 9971EBAB2B97588A005FEEE4 /* FirebaseMessaging */; };
-		9984EFC32B989BF8006279AD /* VideoProva3.MOV in Resources */ = {isa = PBXBuildFile; fileRef = 9984EFC22B989BF8006279AD /* VideoProva3.MOV */; };
+		997E00622B99B28600C310BE /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 997E00612B99B28600C310BE /* FirebaseAnalytics */; };
+		997E00642B99B28A00C310BE /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 997E00632B99B28A00C310BE /* FirebaseAuth */; };
+		997E00662B99B28E00C310BE /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 997E00652B99B28E00C310BE /* FirebaseDatabase */; };
+		997E00682B99B29100C310BE /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 997E00672B99B29100C310BE /* FirebaseFirestore */; };
+		997E006A2B99B29600C310BE /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 997E00692B99B29600C310BE /* FirebaseMessaging */; };
 		99A653902B8DF53C0038C1D4 /* GIFImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A6538F2B8DF53C0038C1D4 /* GIFImage.swift */; };
 		99D05C812B81640F00E96315 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D05C802B81640F00E96315 /* Extensions.swift */; };
+		99D71C512B99AA7D00E55EDC /* sfondo31.gif in Resources */ = {isa = PBXBuildFile; fileRef = 99D71C4E2B99AA7D00E55EDC /* sfondo31.gif */; };
+		99D71C522B99AA7D00E55EDC /* sfondo1.gif in Resources */ = {isa = PBXBuildFile; fileRef = 99D71C4F2B99AA7D00E55EDC /* sfondo1.gif */; };
+		99D71C532B99AA7D00E55EDC /* sfondo2.gif in Resources */ = {isa = PBXBuildFile; fileRef = 99D71C502B99AA7D00E55EDC /* sfondo2.gif */; };
+		99D71C552B99AA8800E55EDC /* VideoProva3.MOV in Resources */ = {isa = PBXBuildFile; fileRef = 99D71C542B99AA8800E55EDC /* VideoProva3.MOV */; };
 		BE0E089B2B873EE3005C848F /* PushToTalkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0E089A2B873D7C005C848F /* PushToTalkManager.swift */; };
 		E01B88F82B932F870007B5B9 /* Contacts.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01B88F72B932F870007B5B9 /* Contacts.swift */; };
 		E01B88FA2B9333490007B5B9 /* AddContact.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01B88F92B9333490007B5B9 /* AddContact.swift */; };
@@ -41,12 +44,8 @@
 		E03B4AD22B989F6E00BCE36D /* TimerSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03B4AD12B989F6E00BCE36D /* TimerSettings.swift */; };
 		E03B4AD42B989F9100BCE36D /* TimerCounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03B4AD32B989F9100BCE36D /* TimerCounter.swift */; };
 		E03B4ADE2B98A1FF00BCE36D /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = E03B4ADC2B98A1FF00BCE36D /* InfoPlist.xcstrings */; };
-		E03B4AE22B98A4EB00BCE36D /* sfondo2.gif in Resources */ = {isa = PBXBuildFile; fileRef = E03B4ADF2B98A4EB00BCE36D /* sfondo2.gif */; };
-		E03B4AE32B98A4EB00BCE36D /* sfondo1.gif in Resources */ = {isa = PBXBuildFile; fileRef = E03B4AE02B98A4EB00BCE36D /* sfondo1.gif */; };
-		E03B4AE42B98A4EB00BCE36D /* sfondo31.gif in Resources */ = {isa = PBXBuildFile; fileRef = E03B4AE12B98A4EB00BCE36D /* sfondo31.gif */; };
 		E03B4AE72B98A8FC00BCE36D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E03B4AE92B98A8FC00BCE36D /* Localizable.strings */; };
 		E03B4AEC2B99033B00BCE36D /* Counter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03B4AEB2B99033B00BCE36D /* Counter.swift */; };
-		E03B4AEE2B991A9B00BCE36D /* VideoProva4.MOV in Resources */ = {isa = PBXBuildFile; fileRef = E03B4AED2B991A9B00BCE36D /* VideoProva4.MOV */; };
 		E04CD52C2B87E79000AE3F23 /* WatchToothlessApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04CD52B2B87E79000AE3F23 /* WatchToothlessApp.swift */; };
 		E04CD5302B87E79100AE3F23 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E04CD52F2B87E79100AE3F23 /* Assets.xcassets */; };
 		E04CD5332B87E79100AE3F23 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E04CD5322B87E79100AE3F23 /* Preview Assets.xcassets */; };
@@ -110,9 +109,12 @@
 		9970DDF42B91ECB900539FA9 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		9970DDF62B91ECD100539FA9 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		9970DDFC2B91F53A00539FA9 /* User2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User2.swift; sourceTree = "<group>"; };
-		9984EFC22B989BF8006279AD /* VideoProva3.MOV */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = VideoProva3.MOV; sourceTree = "<group>"; };
 		99A6538F2B8DF53C0038C1D4 /* GIFImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GIFImage.swift; sourceTree = "<group>"; };
 		99D05C802B81640F00E96315 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		99D71C4E2B99AA7D00E55EDC /* sfondo31.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = sfondo31.gif; sourceTree = "<group>"; };
+		99D71C4F2B99AA7D00E55EDC /* sfondo1.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = sfondo1.gif; sourceTree = "<group>"; };
+		99D71C502B99AA7D00E55EDC /* sfondo2.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = sfondo2.gif; sourceTree = "<group>"; };
+		99D71C542B99AA8800E55EDC /* VideoProva3.MOV */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; name = VideoProva3.MOV; path = ../../../../../Downloads/VideoProva3.MOV; sourceTree = "<group>"; };
 		99D8E7282B8FDD5E00449F8D /* WatchToothless-Watch-App-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "WatchToothless-Watch-App-Info.plist"; sourceTree = SOURCE_ROOT; };
 		99D8E7292B8FDD6600449F8D /* WatchToothless Watch App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "WatchToothless Watch App.entitlements"; sourceTree = "<group>"; };
 		BE0E089A2B873D7C005C848F /* PushToTalkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushToTalkManager.swift; sourceTree = "<group>"; };
@@ -123,13 +125,9 @@
 		E03B4AD12B989F6E00BCE36D /* TimerSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerSettings.swift; sourceTree = "<group>"; };
 		E03B4AD32B989F9100BCE36D /* TimerCounter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerCounter.swift; sourceTree = "<group>"; };
 		E03B4ADC2B98A1FF00BCE36D /* InfoPlist.xcstrings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json.xcstrings; name = InfoPlist.xcstrings; path = Toothless/InfoPlist.xcstrings; sourceTree = SOURCE_ROOT; };
-		E03B4ADF2B98A4EB00BCE36D /* sfondo2.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = sfondo2.gif; path = ../../../../../Desktop/NotifiHer/sfondo2.gif; sourceTree = "<group>"; };
-		E03B4AE02B98A4EB00BCE36D /* sfondo1.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = sfondo1.gif; path = ../../../../../Desktop/NotifiHer/sfondo1.gif; sourceTree = "<group>"; };
-		E03B4AE12B98A4EB00BCE36D /* sfondo31.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = sfondo31.gif; path = ../../../../../Desktop/NotifiHer/sfondo31.gif; sourceTree = "<group>"; };
 		E03B4AE82B98A8FC00BCE36D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		E03B4AEA2B98A8FE00BCE36D /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
 		E03B4AEB2B99033B00BCE36D /* Counter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Counter.swift; sourceTree = "<group>"; };
-		E03B4AED2B991A9B00BCE36D /* VideoProva4.MOV */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; name = VideoProva4.MOV; path = ../../../../../Downloads/VideoProva4.MOV; sourceTree = "<group>"; };
 		E04CD5292B87E79000AE3F23 /* WatchToothless Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WatchToothless Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E04CD52B2B87E79000AE3F23 /* WatchToothlessApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchToothlessApp.swift; sourceTree = "<group>"; };
 		E04CD52F2B87E79100AE3F23 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -161,11 +159,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9971EBA82B975882005FEEE4 /* FirebaseDatabase in Frameworks */,
-				9971EBAA2B975885005FEEE4 /* FirebaseFirestore in Frameworks */,
-				9971EBAC2B97588A005FEEE4 /* FirebaseMessaging in Frameworks */,
-				9971EBA42B975879005FEEE4 /* FirebaseAnalytics in Frameworks */,
-				9971EBA62B97587D005FEEE4 /* FirebaseAuth in Frameworks */,
+				997E00662B99B28E00C310BE /* FirebaseDatabase in Frameworks */,
+				997E00682B99B29100C310BE /* FirebaseFirestore in Frameworks */,
+				997E006A2B99B29600C310BE /* FirebaseMessaging in Frameworks */,
+				997E00622B99B28600C310BE /* FirebaseAnalytics in Frameworks */,
+				997E00642B99B28A00C310BE /* FirebaseAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -326,13 +324,12 @@
 				E04D1F1A2B835C4200C8EFDD /* Componentes */,
 				E04D1F192B835C3900C8EFDD /* Store */,
 				E09286182B7F592000BD1788 /* Assets.xcassets */,
-				E03B4AE02B98A4EB00BCE36D /* sfondo1.gif */,
-				E03B4ADF2B98A4EB00BCE36D /* sfondo2.gif */,
-				E03B4AE12B98A4EB00BCE36D /* sfondo31.gif */,
 				992649BD2B95EB0F00A5912A /* VideoProva.MOV */,
+				99D71C4F2B99AA7D00E55EDC /* sfondo1.gif */,
+				99D71C502B99AA7D00E55EDC /* sfondo2.gif */,
+				99D71C4E2B99AA7D00E55EDC /* sfondo31.gif */,
 				992649BE2B95EB0F00A5912A /* VideoProva2.MOV */,
-				9984EFC22B989BF8006279AD /* VideoProva3.MOV */,
-				E03B4AED2B991A9B00BCE36D /* VideoProva4.MOV */,
+				99D71C542B99AA8800E55EDC /* VideoProva3.MOV */,
 				E092861A2B7F592000BD1788 /* Preview Content */,
 			);
 			path = Toothless;
@@ -382,11 +379,11 @@
 			);
 			name = Toothless;
 			packageProductDependencies = (
-				9971EBA32B975879005FEEE4 /* FirebaseAnalytics */,
-				9971EBA52B97587D005FEEE4 /* FirebaseAuth */,
-				9971EBA72B975882005FEEE4 /* FirebaseDatabase */,
-				9971EBA92B975885005FEEE4 /* FirebaseFirestore */,
-				9971EBAB2B97588A005FEEE4 /* FirebaseMessaging */,
+				997E00612B99B28600C310BE /* FirebaseAnalytics */,
+				997E00632B99B28A00C310BE /* FirebaseAuth */,
+				997E00652B99B28E00C310BE /* FirebaseDatabase */,
+				997E00672B99B29100C310BE /* FirebaseFirestore */,
+				997E00692B99B29600C310BE /* FirebaseMessaging */,
 			);
 			productName = Toothless;
 			productReference = E09286112B7F591F00BD1788 /* Toothless.app */;
@@ -421,7 +418,7 @@
 			);
 			mainGroup = E09286082B7F591F00BD1788;
 			packageReferences = (
-				99EA8FBE2B95D43700B4B6E0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				997E00602B99B26000C310BE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = E09286122B7F591F00BD1788 /* Products */;
 			projectDirPath = "";
@@ -448,16 +445,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				992649C02B95EB0F00A5912A /* VideoProva2.MOV in Resources */,
+				99D71C512B99AA7D00E55EDC /* sfondo31.gif in Resources */,
 				E03B4AE72B98A8FC00BCE36D /* Localizable.strings in Resources */,
-				E03B4AEE2B991A9B00BCE36D /* VideoProva4.MOV in Resources */,
+				99D71C522B99AA7D00E55EDC /* sfondo1.gif in Resources */,
 				992649BF2B95EB0F00A5912A /* VideoProva.MOV in Resources */,
+				99D71C552B99AA8800E55EDC /* VideoProva3.MOV in Resources */,
 				E0E9AF4E2B96165A00E75EE9 /* GoogleService-Info.plist in Resources */,
 				E092861C2B7F592000BD1788 /* Preview Assets.xcassets in Resources */,
-				E03B4AE42B98A4EB00BCE36D /* sfondo31.gif in Resources */,
-				E03B4AE22B98A4EB00BCE36D /* sfondo2.gif in Resources */,
-				E03B4AE32B98A4EB00BCE36D /* sfondo1.gif in Resources */,
 				E09286192B7F592000BD1788 /* Assets.xcassets in Resources */,
-				9984EFC32B989BF8006279AD /* VideoProva3.MOV in Resources */,
+				99D71C532B99AA7D00E55EDC /* sfondo2.gif in Resources */,
 				E03B4ADE2B98A1FF00BCE36D /* InfoPlist.xcstrings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -838,40 +834,40 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		99EA8FBE2B95D43700B4B6E0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+		997E00602B99B26000C310BE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 10.21.0;
+				minimumVersion = 10.22.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		9971EBA32B975879005FEEE4 /* FirebaseAnalytics */ = {
+		997E00612B99B28600C310BE /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 99EA8FBE2B95D43700B4B6E0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			package = 997E00602B99B26000C310BE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseAnalytics;
 		};
-		9971EBA52B97587D005FEEE4 /* FirebaseAuth */ = {
+		997E00632B99B28A00C310BE /* FirebaseAuth */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 99EA8FBE2B95D43700B4B6E0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			package = 997E00602B99B26000C310BE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseAuth;
 		};
-		9971EBA72B975882005FEEE4 /* FirebaseDatabase */ = {
+		997E00652B99B28E00C310BE /* FirebaseDatabase */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 99EA8FBE2B95D43700B4B6E0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			package = 997E00602B99B26000C310BE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseDatabase;
 		};
-		9971EBA92B975885005FEEE4 /* FirebaseFirestore */ = {
+		997E00672B99B29100C310BE /* FirebaseFirestore */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 99EA8FBE2B95D43700B4B6E0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			package = 997E00602B99B26000C310BE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseFirestore;
 		};
-		9971EBAB2B97588A005FEEE4 /* FirebaseMessaging */ = {
+		997E00692B99B29600C310BE /* FirebaseMessaging */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 99EA8FBE2B95D43700B4B6E0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			package = 997E00602B99B26000C310BE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseMessaging;
 		};
 /* End XCSwiftPackageProductDependency section */

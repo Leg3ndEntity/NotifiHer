@@ -47,12 +47,14 @@ struct SettingsView: View {
                                 Text(initials)
                                     .fontWeight(.bold)
                                     .foregroundColor(.white)
+                                    .accessibilityHidden(true)
                             }
                             VStack(alignment: .leading, spacing: -2.0){
                                 Text("\(userData[0].name) \(userData[0].surname)")
                                 //Text("Simone Sarnataro")
                                     .fontWeight(.medium)
                                 Text("\(userData[0].phoneNumber)")
+                                    .accessibilityHint("Your number")
                                 //Text("+39 3716703252")
                                     .font(.subheadline)
                             }
@@ -112,7 +114,8 @@ struct SettingsView: View {
                                 UIApplication.shared.open(url)
                             }
                         }
-                    }
+                    }.accessibilityElement(children: .ignore)
+                        .accessibilityLabel("Privacy Policy. Button")
 //                    Section(header: Text("More features")) {
 //                        Text("Widgets")
 //                        Text("")

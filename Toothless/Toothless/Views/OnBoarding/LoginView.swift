@@ -94,10 +94,10 @@ var body: some View {
                 )
                 .padding()
 HStack {
-                    Image(systemName: "mail").foregroundStyle(colorScheme == .dark ? .white : .black)
+                    Image(systemName: "mail").foregroundStyle(colorScheme == .dark ? .white : .black).accessibilityHidden(true)
                     TextField("Email", text: $email).foregroundStyle(colorScheme == .dark ? .white : .black)
                     if(email.count != 0) {
-                        Image(systemName: email.isValidEmail() ? "checkmark" : "xmark")
+                        Image(systemName: email.isValidEmail() ? "checkmark" : "xmark").accessibilityHidden(true)
                             .fontWeight(.bold)
                             .foregroundColor(email.isValidEmail() ? .green : .red)
                     }
@@ -111,10 +111,10 @@ HStack {
                 )
                 .padding()
                     HStack {
-                        Image(systemName: "lock").foregroundStyle(colorScheme == .dark ? .white : .black)
+                        Image(systemName: "lock").foregroundStyle(colorScheme == .dark ? .white : .black).accessibilityHidden(true)
                         SecureField("Password", text: $password).foregroundStyle(colorScheme == .dark ? .white : .black)
                         if(password.count != 0) {
-                            Image(systemName: isValidPassword(password) ? "checkmark" : "xmark")
+                            Image(systemName: isValidPassword(password) ? "checkmark" : "xmark").accessibilityHidden(true)
                                 .fontWeight(.bold)
                                 .foregroundColor(isValidPassword(password) ? .green : .red)
                         }
