@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>NSPrivacyAccessedAPITypes</key>
+	<array>
+		<dict>
+			<key>Privacy Accessed API Type</key>
+			<string>NSPrivacyAccessedAPICategoryFileTimestamp</string>
+			<key>Privacy Accessed API Reasons</key>
+			<array>
+				<string>C617.1: Access install date for in-app features like push notifications, per documentation</string>
+			</array>
+		</dict>
+		<dict>
+			<key>Privacy Accessed API Type</key>
+			<string>NSPrivacyAccessedAPICategorySystemBootTime</string>
+			<key>Privacy Accessed API Reasons</key>
+			<array>
+				<string>35F9.1: Access system&apos;s boot time information, per documentation</string>
+			</array>
+		</dict>
+		<dict>
+			<key>Privacy Accessed API Type</key>
+			<string>NSPrivacyAccessedAPICategoryUserDefaults</string>
+			<key>Privacy Accessed API Reasons</key>
+			<array>
+				<string>CA92.1: Access info from same app, per documentation</string>
+			</array>
+		</dict>
+	</array>
+</dict>
+</plist>

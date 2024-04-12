@@ -21,6 +21,7 @@
 		991F74E32B87E1490092EA9D /* PageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991F74E22B87E1490092EA9D /* PageModel.swift */; };
 		992649BF2B95EB0F00A5912A /* VideoProva.MOV in Resources */ = {isa = PBXBuildFile; fileRef = 992649BD2B95EB0F00A5912A /* VideoProva.MOV */; };
 		992649C02B95EB0F00A5912A /* VideoProva2.MOV in Resources */ = {isa = PBXBuildFile; fileRef = 992649BE2B95EB0F00A5912A /* VideoProva2.MOV */; };
+		995D0C162BC86576005790D7 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 995D0C152BC86576005790D7 /* PrivacyInfo.xcprivacy */; };
 		9970DDE82B91D57100539FA9 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9970DDE72B91D57100539FA9 /* Database.swift */; };
 		9970DDF32B91EC9600539FA9 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9970DDF22B91EC9600539FA9 /* LoginView.swift */; };
 		9970DDF52B91ECB900539FA9 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9970DDF42B91ECB900539FA9 /* String.swift */; };
@@ -46,11 +47,6 @@
 		E03B4ADE2B98A1FF00BCE36D /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = E03B4ADC2B98A1FF00BCE36D /* InfoPlist.xcstrings */; };
 		E03B4AE72B98A8FC00BCE36D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E03B4AE92B98A8FC00BCE36D /* Localizable.strings */; };
 		E03B4AEC2B99033B00BCE36D /* Counter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03B4AEB2B99033B00BCE36D /* Counter.swift */; };
-		E04CD52C2B87E79000AE3F23 /* WatchToothlessApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04CD52B2B87E79000AE3F23 /* WatchToothlessApp.swift */; };
-		E04CD5302B87E79100AE3F23 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E04CD52F2B87E79100AE3F23 /* Assets.xcassets */; };
-		E04CD5332B87E79100AE3F23 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E04CD5322B87E79100AE3F23 /* Preview Assets.xcassets */; };
-		E04CD5362B87E79100AE3F23 /* WatchToothless Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = E04CD5292B87E79000AE3F23 /* WatchToothless Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		E04CD53B2B87E83200AE3F23 /* TimerViewWatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08421AE2B87E4DA00EB795D /* TimerViewWatch.swift */; };
 		E04CD5432B888D0400AE3F23 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04CD5422B888D0400AE3F23 /* WelcomeView.swift */; };
 		E04D1F1D2B835C8000C8EFDD /* Toothless.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04D1F1C2B835C8000C8EFDD /* Toothless.swift */; };
 		E04D1F1F2B835D1B00C8EFDD /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04D1F1E2B835D1B00C8EFDD /* TimerView.swift */; };
@@ -63,30 +59,6 @@
 		E0CE9A122B911E67009FD256 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0CE9A112B911E67009FD256 /* SettingsView.swift */; };
 		E0E9AF4E2B96165A00E75EE9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E0E9AF4D2B96165A00E75EE9 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		E04CD5342B87E79100AE3F23 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E09286092B7F591F00BD1788 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = E04CD5282B87E79000AE3F23;
-			remoteInfo = "WatchToothless Watch App";
-		};
-/* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		E04CD53A2B87E79100AE3F23 /* Embed Watch Content */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
-			dstSubfolderSpec = 16;
-			files = (
-				E04CD5362B87E79100AE3F23 /* WatchToothless Watch App.app in Embed Watch Content */,
-			);
-			name = "Embed Watch Content";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		1763FA852B860400005BC39C /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
@@ -104,6 +76,7 @@
 		991F74E22B87E1490092EA9D /* PageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageModel.swift; sourceTree = "<group>"; };
 		992649BD2B95EB0F00A5912A /* VideoProva.MOV */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = VideoProva.MOV; sourceTree = "<group>"; };
 		992649BE2B95EB0F00A5912A /* VideoProva2.MOV */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = VideoProva2.MOV; sourceTree = "<group>"; };
+		995D0C152BC86576005790D7 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = PrivacyInfo.xcprivacy; path = Toothless/Store/Models/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		9970DDE72B91D57100539FA9 /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
 		9970DDF22B91EC9600539FA9 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		9970DDF42B91ECB900539FA9 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
@@ -115,8 +88,6 @@
 		99D71C4F2B99AA7D00E55EDC /* sfondo1.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = sfondo1.gif; sourceTree = "<group>"; };
 		99D71C502B99AA7D00E55EDC /* sfondo2.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = sfondo2.gif; sourceTree = "<group>"; };
 		99D71C542B99AA8800E55EDC /* VideoProva3.MOV */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; name = VideoProva3.MOV; path = ../../../../../Downloads/VideoProva3.MOV; sourceTree = "<group>"; };
-		99D8E7282B8FDD5E00449F8D /* WatchToothless-Watch-App-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "WatchToothless-Watch-App-Info.plist"; sourceTree = SOURCE_ROOT; };
-		99D8E7292B8FDD6600449F8D /* WatchToothless Watch App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "WatchToothless Watch App.entitlements"; sourceTree = "<group>"; };
 		BE0E089A2B873D7C005C848F /* PushToTalkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushToTalkManager.swift; sourceTree = "<group>"; };
 		BEAECC6B2B8371AD003C3A6A /* Toothless.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Toothless.entitlements; sourceTree = "<group>"; };
 		E01B88F72B932F870007B5B9 /* Contacts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contacts.swift; sourceTree = "<group>"; };
@@ -128,16 +99,12 @@
 		E03B4AE82B98A8FC00BCE36D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		E03B4AEA2B98A8FE00BCE36D /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
 		E03B4AEB2B99033B00BCE36D /* Counter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Counter.swift; sourceTree = "<group>"; };
-		E04CD5292B87E79000AE3F23 /* WatchToothless Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WatchToothless Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		E04CD52B2B87E79000AE3F23 /* WatchToothlessApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchToothlessApp.swift; sourceTree = "<group>"; };
-		E04CD52F2B87E79100AE3F23 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		E04CD5322B87E79100AE3F23 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		E04CD5292B87E79000AE3F23 /* WatchToothless Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = "WatchToothless Watch App.app"; path = "/Users/andrearomano21/Documents/GitHub/Toothless/Toothless/build/Debug-watchos/WatchToothless Watch App.app"; sourceTree = "<absolute>"; };
 		E04CD5422B888D0400AE3F23 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		E04D1F1C2B835C8000C8EFDD /* Toothless.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toothless.swift; sourceTree = "<group>"; };
 		E04D1F1E2B835D1B00C8EFDD /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
 		E04D1F202B835D5600C8EFDD /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E04D1F442B84B2A900C8EFDD /* RingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RingView.swift; sourceTree = "<group>"; };
-		E08421AE2B87E4DA00EB795D /* TimerViewWatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewWatch.swift; sourceTree = "<group>"; };
 		E08AE9B12B932B5900825826 /* ContactsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsView.swift; sourceTree = "<group>"; };
 		E09286112B7F591F00BD1788 /* Toothless.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Toothless.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E09286142B7F591F00BD1788 /* ToothlessApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToothlessApp.swift; sourceTree = "<group>"; };
@@ -148,13 +115,6 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		E04CD5262B87E79000AE3F23 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		E092860E2B7F591F00BD1788 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -177,6 +137,14 @@
 				179FB1252B95E96700FDE246 /* SingleCallView.swift */,
 			);
 			path = FakeCall;
+			sourceTree = "<group>";
+		};
+		9917007A2BC7D61500D6ADA4 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				E04CD5292B87E79000AE3F23 /* WatchToothless Watch App.app */,
+			);
+			name = "Recovered References";
 			sourceTree = "<group>";
 		};
 		9970DDE92B91DB7F00539FA9 /* Frameworks */ = {
@@ -216,35 +184,6 @@
 				9970DDFC2B91F53A00539FA9 /* User2.swift */,
 			);
 			path = Models;
-			sourceTree = "<group>";
-		};
-		E04CD52A2B87E79000AE3F23 /* WatchToothless Watch App */ = {
-			isa = PBXGroup;
-			children = (
-				99D8E7292B8FDD6600449F8D /* WatchToothless Watch App.entitlements */,
-				99D8E7282B8FDD5E00449F8D /* WatchToothless-Watch-App-Info.plist */,
-				E04CD52B2B87E79000AE3F23 /* WatchToothlessApp.swift */,
-				E04CD5402B87ECC300AE3F23 /* Views */,
-				E04CD52F2B87E79100AE3F23 /* Assets.xcassets */,
-				E04CD5312B87E79100AE3F23 /* Preview Content */,
-			);
-			path = "WatchToothless Watch App";
-			sourceTree = "<group>";
-		};
-		E04CD5312B87E79100AE3F23 /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				E04CD5322B87E79100AE3F23 /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		E04CD5402B87ECC300AE3F23 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				E08421AE2B87E4DA00EB795D /* TimerViewWatch.swift */,
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 		E04D1F192B835C3900C8EFDD /* Store */ = {
@@ -294,10 +233,11 @@
 		E09286082B7F591F00BD1788 = {
 			isa = PBXGroup;
 			children = (
+				995D0C152BC86576005790D7 /* PrivacyInfo.xcprivacy */,
 				E09286132B7F591F00BD1788 /* Toothless */,
-				E04CD52A2B87E79000AE3F23 /* WatchToothless Watch App */,
 				E09286122B7F591F00BD1788 /* Products */,
 				9970DDE92B91DB7F00539FA9 /* Frameworks */,
+				9917007A2BC7D61500D6ADA4 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -305,7 +245,6 @@
 			isa = PBXGroup;
 			children = (
 				E09286112B7F591F00BD1788 /* Toothless.app */,
-				E04CD5292B87E79000AE3F23 /* WatchToothless Watch App.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -346,23 +285,6 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		E04CD5282B87E79000AE3F23 /* WatchToothless Watch App */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = E04CD5372B87E79100AE3F23 /* Build configuration list for PBXNativeTarget "WatchToothless Watch App" */;
-			buildPhases = (
-				E04CD5252B87E79000AE3F23 /* Sources */,
-				E04CD5262B87E79000AE3F23 /* Frameworks */,
-				E04CD5272B87E79000AE3F23 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "WatchToothless Watch App";
-			productName = "WatchToothless Watch App";
-			productReference = E04CD5292B87E79000AE3F23 /* WatchToothless Watch App.app */;
-			productType = "com.apple.product-type.application";
-		};
 		E09286102B7F591F00BD1788 /* Toothless */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = E092861F2B7F592000BD1788 /* Build configuration list for PBXNativeTarget "Toothless" */;
@@ -370,12 +292,10 @@
 				E092860D2B7F591F00BD1788 /* Sources */,
 				E092860E2B7F591F00BD1788 /* Frameworks */,
 				E092860F2B7F591F00BD1788 /* Resources */,
-				E04CD53A2B87E79100AE3F23 /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				E04CD5352B87E79100AE3F23 /* PBXTargetDependency */,
 			);
 			name = Toothless;
 			packageProductDependencies = (
@@ -399,9 +319,6 @@
 				LastSwiftUpdateCheck = 1520;
 				LastUpgradeCheck = 1520;
 				TargetAttributes = {
-					E04CD5282B87E79000AE3F23 = {
-						CreatedOnToolsVersion = 15.2;
-					};
 					E09286102B7F591F00BD1788 = {
 						CreatedOnToolsVersion = 15.2;
 					};
@@ -425,21 +342,11 @@
 			projectRoot = "";
 			targets = (
 				E09286102B7F591F00BD1788 /* Toothless */,
-				E04CD5282B87E79000AE3F23 /* WatchToothless Watch App */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		E04CD5272B87E79000AE3F23 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				E04CD5332B87E79100AE3F23 /* Preview Assets.xcassets in Resources */,
-				E04CD5302B87E79100AE3F23 /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		E092860F2B7F591F00BD1788 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -450,6 +357,7 @@
 				99D71C522B99AA7D00E55EDC /* sfondo1.gif in Resources */,
 				992649BF2B95EB0F00A5912A /* VideoProva.MOV in Resources */,
 				99D71C552B99AA8800E55EDC /* VideoProva3.MOV in Resources */,
+				995D0C162BC86576005790D7 /* PrivacyInfo.xcprivacy in Resources */,
 				E0E9AF4E2B96165A00E75EE9 /* GoogleService-Info.plist in Resources */,
 				E092861C2B7F592000BD1788 /* Preview Assets.xcassets in Resources */,
 				E09286192B7F592000BD1788 /* Assets.xcassets in Resources */,
@@ -461,15 +369,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		E04CD5252B87E79000AE3F23 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				E04CD52C2B87E79000AE3F23 /* WatchToothlessApp.swift in Sources */,
-				E04CD53B2B87E83200AE3F23 /* TimerViewWatch.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		E092860D2B7F591F00BD1788 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -513,14 +412,6 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXTargetDependency section */
-		E04CD5352B87E79100AE3F23 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = E04CD5282B87E79000AE3F23 /* WatchToothless Watch App */;
-			targetProxy = E04CD5342B87E79100AE3F23 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
 /* Begin PBXVariantGroup section */
 		E03B4AE92B98A8FC00BCE36D /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
@@ -534,72 +425,6 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		E04CD5382B87E79100AE3F23 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = "WatchToothless Watch App/WatchToothless Watch App.entitlements";
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"WatchToothless Watch App/Preview Content\"";
-				DEVELOPMENT_TEAM = AWX4HJ7JT5;
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "WatchToothless-Watch-App-Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = WatchToothless;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.yurigianoli.Toothless;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.yurigianoli.Toothless.watchkitappp;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 10.2;
-			};
-			name = Debug;
-		};
-		E04CD5392B87E79100AE3F23 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = "WatchToothless Watch App/WatchToothless Watch App.entitlements";
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"WatchToothless Watch App/Preview Content\"";
-				DEVELOPMENT_TEAM = AWX4HJ7JT5;
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "WatchToothless-Watch-App-Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = WatchToothless;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.yurigianoli.Toothless;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.yurigianoli.Toothless.watchkitappp;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 10.2;
-			};
-			name = Release;
-		};
 		E092861D2B7F592000BD1788 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -722,7 +547,6 @@
 		E09286202B7F592000BD1788 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Toothless/Toothless.entitlements;
@@ -737,17 +561,17 @@
 				INFOPLIST_KEY_CFBundleDisplayName = NotifiHer;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Use the live position on the map";
-				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "The background recording will be saved in your files";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.yurigianoli.Toothless;
+				MARKETING_VERSION = 1.2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yurigianoli.NotifiHer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -763,7 +587,6 @@
 		E09286212B7F592000BD1788 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Toothless/Toothless.entitlements;
@@ -778,17 +601,17 @@
 				INFOPLIST_KEY_CFBundleDisplayName = NotifiHer;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Use the live position on the map";
-				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "The background recording will be saved in your files";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.yurigianoli.Toothless;
+				MARKETING_VERSION = 1.2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yurigianoli.NotifiHer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -804,15 +627,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		E04CD5372B87E79100AE3F23 /* Build configuration list for PBXNativeTarget "WatchToothless Watch App" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				E04CD5382B87E79100AE3F23 /* Debug */,
-				E04CD5392B87E79100AE3F23 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		E092860C2B7F591F00BD1788 /* Build configuration list for PBXProject "Toothless" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -839,7 +653,7 @@
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 10.22.0;
+				minimumVersion = 10.22.2;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */

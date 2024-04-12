@@ -170,7 +170,7 @@ struct ModalView: View {
                 }.onTapGesture {
                     modal5.toggle()
                     feedbackGenerator.impactOccurred()
-                }
+                } 
             }.frame(width: 350)
             .padding(.vertical, 20)
             VStack(alignment: .leading){
